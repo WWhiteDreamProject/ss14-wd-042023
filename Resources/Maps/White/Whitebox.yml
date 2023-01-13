@@ -353,7 +353,7 @@ entities:
 - uid: 39
   type: SyringeEphedrine
   components:
-  - pos: -18.589819,24.522148
+  - pos: -20.550821,14.488405
     parent: 8364
     type: Transform
   - tags: []
@@ -5254,7 +5254,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 3
+  - index: 4
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -18200,13 +18200,9 @@ entities:
 - uid: 2898
   type: ClothingShoesBootsJack
   components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 13885
+  - pos: -46.62844,-8.645075
+    parent: 8364
     type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 2899
   type: ComputerCargoOrders
   components:
@@ -30741,21 +30737,21 @@ entities:
     parent: 8364
     type: Transform
 - uid: 4931
-  type: RubberStampSyndicate
-  components:
-  - pos: -19.392822,14.755949
-    parent: 8364
-    type: Transform
-- uid: 4932
-  type: WallReinforced
+  type: WallSolid
   components:
   - pos: -17.5,14.5
     parent: 8364
     type: Transform
-- uid: 4933
-  type: WallReinforced
+- uid: 4932
+  type: WallSolid
   components:
   - pos: -17.5,13.5
+    parent: 8364
+    type: Transform
+- uid: 4933
+  type: WallSolid
+  components:
+  - pos: -17.5,12.5
     parent: 8364
     type: Transform
 - uid: 4934
@@ -31249,21 +31245,21 @@ entities:
     parent: 8364
     type: Transform
 - uid: 5014
-  type: WallReinforced
+  type: ClothingShoesBootsCombat
   components:
-  - pos: -17.5,12.5
+  - pos: -18.519972,12.388156
     parent: 8364
     type: Transform
 - uid: 5015
   type: MedkitCombatFilled
   components:
-  - pos: -20.753471,14.705446
+  - pos: -21.561487,12.310031
     parent: 8364
     type: Transform
 - uid: 5016
-  type: ClothingShoesSwat
+  type: Barricade
   components:
-  - pos: -18.177343,14.665575
+  - pos: -20.5,12.5
     parent: 8364
     type: Transform
 - uid: 5017
@@ -31881,7 +31877,7 @@ entities:
 - uid: 5114
   type: ClothingOuterVestWebMerc
   components:
-  - pos: -18.605484,14.710295
+  - pos: -18.590942,12.700656
     parent: 8364
     type: Transform
 - uid: 5115
@@ -31909,9 +31905,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 5119
-  type: WeaponRifleLecter
+  type: ClothingUnderSocksCoder
   components:
-  - pos: -19.847555,14.406938
+  - pos: -38.47627,-56.748375
     parent: 8364
     type: Transform
 - uid: 5120
@@ -32277,9 +32273,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 5179
-  type: ClothingHandsGlovesCombat
+  type: ClothingUnderSocksBee
   components:
-  - pos: -18.657944,14.3687
+  - pos: 75.39761,12.476688
     parent: 8364
     type: Transform
 - uid: 5180
@@ -41751,9 +41747,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 6609
-  type: Grille
+  type: PlushieBee
   components:
-  - pos: -19.5,12.5
+  - pos: 5.436387,5.4152575
     parent: 8364
     type: Transform
 - uid: 6610
@@ -43678,20 +43674,11 @@ entities:
     parent: 8364
     type: Transform
 - uid: 6914
-  type: CrateArmoryShotgun
+  type: PlushieCarp
   components:
-  - pos: -21.5,14.5
+  - pos: 23.5,12.5
     parent: 8364
     type: Transform
-  - locked: False
-    type: Lock
-  - containers:
-      entity_storage: !type:Container
-        ents:
-        - 11692
-        - 9062
-      paper_label: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 6915
   type: ChairFolding
   components:
@@ -52865,7 +52852,7 @@ entities:
         tiles: PgAAAD4AAAI+AAACPgAAAz4AAAM+AAADPgAAAT4AAAI+AAAAPgAAAT4AAAE+AAABPgAAAT4AAAE+AAAAPgAAAz4AAAA+AAAAPgAAAj4AAAE+AAABPgAAAT4AAAI+AAACPgAAAT4AAAI+AAABPgAAAz4AAAI+AAACPgAAAj4AAAE+AAAAPgAAAT4AAAI+AAADPgAAAz4AAAA+AAABPgAAAj4AAAM+AAADPgAAAD4AAAE+AAAAPgAAAT4AAAA+AAABPgAAAlgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAVAAABWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAPgAAAj4AAAM+AAABPgAAAlgAAAAVAAABVQAAAFUAAANVAAADFQAAA1gAAAAAAAAAAAAAAFcAAABYAAAAPgAAAT4AAAM+AAACJQAAAD4AAANYAAAAFQAAA1UAAAFVAAAAVQAAAhUAAAJYAAAAAAAAAAAAAABYAAAAWAAAAD4AAAM+AAAAPgAAACUAAAA+AAADWAAAABUAAANVAAABVQAAA1UAAAEVAAACWAAAAAAAAAAAAAAAWAAAAD4AAAA+AAACPgAAAz4AAAAlAAAAPgAAAFgAAAAVAAABVQAAAVUAAANVAAADFQAAA1gAAABXAAAAVwAAAFgAAAA+AAAAPgAAAT4AAAI+AAACJQAAAD4AAANYAAAAFQAAAFUAAAJVAAADVQAAAxUAAAFYAAAAVwAAAAAAAABYAAAAWAAAAFgAAAAVAAACPgAAAT4AAAA+AAACPgAAAhUAAAFVAAABVQAAAFUAAAMVAAAAWAAAAFcAAAAAAAAAWAAAABUAAAEVAAACFQAAAT4AAABYAAAAPgAAA1gAAAAVAAACVQAAAlUAAAJVAAAAFQAAAlgAAABXAAAAVwAAAFgAAAAVAAAAFQAAAxUAAAA+AAABWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAABUAAABYAAAAWAAAAFcAAABYAAAAFQAAARUAAAMVAAACPgAAA1gAAABYAAAAWAAAAFgAAABYAAAAWAAAABUAAAMVAAADFQAAAFgAAABXAAAAWAAAABUAAAEVAAAAFQAAAD4AAAFYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAVAAACFQAAABUAAABYAAAAVwAAAFgAAAAVAAADFQAAABUAAAM+AAAAWAAAABUAAAEVAAACFQAAABUAAAEVAAACFQAAARUAAAIVAAABWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAPgAAA1gAAAAVAAAAFQAAARUAAAAVAAADFQAAAhUAAAMVAAACFQAAAxUAAAEVAAABFQAAASMAAAAVAAACIwAAAA==
       -2,0:
         ind: -2,0
-        tiles: FQAAA1gAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAASAAAABUAAAFYAAAAAAAAAFcAAAAAAAAAWAAAAFgAAABYAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAWAAAAEgAAAAVAAABWAAAAFgAAABYAAAAAAAAAFgAAABYAAAAWAAAAD4AAABYAAAAWAAAAD4AAAA+AAACWAAAAFgAAABYAAAAFQAAAhUAAAE+AAACWAAAAFcAAABYAAAAWAAAAFgAAABYAAAAPgAAA1gAAABYAAAAWAAAAFgAAABYAAAAWAAAAA4AAAAOAAAAPgAAAFgAAAAAAAAAWAAAAFgAAABIAAAAWAAAAD4AAAJYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAOAAAADgAAAD4AAANYAAAAVwAAAFgAAABYAAAASAAAAFgAAABYAAAAWAAAAD4AAANYAAAAWAAAAEgAAABYAAAADgAAAA4AAAA+AAACWAAAAAAAAABYAAAAWAAAAEgAAABYAAAAWAAAAD4AAAJYAAAAWAAAAFgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABXAAAAWAAAAFgAAABIAAAAWAAAAFgAAAA+AAABWAAAAFgAAABYAAAASAAAAFgAAAAAAAAAVwAAAAAAAABXAAAAAAAAAFgAAABYAAAASAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAEgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAEgAAABYAAAASAAAAEgAAABYAAAASAAAAEgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAD4AAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAD4AAAA+AAAAPgAAAD4AAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAA+AAAAPgAAAD4AAAA+AAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAPgAAAD4AAAA+AAAAPgAAAFgAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAA==
+        tiles: FQAAA1gAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAASAAAABUAAAFYAAAAAAAAAFcAAAAAAAAAWAAAAFgAAABYAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAWAAAAEgAAAAVAAABWAAAAFgAAABYAAAAAAAAAFgAAABYAAAAWAAAAD4AAABYAAAAWAAAAD4AAAA+AAACWAAAAFgAAABYAAAAFQAAAhUAAAE+AAACWAAAAFcAAABYAAAAWAAAAFgAAABYAAAAPgAAA1gAAABYAAAAWAAAAFgAAABYAAAAWAAAAA4AAAAOAAAAPgAAAFgAAAAAAAAAWAAAAFgAAABIAAAAWAAAAD4AAAJYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAOAAAADgAAAD4AAANYAAAAVwAAAFgAAABYAAAASAAAAFgAAABYAAAAWAAAAD4AAANYAAAAWAAAAEgAAABYAAAADgAAAA4AAAA+AAACWAAAAAAAAABYAAAAWAAAAEgAAABYAAAAWAAAAD4AAAJYAAAAWAAAAFgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABXAAAAWAAAAFgAAABIAAAAWAAAAFgAAAA+AAABWAAAAFgAAABYAAAASAAAAFgAAAAAAAAAVwAAAAAAAABXAAAAAAAAAFgAAABYAAAASAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAEgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAEgAAABYAAAASAAAAEgAAABYAAAASAAAAEgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAC8AAABYAAAALwAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAWAAAAC8AAAAvAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAALwAAAC8AAAAvAAAALwAAAFgAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAA==
       -2,-3:
         ind: -2,-3
         tiles: WAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAASAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABIAAAAWAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAFgAAABYAAAAVwAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAFgAAABYAAAAWAAAAEgAAABYAAAASAAAAEgAAABYAAAASAAAAEgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAFcAAABYAAAAVwAAAAAAAABXAAAAWAAAAFcAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAAAAAABXAAAAWAAAAFcAAAAAAAAAVwAAAFgAAABXAAAAAAAAAFgAAABYAAAASAAAAFgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAA+AAADPgAAAz4AAAE+AAAAPgAAAD4AAAE+AAACWAAAAEgAAABIAAAAWAAAAEgAAABYAAAAWAAAAFgAAABYAAAAPgAAAT4AAAI+AAAAPgAAAD4AAAM+AAABPgAAAlgAAABYAAAAWAAAAFgAAABIAAAAWAAAAFgAAABYAAAAWAAAAD4AAAE+AAABPgAAAj4AAAM+AAADPgAAAT4AAANYAAAASAAAAEgAAABYAAAASAAAAFgAAABYAAAAWAAAAFgAAAA+AAAAPgAAAD4AAAI+AAADPgAAAz4AAAE+AAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAAAAAABYAAAAWAAAAD4AAAI+AAABPgAAAj4AAAE+AAACPgAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAAAAAAAAAAAFgAAAA+AAABPgAAAT4AAAM+AAAAPgAAAj4AAAFYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAPgAAAT4AAAI+AAACPgAAAz4AAANYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAA==
@@ -65802,8 +65789,8 @@ entities:
       -22,10: 0
       -22,11: 0
       -22,12: 0
-      -22,13: 1
-      -22,14: 1
+      -22,13: 0
+      -22,14: 0
       -22,15: 0
       -21,0: 0
       -21,1: 0
@@ -65850,7 +65837,7 @@ entities:
       -19,10: 0
       -19,11: 0
       -19,12: 0
-      -19,13: 1
+      -19,13: 0
       -19,14: 0
       -19,15: 0
       -18,0: 0
@@ -81730,14 +81717,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26571
+        uid: 26575
       Close:
       - port: Start
-        uid: 26571
+        uid: 26575
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26571
+        uid: 26575
     type: SignalReceiver
 - uid: 8570
   type: Rack
@@ -82139,14 +82126,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26596
+        uid: 26574
       Close:
       - port: Start
-        uid: 26596
+        uid: 26574
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26596
+        uid: 26574
     type: SignalReceiver
 - uid: 8625
   type: WindoorSecurityLocked
@@ -82159,14 +82146,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26595
+        uid: 26573
       Close:
       - port: Start
-        uid: 26595
+        uid: 26573
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26595
+        uid: 26573
     type: SignalReceiver
 - uid: 8626
   type: WindoorSecurityLocked
@@ -82179,14 +82166,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26592
+        uid: 26572
       Close:
       - port: Start
-        uid: 26592
+        uid: 26572
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26592
+        uid: 26572
     type: SignalReceiver
 - uid: 8627
   type: BedsheetWhite
@@ -85153,15 +85140,11 @@ entities:
     parent: 8364
     type: Transform
 - uid: 9062
-  type: WeaponPistolCobra
+  type: ToyRubberDuck
   components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 6914
+  - pos: 16.5,5.5
+    parent: 8364
     type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 9063
   type: CableApcExtension
   components:
@@ -101722,7 +101705,7 @@ entities:
 - uid: 11587
   type: ClothingShoesBootsJack
   components:
-  - pos: 88.48677,-27.644762
+  - pos: 88.4803,-26.689615
     parent: 8364
     type: Transform
 - uid: 11588
@@ -102402,19 +102385,15 @@ entities:
     parent: 8364
     type: Transform
 - uid: 11692
-  type: WeaponPistolMk58
+  type: ToySpawner
   components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 6914
+  - pos: 58.5,17.5
+    parent: 8364
     type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 11693
-  type: Grille
+  type: ToySpawner
   components:
-  - pos: -20.5,12.5
+  - pos: 12.5,11.5
     parent: 8364
     type: Transform
 - uid: 11694
@@ -102701,15 +102680,15 @@ entities:
     parent: 8364
     type: Transform
 - uid: 11740
-  type: ClothingOuterArmorBulletproof
+  type: ClothingOuterSuitMonkey
   components:
-  - pos: -19.063934,14.462291
+  - pos: 58.5,19.5
     parent: 8364
     type: Transform
 - uid: 11741
-  type: Grille
+  type: ClothingHeadHatChickenhead
   components:
-  - pos: -18.5,12.5
+  - pos: 58.5,19.5
     parent: 8364
     type: Transform
 - uid: 11742
@@ -112357,21 +112336,21 @@ entities:
     parent: 8364
     type: Transform
 - uid: 13214
-  type: CrateArmorySMG
+  type: WallSolid
   components:
-  - pos: -18.5,13.5
+  - pos: -17.5,11.5
     parent: 8364
     type: Transform
 - uid: 13215
-  type: ClothingOuterArmorBulletproof
+  type: WallSolid
   components:
-  - pos: -19.01706,14.790416
+  - pos: -18.5,11.5
     parent: 8364
     type: Transform
 - uid: 13216
-  type: WallReinforced
+  type: WallSolid
   components:
-  - pos: -17.5,11.5
+  - pos: -19.5,11.5
     parent: 8364
     type: Transform
 - uid: 13217
@@ -112381,9 +112360,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 13218
-  type: WallReinforced
+  type: WallSolid
   components:
-  - pos: -18.5,11.5
+  - pos: -21.5,11.5
     parent: 8364
     type: Transform
 - uid: 13219
@@ -115135,9 +115114,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 13656
-  type: WallReinforced
+  type: CableApcExtension
   components:
-  - pos: -20.5,11.5
+  - pos: -20.5,13.5
     parent: 8364
     type: Transform
 - uid: 13657
@@ -116360,11 +116339,13 @@ entities:
     parent: 8364
     type: Transform
 - uid: 13845
-  type: WeaponSubMachineGunVectorRubber
+  type: GrilleBroken
   components:
-  - pos: -20.128805,14.656938
+  - pos: -20.5,11.5
     parent: 8364
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13846
   type: ToolboxMechanicalFilled
   components:
@@ -116615,11 +116596,6 @@ entities:
   - pos: -47.5,-8.5
     parent: 8364
     type: Transform
-  - containers:
-      entity_storage: !type:Container
-        ents:
-        - 2898
-    type: ContainerContainer
 - uid: 13886
   type: WardrobeGreyFilled
   components:
@@ -131168,9 +131144,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 16138
-  type: WallReinforced
+  type: ClothingNeckScarfStripedRed
   components:
-  - pos: -19.5,11.5
+  - pos: -38.611267,-58.59867
     parent: 8364
     type: Transform
 - uid: 16139
@@ -166511,9 +166487,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 21550
-  type: ClothingHandsGlovesIhscombat
+  type: ToyAssistant
   components:
-  - pos: -18.730085,14.581602
+  - pos: 45.487507,-73.57517
     parent: 8364
     type: Transform
 - uid: 21551
@@ -167066,15 +167042,15 @@ entities:
     parent: 8364
     type: Transform
 - uid: 21640
-  type: ClothingHandsGlovesCombat
+  type: ClothingHeadHatUshanka
   components:
-  - pos: -18.454819,14.7437
+  - pos: 62.38717,18.759663
     parent: 8364
     type: Transform
 - uid: 21641
-  type: ClothingShoesSwat
+  type: ClothingHeadHatUshanka
   components:
-  - pos: -18.161718,14.3687
+  - pos: 62.527794,18.509663
     parent: 8364
     type: Transform
 - uid: 21642
@@ -167746,9 +167722,9 @@ entities:
     parent: 8364
     type: Transform
 - uid: 21749
-  type: CombatKnife
+  type: ClothingShoeSlippersDuck
   components:
-  - pos: -20.751694,14.290575
+  - pos: 45.466923,-63.487274
     parent: 8364
     type: Transform
 - uid: 21750
@@ -169067,15 +169043,15 @@ entities:
     parent: 8364
     type: Transform
 - uid: 21954
-  type: ClothingHandsGlovesIhscombat
+  type: ToySpawner
   components:
-  - pos: -18.837742,14.521766
+  - pos: -48.5,-12.5
     parent: 8364
     type: Transform
 - uid: 21955
-  type: PosterContrabandSyndicateRecruitment
+  type: RandomInstruments
   components:
-  - pos: -21.5,15.5
+  - pos: -48.5,-16.5
     parent: 8364
     type: Transform
 - uid: 21956
@@ -206419,198 +206395,12 @@ entities:
     parent: 8364
     type: Transform
 - uid: 26571
-  type: BrigTimer
+  type: PlushieSharkBlue
   components:
-  - pos: 10.5,25.5
+  - pos: -8.5066185,51.492676
     parent: 8364
     type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8569
-      Timer:
-      - port: AutoClose
-        uid: 8569
-      - port: Open
-        uid: 8569
-    type: SignalTransmitter
 - uid: 26572
-  type: Grille
-  components:
-  - pos: -21.5,12.5
-    parent: 8364
-    type: Transform
-- uid: 26573
-  type: WallReinforced
-  components:
-  - pos: -21.5,11.5
-    parent: 8364
-    type: Transform
-- uid: 26574
-  type: LockerSyndicatePersonalFilled
-  components:
-  - pos: -21.5,13.5
-    parent: 8364
-    type: Transform
-  - locked: False
-    type: Lock
-  - containers:
-      entity_storage: !type:Container
-        ents:
-        - 26575
-        - 26576
-        - 26577
-        - 26578
-        - 26579
-        - 26580
-        - 26581
-        - 26582
-        - 26583
-        - 26584
-    type: ContainerContainer
-- uid: 26575
-  type: ClothingMaskGasSyndicate
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26576
-  type: ClothingMaskGasSyndicate
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26577
-  type: CigPackSyndicate
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26578
-  type: ClothingHeadsetAltSyndicate
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26579
-  type: ClothingHeadsetAltSyndicate
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26580
-  type: ClothingBackpackDuffelSyndicateFilledLMG
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26581
-  type: ClothingBackpackDuffelSyndicateC4tBundle
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26582
-  type: SyndicateIDCard
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26583
-  type: SyndicateIDCard
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26584
-  type: ReinforcementTeleporterSyndicate
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 26574
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 26585
-  type: PosterContrabandFreeSyndicateEncryptionKey
-  components:
-  - pos: -18.5,15.5
-    parent: 8364
-    type: Transform
-- uid: 26586
-  type: PosterContrabandSyndicatePistol
-  components:
-  - pos: -19.5,15.5
-    parent: 8364
-    type: Transform
-- uid: 26587
-  type: WeaponTurretSyndicateBroken
-  components:
-  - pos: -20.5,13.5
-    parent: 8364
-    type: Transform
-- uid: 26588
-  type: CableApcExtension
-  components:
-  - pos: -20.5,13.5
-    parent: 8364
-    type: Transform
-- uid: 26589
-  type: WeaponTurretSyndicateBroken
-  components:
-  - pos: -19.5,13.5
-    parent: 8364
-    type: Transform
-- uid: 26590
-  type: CableApcExtension
-  components:
-  - pos: -19.5,13.5
-    parent: 8364
-    type: Transform
-- uid: 26591
-  type: Zipties
-  components:
-  - pos: -20.096272,14.634445
-    parent: 8364
-    type: Transform
-- uid: 26592
   type: BrigTimer
   components:
   - pos: -8.5,25.5
@@ -206626,19 +206416,7 @@ entities:
       - port: Open
         uid: 8626
     type: SignalTransmitter
-- uid: 26593
-  type: Zipties
-  components:
-  - pos: -20.346272,14.49382
-    parent: 8364
-    type: Transform
-- uid: 26594
-  type: Zipties
-  components:
-  - pos: -20.658772,14.36882
-    parent: 8364
-    type: Transform
-- uid: 26595
+- uid: 26573
   type: BrigTimer
   components:
   - pos: -4.5,25.5
@@ -206654,7 +206432,7 @@ entities:
       - port: Open
         uid: 8625
     type: SignalTransmitter
-- uid: 26596
+- uid: 26574
   type: BrigTimer
   components:
   - pos: -0.5,25.5
@@ -206670,4 +206448,26 @@ entities:
       - port: Open
         uid: 8624
     type: SignalTransmitter
+- uid: 26575
+  type: BrigTimer
+  components:
+  - pos: 10.5,25.5
+    parent: 8364
+    type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8569
+      Timer:
+      - port: AutoClose
+        uid: 8569
+      - port: Open
+        uid: 8569
+    type: SignalTransmitter
+- uid: 26576
+  type: Multitool
+  components:
+  - pos: -35.43779,-43.302246
+    parent: 8364
+    type: Transform
 ...
