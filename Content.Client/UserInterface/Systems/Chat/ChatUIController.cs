@@ -720,6 +720,11 @@ public sealed class ChatUIController : UIController
         }
     }
 
+    public void NotifyChatFocus(bool isFocused) //CX Indicator
+    {
+        _typingIndicator?.ClientChangedChatFocus(isFocused);
+    }
+
     private readonly record struct SpeechBubbleData(string Message, SpeechBubble.SpeechType Type);
 
     private sealed class SpeechBubbleQueueData

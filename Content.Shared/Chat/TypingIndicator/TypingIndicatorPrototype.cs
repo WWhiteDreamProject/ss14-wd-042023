@@ -24,4 +24,7 @@ public sealed class TypingIndicatorPrototype : IPrototype
     [DataField("shader")]
     public string Shader = "unshaded";
 
+    [DataField("idleState", required: true)]
+    public string IdleState = default!;
+
 }
