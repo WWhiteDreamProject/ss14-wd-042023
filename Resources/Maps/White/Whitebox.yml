@@ -138172,6 +138172,8 @@ entities:
 - uid: 17212
   type: GasVolumePump
   components:
+  - name: waste filter pump
+    type: MetaData
   - pos: 11.5,-54.5
     parent: 8364
     type: Transform
@@ -175350,7 +175352,7 @@ entities:
 - uid: 22766
   type: GasPressurePump
   components:
-  - name: waste filter pump
+  - name: plasma pump
     type: MetaData
   - rot: -1.5707963267948966 rad
     pos: 22.5,-46.5
