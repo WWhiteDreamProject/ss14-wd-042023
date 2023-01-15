@@ -257,7 +257,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (pressure > component.TankFragmentPressure)
             {
                 // Give the gas a chance to build up more pressure.
-                for (var i = 0; i < 3; i++)
+                for (var i = 0; i < 6; i++)
                 {
                     _atmosphereSystem.React(component.Air, component);
                 }
@@ -267,10 +267,11 @@ namespace Content.Server.Atmos.EntitySystems
 
                 // Let's cap the explosion, yeah?
                 // !1984
-                if (range > GasTankComponent.MaxExplosionRange)
-                {
-                    range = GasTankComponent.MaxExplosionRange;
-                }
+                // no cap fr
+                // if (range > GasTankComponent.MaxExplosionRange)
+                // {
+                //     range = GasTankComponent.MaxExplosionRange;
+                // }
 
                 _explosions.TriggerExplosive(component.Owner, radius: range);
 
