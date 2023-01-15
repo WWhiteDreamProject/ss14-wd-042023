@@ -3926,8 +3926,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -5254,7 +5254,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 4
+  - index: 3
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -7317,8 +7317,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -22405,8 +22405,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -22437,8 +22437,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -44037,7 +44037,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 6971
-  type: SpaceVillainArcade
+  type: SpaceVillainArcadeFilled
   components:
   - rot: -1.5707963267948966 rad
     pos: 27.5,-1.5
@@ -51832,7 +51832,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 8201
-  type: SpaceVillainArcade
+  type: SpaceVillainArcadeFilled
   components:
   - rot: -1.5707963267948966 rad
     pos: 27.5,-2.5
@@ -53127,13 +53127,13 @@ entities:
     fixedRotation: False
     bodyType: Dynamic
     type: Physics
+  - fixtures: []
+    type: Fixtures
   - id: Boxstation
     type: BecomesStation
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
     type: Gravity
-  - fixtures: []
-    type: Fixtures
   - chunkCollection:
       -1,1:
         0:
@@ -81717,14 +81717,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26575
+        uid: 26592
       Close:
       - port: Start
-        uid: 26575
+        uid: 26592
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26575
+        uid: 26592
     type: SignalReceiver
 - uid: 8570
   type: Rack
@@ -82126,14 +82126,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26574
+        uid: 26591
       Close:
       - port: Start
-        uid: 26574
+        uid: 26591
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26574
+        uid: 26591
     type: SignalReceiver
 - uid: 8625
   type: WindoorSecurityLocked
@@ -82146,14 +82146,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26573
+        uid: 26590
       Close:
       - port: Start
-        uid: 26573
+        uid: 26590
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26573
+        uid: 26590
     type: SignalReceiver
 - uid: 8626
   type: WindoorSecurityLocked
@@ -82166,14 +82166,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26572
+        uid: 26589
       Close:
       - port: Start
-        uid: 26572
+        uid: 26589
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26572
+        uid: 26589
     type: SignalReceiver
 - uid: 8627
   type: BedsheetWhite
@@ -83073,8 +83073,7 @@ entities:
     parent: 8364
     type: Transform
   - fixtures:
-    - density: 100
-      shape: !type:PolygonShape
+    - shape: !type:PolygonShape
         vertices:
         - 0.49,-0.49
         - 0.49,0.49
@@ -83092,9 +83091,10 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
+      density: 100
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -83182,6 +83182,8 @@ entities:
   - pos: -7.5,28.5
     parent: 8364
     type: Transform
+  - opened: True
+    type: ItemCabinet
 - uid: 8773
   type: Poweredlight
   components:
@@ -91460,8 +91462,7 @@ entities:
     parent: 8364
     type: Transform
   - fixtures:
-    - density: 100
-      shape: !type:PolygonShape
+    - shape: !type:PolygonShape
         vertices:
         - 0.49,-0.49
         - 0.49,0.49
@@ -91479,9 +91480,10 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
+      density: 100
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -100079,8 +100081,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -100111,8 +100113,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -102361,7 +102363,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 11688
-  type: SpaceVillainArcade
+  type: SpaceVillainArcadeFilled
   components:
   - pos: 72.5,12.5
     parent: 8364
@@ -107358,8 +107360,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107389,8 +107391,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107421,8 +107423,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107453,8 +107455,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107485,8 +107487,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107517,8 +107519,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107548,8 +107550,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107579,8 +107581,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -107611,8 +107613,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -145233,8 +145235,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -145430,8 +145432,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -156133,8 +156135,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -156171,8 +156173,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -161655,8 +161657,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -168280,8 +168282,8 @@ entities:
       - InteractImpassable
       - Opaque
     - shape: !type:PhysShapeCircle
-        position: 0,-0.5
         radius: 0.2
+        position: 0,-0.5
       hard: False
       id: docking
     type: Fixtures
@@ -202039,7 +202041,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 25880
-  type: SpaceVillainArcade
+  type: SpaceVillainArcadeFilled
   components:
   - pos: 18.5,-10.5
     parent: 8364
@@ -205505,7 +205507,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 26426
-  type: SpaceVillainArcade
+  type: SpaceVillainArcadeFilled
   components:
   - pos: -4.5,45.5
     parent: 8364
@@ -206403,57 +206405,175 @@ entities:
     parent: 8364
     type: Transform
 - uid: 26572
-  type: BrigTimer
+  type: AlwaysPoweredLightSodium
   components:
-  - pos: -8.5,25.5
+  - rot: 1.5707963267948966 rad
+    pos: -68.5,15.5
     parent: 8364
     type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8626
-      Timer:
-      - port: AutoClose
-        uid: 8626
-      - port: Open
-        uid: 8626
-    type: SignalTransmitter
 - uid: 26573
-  type: BrigTimer
+  type: AlwaysPoweredLightSodium
   components:
-  - pos: -4.5,25.5
+  - rot: 1.5707963267948966 rad
+    pos: -68.5,19.5
     parent: 8364
     type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8625
-      Timer:
-      - port: AutoClose
-        uid: 8625
-      - port: Open
-        uid: 8625
-    type: SignalTransmitter
 - uid: 26574
-  type: BrigTimer
+  type: AlwaysPoweredLightSodium
   components:
-  - pos: -0.5,25.5
+  - pos: -76.5,-12.5
     parent: 8364
     type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8624
-      Timer:
-      - port: AutoClose
-        uid: 8624
-      - port: Open
-        uid: 8624
-    type: SignalTransmitter
 - uid: 26575
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -57.5,-21.5
+    parent: 8364
+    type: Transform
+- uid: 26576
+  type: AlwaysPoweredLightSodium
+  components:
+  - pos: -74.5,12.5
+    parent: 8364
+    type: Transform
+- uid: 26577
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -69.5,-17.5
+    parent: 8364
+    type: Transform
+- uid: 26578
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -74.5,-17.5
+    parent: 8364
+    type: Transform
+- uid: 26579
+  type: AlwaysPoweredLightSodium
+  components:
+  - pos: -67.5,-12.5
+    parent: 8364
+    type: Transform
+- uid: 26580
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -67.5,6.5
+    parent: 8364
+    type: Transform
+- uid: 26581
+  type: AlwaysPoweredLightSodium
+  components:
+  - pos: -67.5,-1.5
+    parent: 8364
+    type: Transform
+- uid: 26582
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 85.5,-4.5
+    parent: 8364
+    type: Transform
+- uid: 26583
+  type: AlwaysPoweredLightSodium
+  components:
+  - pos: -76.5,-1.5
+    parent: 8364
+    type: Transform
+- uid: 26584
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -77.5,6.5
+    parent: 8364
+    type: Transform
+- uid: 26585
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -44.5,-26.5
+    parent: 8364
+    type: Transform
+- uid: 26586
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -44.5,-32.5
+    parent: 8364
+    type: Transform
+- uid: 26587
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -44.5,-19.5
+    parent: 8364
+    type: Transform
+- uid: 26588
+  type: AlwaysPoweredLightSodium
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 85.5,-12.5
+    parent: 8364
+    type: Transform
+- uid: 26589
   type: BrigTimer
   components:
-  - pos: 10.5,25.5
+  - rot: -1.5707963267948966 rad
+    pos: -8.5,25.5
+    parent: 8364
+    type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8626
+      Timer:
+      - port: AutoClose
+        uid: 8626
+      - port: Open
+        uid: 8626
+    type: SignalTransmitter
+- uid: 26590
+  type: BrigTimer
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -4.5,25.5
+    parent: 8364
+    type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8625
+      Timer:
+      - port: AutoClose
+        uid: 8625
+      - port: Open
+        uid: 8625
+    type: SignalTransmitter
+- uid: 26591
+  type: BrigTimer
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,25.5
+    parent: 8364
+    type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8624
+      Timer:
+      - port: AutoClose
+        uid: 8624
+      - port: Open
+        uid: 8624
+    type: SignalTransmitter
+- uid: 26592
+  type: BrigTimer
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,25.5
     parent: 8364
     type: Transform
   - outputs:
@@ -206466,10 +206586,29 @@ entities:
       - port: Open
         uid: 8569
     type: SignalTransmitter
-- uid: 26576
+- uid: 26593
   type: Multitool
   components:
-  - pos: -35.43779,-43.302246
+  - pos: 18.756298,-21.130856
+    parent: 8364
+    type: Transform
+- uid: 26594
+  type: TableReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-8.5
+    parent: 8364
+    type: Transform
+- uid: 26595
+  type: FaxMachineBase
+  components:
+  - pos: -3.5,-8.5
+    parent: 8364
+    type: Transform
+- uid: 26596
+  type: CableApcExtension
+  components:
+  - pos: -3.5,-8.5
     parent: 8364
     type: Transform
 ...

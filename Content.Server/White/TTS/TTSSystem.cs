@@ -20,7 +20,7 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private const int MaxMessageChars = 100; // same as SingleBubbleCharLimit
+    private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
     private bool _isEnabled = false;
 
     public override void Initialize()
@@ -41,16 +41,20 @@ public sealed partial class TTSSystem : EntitySystem
     private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeEvent args)
     {
         if (!_isEnabled ||
-            args.Message.Length > MaxMessageChars ||
-            !_prototypeManager.TryIndex<TTSVoicePrototype>(component.VoicePrototypeId, out var protoVoice))
+            args.Message.Length > MaxMessageChars)
             return;
 
-        var textSanitized = Sanitize(args.OriginalMessage);
-        if (string.IsNullOrEmpty(textSanitized))
-        {
+        var voiceId = component.VoicePrototypeId;
+        var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
+        RaiseLocalEvent(uid, voiceEv);
+        voiceId = voiceEv.VoiceId;
+
+        if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
             return;
-        }
+
         var soundData = await GenerateTTS(uid, args.Message, protoVoice.Speaker);
+        if (soundData is null)
+            return;
         var ttsEvent = new PlayTTSEvent(uid, soundData);
 
         // Say
@@ -72,6 +76,8 @@ public sealed partial class TTSSystem : EntitySystem
         };
         var chosenWhisperText = _random.Pick(wList);
         var obfSoundData = await GenerateTTS(uid, chosenWhisperText, protoVoice.Speaker);
+        if (obfSoundData is null)
+            return;
         var obfTtsEvent = new PlayTTSEvent(uid, obfSoundData);
         var xformQuery = GetEntityQuery<TransformComponent>();
         var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
@@ -94,10 +100,24 @@ public sealed partial class TTSSystem : EntitySystem
         _ttsManager.ResetCache();
     }
 
-    private async Task<byte[]> GenerateTTS(EntityUid uid, string text, string speaker)
+    private async Task<byte[]?> GenerateTTS(EntityUid uid, string text, string speaker)
     {
         var textSanitized = Sanitize(text);
+        if (textSanitized == "")
+            return null;
         var metadata = Comp<MetaDataComponent>(uid);
         return await _ttsManager.ConvertTextToSpeech(metadata.EntityName, speaker, textSanitized);
+    }
+}
+
+public sealed class TransformSpeakerVoiceEvent : EntityEventArgs
+{
+    public EntityUid Sender;
+    public string VoiceId;
+
+    public TransformSpeakerVoiceEvent(EntityUid sender, string voiceId)
+    {
+        Sender = sender;
+        VoiceId = voiceId;
     }
 }
