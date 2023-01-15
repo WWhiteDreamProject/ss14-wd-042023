@@ -46,6 +46,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
 
         // client submitted text - hide typing indicator
         // CX-TypingIndicator-Start
+        _isClientChatFocused = false;
         _isClientTyping = false;
         ClientUpdateTyping();
         // CX-TypingIndicator-End

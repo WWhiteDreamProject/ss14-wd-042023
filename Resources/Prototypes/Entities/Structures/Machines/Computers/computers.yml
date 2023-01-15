@@ -101,7 +101,7 @@
     tags:
       - Syndicate
   - type: RadarConsole
-    maxRange: 1536
+    maxRange: 256
   - type: PointLight
     radius: 1.5
     energy: 1.6
