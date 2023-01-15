@@ -41,8 +41,15 @@ public sealed partial class TTSSystem : EntitySystem
     private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeEvent args)
     {
         if (!_isEnabled ||
-            args.Message.Length > MaxMessageChars ||
-            !_prototypeManager.TryIndex<TTSVoicePrototype>(component.VoicePrototypeId, out var protoVoice))
+            args.Message.Length > MaxMessageChars)
+            return;
+
+        var voiceId = component.VoicePrototypeId;
+        var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
+        RaiseLocalEvent(uid, voiceEv);
+        voiceId = voiceEv.VoiceId;
+
+        if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
             return;
 
         var soundData = await GenerateTTS(uid, args.Message, protoVoice.Speaker);
@@ -100,5 +107,17 @@ public sealed partial class TTSSystem : EntitySystem
             return null;
         var metadata = Comp<MetaDataComponent>(uid);
         return await _ttsManager.ConvertTextToSpeech(metadata.EntityName, speaker, textSanitized);
+    }
+}
+
+public sealed class TransformSpeakerVoiceEvent : EntityEventArgs
+{
+    public EntityUid Sender;
+    public string VoiceId;
+
+    public TransformSpeakerVoiceEvent(EntityUid sender, string voiceId)
+    {
+        Sender = sender;
+        VoiceId = voiceId;
     }
 }
