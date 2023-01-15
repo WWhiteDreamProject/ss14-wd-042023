@@ -334,9 +334,6 @@ namespace Content.Shared.CCVar
          * Traitor
          */
 
-        public static readonly CVarDef<int> TraitorMinPlayers =
-            CVarDef.Create("traitor.min_players", 1);
-
         public static readonly CVarDef<int> TraitorMaxTraitors =
             CVarDef.Create("traitor.max_traitors", 12); // Assuming average server maxes somewhere from like 50-80 people
 
@@ -365,9 +362,6 @@ namespace Content.Shared.CCVar
         /*
          * Zombie
          */
-
-        public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 25);
 
         public static readonly CVarDef<int> ZombieMaxInitialInfected =
             CVarDef.Create("zombie.max_initial_infected", 6);

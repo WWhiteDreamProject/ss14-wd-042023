@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking.Presets;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.Players;
 using Content.Server.Roles;
@@ -69,7 +70,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         if (!RuleAdded)
             return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.TraitorMinPlayers);
+        var minPlayers = _prototypeManager.Index<GamePresetPrototype>(TraitorPrototypeID).MinPlayers;
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("traitor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));

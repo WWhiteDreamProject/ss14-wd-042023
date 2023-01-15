@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Administration.Commands;
 using Content.Server.CharacterAppearance.Components;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.GameTicking.Rules.Configurations;
 using Content.Server.Ghost.Roles.Components;
@@ -810,7 +811,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
             return;
 
         _nukeopsRuleConfig = nukeOpsConfig;
-        var minPlayers = nukeOpsConfig.MinPlayers;
+        var minPlayers = _prototypeManager.Index<GamePresetPrototype>(Prototype).MinPlayers;
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("nukeops-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));

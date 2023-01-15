@@ -3,7 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
-using Content.Server.Humanoid;
+using Content.Server.GameTicking.Presets;
 using Content.Server.Mind.Components;
 using Content.Server.Players;
 using Content.Server.Popups;
@@ -162,7 +162,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem
         if (!RuleAdded)
             return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.ZombieMinPlayers);
+        var minPlayers = _prototypeManager.Index<GamePresetPrototype>(Prototype).MinPlayers;
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("zombie-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));

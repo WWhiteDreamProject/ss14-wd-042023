@@ -47,6 +47,7 @@
     - traitor
   name: traitor-title
   description: traitor-description
+  minPlayers: 1
   showInVote: false
   rules:
     - Traitor
@@ -90,6 +91,7 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
+  minPlayers: 15
   rules:
     - Nukeops
     - BasicStationEventScheduler
@@ -105,6 +107,7 @@
   name: zombie-title
   description: zombie-description
   showInVote: false
+  minPlayers: 25
   rules:
     - Zombie
     - BasicStationEventScheduler
