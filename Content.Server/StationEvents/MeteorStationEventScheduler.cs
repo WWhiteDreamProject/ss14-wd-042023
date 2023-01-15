@@ -79,14 +79,17 @@ public sealed class MeteorStationEventSchedulerSystem : GameRuleSystem
     {
         base.Update(frameTime);
 
-        var roundTime = (float) _gameTicker.RoundDuration().TotalSeconds;
-        if (roundTime >= _timeUntilCallShuttle && _shuttleAnnouncement)
+        if (RuleStarted)
         {
-            foreach (var comp in EntityQuery<StationDataComponent>(true))
+            var roundTime = (float) _gameTicker.RoundDuration().TotalSeconds;
+            if (roundTime >= _timeUntilCallShuttle && _shuttleAnnouncement)
             {
-                _chatSystem.DispatchStationAnnouncement(comp.Owner, Loc.GetString("emergency_shuttle_meteor_available"));
+                foreach (var comp in EntityQuery<StationDataComponent>(true))
+                {
+                    _chatSystem.DispatchStationAnnouncement(comp.Owner, Loc.GetString("emergency_shuttle_meteor_available"));
+                }
+                _shuttleAnnouncement = false;
             }
-            _shuttleAnnouncement = false;
         }
 
         if (!RuleStarted || !_event.EventsEnabled)
