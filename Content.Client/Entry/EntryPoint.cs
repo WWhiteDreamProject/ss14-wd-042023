@@ -174,13 +174,10 @@ namespace Content.Client.Entry
             _gamePrototypeLoadManager.Initialize();
             _networkResources.Initialize();
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
-<<<<<<< HEAD
             _sponsorsManager.Initialize();
             _queueManager.Initialize();
             _uiAudio.Initialize();
-=======
             _documentParsingManager.Initialize();
->>>>>>> 22d72f56b52b01c1536703c0b0d3ce4ead59d2f5
 
             _baseClient.RunLevelChanged += (_, args) =>
             {
