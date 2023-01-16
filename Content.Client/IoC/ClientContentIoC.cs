@@ -1,4 +1,4 @@
-﻿using Content.Client.Administration.Managers;
+using Content.Client.Administration.Managers;
 using Content.Client.Audio;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -15,14 +15,13 @@ using Content.Client.Screenshot;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
+using Content.Client.Guidebook;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Module;
 
 using Content.Client.White.JoinQueue;
 using Content.Client.White.Sponsors;
-
-
 
 namespace Content.Client.IoC
 {
@@ -51,6 +50,7 @@ namespace Content.Client.IoC
             IoCManager.Register<SponsorsManager>();
             IoCManager.Register<JoinQueueManager>();
             IoCManager.Register<UIAudioManager>();
+            IoCManager.Register<DocumentParsingManager>();
         }
     }
 }
