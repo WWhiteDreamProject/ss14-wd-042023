@@ -276,3 +276,9 @@ Entries:
     type: Add
   id: 31
   time: '2023-01-16T20:14:31.0000000+00:00'
+- author: rhailrake
+  changes:
+  - message: better ui
+    type: Add
+  id: 32
+  time: '2023-01-17T17:58:22.0000000+00:00'
