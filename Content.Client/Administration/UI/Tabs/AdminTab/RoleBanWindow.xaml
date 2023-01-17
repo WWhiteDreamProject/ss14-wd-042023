@@ -83,7 +83,7 @@
                         <CheckBox Name="Zookeeper" Text="{Loc Zookeeper}"/>
                     </BoxContainer>
                 </BoxContainer>
-                <Button Name="SubmitListButton" Text="{Loc Ban List}"/>
+                <Button Name="SubmitListButton" Text="{Loc BAN }"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

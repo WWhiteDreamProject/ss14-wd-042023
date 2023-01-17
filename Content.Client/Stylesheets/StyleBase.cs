@@ -123,7 +123,7 @@ namespace Content.Client.Stylesheets
 
             var vScrollBarGrabberNormal = new StyleBoxFlat
             {
-                BackgroundColor = Color.Gray.WithAlpha(0.35f), ContentMarginLeftOverride = DefaultGrabberSize,
+                BackgroundColor = Color.LightGreen.WithAlpha(0.35f), ContentMarginLeftOverride = DefaultGrabberSize,
                 ContentMarginTopOverride = DefaultGrabberSize
             };
             var vScrollBarGrabberHover = new StyleBoxFlat
@@ -139,7 +139,7 @@ namespace Content.Client.Stylesheets
 
             var hScrollBarGrabberNormal = new StyleBoxFlat
             {
-                BackgroundColor = Color.Gray.WithAlpha(0.35f), ContentMarginTopOverride = DefaultGrabberSize
+                BackgroundColor = Color.LightGreen.WithAlpha(0.35f), ContentMarginTopOverride = DefaultGrabberSize
             };
             var hScrollBarGrabberHover = new StyleBoxFlat
             {
@@ -176,7 +176,7 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(TextureButton.StylePropertyTexture, textureCloseButton),
-                        new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#4B596A")),
+                        new StyleProperty(Control.StylePropertyModulateSelf, StyleNano.NanoGold),
                     }),
                 // Window close button hover.
                 new StyleRule(
