@@ -19,7 +19,7 @@ namespace Content.Shared.Chemistry.Components
     public sealed partial class Solution : IEnumerable<Solution.ReagentQuantity>, ISerializationHooks
     {
         // This is a list because it is actually faster to add and remove reagents from
-        // a list than a dictionary, though contains-reagent checks are slightly slower, 
+        // a list than a dictionary, though contains-reagent checks are slightly slower,
         [DataField("reagents")]
         public List<ReagentQuantity> Contents = new(2);
 
@@ -322,11 +322,11 @@ namespace Content.Shared.Chemistry.Components
                 RemoveAllSolution();
                 return;
             }
-            
+
             _heatCapacity *= scale;
             Volume *= scale;
 
-            for (int i = 0; i <= Contents.Count; i++)
+            for (int i = 0; i < Contents.Count; i++)
             {
                 var old = Contents[i];
                 Contents[i] = new ReagentQuantity(old.ReagentId, old.Quantity * scale);
