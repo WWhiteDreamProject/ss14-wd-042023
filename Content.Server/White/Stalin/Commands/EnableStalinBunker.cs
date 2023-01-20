@@ -14,7 +14,7 @@ public sealed class EnableStalinBunker : IConsoleCommand
 
     public string Command => "enableStalinBunker";
     public string Description => "Enables the stalin bunker, like PaNIk bunker, but better";
-    public string Help => "enableSlangSanitization <bool>";
+    public string Help => "enableStalinBunker <bool>";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
