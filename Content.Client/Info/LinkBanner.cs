@@ -1,4 +1,5 @@
 ﻿using Content.Client.Changelog;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.White.Stalin;
 using Content.Shared.CCVar;
@@ -51,6 +52,7 @@ namespace Content.Client.Info
             }
 
             var saltedYaycaButton = new Button() {Text = "Привязать дискорд"};
+            saltedYaycaButton.StyleClasses.Add(StyleNano.StyleClassButtonColorRed);
 
             saltedYaycaButton.OnPressed += _ =>
             {
