@@ -1,31 +1,11 @@
 ﻿- type: lobbyBackground
-  id: Warden
-  background: /Textures/LobbyScreens/warden.png
+  id: Clown
+  background: /Textures/LobbyScreens/clown.png
 
 - type: lobbyBackground
-  id: Pharmacy
-  background: /Textures/LobbyScreens/pharmacy.png
+  id: Detective
+  background: /Textures/LobbyScreens/detective.png
 
 - type: lobbyBackground
-  id: ClownHos
-  background: /Textures/LobbyScreens/clown_and_hos.png
-
-- type: lobbyBackground
-  id: Box
-  background: /Textures/LobbyScreens/box.png
-
-- type: lobbyBackground
-  id: Sraka
-  background: /Textures/LobbyScreens/sraka.png
-
-- type: lobbyBackground
-  id: White
-  background: /Textures/LobbyScreens/white.png
-
-- type: lobbyBackground
-  id: AnimeStation
-  background: /Textures/LobbyScreens/animestation.png
-
-- type: lobbyBackground
-  id: EzForPapizi
-  background: /Textures/LobbyScreens/papizi.png
+  id: Interior
+  background: /Textures/LobbyScreens/interior.png
