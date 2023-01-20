@@ -16,6 +16,7 @@
             <cc:CommandButton Command="announceui" Text="{Loc admin-player-actions-window-announce}"/>
             <cc:UICommandButton Command="callshuttle" Text="{Loc admin-player-actions-window-shuttle}" WindowType="{x:Type at:AdminShuttleWindow}"/>
             <cc:CommandButton Command="adminlogs" Text="{Loc admin-player-actions-window-admin-logs}"/>
+            <cc:UICommandButton Command="enableShuttleCall" Text="{Loc admin-player-actions-window-shuttle-call}" WindowType="{x:Type at:AdminShuttleCallEnableWindow}"/>
         </GridContainer>
     </BoxContainer>
 </Control>

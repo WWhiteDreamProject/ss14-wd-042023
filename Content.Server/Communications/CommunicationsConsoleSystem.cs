@@ -193,6 +193,10 @@ namespace Content.Server.Communications
             if (_shuttle.EmergencyShuttleArrived || !_roundEndSystem.CanCallOrRecall())
                 return false;
 
+            var shuttleCallEnabled = _cfg.GetCVar(CCVars.EmergencyShuttleCallEnabled);
+            if (!shuttleCallEnabled)
+                return false;
+
             // Calling shuttle checks
             if (_roundEndSystem.ExpectedCountdownEnd is null)
                 return comp.CanCallShuttle;

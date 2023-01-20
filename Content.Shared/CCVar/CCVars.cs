@@ -1096,6 +1096,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> CentcommMap =
             CVarDef.Create("shuttle.centcomm_map", "/Maps/centcomm.yml", CVar.SERVERONLY);
 
+        /// <summary>
+        ///     Whether players can call the emergency shuttle.
+        /// </summary>
+        public static readonly CVarDef<bool> EmergencyShuttleCallEnabled =
+            CVarDef.Create("shuttle.emergency_shuttle_call", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
         /*
          * Crew Manifests
          */
