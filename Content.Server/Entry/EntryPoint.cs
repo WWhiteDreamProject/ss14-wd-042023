@@ -36,6 +36,7 @@ using Content.Shared.Localizations;
 
 using Content.Server.White.Sponsors;
 using Content.Server.White.JoinQueue;
+using Content.Server.White.Stalin;
 using Content.Server.White.TTS;
 
 namespace Content.Server.Entry
@@ -115,6 +116,8 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<JoinQueueManager>().Initialize();
                 IoCManager.Resolve<TTSManager>().Initialize();
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
+                IoCManager.Resolve<StalinManager>().Initialize();
+
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();

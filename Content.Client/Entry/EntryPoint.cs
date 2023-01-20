@@ -43,6 +43,7 @@ using Robust.Shared.Prototypes;
 
 using Content.Client.White.Sponsors;
 using Content.Client.White.JoinQueue;
+using Content.Client.White.Stalin;
 
 namespace Content.Client.Entry
 {
@@ -80,6 +81,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly JoinQueueManager _queueManager = default!;
         [Dependency] private readonly IReflectionManager _refl = default!;
         [Dependency] private readonly UIAudioManager _uiAudio = default!;
+        [Dependency] private readonly StalinManager _stalinManager = default!;
 
         public override void Init()
         {
@@ -145,6 +147,7 @@ namespace Content.Client.Entry
             _ghostKick.Initialize();
             _extendedDisconnectInformation.Initialize();
             _playTimeTracking.Initialize();
+            _stalinManager.Initialize();
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);

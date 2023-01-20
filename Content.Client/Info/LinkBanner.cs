@@ -1,5 +1,6 @@
 ﻿using Content.Client.Changelog;
 using Content.Client.UserInterface.Systems.EscapeMenu;
+using Content.Client.White.Stalin;
 using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -10,12 +11,15 @@ namespace Content.Client.Info
 {
     public sealed class LinkBanner : BoxContainer
     {
+        [Dependency] private readonly StalinManager _stalinManager = default!;
         private readonly IConfigurationManager _cfg;
 
         private ValueList<(CVarDef<string> cVar, Button button)> _infoLinks;
 
         public LinkBanner()
         {
+            IoCManager.InjectDependencies(this);
+
             var buttons = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal
@@ -45,6 +49,16 @@ namespace Content.Client.Info
                 buttons.AddChild(button);
                 _infoLinks.Add((cVar, button));
             }
+
+            var saltedYaycaButton = new Button() {Text = "Привязать дискорд"};
+
+            saltedYaycaButton.OnPressed += _ =>
+            {
+                _stalinManager.RequestUri();
+            };
+
+            buttons.AddChild(saltedYaycaButton);
+
         }
 
         protected override void EnteredTree()

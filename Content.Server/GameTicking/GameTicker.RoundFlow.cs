@@ -19,6 +19,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Server.White.Stalin;
 using Content.Shared.Database;
 using Robust.Shared.Asynchronous;
 
@@ -27,6 +28,7 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly StalinManager _stalinManager = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -153,7 +155,7 @@ namespace Content.Server.GameTicking
             return gridUids;
         }
 
-        public void StartRound(bool force = false)
+        public async void StartRound(bool force = false)
         {
 #if EXCEPTION_TOLERANCE
             try
@@ -200,11 +202,25 @@ namespace Content.Server.GameTicking
 
             var readyPlayers = new List<IPlayerSession>();
             var readyPlayerProfiles = new Dictionary<NetUserId, HumanoidCharacterProfile>();
+            var stalinBunkerEnabled = _configurationManager.GetCVar(CCVars.StalinEnabled);
+
+            await _stalinManager.RefreshUsersData();
 
             foreach (var (userId, status) in _playerGameStatuses)
             {
                 if (LobbyEnabled && status != PlayerGameStatus.ReadyToPlay) continue;
                 if (!_playerManager.TryGetSessionById(userId, out var session)) continue;
+
+                if (stalinBunkerEnabled)
+                {
+                    var playerData = await _stalinManager.AllowEnter(session, false);
+
+                    if (!playerData.allow)
+                    {
+                        _chatManager.DispatchServerMessage(session, $"{playerData.errorMessage}");
+                        continue;
+                    }
+                }
 #if DEBUG
                 DebugTools.Assert(_userDb.IsLoadComplete(session), $"Player was readied up but didn't have user DB data loaded yet??");
 #endif

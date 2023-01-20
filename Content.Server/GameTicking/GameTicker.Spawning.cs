@@ -20,6 +20,7 @@ using Robust.Shared.Utility;
 using Job = Content.Server.Roles.Job;
 
 using Content.Server.Humanoid;
+using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Markings;
 
 
@@ -261,11 +262,21 @@ namespace Content.Server.GameTicking
             SpawnPlayer(player, station, jobId);
         }
 
-        public void MakeObserve(IPlayerSession player)
+        public async void MakeObserve(IPlayerSession player)
         {
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
                 return;
+
+            if (_configurationManager.GetCVar(CCVars.StalinEnabled))
+            {
+                var allowEnterData = await _stalinManager.AllowEnter(player);
+                if (!allowEnterData.allow)
+                {
+                    _chatManager.DispatchServerMessage(player, $"Вход в игру запрещен: {allowEnterData.errorMessage}");
+                    return;
+                }
+            }
 
             PlayerJoinGame(player);
 

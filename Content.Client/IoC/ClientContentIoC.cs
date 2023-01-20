@@ -21,6 +21,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Module;
 
 using Content.Client.White.JoinQueue;
+using Content.Client.White.Stalin;
 using Content.Client.White.Sponsors;
 
 namespace Content.Client.IoC
@@ -51,6 +52,7 @@ namespace Content.Client.IoC
             IoCManager.Register<JoinQueueManager>();
             IoCManager.Register<UIAudioManager>();
             IoCManager.Register<DocumentParsingManager>();
+            IoCManager.Register<StalinManager>();
         }
     }
 }

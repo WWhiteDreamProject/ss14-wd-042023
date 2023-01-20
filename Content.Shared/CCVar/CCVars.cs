@@ -1535,5 +1535,16 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> UtkaSocketKey =
             CVarDef.Create("utka.socket_key", String.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+        public static readonly CVarDef<string> StalinSalt =
+            CVarDef.Create("stalin.salt", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+        public static readonly CVarDef<string> StalinApiUrl =
+            CVarDef.Create("stalin.api_url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+        public static readonly CVarDef<string> StalinAuthUrl =
+            CVarDef.Create("stalin.auth_url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+        public static readonly CVarDef<bool> StalinEnabled =
+            CVarDef.Create("stalin.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
+        public static readonly CVarDef<float> StalinDiscordMinimumAge =
+            CVarDef.Create("stalin.minimal_discord_age_minutes", 30.0f, CVar.SERVERONLY | CVar.ARCHIVE);
+
     }
 }
