@@ -498,7 +498,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         /// Variant of <see cref="SplitSolution(FixedPoint2)"/> that doesn't return a new solution containing the removed reagents.
         /// </summary>
-        /// <param name="quantity">The quantity of this solution to remove</param>
+        /// <param name="toTake">The quantity of this solution to remove</param>
         public void RemoveSolution(FixedPoint2 toTake)
         {
             if (toTake <= FixedPoint2.Zero)
