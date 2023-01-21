@@ -325,3 +325,10 @@ Entries:
     type: Add
   id: 37
   time: '2023-01-20T23:43:59.0000000+00:00'
+- author: HitPanda
+  changes:
+  - message: "\u0424\u0438\u043A\u0441 \u0430\u0434\u043C\u0438\u043D \u0434\u043E\
+      \u0441\u0442\u0443\u043F\u043E\u0432"
+    type: Fix
+  id: 38
+  time: '2023-01-21T11:40:56.0000000+00:00'
