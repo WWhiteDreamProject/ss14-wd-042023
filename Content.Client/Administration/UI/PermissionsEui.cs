@@ -382,6 +382,8 @@ namespace Content.Client.Administration.UI
                 RankButton.AddItem(Loc.GetString("permissions-eui-edit-admin-window-no-rank-button"), NoRank);
                 foreach (var (rId, rank) in ui._ranks)
                 {
+                    if (!ui._adminManager.HasFlag(AdminFlags.Host) && rank.Flags.HasFlag(AdminFlags.Host))
+                        continue;
                     RankButton.AddItem(rank.Name, rId);
                 }
 
@@ -399,7 +401,15 @@ namespace Content.Client.Administration.UI
                 {
                     // Can only grant out perms you also have yourself.
                     // Primarily intended to prevent people giving themselves +HOST with +PERMISSIONS but generalized.
-                    var disable = !ui._adminManager.HasFlag(flag);
+                    bool disable;
+                    if (flag != AdminFlags.Host)
+                    {
+                        disable = !ui._adminManager.HasFlag(AdminFlags.Permissions);
+                    }
+                    else
+                    {
+                        disable = !ui._adminManager.HasFlag(AdminFlags.Host);
+                    }
                     var flagName = flag.ToString().ToUpper();
 
                     var group = new ButtonGroup();
