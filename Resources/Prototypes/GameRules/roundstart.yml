@@ -84,3 +84,9 @@
   config:
     !type:GenericGameRuleConfiguration
     id: MeteorStationEventScheduler
+
+- type: gameRule
+  id: NoEventsScheduler
+  config:
+    !type:GenericGameRuleConfiguration
+    id: NoEventsScheduler

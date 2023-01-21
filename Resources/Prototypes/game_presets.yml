@@ -132,3 +132,13 @@
   description: survivalmeteor-description
   rules:
     - MeteorStationEventScheduler
+
+- type: gamePreset
+  id: NoEvents
+  alias:
+    - noevents
+  name: secret-title
+  showInVote: false
+  description: secret-description
+  rules:
+    - NoEventsScheduler
