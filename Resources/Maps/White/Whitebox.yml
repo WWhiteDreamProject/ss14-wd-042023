@@ -2984,11 +2984,21 @@ entities:
     parent: 8364
     type: Transform
 - uid: 414
-  type: IngotGold1
+  type: BrigTimer
   components:
-  - pos: 58.422615,7.678384
+  - pos: -8.5,25.5
     parent: 8364
     type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8626
+      Timer:
+      - port: AutoClose
+        uid: 8626
+      - port: Open
+        uid: 8626
+    type: SignalTransmitter
 - uid: 415
   type: Grille
   components:
@@ -3008,17 +3018,37 @@ entities:
     parent: 8364
     type: Transform
 - uid: 418
-  type: IngotGold1
+  type: BrigTimer
   components:
-  - pos: 57.56324,7.397134
+  - pos: -4.5,25.5
     parent: 8364
     type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8625
+      Timer:
+      - port: AutoClose
+        uid: 8625
+      - port: Open
+        uid: 8625
+    type: SignalTransmitter
 - uid: 419
-  type: IngotGold1
+  type: BrigTimer
   components:
-  - pos: 57.391365,7.569009
+  - pos: -0.5,25.5
     parent: 8364
     type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8624
+      Timer:
+      - port: AutoClose
+        uid: 8624
+      - port: Open
+        uid: 8624
+    type: SignalTransmitter
 - uid: 420
   type: MouseTimedSpawner
   components:
@@ -5975,7 +6005,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 898
-  type: d100Dice
+  type: PercentileDie
   components:
   - pos: 57.5,20.5
     parent: 8364
@@ -18204,9 +18234,13 @@ entities:
 - uid: 2898
   type: ClothingShoesBootsJack
   components:
-  - pos: -46.62844,-8.645075
-    parent: 8364
+  - flags: InContainer
+    type: MetaData
+  - parent: 13885
     type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
 - uid: 2899
   type: ComputerCargoOrders
   components:
@@ -31179,41 +31213,21 @@ entities:
     parent: 8364
     type: Transform
 - uid: 5003
-  type: ClothingOuterCoatPirate
+  type: BrigTimer
   components:
-  - pos: 57.9064,7.9061937
+  - pos: 10.5,25.5
     parent: 8364
     type: Transform
-- uid: 5004
-  type: ClothingHeadHatPirate
-  components:
-  - pos: 57.890774,8.249944
-    parent: 8364
-    type: Transform
-- uid: 5005
-  type: ClothingHeadHatPirate
-  components:
-  - pos: 58.4689,8.515569
-    parent: 8364
-    type: Transform
-- uid: 5006
-  type: ClothingHeadHatPirate
-  components:
-  - pos: 58.25015,8.749944
-    parent: 8364
-    type: Transform
-- uid: 5007
-  type: ClothingOuterCoatPirate
-  components:
-  - pos: 58.514145,8.160378
-    parent: 8364
-    type: Transform
-- uid: 5008
-  type: ClothingOuterCoatPirate
-  components:
-  - pos: 58.27977,8.379128
-    parent: 8364
-    type: Transform
+  - outputs:
+      Start:
+      - port: Close
+        uid: 8569
+      Timer:
+      - port: AutoClose
+        uid: 8569
+      - port: Open
+        uid: 8569
+    type: SignalTransmitter
 - uid: 5009
   type: ClothingShoesBootsPerformer
   components:
@@ -31236,12 +31250,6 @@ entities:
   type: CableHV
   components:
   - pos: 46.5,19.5
-    parent: 8364
-    type: Transform
-- uid: 5013
-  type: ClothingHeadHatWeldingMaskPainted
-  components:
-  - pos: -56.61541,13.4948435
     parent: 8364
     type: Transform
 - uid: 5014
@@ -31902,18 +31910,6 @@ entities:
   type: ClothingHeadHatWeldingMaskFlame
   components:
   - pos: 32.426586,-67.42694
-    parent: 8364
-    type: Transform
-- uid: 5119
-  type: ClothingUnderSocksCoder
-  components:
-  - pos: -38.47627,-56.748375
-    parent: 8364
-    type: Transform
-- uid: 5120
-  type: ClothingUnderSocksCoder
-  components:
-  - pos: 1.4697213,-22.60485
     parent: 8364
     type: Transform
 - uid: 5121
@@ -52931,7 +52927,7 @@ entities:
         tiles: WQAAADcAAAA3AAAAWQAAAEkAAABJAAAAWQAAAFkAAABZAAAASQAAAEkAAABJAAAASQAAAFkAAABZAAAAPwAAAw4AAAA3AAAANwAAAFkAAABJAAAASQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAD8AAABZAAAANwAAADcAAABZAAAAWQAAAFkAAABZAAAAWQAAAD8AAAI/AAADPwAAARYAAABZAAAAWQAAAFkAAAA/AAAADgAAADcAAAA3AAAAWQAAAC4AAAAuAAAALgAAAFkAAAA/AAADPwAAAD8AAAMWAAACWQAAAFkAAABZAAAAPwAAAFkAAAA3AAAANwAAAFkAAAAuAAAALgAAAC4AAABZAAAAPwAAAD8AAAE/AAADFgAAAVkAAABZAAAAWQAAAD8AAAAOAAAANwAAADcAAABZAAAALgAAAC4AAAAuAAAAWQAAAD8AAAA/AAAAPwAAAxYAAABZAAAAWQAAAFkAAAA/AAAAWQAAAFkAAAA3AAAAWQAAAD8AAAI/AAADPwAAAD8AAAI/AAADPwAAAj8AAAIWAAAAWQAAAFkAAABZAAAAWQAAABYAAAE/AAAAPwAAAz8AAAA/AAABPwAAAj8AAAI/AAAAPwAAAD8AAAA/AAAAFgAAAFkAAABZAAAAWQAAAFkAAAAWAAADPwAAAD8AAAI/AAACPwAAAz8AAAM/AAADPwAAAj8AAAI/AAABPwAAAxYAAAJZAAAAWQAAAFkAAABZAAAAFgAAAD8AAAM/AAACPwAAAD8AAAM/AAAAPwAAAT8AAAI/AAACPwAAAj8AAAEWAAAAWQAAABIAAAASAAAAEgAAABYAAAA/AAACPwAAAz8AAAE/AAACPwAAAj8AAAE/AAAAPwAAAz8AAAM/AAADFgAAA1kAAAASAAAAEgAAABIAAAAWAAAAFgAAAxYAAAMWAAADFgAAARYAAAAWAAABFgAAABYAAAEWAAAAFgAAAhYAAANZAAAAEgAAABIAAAASAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAWAAADFgAAAlkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAAASAAAAWQAAAD8AAAE/AAADPwAAAj8AAAA/AAAAPwAAAT8AAAE/AAAAPwAAAD8AAAA/AAACPwAAAD8AAAA/AAABPwAAAj8AAAE/AAABPwAAAD8AAAE/AAADPwAAAT8AAAI/AAADPwAAAD8AAAE/AAABPwAAAT8AAAI/AAABPwAAAD8AAAA/AAAAPwAAAz8AAAA/AAABPwAAAT8AAAI/AAABPwAAAT8AAAE/AAABPwAAAz8AAAA/AAACPwAAAT8AAAE/AAAAPwAAAg==
       3,0:
         ind: 3,0
-        tiles: LAAAACwAAABZAAAAWQAAAFkAAABWAAAAVgAAAlYAAABWAAADVgAAAlYAAAFZAAAAFgAAAxYAAAAWAAACLwAAACwAAAAsAAAAWQAAAFkAAABZAAAAVgAAAFYAAABWAAADVgAAAFYAAANWAAACWQAAABYAAAAWAAABWQAAAC8AAABZAAAAWQAAAFkAAABZAAAAWQAAAFYAAANWAAACVgAAAVYAAAJWAAAAVgAAA1kAAAAWAAABFgAAA1kAAAAvAAAAAAAAAFkAAABJAAAAWQAAAFkAAABZAAAAWQAAAFkAAABWAAABVgAAAFYAAANZAAAAWQAAAFkAAABZAAAALwAAAAAAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAAAAAAAAWQAAAEkAAABJAAAASQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABZAAAASQAAAEkAAABJAAAASQAAAEkAAABJAAAAWQAAAEkAAABJAAAAWQAAAFkAAABJAAAAWQAAADkAAAA5AAAAWQAAAEkAAABJAAAASQAAAEkAAABJAAAAWQAAAFkAAABJAAAAWQAAAFkAAABZAAAASQAAAFkAAABZAAAAOQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABZAAAASQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABJAAAASQAAAFkAAABJAAAASQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAD8AAANMAAADWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABJAAAASQAAAEkAAABZAAAASQAAAFkAAABMAAADPwAAA1kAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABJAAAASQAAAEkAAABJAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAASQAAAEkAAABJAAAASQAAAFkAAABJAAAAWQAAAEkAAABZAAAASQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAA==
+        tiles: LAAAACwAAABZAAAAWQAAAFkAAABWAAAAVgAAAlYAAABWAAADVgAAAlYAAAFZAAAAFgAAAxYAAAAWAAACLwAAACwAAAAsAAAAWQAAAFkAAABZAAAAVgAAAFYAAABWAAADVgAAAFYAAANWAAACWQAAABYAAAAWAAABWQAAAC8AAABZAAAAWQAAAFkAAABZAAAAWQAAAFYAAANWAAACVgAAAVYAAAJWAAAAVgAAA1kAAAAWAAABFgAAA1kAAAAvAAAAAAAAAFkAAABJAAAAWQAAAFkAAABZAAAAWQAAAFkAAABWAAABVgAAAFYAAANZAAAAWQAAAFkAAABZAAAALwAAAAAAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAAAAAAAAWQAAAEkAAABJAAAASQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABZAAAASQAAAEkAAABJAAAASQAAAEkAAABJAAAAWQAAAEkAAABJAAAAWQAAAFkAAABJAAAAWQAAADUAAAA1AAAAWQAAAEkAAABJAAAASQAAAEkAAABJAAAAWQAAAFkAAABJAAAAWQAAAFkAAABZAAAASQAAAFkAAAA1AAAANQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABZAAAASQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABZAAAAWQAAAFkAAABJAAAASQAAAFkAAABJAAAASQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAD8AAANMAAADWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAEkAAABJAAAASQAAAEkAAABZAAAASQAAAFkAAABMAAADPwAAA1kAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABJAAAASQAAAEkAAABJAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAASQAAAEkAAABJAAAASQAAAFkAAABJAAAAWQAAAEkAAABZAAAASQAAAEkAAABZAAAAWQAAAFkAAABZAAAAWQAAAA==
       2,-1:
         ind: 2,-1
         tiles: WQAAAEwAAAJMAAABTAAAAVkAAABZAAAAPwAAAlkAAABZAAAAWQAAAFkAAABZAAAAFgAAAFkAAABZAAAAWQAAAD8AAAM/AAAAPwAAAT8AAAE/AAADPwAAAz8AAAA/AAADPwAAAz8AAAM/AAAAPwAAAj8AAAE/AAACPwAAAj8AAAE/AAADPwAAAz8AAAI/AAAAPwAAAD8AAAA/AAACPwAAAT8AAAM/AAADPwAAAj8AAAA/AAACPwAAAT8AAAM/AAAAPwAAAD8AAAM/AAACPwAAAT8AAAM/AAADPwAAAj8AAAI/AAADPwAAAz8AAAI/AAABPwAAAD8AAAE/AAADPwAAAVkAAAA/AAADPwAAAz8AAAM/AAAAPwAAAD8AAAM/AAAAPwAAAVkAAABZAAAAPwAAAD8AAAJZAAAAPwAAAD8AAAFZAAAAWQAAAFkAAAAtAAAALQAAAC0AAAAtAAAAWQAAAFkAAABZAAAAPwAAAz8AAAA/AAAAWQAAAFkAAAA/AAAAFgAAAUwAAAFMAAADTAAAAkwAAABMAAABTAAAAUwAAABMAAADWQAAAD8AAAA/AAADPwAAAiwAAAAsAAAAPwAAA1kAAABMAAABTAAAAEwAAAFMAAADTAAAAkwAAABMAAADTAAAAVkAAAAWAAACPwAAAj8AAAE/AAAAPwAAAD8AAABWAAADTAAAAUwAAAFMAAAATAAAAUwAAABMAAAATAAAAkwAAANZAAAAFgAAAD8AAAA/AAAAFgAAABYAAAM/AAAAWQAAAEwAAANMAAAATAAAAkwAAAFMAAACTAAAAUwAAABMAAABFgAAAhYAAAM/AAADPwAAABYAAAIWAAACPwAAABYAAABMAAAATAAAAkwAAABMAAADTAAAAkwAAAJMAAADTAAAABYAAAAWAAAAPwAAAT8AAAMWAAABFgAAAz8AAANZAAAATAAAAUwAAAFMAAABTAAAAUwAAABMAAACTAAAAUwAAAJZAAAAFgAAAT8AAAE/AAADFgAAAhYAAAI/AAADWQAAAFkAAABZAAAAWQAAABYAAANZAAAAWQAAAFkAAABZAAAAWQAAABYAAAI/AAACPwAAAz8AAAI/AAADPwAAA1kAAABZAAAAWQAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAAFkAAAAWAAACFgAAABYAAAIWAAAAFgAAABYAAANZAAAAWQAAAFkAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAALwAAAC8AAABZAAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAAWQAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAA==
@@ -82009,14 +82005,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26787
+        uid: 5003
       Close:
       - port: Start
-        uid: 26787
+        uid: 5003
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26787
+        uid: 5003
     type: SignalReceiver
 - uid: 8570
   type: Rack
@@ -82418,14 +82414,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26786
+        uid: 419
       Close:
       - port: Start
-        uid: 26786
+        uid: 419
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26786
+        uid: 419
     type: SignalReceiver
 - uid: 8625
   type: WindoorSecurityLocked
@@ -82438,14 +82434,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26785
+        uid: 418
       Close:
       - port: Start
-        uid: 26785
+        uid: 418
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26785
+        uid: 418
     type: SignalReceiver
 - uid: 8626
   type: WindoorSecurityLocked
@@ -82458,14 +82454,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 21277
+        uid: 414
       Close:
       - port: Start
-        uid: 21277
+        uid: 414
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 21277
+        uid: 414
     type: SignalReceiver
 - uid: 8627
   type: BedsheetWhite
@@ -97233,7 +97229,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 10853
-  type: d100Dice
+  type: PercentileDie
   components:
   - pos: 56.5,3.5000002
     parent: 8364
@@ -97399,7 +97395,7 @@ entities:
     parent: 8364
     type: Transform
 - uid: 10873
-  type: d100Dice
+  type: PercentileDie
   components:
   - pos: 55.5,0.5
     parent: 8364
@@ -101997,7 +101993,7 @@ entities:
 - uid: 11587
   type: ClothingShoesBootsJack
   components:
-  - pos: 88.4803,-26.689615
+  - pos: 88.43125,-27.59039
     parent: 8364
     type: Transform
 - uid: 11588
@@ -102504,12 +102500,6 @@ entities:
   - pos: 55.5,17.5
     parent: 8364
     type: Transform
-- uid: 11665
-  type: RandomInstruments
-  components:
-  - pos: 55.5,15.5
-    parent: 8364
-    type: Transform
 - uid: 11666
   type: d20Dice
   components:
@@ -102530,12 +102520,6 @@ entities:
     type: Transform
 - uid: 11669
   type: FoodPieBananaCream
-  components:
-  - pos: 55.5,17.5
-    parent: 8364
-    type: Transform
-- uid: 11670
-  type: ClothingMaskClown
   components:
   - pos: 55.5,17.5
     parent: 8364
@@ -102674,12 +102658,6 @@ entities:
   type: FigureSpawner
   components:
   - pos: 12.5,10.5
-    parent: 8364
-    type: Transform
-- uid: 11692
-  type: ToySpawner
-  components:
-  - pos: 58.5,17.5
     parent: 8364
     type: Transform
 - uid: 11693
@@ -102967,18 +102945,6 @@ entities:
     type: Transform
 - uid: 11739
   type: Rack
-  components:
-  - pos: 58.5,19.5
-    parent: 8364
-    type: Transform
-- uid: 11740
-  type: ClothingOuterSuitMonkey
-  components:
-  - pos: 58.5,19.5
-    parent: 8364
-    type: Transform
-- uid: 11741
-  type: ClothingHeadHatChickenhead
   components:
   - pos: 58.5,19.5
     parent: 8364
@@ -113523,12 +113489,6 @@ entities:
   - pos: -54.557106,-7.452629
     parent: 8364
     type: Transform
-- uid: 13354
-  type: ClothingOuterCoatBomber
-  components:
-  - pos: -46.493744,14.462048
-    parent: 8364
-    type: Transform
 - uid: 13355
   type: Catwalk
   components:
@@ -116892,6 +116852,11 @@ entities:
   - pos: -47.5,-8.5
     parent: 8364
     type: Transform
+  - containers:
+      entity_storage: !type:Container
+        ents:
+        - 2898
+    type: ContainerContainer
 - uid: 13886
   type: WardrobeGreyFilled
   components:
@@ -121713,12 +121678,6 @@ entities:
   type: RandomSpawner
   components:
   - pos: -39.5,-5.5
-    parent: 8364
-    type: Transform
-- uid: 14609
-  type: RandomSpawner
-  components:
-  - pos: -46.5,-12.5
     parent: 8364
     type: Transform
 - uid: 14610
@@ -131437,12 +131396,6 @@ entities:
   - name: Engineering Substation
     type: MetaData
   - pos: -20.5,-66.5
-    parent: 8364
-    type: Transform
-- uid: 16138
-  type: ClothingNeckScarfStripedRed
-  components:
-  - pos: -38.611267,-58.59867
     parent: 8364
     type: Transform
 - uid: 16139
@@ -164967,22 +164920,6 @@ entities:
   - pos: 52.5,-31.5
     parent: 8364
     type: Transform
-- uid: 21277
-  type: BrigTimer
-  components:
-  - pos: -8.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8626
-      Timer:
-      - port: AutoClose
-        uid: 8626
-      - port: Open
-        uid: 8626
-    type: SignalTransmitter
 - uid: 21278
   type: BedsheetHOP
   components:
@@ -166779,12 +166716,6 @@ entities:
   - pos: -48.5,24.5
     parent: 8364
     type: Transform
-- uid: 21550
-  type: ToyAssistant
-  components:
-  - pos: 45.487507,-73.57517
-    parent: 8364
-    type: Transform
 - uid: 21551
   type: Catwalk
   components:
@@ -167332,18 +167263,6 @@ entities:
   components:
   - rot: 3.141592653589793 rad
     pos: -24.5,-51.5
-    parent: 8364
-    type: Transform
-- uid: 21640
-  type: ClothingHeadHatUshanka
-  components:
-  - pos: 62.38717,18.759663
-    parent: 8364
-    type: Transform
-- uid: 21641
-  type: ClothingHeadHatUshanka
-  components:
-  - pos: 62.527794,18.509663
     parent: 8364
     type: Transform
 - uid: 21642
@@ -168012,12 +167931,6 @@ entities:
   type: SpawnMobMedibot
   components:
   - pos: 33.5,-24.5
-    parent: 8364
-    type: Transform
-- uid: 21749
-  type: ClothingShoeSlippersDuck
-  components:
-  - pos: 45.466923,-63.487274
     parent: 8364
     type: Transform
 - uid: 21750
@@ -169333,18 +169246,6 @@ entities:
   type: ClothingHeadHelmetEVA
   components:
   - pos: -3.6461334,8.476393
-    parent: 8364
-    type: Transform
-- uid: 21954
-  type: ToySpawner
-  components:
-  - pos: -48.5,-12.5
-    parent: 8364
-    type: Transform
-- uid: 21955
-  type: RandomInstruments
-  components:
-  - pos: -48.5,-16.5
     parent: 8364
     type: Transform
 - uid: 21956
@@ -208119,52 +208020,4 @@ entities:
   - pos: 12.519601,32.51377
     parent: 8364
     type: Transform
-- uid: 26785
-  type: BrigTimer
-  components:
-  - pos: -4.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8625
-      Timer:
-      - port: AutoClose
-        uid: 8625
-      - port: Open
-        uid: 8625
-    type: SignalTransmitter
-- uid: 26786
-  type: BrigTimer
-  components:
-  - pos: -0.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8624
-      Timer:
-      - port: AutoClose
-        uid: 8624
-      - port: Open
-        uid: 8624
-    type: SignalTransmitter
-- uid: 26787
-  type: BrigTimer
-  components:
-  - pos: 10.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8569
-      Timer:
-      - port: AutoClose
-        uid: 8569
-      - port: Open
-        uid: 8569
-    type: SignalTransmitter
 ...
