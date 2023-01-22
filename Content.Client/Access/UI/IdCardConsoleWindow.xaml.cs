@@ -28,8 +28,7 @@ namespace Content.Client.Access.UI
         private string? _lastJobTitle;
         private string? _lastJobProto;
 
-        public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
-            List<string> accessLevels)
+        public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager, List<string> accessLevels)
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
@@ -65,6 +64,8 @@ namespace Content.Client.Access.UI
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
 
+
+            List<Button> buttonsToAdd = new();
             foreach (var access in accessLevels)
             {
                 if (!prototypeManager.TryIndex<AccessLevelPrototype>(access, out var accessLevel))
@@ -78,9 +79,17 @@ namespace Content.Client.Access.UI
                     Text = GetAccessLevelName(accessLevel),
                     ToggleMode = true,
                 };
-                AccessLevelGrid.AddChild(newButton);
                 _accessButtons.Add(accessLevel.ID, newButton);
                 newButton.OnPressed += _ => SubmitData();
+
+                buttonsToAdd.Add(newButton);
+            }
+
+            buttonsToAdd.Sort((x,y) => string.Compare(x.Text, y.Text, StringComparison.Ordinal));
+
+            foreach (var button in buttonsToAdd)
+            {
+                AccessLevelGrid.AddChild(button);
             }
         }
 
