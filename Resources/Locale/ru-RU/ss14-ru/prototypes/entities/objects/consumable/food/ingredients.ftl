@@ -76,3 +76,6 @@ ent-FoodCheeseSlice = кусок сыра
 ent-FoodBadRecipe = горелое месиво
     .desc = За это кого-то следует понизить с должности повара.
     .suffix = { "" }
+ent-ReagentContainerMayo = майонез
+    .desc = Бутылка майонеза.
+    .suffix = { "" }

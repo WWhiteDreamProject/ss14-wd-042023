@@ -76,3 +76,6 @@ ent-FoodCheeseSlice = cheese wedge
 ent-FoodBadRecipe = burned mess
     .desc = Someone should be demoted from cook for this.
     .suffix = { "" }
+ent-ReagentContainerMayo = mayonnaise
+    .desc = Bottle of mayonnaise.
+    .suffix = { "" }
