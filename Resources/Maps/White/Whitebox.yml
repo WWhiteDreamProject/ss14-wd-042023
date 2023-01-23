@@ -5285,7 +5285,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 100
+  - index: 1337
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -80558,8 +80558,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -80603,8 +80603,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -80633,8 +80633,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.619795
-      - 77.56971
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -138421,6 +138421,8 @@ entities:
 - uid: 17212
   type: GasVolumePump
   components:
+  - name: waste filter pump
+    type: MetaData
   - pos: 11.5,-54.5
     parent: 8364
     type: Transform
@@ -175544,7 +175546,7 @@ entities:
 - uid: 22766
   type: GasPressurePump
   components:
-  - name: waste filter pump
+  - name: plasma pump
     type: MetaData
   - rot: -1.5707963267948966 rad
     pos: 22.5,-46.5
