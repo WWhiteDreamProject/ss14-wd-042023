@@ -16,6 +16,9 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  whitelistedSpecies:
+    - Human
+    - Dwarf
   accessGroups:
   - AllAccess
 

@@ -15,6 +15,9 @@
   icon: "ChiefEngineer"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
+  whitelistedSpecies:
+    - Human
+    - Dwarf
   canBeAntag: true
   access:
   - Maintenance

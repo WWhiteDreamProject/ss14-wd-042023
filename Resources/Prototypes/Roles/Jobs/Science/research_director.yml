@@ -12,6 +12,9 @@
   icon: "ResearchDirector"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
+  whitelistedSpecies:
+    - Human
+    - Dwarf
   canBeAntag: true
   access:
   - Research

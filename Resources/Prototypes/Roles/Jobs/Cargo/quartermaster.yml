@@ -14,6 +14,9 @@
   startingGear: QuartermasterGear
   icon: "QuarterMaster"
   supervisors: job-supervisors-hop
+  whitelistedSpecies:
+    - Human
+    - Dwarf
   canBeAntag: true
   access:
   - Cargo

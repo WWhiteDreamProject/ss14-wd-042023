@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Server.Players;
@@ -22,7 +23,7 @@ using Job = Content.Server.Roles.Job;
 using Content.Server.Humanoid;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Markings;
-
+using Content.Shared.Random.Helpers;
 
 
 namespace Content.Server.GameTicking
@@ -189,6 +190,36 @@ namespace Content.Server.GameTicking
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
+
+            var whitelistedSpecies = jobPrototype.WhitelistedSpecies;
+
+            if (whitelistedSpecies.Count > 0 && !whitelistedSpecies.Contains(character.Species))
+            {
+                var playerProfiles = _prefsManager.GetPreferences(player.UserId).Characters.Values.Cast<HumanoidCharacterProfile>().ToList();
+
+                var existedAllowedProfile = playerProfiles.FindAll(x => whitelistedSpecies.Contains(x.Species));
+
+                if (existedAllowedProfile.Count == 0)
+                {
+                    character = HumanoidCharacterProfile.RandomWithSpecies(_robustRandom.Pick(whitelistedSpecies));
+                    _chatManager.DispatchServerAnnouncement("Данному виду запрещено играть на этой профессии. Вам была выдана случайная внешность.", Color.Firebrick);
+
+                }
+                else
+                {
+                    character = _robustRandom.Pick(existedAllowedProfile);
+                    _chatManager.DispatchServerAnnouncement("Данному виду запрещено играть на этой профессии. Вам была выдана случайная внешность с подходящим видом из вашего профиля.", Color.Firebrick);
+                }
+
+                StringBuilder availableSpeciesLoc = new StringBuilder();
+                foreach (var specie in whitelistedSpecies)
+                {
+                    availableSpeciesLoc.AppendLine("-" + Loc.GetString($"specie-name-{specie.ToLower()}"));
+                }
+
+                _chatManager.DispatchServerAnnouncement($"Доступные виды: \n {availableSpeciesLoc}", Color.Firebrick);
+
+            }
 
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character);
             DebugTools.AssertNotNull(mobMaybe);
