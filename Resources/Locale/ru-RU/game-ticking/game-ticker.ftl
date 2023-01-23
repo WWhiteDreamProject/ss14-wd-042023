@@ -38,3 +38,6 @@ latejoin-arrival-announcement =
        *[neuter] прибыл
     } на станцию!
 latejoin-arrival-sender = Станции
+player-join-message = Игрок { $name } зашёл!
+player-first-join-message = Игрок { $name } зашёл на сервер впервые.
+player-leave-message = Игрок { $name } вышел!

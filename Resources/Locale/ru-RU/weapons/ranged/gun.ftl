@@ -26,3 +26,6 @@ gun-revolver-insert = Заряжен
 gun-revolver-spin = Вращать барабан
 gun-revolver-spun = Барабан вращается
 gun-speedloader-empty = Спидлоадер пуст
+gun-ballistic-transfer-invalid = { CAPITALIZE($ammoEntity) } нельзя поместить в { $targetEntity }!
+gun-ballistic-transfer-empty = В { CAPITALIZE($entity) } пусто.
+gun-ballistic-transfer-target-full = { CAPITALIZE($entity) } уже полностью заряжен.

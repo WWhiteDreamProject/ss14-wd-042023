@@ -317,7 +317,7 @@ namespace Content.Shared.Chemistry.Components
             if (scale == 1)
                 return;
 
-            if (scale == 0)
+            if (scale <= 0)
             {
                 RemoveAllSolution();
                 return;

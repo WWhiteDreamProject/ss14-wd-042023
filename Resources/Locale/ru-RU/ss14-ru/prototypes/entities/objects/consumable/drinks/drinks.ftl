@@ -385,3 +385,6 @@ ent-DrinkHellRamen = чашка адского рамэна
 ent-DrinkKvassGlass = кружка кваса
     .desc = Прохладный освежающий напиток с привкусом социализма.
     .suffix = { "" }
+ent-DrinkPoscaGlass = стакан поски
+    .desc = Напиток бедных воинов из забытой эпохи.
+    .suffix = { "" }
