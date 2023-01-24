@@ -202,22 +202,22 @@ namespace Content.Server.GameTicking
                 if (existedAllowedProfile.Count == 0)
                 {
                     character = HumanoidCharacterProfile.RandomWithSpecies(_robustRandom.Pick(whitelistedSpecies));
-                    _chatManager.DispatchServerAnnouncement("Данному виду запрещено играть на этой профессии. Вам была выдана случайная внешность.", Color.Firebrick);
+                    _chatManager.DispatchServerMessage(player, "Данному виду запрещено играть на этой профессии. Вам была выдана случайная внешность.");
 
                 }
                 else
                 {
                     character = _robustRandom.Pick(existedAllowedProfile);
-                    _chatManager.DispatchServerAnnouncement("Данному виду запрещено играть на этой профессии. Вам была выдана случайная внешность с подходящим видом из вашего профиля.", Color.Firebrick);
+                    _chatManager.DispatchServerMessage(player, "Данному виду запрещено играть на этой профессии. Вам была выдана случайная внешность с подходящим видом из вашего профиля.");
                 }
 
                 StringBuilder availableSpeciesLoc = new StringBuilder();
                 foreach (var specie in whitelistedSpecies)
                 {
-                    availableSpeciesLoc.AppendLine("-" + Loc.GetString($"specie-name-{specie.ToLower()}"));
+                    availableSpeciesLoc.AppendLine("-" + Loc.GetString($"species-name-{specie.ToLower()}"));
                 }
 
-                _chatManager.DispatchServerAnnouncement($"Доступные виды: \n {availableSpeciesLoc}", Color.Firebrick);
+                _chatManager.DispatchServerMessage(player, $"Доступные виды: \n {availableSpeciesLoc}");
 
             }
 
