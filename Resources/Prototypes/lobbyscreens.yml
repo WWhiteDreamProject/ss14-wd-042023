@@ -9,3 +9,16 @@
 - type: lobbyBackground
   id: Interior
   background: /Textures/LobbyScreens/interior.png
+
+- type: lobbyBackground
+  id: Engineer
+  background: /Textures/LobbyScreens/engineer_text.png
+
+- type: lobbyBackground
+  id: Utilizator
+  background: /Textures/LobbyScreens/utilizator_text.png
+
+- type: lobbyBackground
+  id: VoidSuit
+  background: /Textures/LobbyScreens/voidsuit_sex_text.png
+
