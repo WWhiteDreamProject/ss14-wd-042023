@@ -253,7 +253,7 @@ namespace Content.Client.Administration.UI
                 editButton.OnPressed += _ => OnEditPressed(admin);
                 al.AddChild(editButton);
 
-                if (!_adminManager.HasFlag(combinedFlags))
+                if (combinedFlags.HasFlag(AdminFlags.Host) && !_adminManager.HasFlag(AdminFlags.Host) || !_adminManager.HasFlag(AdminFlags.Permissions))
                 {
                     editButton.Disabled = true;
                     editButton.ToolTip = Loc.GetString("permissions-eui-do-not-have-required-flags-to-edit-admin-tooltip");
