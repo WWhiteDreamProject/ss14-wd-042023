@@ -809,7 +809,7 @@ namespace Content.Client.Stylesheets
                     new SelectorElement(typeof(LineEdit), null, null, new[] {LineEdit.StylePseudoClassPlaceholder}),
                     new[]
                     {
-                        new StyleProperty("font-color", Color.PaleVioletRed),
+                        new StyleProperty("font-color", Color.FromHex("#C6B171")),
                     }),
 
                 Element<TextEdit>().Pseudo(TextEdit.StylePseudoClassPlaceholder)
