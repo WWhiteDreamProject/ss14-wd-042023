@@ -20,5 +20,5 @@
 
 - type: lobbyBackground
   id: VoidSuit
-  background: /Textures/LobbyScreens/voidsuit_sex_text.png
+  background: /Textures/LobbyScreens/voidsuit_sec_text.png
 
