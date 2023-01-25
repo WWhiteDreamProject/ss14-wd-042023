@@ -4,6 +4,7 @@
   description: A mesmerizing swirl of darkness that sucks in everything. If it's moving towards you, run.
   components:
   - type: Clickable
+  - type: MovementIgnoreGravity
   - type: AmbientSound
     volume: -4
     range: 14
@@ -17,7 +18,7 @@
       shape:
         !type:PhysShapeCircle
           radius: 0.5
-      restitution: 0.9
+      restitution: 0
       density: 99999
       mask:
       - AllMask
