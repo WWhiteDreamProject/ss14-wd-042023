@@ -620,3 +620,9 @@
 
 - type: Tag
   id: SubdermalImplant
+
+- type: Tag
+  id: FloorTile
+
+- type: Tag
+  id: NoAction
