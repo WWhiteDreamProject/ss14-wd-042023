@@ -1,7 +1,7 @@
 <DefaultWindow
     xmlns="https://spacestation14.io"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    Title="{Loc Role Ban}" MinSize="425 325">
+    Title="{Loc Job Ban}" MinSize="425 325">
     <BoxContainer Orientation="Vertical">
         <!-- Name -->
         <BoxContainer Orientation="Horizontal">
@@ -81,6 +81,9 @@
                         <CheckBox Name="Musician" Text="{Loc Musician}"/>
                         <CheckBox Name="Reporter" Text="{Loc Reporter}"/>
                         <CheckBox Name="Zookeeper" Text="{Loc Zookeeper}"/>
+                        <Label Text="{Loc SINTS}" FontColorOverride="LightGray"/>
+                        <CheckBox Name="Cyborg" Text="{Loc Cyborg}"/>
+                        <CheckBox Name="MedicalCyborg" Text="{Loc Medical Cyborg}"/>
                     </BoxContainer>
                 </BoxContainer>
                 <Button Name="SubmitListButton" Text="{Loc BAN }"/>
