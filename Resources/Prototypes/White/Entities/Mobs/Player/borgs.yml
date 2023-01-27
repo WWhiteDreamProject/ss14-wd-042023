@@ -38,6 +38,24 @@
             !type:DamageTrigger
             damage: 300
           behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                path: /White/Sounds/death_alarm_legacy.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel:
+                  min: 0
+                  max: 15
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetGlass:
+                  min: 0
+                  max: 10
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                CableApcStack:
+                  min: 0
+                  max: 5
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: NoSlip
@@ -154,6 +172,7 @@
             False: { visible: false }
     - type: ShowHealthBars
       damageContainer: Biological
+    - type: Borg
 
 - type: entity
   parent: PlayerCyborgBase

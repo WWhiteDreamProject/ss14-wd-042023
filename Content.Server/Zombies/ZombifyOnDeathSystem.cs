@@ -4,7 +4,6 @@ using Content.Server.Disease.Components;
 using Content.Server.Body.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Nutrition.Components;
-using Robust.Shared.Player;
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Server.Body.Systems;
@@ -23,6 +22,7 @@ using Content.Server.Traitor;
 using Content.Shared.Zombies;
 using Content.Shared.Popups;
 using Content.Server.Atmos.Miasma;
+using Content.Server.Borgs;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Server.Traits.Assorted;
@@ -89,6 +89,10 @@ namespace Content.Server.Zombies
         {
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
+                return;
+
+            //Don't zombfiy borgs
+            if (HasComp<BorgComponent>(target))
                 return;
 
             //you're a real zombie now, son.
