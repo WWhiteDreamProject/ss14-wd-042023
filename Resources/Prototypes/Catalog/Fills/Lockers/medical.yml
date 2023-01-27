@@ -46,7 +46,7 @@
         prob: 0.6
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
-     # - id: ClothingEyesHudMedical #Removed until working properly
+      - id: ClothingEyesHudMedical
       - id: ClothingBeltMedical
       - id: ClothingHeadHatSurgcapGreen
         prob: 0.1

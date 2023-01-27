@@ -227,7 +227,7 @@
       - VoiceTrigger
       - PowerCellSmall
       - PowerCellMedium
-      - PowerCellHigh  
+      - PowerCellHigh
       - SynthesizerInstrument
       - RPED
       - NodeScanner
@@ -475,6 +475,7 @@
       - MedkitAdvanced
       - MedkitRadiation
       - MedkitCombat
+      - ClothingEyesHudMedical
   - type: Machine
     board: MedicalTechFabCircuitboard
 
