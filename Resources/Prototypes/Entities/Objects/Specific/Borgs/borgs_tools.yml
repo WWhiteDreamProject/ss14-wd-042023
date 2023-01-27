@@ -17,8 +17,6 @@
       solution: hypospray
       reagents:
         - Epinephrine
-    - type: ExaminableSolution
-      solution: hypospray
     - type: Hypospray
       pierceArmor: true
 
@@ -67,8 +65,7 @@
 - type: entity
   parent: BaseItem
   id: StackHolderHealingItem
-  name: healing item holder
-  description: Holds healing items inside this borg
+  name: Набор для ушибов
   components:
     - type: ItemSlots
       slots:

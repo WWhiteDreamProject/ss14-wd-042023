@@ -1,2 +1,4 @@
-stack-holder-empty = It's empty.
-stack-holder = It's holding {$number} {$item}.
+stack-holder-empty = Тут пусто.
+stack-holder = Оно содержит: {$number} {$item}.
+autoregen-switched = Реагент сменён на {$reagent}.
+reagent-name = Текущий реагент: {$reagent}.

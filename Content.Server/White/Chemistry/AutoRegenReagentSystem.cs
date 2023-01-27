@@ -1,7 +1,7 @@
 ﻿using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Examine;
 using Content.Shared.Verbs;
-using Robust.Shared.Player;
 
 namespace Content.Server.Chemistry.AutoRegenReagent
 {
@@ -9,12 +9,12 @@ namespace Content.Server.Chemistry.AutoRegenReagent
     {
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
-
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<AutoRegenReagentComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<AutoRegenReagentComponent, GetVerbsEvent<AlternativeVerb>>(AddSwitchVerb);
+            SubscribeLocalEvent<AutoRegenReagentComponent, ExaminedEvent>(OnExamined);
         }
 
         private void OnInit(EntityUid uid, AutoRegenReagentComponent component, ComponentInit args)
@@ -63,6 +63,11 @@ namespace Content.Server.Chemistry.AutoRegenReagent
             _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", component.CurrentReagent)), user, user);
 
             return component.CurrentReagent;
+        }
+
+        private void OnExamined(EntityUid uid, AutoRegenReagentComponent component, ExaminedEvent args)
+        {
+            args.PushMarkup(Loc.GetString("reagent-name", ("reagent", component.CurrentReagent)));
         }
 
         public override void Update(float frameTime)
