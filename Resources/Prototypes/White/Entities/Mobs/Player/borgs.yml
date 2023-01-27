@@ -40,7 +40,7 @@
           behaviors:
             - !type:PlaySoundBehavior
               sound:
-                path: /White/Sounds/death_alarm_legacy.ogg
+                path: /White/Audio/Death/death_alarm_legacy.ogg
             - !type:SpawnEntitiesBehavior
               spawn:
                 SheetSteel:
