@@ -42,7 +42,7 @@ public sealed class OnDeath : EntitySystem
         _chat.TrySendInGameICMessage(uid, localizedMessage, InGameICChatType.Emote, false, force: true);
 
         // Play death sound to uid.
-        _audio.PlayEntity("/White/Audio/Death/Death.wav", uid, uid, AudioParams.Default);
+        _audio.PlayEntity("/White/Audio/Death/death.wav", uid, uid, AudioParams.Default);
     }
 
 }
