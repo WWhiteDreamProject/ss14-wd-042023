@@ -12,23 +12,36 @@ public sealed class EnableStalinBunker : IConsoleCommand
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    public string Command => "enableStalinBunker";
+    public string Command => "stalinbunker";
     public string Description => "Enables the stalin bunker, like PaNIk bunker, but better";
-    public string Help => "enableStalinBunker <bool>";
+    public string Help => "stalinBunker <bool>";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 1 || !bool.TryParse(args[0], out bool value))
+        if (args.Length > 1)
         {
-            shell.WriteError($"{args[0]} is not a valid boolean.");
+            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            return;
+        }
+
+        var enabled = _cfg.GetCVar(CCVars.PanicBunkerEnabled);
+
+        if (args.Length == 0)
+        {
+            enabled = !enabled;
+        }
+
+        if (args.Length == 1 && !bool.TryParse(args[0], out enabled))
+        {
+            shell.WriteError(Loc.GetString("shell-argument-must-be-boolean"));
             return;
         }
 
         IoCManager.InjectDependencies(this);
 
-        _cfg.SetCVar(CCVars.StalinEnabled, value);
+        _cfg.SetCVar(CCVars.StalinEnabled, enabled);
 
-        var announce = Loc.GetString("stalin-panic-bunker", ("enabled", $"{value}"));
+        var announce = Loc.GetString("stalin-panic-bunker", ("enabled", $"{enabled}"));
 
         IoCManager.Resolve<IChatManager>().DispatchServerAnnouncement(announce, Color.Red);
     }
