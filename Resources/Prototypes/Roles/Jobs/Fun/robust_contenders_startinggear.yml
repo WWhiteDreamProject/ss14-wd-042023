@@ -1,0 +1,65 @@
+﻿- type: startingGear
+  id: RobustBareAqua
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+    shoes: ClothingShoesColorGreen
+    pocket1: C4
+
+- type: startingGear
+  id: RobustBareOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorOrange
+    pocket1: C4
+
+- type: startingGear
+  id: RobustAssaultAqua
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+    shoes: ClothingShoesSwat
+    head: ClothingHeadHelmetHelmetOld
+    gloves: ClothingHandsGlovesCombat
+    back: WeaponPulseRifle
+    outerClothing: ClothingOuterArmorHeavyGreen
+    pocket1: EnergySword
+
+- type: startingGear
+  id: RobustAssaultOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesSwat
+    head: ClothingHeadHelmetHelmet
+    gloves: ClothingHandsGlovesCombat
+    back: WeaponPulseRifle
+    outerClothing: ClothingOuterArmorHeavyRed
+    pocket1: EnergySword
+
+- type: entity
+  parent: ClothingBackpackDuffelClown
+  id: ClothingBackpackDuffelClownRobustFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: TrashBananaPeel
+          amount: 6
+        - id: FireExtinguisher
+
+- type: startingGear
+  id: RobustBalonAqua
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+    shoes: ClothingShoesColorGreen
+    head: ClothingHeadHelmetRiot
+    mask: ClothingMaskClown
+    back: ClothingBackpackDuffelClownRobustFilled
+    outerClothing: ClothingOuterVestWeb
+
+- type: startingGear
+  id: RobustBalonOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorOrange
+    head: ClothingHeadHelmetRiot
+    mask: ClothingMaskClown
+    back: ClothingBackpackDuffelClownRobustFilled
+    outerClothing: ClothingOuterVestWeb
