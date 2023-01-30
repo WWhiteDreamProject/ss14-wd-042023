@@ -14,10 +14,10 @@ public sealed class OnDeath : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandleDeath);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandleDeathEvent);
     }
 
-        // An array of death gasp messages.
+    private IPlayingAudioStream? _playingStream;
     private static readonly string[] DeathGaspMessages =
     {
         "death-gasp-high",
@@ -25,24 +25,40 @@ public sealed class OnDeath : EntitySystem
         "death-gasp-normal"
     };
 
-        // Handle death gasp event.
-    private void HandleDeath(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent args)
+    private void HandleDeathEvent(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent args)
     {
-        // Exit if the mob's state is not dead.
-        if (args.NewMobState != MobState.Dead)
-            return;
-
-        // Select a random death gasp message.
-        var message = DeathGaspMessages[_random.Next(DeathGaspMessages.Length)];
-
-        // Localize the message
-        var localizedMessage = Loc.GetString(message);
-
-        // Send the message as an emote to the in-game chat.
-        _chat.TrySendInGameICMessage(uid, localizedMessage, InGameICChatType.Emote, false, force: true);
-
-        // Play death sound to uid.
-        _audio.PlayEntity("/White/Audio/Death/death.wav", uid, uid, AudioParams.Default);
+        switch (args.NewMobState)
+        {
+            case MobState.Critical:
+                PlayPlayingStream(uid);
+                break;
+            case MobState.Dead:
+                StopPlayingStream();
+                var deathGaspMessage = SelectRandomDeathGaspMessage();
+                var localizedMessage = LocalizeDeathGaspMessage(deathGaspMessage);
+                SendDeathGaspMessage(uid, localizedMessage);
+                PlayDeathSound(uid);
+                break;
+        }
     }
+
+
+    private void PlayPlayingStream(EntityUid uid)
+        => _playingStream = _audio.PlayEntity("/White/Audio/Heart/heart.ogg", uid, uid, AudioParams.Default.WithLoop(true));
+
+    private void StopPlayingStream()
+        => _playingStream?.Stop();
+
+    private string SelectRandomDeathGaspMessage()
+        => DeathGaspMessages[_random.Next(DeathGaspMessages.Length)];
+
+    private string LocalizeDeathGaspMessage(string message)
+        => Loc.GetString(message);
+
+    private void SendDeathGaspMessage(EntityUid uid, string message)
+        => _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force: true);
+
+    private void PlayDeathSound(EntityUid uid)
+        => _audio.PlayEntity("/White/Audio/Death/death.wav", uid, uid, AudioParams.Default);
 
 }

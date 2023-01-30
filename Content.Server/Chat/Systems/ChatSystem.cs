@@ -377,8 +377,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Whisper from {ToPrettyString(source):user}, original: {originalMessage}, transformed: {message}.");
     }
 
-    private void SendEntityEmote(EntityUid source, string action, bool hideChat,
-        bool hideGlobalGhostChat, string? nameOverride, bool checkEmote = true, bool force = false)
+    private void SendEntityEmote(EntityUid source, string action, bool hideChat, bool hideGlobalGhostChat, string? nameOverride, bool force = false, bool checkEmote = true)
     {
         if (!force && !_actionBlocker.CanEmote(source)) return;
 
