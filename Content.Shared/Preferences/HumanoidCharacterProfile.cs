@@ -103,7 +103,7 @@ namespace Content.Shared.Preferences
 
         /// <summary>
         ///     Get the default humanoid character profile, using internal constant values.
-        ///     Defaults to <see cref="SharedHumanoidSystem.DefaultSpecies"/> for the species.
+        ///     Defaults to <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/> for the species.
         /// </summary>
         /// <returns></returns>
         public static HumanoidCharacterProfile Default()
@@ -111,7 +111,7 @@ namespace Content.Shared.Preferences
             return new(
                 "John Doe",
                 "",
-                SharedHumanoidSystem.DefaultSpecies,
+                SharedHumanoidAppearanceSystem.DefaultSpecies,
                 SharedHumanoidSystem.DefaultVoice,
                 18,
                 Sex.Male,
@@ -131,9 +131,9 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     Return a default character profile, based on species.
         /// </summary>
-        /// <param name="species">The species to use in this default profile. The default species is <see cref="SharedHumanoidSystem.DefaultSpecies"/>.</param>
+        /// <param name="species">The species to use in this default profile. The default species is <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/>.</param>
         /// <returns>Humanoid character profile with default settings.</returns>
-        public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
         {
             return new(
                 "John Doe",
@@ -170,7 +170,7 @@ namespace Content.Shared.Preferences
             return RandomWithSpecies(species);
         }
 
-        public static HumanoidCharacterProfile RandomWithSpecies(string species = SharedHumanoidSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile RandomWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
