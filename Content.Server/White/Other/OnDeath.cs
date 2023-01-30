@@ -18,6 +18,7 @@ public sealed class OnDeath : EntitySystem
     }
 
     private IPlayingAudioStream? _playingStream;
+
     private static readonly string[] DeathGaspMessages =
     {
         "death-gasp-high",
@@ -31,10 +32,10 @@ public sealed class OnDeath : EntitySystem
         switch (args.NewMobState)
         {
             case MobState.Invalid:
-                StopPlayingStream();
+                ClearPlayingStream();
                 break;
             case MobState.Alive:
-                StopPlayingStream();
+                ClearPlayingStream();
                 break;
             case MobState.Critical:
                 PlayPlayingStream(uid);
@@ -67,5 +68,13 @@ public sealed class OnDeath : EntitySystem
 
     private void PlayDeathSound(EntityUid uid)
         => _audio.PlayEntity("/White/Audio/Death/death.wav", uid, uid, AudioParams.Default);
+
+    private void ClearPlayingStream()
+    {
+        if (_playingStream != null)
+        {
+            StopPlayingStream();
+        }
+    }
 
 }
