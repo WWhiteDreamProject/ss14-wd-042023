@@ -132,9 +132,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (desiredType != InGameICChatType.Emote &&  HasComp<HumanoidComponent>(source))
+        if (desiredType != InGameICChatType.Emote &&  HasComp<HumanoidAppearanceComponent>(source))
         {
-            var humanoidComponent = EntityManager.GetComponent<HumanoidComponent>(source);
+            var humanoidComponent = EntityManager.GetComponent<HumanoidAppearanceComponent>(source);
             nameOverride = $"[color=#{humanoidComponent.HumanoidSpeakColor}]{Name(source)}[/color]";
         }
 

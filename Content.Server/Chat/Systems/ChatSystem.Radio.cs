@@ -31,12 +31,7 @@ public sealed partial class ChatSystem
 
         foreach (var proto in _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>())
         {
-            foreach (var keycode in proto.KeyCodes)
-            {
-                if (_keyCodes.ContainsKey(keycode))
-                    continue;
-                _keyCodes.Add(keycode, proto);
-            }
+            _keyCodes.Add(proto.KeyCode, proto);
         }
 
 
@@ -105,7 +100,7 @@ public sealed partial class ChatSystem
         // Re-capitalize message since we removed the prefix.
         message = SanitizeMessageCapital(message);
 
-        
+
 
         if (!hasHeadset && !HasComp<IntrinsicRadioTransmitterComponent>(source))
         {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Text.RegularExpressions;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Tools;
@@ -121,8 +119,7 @@ public sealed class HeadsetSystem : EntitySystem
             if (component.DefaultChannel != null)
             {
                 var proto = _protoManager.Index<RadioChannelPrototype>(component.DefaultChannel);
-                var keycodes = string.Join(", :", proto.KeyCodes.ToArray());
-                args.PushMarkup(Loc.GetString("examine-headset-default-channel", ("channel", component.DefaultChannel), ("color", proto.Color), ("keys", keycodes)));
+                args.PushMarkup(Loc.GetString("examine-headset-default-channel", ("channel", component.DefaultChannel), ("color", proto.Color)));
             }
         }
     }
@@ -169,7 +166,7 @@ public sealed class HeadsetSystem : EntitySystem
             if (component.KeySlots > component.KeyContainer.ContainedEntities.Count)
             {
                 if (InstallKey(component, args.Used, key))
-                {                    
+                {
                     _popupSystem.PopupEntity(Loc.GetString("headset-encryption-key-successfully-installed"), uid, args.User);
                     _audio.PlayPvs(component.KeyInsertionSound, args.Target);
                 }

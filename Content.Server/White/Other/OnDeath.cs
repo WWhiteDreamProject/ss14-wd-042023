@@ -14,7 +14,7 @@ public sealed class OnDeath : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HumanoidComponent, MobStateChangedEvent>(HandleDeath);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandleDeath);
     }
 
         // An array of death gasp messages.
@@ -26,7 +26,7 @@ public sealed class OnDeath : EntitySystem
     };
 
         // Handle death gasp event.
-    private void HandleDeath(EntityUid uid, HumanoidComponent component, MobStateChangedEvent args)
+    private void HandleDeath(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent args)
     {
         // Exit if the mob's state is not dead.
         if (args.NewMobState != MobState.Dead)

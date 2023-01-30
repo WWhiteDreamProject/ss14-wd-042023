@@ -9,6 +9,6 @@ public sealed class VoiceMaskComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)] public string VoiceName = "Unknown";
 
-    [ViewVariables(VVAccess.ReadWrite)] public string VoiceId = SharedHumanoidSystem.DefaultVoice; //TTS
+    [ViewVariables(VVAccess.ReadWrite)] public string VoiceId = SharedHumanoidAppearanceSystem.DefaultVoice;
 
 }

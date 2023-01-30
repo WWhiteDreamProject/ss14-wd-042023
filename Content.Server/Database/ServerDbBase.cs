@@ -177,7 +177,7 @@ namespace Content.Server.Database
 
             var voice = profile.Voice;
             if (voice == String.Empty)
-                voice = SharedHumanoidSystem.DefaultSexVoice[sex];
+                voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
 
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             var markingsRaw = profile.Markings?.Deserialize<List<string>>();

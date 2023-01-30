@@ -112,7 +112,7 @@ namespace Content.Shared.Preferences
                 "John Doe",
                 "",
                 SharedHumanoidAppearanceSystem.DefaultSpecies,
-                SharedHumanoidSystem.DefaultVoice,
+                SharedHumanoidAppearanceSystem.DefaultVoice,
                 18,
                 Sex.Male,
                 Gender.Male,
@@ -139,7 +139,7 @@ namespace Content.Shared.Preferences
                 "John Doe",
                 "",
                 species,
-                SharedHumanoidSystem.DefaultVoice,
+                SharedHumanoidAppearanceSystem.DefaultVoice,
                 18,
                 Sex.Male,
                 Gender.Male,
@@ -514,7 +514,7 @@ namespace Content.Shared.Preferences
 
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
             if (voice is null || !CanHaveVoice(voice, Sex))
-                Voice = SharedHumanoidSystem.DefaultSexVoice[sex];
+                Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
         }
 
         public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
