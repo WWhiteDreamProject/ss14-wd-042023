@@ -18,7 +18,8 @@ public sealed class OnDeath : EntitySystem
     }
 
     private IPlayingAudioStream? _playingStream;
-
+    private static readonly SoundSpecifier DeathSounds = new SoundCollectionSpecifier("deathSounds");
+    private static readonly SoundSpecifier HeartSounds = new SoundCollectionSpecifier("heartSounds");
     private static readonly string[] DeathGaspMessages =
     {
         "death-gasp-high",
@@ -52,7 +53,7 @@ public sealed class OnDeath : EntitySystem
 
 
     private void PlayPlayingStream(EntityUid uid)
-        => _playingStream = _audio.PlayEntity("/White/Audio/Heart/heart.ogg", uid, uid, AudioParams.Default.WithLoop(true));
+        => _playingStream = _audio.PlayEntity(HeartSounds, uid, uid, AudioParams.Default.WithLoop(true));
 
     private void StopPlayingStream()
         => _playingStream?.Stop();
@@ -67,7 +68,7 @@ public sealed class OnDeath : EntitySystem
         => _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force: true);
 
     private void PlayDeathSound(EntityUid uid)
-        => _audio.PlayEntity("/White/Audio/Death/death.wav", uid, uid, AudioParams.Default);
+        => _audio.PlayEntity(DeathSounds, uid, uid, AudioParams.Default);
 
     private void ClearPlayingStream()
     {
