@@ -33,7 +33,7 @@ namespace Content.Server.Preferences.Managers
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
             new();
 
-        private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
+            //private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
 
         public void Init()
         {
@@ -54,7 +54,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            if (index < 0 || index >= MaxCharacterSlots)
+            if (index < 0 || index >= GetMaxUserCharacterSlots(userId))
             {
                 return;
             }
@@ -94,7 +94,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            if (slot < 0 || slot >= MaxCharacterSlots)
+            if (slot < 0 || slot >= GetMaxUserCharacterSlots(userId))
             {
                 return;
             }
@@ -129,7 +129,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            if (slot < 0 || slot >= MaxCharacterSlots)
+            if (slot < 0 || slot >= GetMaxUserCharacterSlots(userId))
             {
                 return;
             }
@@ -211,7 +211,7 @@ namespace Content.Server.Preferences.Managers
                     msg.Preferences = prefs;
                     msg.Settings = new GameSettings
                     {
-                        MaxCharacterSlots = MaxCharacterSlots
+                        MaxCharacterSlots = GetMaxUserCharacterSlots(session.UserId),
                     };
                     _netManager.ServerSendMessage(msg, session.ConnectedClient);
                 }
@@ -228,6 +228,12 @@ namespace Content.Server.Preferences.Managers
             return _cachedPlayerPrefs.ContainsKey(session.UserId);
         }
 
+        private int GetMaxUserCharacterSlots(NetUserId userId)
+        {
+            var maxSlots = _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
+            var extraSlots = _sponsors.TryGetInfo(userId, out var sponsor) ? sponsor.ExtraSlots : 0;
+            return maxSlots + extraSlots;
+        }
 
         /// <summary>
         /// Tries to get the preferences from the cache
