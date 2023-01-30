@@ -27,8 +27,15 @@ public sealed class OnDeath : EntitySystem
 
     private void HandleDeathEvent(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent args)
     {
+        //^.^
         switch (args.NewMobState)
         {
+            case MobState.Invalid:
+                StopPlayingStream();
+                break;
+            case MobState.Alive:
+                StopPlayingStream();
+                break;
             case MobState.Critical:
                 PlayPlayingStream(uid);
                 break;
