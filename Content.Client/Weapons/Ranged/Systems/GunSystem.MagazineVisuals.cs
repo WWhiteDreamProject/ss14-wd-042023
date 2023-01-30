@@ -1,5 +1,6 @@
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Rounding;
+using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Client.GameObjects;
 
@@ -11,6 +12,27 @@ public sealed partial class GunSystem
     {
         SubscribeLocalEvent<MagazineVisualsComponent, ComponentInit>(OnMagazineVisualsInit);
         SubscribeLocalEvent<MagazineVisualsComponent, AppearanceChangeEvent>(OnMagazineVisualsChange);
+        SubscribeNetworkEvent<TwoModeChangedEvent>(OnMagazineVisualsTwoModeChange);
+    }
+
+    private void OnMagazineVisualsTwoModeChange(TwoModeChangedEvent ev)
+    {
+        if (!TryComp<SpriteComponent>(ev.Weapon, out var sprite)) return;
+
+        if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out var first))
+        {
+            if (sprite.TryGetLayer(first, out var firstLayer) && firstLayer.Visible)
+            {
+                sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, false);
+                sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, true);
+            }
+            else
+            {
+                sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, true);
+                sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, false);
+            }
+
+        }
     }
 
     private void OnMagazineVisualsInit(EntityUid uid, MagazineVisualsComponent component, ComponentInit args)
@@ -27,6 +49,18 @@ public sealed partial class GunSystem
         {
             sprite.LayerSetState(GunVisualLayers.MagUnshaded, $"{component.MagState}-unshaded-{component.MagSteps - 1}");
             sprite.LayerSetVisible(GunVisualLayers.MagUnshaded, false);
+        }
+
+        if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out _))
+        {
+            sprite.LayerSetState(GunVisualLayers.TwoModeFirst, $"{component.MagState}-twomode1-{component.MagSteps - 1}");
+            sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, true);
+        }
+
+        if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out _))
+        {
+            sprite.LayerSetState(GunVisualLayers.TwoModeSecond, $"{component.MagState}-twomode2-{component.MagSteps - 1}");
+            sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, false);
         }
     }
 
@@ -67,6 +101,16 @@ public sealed partial class GunSystem
                     sprite.LayerSetVisible(GunVisualLayers.MagUnshaded, false);
                 }
 
+                if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out _))
+                {
+                    sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, false);
+                }
+
+                if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out _))
+                {
+                    sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, false);
+                }
+
                 return;
             }
 
@@ -81,6 +125,24 @@ public sealed partial class GunSystem
                 sprite.LayerSetVisible(GunVisualLayers.MagUnshaded, true);
                 sprite.LayerSetState(GunVisualLayers.MagUnshaded, $"{component.MagState}-unshaded-{step}");
             }
+
+            if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out var first))
+            {
+                if (sprite.TryGetLayer(first, out var firstLayer) && firstLayer.Visible)
+                {
+                    sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, true);
+                    sprite.LayerSetState(GunVisualLayers.TwoModeFirst, $"{component.MagState}-twomode1-{step}");
+                }
+            }
+
+            if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out var second))
+            {
+                if (sprite.TryGetLayer(second, out var secondLayer) && secondLayer.Visible)
+                {
+                    sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, true);
+                    sprite.LayerSetState(GunVisualLayers.TwoModeSecond, $"{component.MagState}-twomode2-{step}");
+                }
+            }
         }
         else
         {
@@ -92,6 +154,16 @@ public sealed partial class GunSystem
             if (sprite.LayerMapTryGet(GunVisualLayers.MagUnshaded, out _))
             {
                 sprite.LayerSetVisible(GunVisualLayers.MagUnshaded, false);
+            }
+
+            if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out _))
+            {
+                sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, false);
+            }
+
+            if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out _))
+            {
+                sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, false);
             }
         }
     }

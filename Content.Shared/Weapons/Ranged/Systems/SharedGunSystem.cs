@@ -62,6 +62,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     protected const string AmmoExamineColor = "yellow";
     protected const string FireRateExamineColor = "yellow";
     protected const string ModeExamineColor = "cyan";
+    protected const string TwoModeExamineColor = "red";
 
     public override void Initialize()
     {
@@ -142,6 +143,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             ShotCounter = component.ShotCounter,
             SelectiveFire = component.SelectedMode,
             AvailableSelectiveFire = component.AvailableModes,
+            SoundGunshot = component.SoundGunshot,
         };
     }
 
@@ -158,6 +160,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         component.ShotCounter = state.ShotCounter;
         component.SelectedMode = state.SelectiveFire;
         component.AvailableModes = state.AvailableSelectiveFire;
+        component.SoundGunshot = state.SoundGunshot;
     }
 
     public bool CanShoot(GunComponent component)
@@ -408,6 +411,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         public int ShotCounter;
         public SelectiveFire SelectiveFire;
         public SelectiveFire AvailableSelectiveFire;
+        public SoundSpecifier? SoundGunshot;
     }
 
     /// <summary>

@@ -29,3 +29,8 @@ gun-speedloader-empty = Спидлоадер пуст
 gun-ballistic-transfer-invalid = { CAPITALIZE($ammoEntity) } нельзя поместить в { $targetEntity }!
 gun-ballistic-transfer-empty = В { CAPITALIZE($entity) } пусто.
 gun-ballistic-transfer-target-full = { CAPITALIZE($entity) } уже полностью заряжен.
+# TwoModeGun
+gun-twomode-mode-examine = Выбран тип огня [color={ $color }]{ $mode }[/color].
+# TwoModeSelected
+gun-twomode-Stun = шокер
+gun-twomode-Laser = лазер

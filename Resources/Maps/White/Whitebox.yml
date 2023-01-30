@@ -83902,13 +83902,13 @@ entities:
   - unspawnedCount: 10
     type: BallisticAmmoProvider
 - uid: 8819
-  type: WeaponDisabler
+  type: WeaponEgun
   components:
   - pos: 1.4993298,39.638985
     parent: 8364
     type: Transform
 - uid: 8820
-  type: WeaponDisabler
+  type: WeaponEgun
   components:
   - pos: 1.4993298,39.52961
     parent: 8364

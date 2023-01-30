@@ -25,6 +25,34 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
+
+        // TwoModeEnergy
+        SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ComponentGetState>(OnBatteryTwoModeGetState);
+        SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ComponentHandleState>(OnBatteryTwoModeHandleState);
+        SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
+        SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
+        SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
+    }
+
+    private void OnBatteryTwoModeHandleState(EntityUid uid, TwoModeEnergyAmmoProviderComponent component, ref ComponentHandleState args)
+    {
+        if (args.Current is not TwoModeComponentState state) return;
+
+        component.Shots = state.Shots;
+        component.Capacity = state.MaxShots;
+        component.FireCost = state.FireCost;
+        component.CurrentMode = state.CurrentMode;
+    }
+
+    private void OnBatteryTwoModeGetState(EntityUid uid, TwoModeEnergyAmmoProviderComponent component, ref ComponentGetState args)
+    {
+        args.State = new TwoModeComponentState()
+        {
+            Shots = component.Shots,
+            MaxShots = component.Capacity,
+            FireCost = component.FireCost,
+            CurrentMode = component.CurrentMode,
+        };
     }
 
     private void OnBatteryHandleState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentHandleState args)
@@ -99,6 +127,13 @@ public abstract partial class SharedGunSystem
                 return EnsureComp<AmmoComponent>(ent);
             case HitscanBatteryAmmoProviderComponent hitscan:
                 return ProtoManager.Index<HitscanPrototype>(hitscan.Prototype);
+            case TwoModeEnergyAmmoProviderComponent twoMode:
+                if (twoMode.CurrentMode == EnergyModes.Stun)
+                {
+                    var projEnt = Spawn(twoMode.ProjectilePrototype, coordinates);
+                    return EnsureComp<AmmoComponent>(projEnt);
+                }
+                return ProtoManager.Index<HitscanPrototype>(twoMode.HitscanPrototype);
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -107,6 +142,15 @@ public abstract partial class SharedGunSystem
     [Serializable, NetSerializable]
     private sealed class BatteryAmmoProviderComponentState : ComponentState
     {
+        public int Shots;
+        public int MaxShots;
+        public float FireCost;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class TwoModeComponentState : ComponentState
+    {
+        public EnergyModes CurrentMode { get; init; }
         public int Shots;
         public int MaxShots;
         public float FireCost;
