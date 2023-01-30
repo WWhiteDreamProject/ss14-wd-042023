@@ -31,12 +31,7 @@ public sealed partial class ChatSystem
 
         foreach (var proto in _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>())
         {
-            foreach (var keycode in proto.KeyCodes)
-            {
-                if (_keyCodes.ContainsKey(keycode))
-                    continue;
-                _keyCodes.Add(keycode, proto);
-            }
+            _keyCodes.Add(proto.KeyCode, proto);
         }
 
 
@@ -72,8 +67,8 @@ public sealed partial class ChatSystem
             // Redirect to defaultChannel of headsetComp if it goes to "h" channel code after making sure defaultChannel exists
             if (message[1] == 'h'
                 && _headsetComponent != null
-                && _headsetComponent.defaultChannel != null
-                && _prototypeManager.TryIndex(_headsetComponent.defaultChannel, out RadioChannelPrototype? protoDefaultChannel))
+                && _headsetComponent.DefaultChannel != null
+                && _prototypeManager.TryIndex(_headsetComponent.DefaultChannel, out RadioChannelPrototype? protoDefaultChannel))
             {
                 // Set Channel to headset defaultChannel
                 channel = protoDefaultChannel;
@@ -105,7 +100,7 @@ public sealed partial class ChatSystem
         // Re-capitalize message since we removed the prefix.
         message = SanitizeMessageCapital(message);
 
-        
+
 
         if (!hasHeadset && !HasComp<IntrinsicRadioTransmitterComponent>(source))
         {

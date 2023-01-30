@@ -82,7 +82,7 @@ public sealed class NonPeacefulRoundEndSystem : EntitySystem
         var transform = CompOrNull<TransformComponent>(player);
 
         if(transform == null) return;
-        if(!HasComp<HumanoidComponent>(player)) return;
+        if(!HasComp<HumanoidAppearanceComponent>(player)) return;
         if(!HasComp<SharedHandsComponent>(player)) return;
 
 

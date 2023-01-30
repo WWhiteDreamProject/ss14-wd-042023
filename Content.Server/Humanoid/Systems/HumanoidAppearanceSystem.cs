@@ -1,7 +1,4 @@
 using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -14,37 +11,22 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Humanoid;
 
-public sealed partial class HumanoidSystem : SharedHumanoidSystem
+public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HumanoidComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<HumanoidComponent, HumanoidMarkingModifierMarkingSetMessage>(OnMarkingsSet);
-        SubscribeLocalEvent<HumanoidComponent, HumanoidMarkingModifierBaseLayersSetMessage>(OnBaseLayersSet);
-        SubscribeLocalEvent<HumanoidComponent, GetVerbsEvent<Verb>>(OnVerbsRequest);
-        SubscribeLocalEvent<HumanoidComponent, ExaminedEvent>(OnExamined);
+        base.Initialize();
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, HumanoidMarkingModifierMarkingSetMessage>(OnMarkingsSet);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, HumanoidMarkingModifierBaseLayersSetMessage>(OnBaseLayersSet);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, GetVerbsEvent<Verb>>(OnVerbsRequest);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void Synchronize(EntityUid uid, HumanoidComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-        {
-            return;
-        }
-
-        SetAppearance(uid,
-            component.Species,
-            component.CustomBaseLayers,
-            component.SkinColor,
-            component.Sex,
-            component.AllHiddenLayers.ToList(),
-            component.CurrentMarkings.GetForwardEnumerator().ToList());
-    }
-
-    private void OnInit(EntityUid uid, HumanoidComponent humanoid, ComponentInit args)
+    private void OnInit(EntityUid uid, HumanoidAppearanceComponent humanoid, ComponentInit args)
     {
         if (string.IsNullOrEmpty(humanoid.Species))
         {
@@ -67,7 +49,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
         LoadProfile(uid, startingSet.Profile, humanoid);
     }
 
-    private void OnExamined(EntityUid uid, HumanoidComponent component, ExaminedEvent args)
+    private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
         var identity = Identity.Entity(component.Owner, EntityManager);
         var species = GetSpeciesRepresentation(component.Species).ToLower();
@@ -82,7 +64,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="uid">The mob's entity UID.</param>
     /// <param name="profile">The character profile to load.</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void LoadProfile(EntityUid uid, HumanoidCharacterProfile profile, HumanoidComponent? humanoid = null)
+    public void LoadProfile(EntityUid uid, HumanoidCharacterProfile profile, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid))
         {
@@ -90,12 +72,12 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
         }
 
         SetSpecies(uid, profile.Species, false, humanoid);
-        humanoid.Sex = profile.Sex;
+        SetSex(uid, profile.Sex, false, humanoid);
+        humanoid.EyeColor = profile.Appearance.EyeColor;
 
         SetSkinColor(uid, profile.Appearance.SkinColor, false);
-        SetBaseLayerColor(uid, HumanoidVisualLayers.Eyes, profile.Appearance.EyeColor, false);
 
-        humanoid.CurrentMarkings.Clear();
+        humanoid.MarkingSet.Clear();
 
         // Hair/facial hair - this may eventually be deprecated.
 
@@ -117,7 +99,8 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
         }
 
         humanoid.Age = profile.Age;
-        Synchronize(uid);
+
+        Dirty(humanoid);
         humanoid.HumanoidSpeakColor = GetCharacterHexColor(profile.Name);
     }
 
@@ -130,8 +113,8 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="target">Target entity to apply the source entity's appearance to.</param>
     /// <param name="sourceHumanoid">Source entity's humanoid component.</param>
     /// <param name="targetHumanoid">Target entity's humanoid component.</param>
-    public void CloneAppearance(EntityUid source, EntityUid target, HumanoidComponent? sourceHumanoid = null,
-        HumanoidComponent? targetHumanoid = null)
+    public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
+        HumanoidAppearanceComponent? targetHumanoid = null)
     {
         if (!Resolve(source, ref sourceHumanoid) || !Resolve(target, ref targetHumanoid))
         {
@@ -140,9 +123,9 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
 
         targetHumanoid.Species = sourceHumanoid.Species;
         targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
-        targetHumanoid.Sex = sourceHumanoid.Sex;
+        SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
-        targetHumanoid.CurrentMarkings = new(sourceHumanoid.CurrentMarkings);
+        targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
         SetTTSVoice(target, sourceHumanoid.Voice, targetHumanoid);
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
@@ -151,180 +134,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
             grammar.Gender = sourceHumanoid.Gender;
         }
 
-        Synchronize(target, targetHumanoid);
-    }
-
-    /// <summary>
-    ///     Set a humanoid mob's species. This will change their base sprites, as well as their current
-    ///     set of markings to fit against the mob's new species.
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID.</param>
-    /// <param name="species">The species to set the mob to. Will return if the species prototype was invalid.</param>
-    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetSpecies(EntityUid uid, string species, bool sync = true, HumanoidComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid) || !_prototypeManager.TryIndex<SpeciesPrototype>(species, out var prototype))
-        {
-            return;
-        }
-
-        humanoid.Species = species;
-        humanoid.CurrentMarkings.FilterSpecies(species, _markingManager);
-        var oldMarkings = humanoid.CurrentMarkings.GetForwardEnumerator().ToList();
-        humanoid.CurrentMarkings = new(oldMarkings, prototype.MarkingPoints, _markingManager, _prototypeManager);
-
-        if (sync)
-        {
-            Synchronize(uid, humanoid);
-        }
-    }
-
-    /// <summary>
-    ///     Sets the skin color of this humanoid mob. Will only affect base layers that are not custom,
-    ///     custom base layers should use <see cref="SetBaseLayerColor"/> instead.
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID.</param>
-    /// <param name="skinColor">Skin color to set on the humanoid mob.</param>
-    /// <param name="sync">Whether to synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetSkinColor(EntityUid uid, Color skinColor, bool sync = true, HumanoidComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid))
-        {
-            return;
-        }
-
-        humanoid.SkinColor = skinColor;
-
-        if (sync)
-            Synchronize(uid, humanoid);
-    }
-
-    /// <summary>
-    ///     Sets the base layer ID of this humanoid mob. A humanoid mob's 'base layer' is
-    ///     the skin sprite that is applied to the mob's sprite upon appearance refresh.
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID.</param>
-    /// <param name="layer">The layer to target on this humanoid mob.</param>
-    /// <param name="id">The ID of the sprite to use. See <see cref="HumanoidSpeciesSpriteLayer"/>.</param>
-    /// <param name="sync">Whether to synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetBaseLayerId(EntityUid uid, HumanoidVisualLayers layer, string id, bool sync = true,
-        HumanoidComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid)
-            || !_prototypeManager.HasIndex<HumanoidSpeciesSpriteLayer>(id))
-        {
-            return;
-        }
-
-        if (humanoid.CustomBaseLayers.TryGetValue(layer, out var info))
-        {
-            humanoid.CustomBaseLayers[layer] = new(id, info.Color);
-        }
-        else
-        {
-            var layerInfo = new CustomBaseLayerInfo(id, humanoid.SkinColor);
-            humanoid.CustomBaseLayers.Add(layer, layerInfo);
-        }
-
-        if (sync)
-            Synchronize(uid, humanoid);
-    }
-
-    /// <summary>
-    ///     Sets the color of this humanoid mob's base layer. See <see cref="SetBaseLayerId"/> for a
-    ///     description of how base layers work.
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID.</param>
-    /// <param name="layer">The layer to target on this humanoid mob.</param>
-    /// <param name="color">The color to set this base layer to.</param>
-    public void SetBaseLayerColor(EntityUid uid, HumanoidVisualLayers layer, Color color, bool sync = true, HumanoidComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid))
-        {
-            return;
-        }
-
-        if (humanoid.CustomBaseLayers.TryGetValue(layer, out var info))
-        {
-            humanoid.CustomBaseLayers[layer] = new(info.ID, color);
-        }
-        else
-        {
-            var layerInfo = new CustomBaseLayerInfo(string.Empty, color);
-            humanoid.CustomBaseLayers.Add(layer, layerInfo);
-        }
-
-        if (sync)
-            Synchronize(uid, humanoid);
-    }
-
-    /// <summary>
-    ///     Toggles a humanoid's sprite layer visibility.
-    /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
-    /// <param name="layer">Layer to toggle visibility for</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void ToggleHiddenLayer(EntityUid uid, HumanoidVisualLayers layer, HumanoidComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid, false))
-        {
-            return;
-        }
-
-        if (humanoid.HiddenLayers.Contains(layer))
-        {
-            humanoid.HiddenLayers.Remove(layer);
-        }
-        else
-        {
-            humanoid.HiddenLayers.Add(layer);
-        }
-
-        Synchronize(uid, humanoid);
-    }
-
-    /// <summary>
-    ///     Sets the visibility for multiple layers at once on a humanoid's sprite.
-    /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
-    /// <param name="layers">An enumerable of all sprite layers that are going to have their visibility set</param>
-    /// <param name="visible">The visibility state of the layers given</param>
-    /// <param name="permanent">If this is a permanent change, or temporary. Permanent layers are stored in their own hash set.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetLayersVisibility(EntityUid uid, IEnumerable<HumanoidVisualLayers> layers, bool visible, bool permanent = false,
-        HumanoidComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid))
-        {
-            return;
-        }
-
-        foreach (var layer in layers)
-        {
-            if (visible)
-            {
-                if (permanent && humanoid.PermanentlyHidden.Contains(layer))
-                {
-                    humanoid.PermanentlyHidden.Remove(layer);
-                }
-
-                humanoid.HiddenLayers.Remove(layer);
-            }
-            else
-            {
-                if (permanent)
-                {
-                    humanoid.PermanentlyHidden.Add(layer);
-                }
-
-                humanoid.HiddenLayers.Add(layer);
-            }
-        }
-
-        Synchronize(uid, humanoid);
+        Dirty(targetHumanoid);
     }
 
     /// <summary>
@@ -336,7 +146,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool sync = true, bool forced = false, HumanoidComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -354,10 +164,10 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
             }
         }
 
-        humanoid.CurrentMarkings.AddBack(prototype.MarkingCategory, markingObject);
+        humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
         if (sync)
-            Synchronize(uid, humanoid);
+            Dirty(humanoid);
     }
 
     /// <summary>
@@ -369,7 +179,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -379,10 +189,10 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
 
         var markingObject = new Marking(marking, colors);
         markingObject.Forced = forced;
-        humanoid.CurrentMarkings.AddBack(prototype.MarkingCategory, markingObject);
+        humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
         if (sync)
-            Synchronize(uid, humanoid);
+            Dirty(humanoid);
     }
 
     /// <summary>
@@ -392,7 +202,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="marking">The marking to try and remove.</param>
     /// <param name="sync">Whether to immediately sync this to the humanoid</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void RemoveMarking(EntityUid uid, string marking, bool sync = true, HumanoidComponent? humanoid = null)
+    public void RemoveMarking(EntityUid uid, string marking, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -400,10 +210,10 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
             return;
         }
 
-        humanoid.CurrentMarkings.Remove(prototype.MarkingCategory, marking);
+        humanoid.MarkingSet.Remove(prototype.MarkingCategory, marking);
 
         if (sync)
-            Synchronize(uid, humanoid);
+            Dirty(humanoid);
     }
 
     /// <summary>
@@ -413,19 +223,18 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="category">Category of the marking</param>
     /// <param name="index">Index of the marking</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void RemoveMarking(EntityUid uid, MarkingCategories category, int index, HumanoidComponent? humanoid = null)
+    public void RemoveMarking(EntityUid uid, MarkingCategories category, int index, HumanoidAppearanceComponent? humanoid = null)
     {
         if (index < 0
             || !Resolve(uid, ref humanoid)
-            || !humanoid.CurrentMarkings.TryGetCategory(category, out var markings)
+            || !humanoid.MarkingSet.TryGetCategory(category, out var markings)
             || index >= markings.Count)
         {
             return;
         }
 
-        humanoid.CurrentMarkings.Remove(category, index);
-
-        Synchronize(uid, humanoid);
+        humanoid.MarkingSet.Remove(category, index);
+        Dirty(humanoid);
     }
 
     /// <summary>
@@ -436,12 +245,12 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="index">Index of the marking</param>
     /// <param name="markingId">The marking ID to use</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetMarkingId(EntityUid uid, MarkingCategories category, int index, string markingId, HumanoidComponent? humanoid = null)
+    public void SetMarkingId(EntityUid uid, MarkingCategories category, int index, string markingId, HumanoidAppearanceComponent? humanoid = null)
     {
         if (index < 0
             || !_markingManager.MarkingsByCategory(category).TryGetValue(markingId, out var markingPrototype)
             || !Resolve(uid, ref humanoid)
-            || !humanoid.CurrentMarkings.TryGetCategory(category, out var markings)
+            || !humanoid.MarkingSet.TryGetCategory(category, out var markings)
             || index >= markings.Count)
         {
             return;
@@ -453,9 +262,8 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
             marking.SetColor(i, markings[index].MarkingColors[i]);
         }
 
-        humanoid.CurrentMarkings.Replace(category, index, marking);
-
-        Synchronize(uid, humanoid);
+        humanoid.MarkingSet.Replace(category, index, marking);
+        Dirty(humanoid);
     }
 
     /// <summary>
@@ -467,11 +275,11 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
     /// <param name="colors">The marking colors to use</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
     public void SetMarkingColor(EntityUid uid, MarkingCategories category, int index, List<Color> colors,
-        HumanoidComponent? humanoid = null)
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (index < 0
             || !Resolve(uid, ref humanoid)
-            || !humanoid.CurrentMarkings.TryGetCategory(category, out var markings)
+            || !humanoid.MarkingSet.TryGetCategory(category, out var markings)
             || index >= markings.Count)
         {
             return;
@@ -482,7 +290,7 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
             markings[index].SetColor(i, colors[i]);
         }
 
-        Synchronize(uid, humanoid);
+        Dirty(humanoid);
     }
 
     /// <summary>
@@ -523,14 +331,14 @@ public sealed partial class HumanoidSystem : SharedHumanoidSystem
         return Loc.GetString("identity-age-old");
     }
 
-    private void EnsureDefaultMarkings(EntityUid uid, HumanoidComponent? humanoid)
+    private void EnsureDefaultMarkings(EntityUid uid, HumanoidAppearanceComponent? humanoid)
     {
         if (!Resolve(uid, ref humanoid))
         {
             return;
         }
 
-        humanoid.CurrentMarkings.EnsureDefault(humanoid.SkinColor, _markingManager);
+        humanoid.MarkingSet.EnsureDefault(humanoid.SkinColor, _markingManager);
     }
 
     private string GetCharacterHexColor(string characterName)
