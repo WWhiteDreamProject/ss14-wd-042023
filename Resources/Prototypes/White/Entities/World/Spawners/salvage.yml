@@ -1,0 +1,15 @@
+﻿- type: entity
+  name: White Salvage Material Crate Spawner
+  id: WhiteSalvageMaterialCrateSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Structures/Storage/Crates/generic.rsi
+          state: icon
+    - type: RandomSpawner
+      prototypes:
+        - WhiteCrateSalvageAssortedGoodies
+      chance: 0.9
+      offset: 0.0

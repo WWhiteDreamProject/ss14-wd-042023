@@ -1,0 +1,818 @@
+meta:
+  format: 3
+  name: DemoStation
+  author: Space-Wizards
+  postmapinit: true
+tilemap:
+  0: Space
+  1: FloorArcadeBlue
+  2: FloorArcadeBlue2
+  3: FloorArcadeRed
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBasaslt
+  14: FloorBlue
+  15: FloorBlueCircuit
+  16: FloorBoxing
+  17: FloorCarpetClown
+  18: FloorCarpetOffice
+  19: FloorCave
+  20: FloorCaveDrought
+  21: FloorClown
+  22: FloorDark
+  23: FloorDarkDiagonal
+  24: FloorDarkDiagonalMini
+  25: FloorDarkHerringbone
+  26: FloorDarkMini
+  27: FloorDarkMono
+  28: FloorDarkOffset
+  29: FloorDarkPavement
+  30: FloorDarkPavementVertical
+  31: FloorDarkPlastic
+  32: FloorDirt
+  33: FloorEighties
+  34: FloorElevatorShaft
+  35: FloorFreezer
+  36: FloorGlass
+  37: FloorGold
+  38: FloorGrass
+  39: FloorGrassDark
+  40: FloorGrassJungle
+  41: FloorGrassLight
+  42: FloorGreenCircuit
+  43: FloorGym
+  44: FloorHydro
+  45: FloorKitchen
+  46: FloorLaundry
+  47: FloorLino
+  48: FloorMetalDiamond
+  49: FloorMime
+  50: FloorMono
+  51: FloorPlastic
+  52: FloorRGlass
+  53: FloorReinforced
+  54: FloorRockVault
+  55: FloorShowroom
+  56: FloorShuttleBlue
+  57: FloorShuttleOrange
+  58: FloorShuttlePurple
+  59: FloorShuttleRed
+  60: FloorShuttleWhite
+  61: FloorSilver
+  62: FloorSnow
+  63: FloorSteel
+  64: FloorSteelDiagonal
+  65: FloorSteelDiagonalMini
+  66: FloorSteelDirty
+  67: FloorSteelHerringbone
+  68: FloorSteelMini
+  69: FloorSteelMono
+  70: FloorSteelOffset
+  71: FloorSteelPavement
+  72: FloorSteelPavementVertical
+  73: FloorTechMaint
+  74: FloorTechMaint2
+  75: FloorTechMaint3
+  76: FloorWhite
+  77: FloorWhiteDiagonal
+  78: FloorWhiteDiagonalMini
+  79: FloorWhiteHerringbone
+  80: FloorWhiteMini
+  81: FloorWhiteMono
+  82: FloorWhiteOffset
+  83: FloorWhitePavement
+  84: FloorWhitePavementVertical
+  85: FloorWhitePlastic
+  86: FloorWood
+  87: FloorWoodTile
+  88: Lattice
+  89: Plating
+entities:
+- uid: 0
+  components:
+  - type: MetaData
+  - pos: -23.63041,15.824121
+    parent: invalid
+    type: Transform
+  - chunks:
+      -1,-1:
+        ind: -1,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAUAAAAFAAAABQAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFkAAABZAAAAUAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAFkAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFkAAABQAAAAUAAAAA==
+      -1,0:
+        ind: -1,0
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      0,0:
+        ind: 0,0
+        tiles: UAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      0,-1:
+        ind: 0,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    type: MapGrid
+  - type: Broadphase
+  - angularDamping: 0.05
+    linearDamping: 0.05
+    fixedRotation: False
+    bodyType: Dynamic
+    type: Physics
+  - fixtures: []
+    type: Fixtures
+  - type: OccluderTree
+  - type: Shuttle
+  - nextUpdate: -219.8402235
+    type: GridPathfinding
+  - gravityShakeSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/alert.ogg
+    type: Gravity
+  - chunkCollection:
+      0,-1:
+        0:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: 0.013458252,-0.013501167
+        2:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: 0.013458252,-0.013501167
+      -1,0:
+        1:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: -0.014925003,0.0148973465
+        21:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.469986,0.27047634
+        22:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.469986,0.27047634
+        23:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.469986,0.27047634
+      -1,-1:
+        3:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.0016804,-2.995244
+        4:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.0016804,-2.995244
+        5:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.0016804,-2.995244
+        6:
+          color: '#FFFFFFFF'
+          id: DirtMedium
+          coordinates: -1.036684,-1.9729328
+        7:
+          color: '#FFFFFFFF'
+          id: DirtMedium
+          coordinates: -1.036684,-1.9729328
+        8:
+          color: '#FFFFFFFF'
+          id: DirtMedium
+          coordinates: -1.036684,-1.9729328
+        9:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.036684,-1.5043736
+        10:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.0224934,-1.2345953
+        11:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.0224934,-1.2345953
+        12:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -0.75286293,-2.4982882
+        13:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -0.75286293,-2.4982882
+        14:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.9023418,-2.0155287
+        15:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.9023418,-2.0013304
+        16:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.732048,-0.22648335
+        17:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.732048,-0.22648335
+        18:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.732048,-0.22648335
+        19:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: -1.732048,-0.25487995
+        20:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: -1.732048,-0.25487995
+        24:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.4983692,-3.4922028
+        25:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.4983692,-3.4922028
+        26:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -2.4983692,-3.4922028
+        27:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.9874878,-3.4780045
+        28:
+          color: '#FFFFFFFF'
+          id: DirtLight
+          coordinates: -1.9874878,-3.4780045
+        29:
+          color: '#FFFFFFFF'
+          id: DirtMedium
+          coordinates: -1.9732971,-2.995244
+        30:
+          color: '#FFFFFFFF'
+          id: DirtMedium
+          coordinates: -2.0016804,-2.995244
+        31:
+          color: '#FFFFFFFF'
+          id: DirtMedium
+          coordinates: -2.0016804,-2.995244
+        32:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: -2.0016804,-2.995244
+        33:
+          color: '#FFFFFFFF'
+          id: DirtHeavy
+          coordinates: -2.0016804,-2.995244
+    type: DecalGrid
+  - tiles:
+      -3,-3: 0
+      -3,-2: 0
+      -3,-1: 0
+      -2,-3: 0
+      -2,-2: 0
+      -2,-1: 0
+      -1,-3: 0
+      -1,-2: 0
+      -1,-1: 0
+      -4,-3: 0
+      -4,-4: 0
+      -3,-4: 0
+      -2,-4: 0
+      -1,0: 0
+      -2,0: 1
+      -3,0: 0
+      0,0: 0
+      0,-1: 0
+      0,-2: 0
+      0,-3: 0
+      -1,-4: 2
+      0,-4: 2
+      -2,-5: 2
+      -3,-5: 2
+      -4,-5: 2
+      -5,-4: 2
+      -5,-3: 2
+      -6,-4: 2
+      -4,-1: 2
+      -4,-2: 2
+      1,-1: 0
+    uniqueMixes:
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 220.53748
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      immutable: True
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GridAtmosphere
+  - type: GasTileOverlay
+  - type: RadiationGridResistance
+- uid: 1
+  type: GrilleBroken
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -1.5,1.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 2
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 3
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 4
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 5
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 6
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 7
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 8
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,0.5
+    parent: 0
+    type: Transform
+- uid: 9
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 10
+  type: GrilleBroken
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-1.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 11
+  type: GrilleBroken
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -0.5,1.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 12
+  type: Grille
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 13
+  type: Grille
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,0.5
+    parent: 0
+    type: Transform
+- uid: 14
+  type: GrilleBroken
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 15
+  type: GrilleBroken
+  components:
+  - pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 16
+  type: GrilleBroken
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 17
+  type: GrilleBroken
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 18
+  type: Grille
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 19
+  type: Grille
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 20
+  type: StasisBed
+  components:
+  - pos: 0.5,0.5
+    parent: 0
+    type: Transform
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 21
+      machine_parts: !type:Container
+        ents:
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+    type: ContainerContainer
+- uid: 21
+  type: StasisBedMachineCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 22
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 23
+  type: MicroManipulatorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 24
+  type: CableApcStack1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+  - count: 3
+    type: Stack
+  - canCollide: False
+    type: Physics
+- uid: 25
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+- uid: 26
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+- uid: 27
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+- uid: 28
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+- uid: 29
+  type: CryostasisBeaker
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 30
+  type: CryostasisBeaker
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 20
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 31
+  type: StasisBed
+  components:
+  - pos: 0.5,-1.5
+    parent: 0
+    type: Transform
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 32
+      machine_parts: !type:Container
+        ents:
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+    type: ContainerContainer
+- uid: 32
+  type: StasisBedMachineCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 33
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 34
+  type: MicroManipulatorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 35
+  type: CableApcStack1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+  - count: 3
+    type: Stack
+  - canCollide: False
+    type: Physics
+- uid: 36
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+- uid: 37
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+- uid: 38
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+- uid: 39
+  type: GasPipeStraight
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+- uid: 40
+  type: CryostasisBeaker
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 41
+  type: CryostasisBeaker
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 31
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 42
+  type: HospitalCurtainsOpen
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,0.5
+    parent: 0
+    type: Transform
+- uid: 43
+  type: HospitalCurtains
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 44
+  type: LockerMedicine
+  components:
+  - pos: -1.5,0.5
+    parent: 0
+    type: Transform
+  - containers:
+      entity_storage: !type:Container
+        ents:
+        - 45
+        - 46
+        - 47
+        - 48
+        - 50
+    type: ContainerContainer
+- uid: 45
+  type: Ointment
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 44
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 46
+  type: SyringeEphedrine
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 44
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 47
+  type: SyringeCorpium
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 44
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 48
+  type: StackHolderHealingItem
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 44
+    type: Transform
+  - containers:
+      stack_slot: !type:ContainerSlot
+        ent: 49
+    type: ContainerContainer
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 49
+  type: Brutepack
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 48
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 50
+  type: StackHolderHealingItem
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 44
+    type: Transform
+  - containers:
+      stack_slot: !type:ContainerSlot
+        ent: 51
+    type: ContainerContainer
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 51
+  type: Brutepack
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 50
+    type: Transform
+  - canCollide: False
+    type: Physics
+...

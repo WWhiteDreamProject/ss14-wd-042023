@@ -35,6 +35,7 @@ namespace Content.IntegrationTests.Tests
                 var protoIds = prototypeMan
                     .EnumeratePrototypes<EntityPrototype>()
                     .Where(p=>!p.Abstract)
+                    .Where(p => !p.Components.ContainsKey("MapGrid")) // Generation shit btw (did you know spawning fucktons of grids in one spot breaks things)
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
@@ -79,6 +80,7 @@ namespace Content.IntegrationTests.Tests
                 var protoIds = prototypeMan
                     .EnumeratePrototypes<EntityPrototype>()
                     .Where(p=>!p.Abstract)
+                    .Where(p => !p.Components.ContainsKey("MapGrid")) // Generation shit
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
@@ -161,6 +163,14 @@ namespace Content.IntegrationTests.Tests
                 "MapGrid",
                 "StationData", // errors when removed mid-round
                 "Actor", // We aren't testing actor components, those need their player session set.
+
+                //Generation shit
+                "BlobFloorPlanBuilder", // Flat does not work without configuration.
+                "DebrisFeaturePlacerController", // Above.
+                "LoadedChunk",
+                "BiomeSelection",
+                //Generation shit
+
             };
 
             var testEntity = @"
@@ -256,6 +266,13 @@ namespace Content.IntegrationTests.Tests
                 "MapGrid",
                 "StationData", // errors when deleted mid-round
                 "Actor", // We aren't testing actor components, those need their player session set.
+
+                //Generation Shit
+                "BlobFloorPlanBuilder", // Flat does not work without configuration.
+                "DebrisFeaturePlacerController", // Above.
+                "LoadedChunk",
+                "BiomeSelection",
+                //Generation Shit
             };
 
             var testEntity = @"

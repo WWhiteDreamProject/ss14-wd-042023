@@ -87,4 +87,6 @@ public enum LogType
     EntityDelete = 82,
     Vote = 83,
     ShotReflected = 84,
+    // haha why
+    ALPlacedStructure = -3149001,
 }

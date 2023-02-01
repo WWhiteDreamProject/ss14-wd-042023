@@ -1,0 +1,586 @@
+﻿# Junks
+- type: entity
+  id: JunkG1
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g1.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG2
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g2.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG3
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g3.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG4
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g4.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG5
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g5.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG6
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g6.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG7
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g7.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG8
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g8.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG9
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g9.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG10
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g10.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG11
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g11.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG12
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g12.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG13
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g13.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG14
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g14.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG15
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g15.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG16
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g16.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG17
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g17.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG18
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g18.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG19
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g19.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG20
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g20.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG21
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g21.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG22
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g22.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG23
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g23.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG24
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g24.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG25
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g25.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG26
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g26.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG27
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g27.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG28
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g28.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG29
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g29.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG30
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g30.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG31
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g31.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG32
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g32.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG33
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g33.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG34
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g34.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG35
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g35.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG36
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g36.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG37
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g37.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG38
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g38.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG39
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g39.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+- type: entity
+  id: JunkG40
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Junk/junk_g40.yml
+      components:
+        - type: IFF
+          flags: HideLabel
+
+# Asteroids
+
+- type: entity
+  id: AstG1
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Asteroid/asteroid_g1.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG2
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Asteroid/asteroid_g2.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG3
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Asteroid/asteroid_g3.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG4
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/small-1.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG5
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/small-2.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG6
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/small-3.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG7
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/small-4.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: AstG8
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/small-a-1.yml
+      components:
+        - type: IFF
+
+# Derelicts
+
+- type: entity
+  id: DG1
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Derelict/derelict_g1.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: DG2
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Derelict/derelict_g2.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: DG3
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Derelict/derelict_g3.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: DG4
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Derelict/derelict_g4.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: DG5
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/medium-pet-hospital.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: DG6
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/tick-colony.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: DG7
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/medium-library.yml
+      components:
+        - type: IFF
+
+# Shuttles
+
+- type: entity
+  id: SG1
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Shuttle/shuttle_g1.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: SG2
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/WorldGen/Shuttle/shuttle_g2.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: SG3
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/medium-crashed-shuttle.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: SG4
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/medium-ruined-emergency-shuttle.yml
+      components:
+        - type: IFF
+
+- type: entity
+  id: SG5
+  noSpawn: true
+  components:
+    - type: BlueprintPlacer
+      blueprint: /Maps/Salvage/small-ai-survey-drone.yml
+      components:
+        - type: IFF

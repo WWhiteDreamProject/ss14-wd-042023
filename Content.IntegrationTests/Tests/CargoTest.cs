@@ -69,6 +69,7 @@ public sealed class CargoTest
 
             var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
                 .Where(p=>!p.Abstract)
+                .Where(p => !p.Components.ContainsKey("MapGrid")) // Generation Shit
                 .Select(p => p.ID)
                 .ToList();
 
