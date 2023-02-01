@@ -16,9 +16,9 @@ public sealed class StructurePlacementComponent : Component
     /// <summary>
     /// Radius around which there should be no objects for placement to succeed.
     /// </summary>
-    [DataField("safetyRadius")] public int SafetyRadius = 128;
+    [DataField("safetyRadius")] public int SafetyRadius = 256;
 
-    [DataField("placementRadius")] public int PlacementRadius = 1764;
+    [DataField("placementRadius")] public int PlacementRadius = 4096;
 }
 
 /// <summary>
