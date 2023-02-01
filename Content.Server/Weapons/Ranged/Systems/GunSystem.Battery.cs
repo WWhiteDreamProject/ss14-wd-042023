@@ -12,6 +12,7 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     protected override void InitializeBattery()
     {
         base.InitializeBattery();
@@ -38,19 +39,22 @@ public sealed partial class GunSystem
         if (!TryComp<GunComponent>(uid, out var gun)) return;
         if (component.CurrentMode == EnergyModes.Stun)
         {
+            component.InStun = false;
             gun.SoundGunshot = component.HitscanSound;
             component.CurrentMode = EnergyModes.Laser;
             component.FireCost = component.HitscanFireCost;
-            RaiseNetworkEvent(new TwoModeChangedEvent(uid));
+            _audio.PlayPvs(component.ToggleSound, args.User);
         }
         else if (component.CurrentMode == EnergyModes.Laser)
         {
+            component.InStun = true;
             gun.SoundGunshot = component.ProjSound;
             component.CurrentMode = EnergyModes.Stun;
             component.FireCost = component.ProjFireCost;
-            RaiseNetworkEvent(new TwoModeChangedEvent(uid));
+            _audio.PlayPvs(component.ToggleSound, args.User);
         }
         UpdateShots(uid, component);
+        UpdateTwoModeAppearance(uid, component);
         UpdateBatteryAppearance(uid, component);
         UpdateAmmoCount(uid);
         Dirty(gun);

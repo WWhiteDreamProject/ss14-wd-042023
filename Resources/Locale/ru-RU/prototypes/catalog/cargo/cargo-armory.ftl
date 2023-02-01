@@ -6,3 +6,5 @@ ent-TrackingImplants = { ent-CrateTrackingImplants }
     .desc = { ent-CrateTrackingImplants.desc }
 ent-ArmoryLaser = { ent-CrateArmoryLaser }
     .desc = { ent-CrateArmoryLaser.desc }
+ent-ArmoryEgun = { ent-CrateArmoryEgun }
+    .desc = { ent-CrateArmoryEgun.desc }

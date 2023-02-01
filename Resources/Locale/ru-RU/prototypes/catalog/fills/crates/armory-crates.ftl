@@ -6,3 +6,5 @@ ent-CrateTrackingImplants = Tracking implants
     .desc = Contains a handful of tracking implanters. Good for prisoners you'd like to release but still keep track of.
 ent-CrateArmoryLaser = ящик лазеров
     .desc = Содержит три смертоносных высокоэнергетичных лазерных пистолета. Чтобы открыть необходим доступ уровня Оружейной.
+ent-CrateArmoryEgun = ящик с энергетическими винтовками
+    .desc = Содержит комплект из трех энергетических винтовок. Чтобы открыть необходим уровень доступа Оружейная.

@@ -12,27 +12,6 @@ public sealed partial class GunSystem
     {
         SubscribeLocalEvent<MagazineVisualsComponent, ComponentInit>(OnMagazineVisualsInit);
         SubscribeLocalEvent<MagazineVisualsComponent, AppearanceChangeEvent>(OnMagazineVisualsChange);
-        SubscribeNetworkEvent<TwoModeChangedEvent>(OnMagazineVisualsTwoModeChange);
-    }
-
-    private void OnMagazineVisualsTwoModeChange(TwoModeChangedEvent ev)
-    {
-        if (!TryComp<SpriteComponent>(ev.Weapon, out var sprite)) return;
-
-        if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out var first))
-        {
-            if (sprite.TryGetLayer(first, out var firstLayer) && firstLayer.Visible)
-            {
-                sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, false);
-                sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, true);
-            }
-            else
-            {
-                sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, true);
-                sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, false);
-            }
-
-        }
     }
 
     private void OnMagazineVisualsInit(EntityUid uid, MagazineVisualsComponent component, ComponentInit args)
@@ -54,7 +33,7 @@ public sealed partial class GunSystem
         if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out _))
         {
             sprite.LayerSetState(GunVisualLayers.TwoModeFirst, $"{component.MagState}-twomode1-{component.MagSteps - 1}");
-            sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, true);
+            sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, false);
         }
 
         if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out _))
@@ -126,21 +105,24 @@ public sealed partial class GunSystem
                 sprite.LayerSetState(GunVisualLayers.MagUnshaded, $"{component.MagState}-unshaded-{step}");
             }
 
-            if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out var first))
+            if (!args.AppearanceData.TryGetValue(AmmoVisuals.InStun, out var inStun) || inStun is true)
             {
-                if (sprite.TryGetLayer(first, out var firstLayer) && firstLayer.Visible)
+                if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeFirst, out var _))
                 {
+                    sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, false);
                     sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, true);
                     sprite.LayerSetState(GunVisualLayers.TwoModeFirst, $"{component.MagState}-twomode1-{step}");
                 }
             }
 
-            if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out var second))
+            else if (inStun is false)
             {
-                if (sprite.TryGetLayer(second, out var secondLayer) && secondLayer.Visible)
+                if (sprite.LayerMapTryGet(GunVisualLayers.TwoModeSecond, out var _))
                 {
+                    sprite.LayerSetVisible(GunVisualLayers.TwoModeFirst, false);
                     sprite.LayerSetVisible(GunVisualLayers.TwoModeSecond, true);
                     sprite.LayerSetState(GunVisualLayers.TwoModeSecond, $"{component.MagState}-twomode2-{step}");
+
                 }
             }
         }

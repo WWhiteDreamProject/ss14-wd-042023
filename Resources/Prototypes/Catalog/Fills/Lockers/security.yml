@@ -18,7 +18,7 @@
       - id: ClothingOuterWinterWarden
       - id: RubberStampWarden
       - id: DoorRemoteArmory
-      - id: WeaponEgun
+      - id: WeaponDisabler
 
 - type: entity
   id: LockerSecurityFilled
@@ -59,7 +59,6 @@
       - id: WeaponRevolverInspector
       - id: DrinkDetFlask
       - id: SpeedLoaderMagnum
-      - id: WeaponDisabler
 
 - type: entity
   id: ClosetBombFilled

@@ -454,7 +454,7 @@
       fireCost: 50
       projFireCost: 50
       hitscanProto: RedLaser
-      hitscanCost: 100
+      hitscanFireCost: 100
       projSound: "/Audio/Weapons/Guns/Gunshots/taser2.ogg"
       hitscanSound: "/Audio/Weapons/Guns/Gunshots/laser_cannon.ogg"
     - type: MagazineVisuals
@@ -463,4 +463,4 @@
       zeroVisible: true
     - type: Appearance
     - type: StaticPrice
-      price: 1500
+      price: 800

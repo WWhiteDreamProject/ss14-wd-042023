@@ -37,3 +37,12 @@
     contents:
       - id: WeaponLaserGun
         amount: 3
+
+- type: entity
+  id: CrateArmoryEgun
+  parent: CrateWeaponSecure
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponEgun
+          amount: 3

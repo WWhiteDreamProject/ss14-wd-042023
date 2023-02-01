@@ -1,4 +1,5 @@
 using Content.Shared.Examine;
+using Content.Shared.Item;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.GameStates;
@@ -9,6 +10,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
+    [Dependency] private readonly SharedItemSystem _item = default!;
     protected virtual void InitializeBattery()
     {
         // Trying to dump comp references hence the below
@@ -27,11 +29,19 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
 
         // TwoModeEnergy
+        SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ComponentInit>(OnTwoModeInit);
         SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ComponentGetState>(OnBatteryTwoModeGetState);
         SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ComponentHandleState>(OnBatteryTwoModeHandleState);
         SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<TwoModeEnergyAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
+    }
+
+    private void OnTwoModeInit(EntityUid uid, TwoModeEnergyAmmoProviderComponent component, ComponentInit args)
+    {
+        if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(component.Owner, out var appearance)) return;
+
+        Appearance.SetData(appearance.Owner, AmmoVisuals.InStun, component.InStun, appearance);
     }
 
     private void OnBatteryTwoModeHandleState(EntityUid uid, TwoModeEnergyAmmoProviderComponent component, ref ComponentHandleState args)
@@ -42,6 +52,7 @@ public abstract partial class SharedGunSystem
         component.Capacity = state.MaxShots;
         component.FireCost = state.FireCost;
         component.CurrentMode = state.CurrentMode;
+        component.InStun = state.InStun;
     }
 
     private void OnBatteryTwoModeGetState(EntityUid uid, TwoModeEnergyAmmoProviderComponent component, ref ComponentGetState args)
@@ -52,6 +63,7 @@ public abstract partial class SharedGunSystem
             MaxShots = component.Capacity,
             FireCost = component.FireCost,
             CurrentMode = component.CurrentMode,
+            InStun = component.InStun,
         };
     }
 
@@ -118,6 +130,22 @@ public abstract partial class SharedGunSystem
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
     }
 
+    protected void UpdateTwoModeAppearance(EntityUid uid, TwoModeEnergyAmmoProviderComponent component)
+    {
+        if (!TryComp<AppearanceComponent>(uid, out var appearance))
+            return;
+        if (!TryComp<ItemComponent?>(uid, out var item))
+            return;
+
+        if (component.InStun)
+            _item.SetHeldPrefix(uid, null, item);
+        else
+            _item.SetHeldPrefix(uid, "laser", item);
+
+
+        Appearance.SetData(uid, AmmoVisuals.InStun, component.InStun, appearance);
+    }
+
     private IShootable GetShootable(BatteryAmmoProviderComponent component, EntityCoordinates coordinates)
     {
         switch (component)
@@ -154,5 +182,6 @@ public abstract partial class SharedGunSystem
         public int Shots;
         public int MaxShots;
         public float FireCost;
+        public bool InStun;
     }
 }

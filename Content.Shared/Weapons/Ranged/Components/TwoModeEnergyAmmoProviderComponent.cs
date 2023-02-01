@@ -30,6 +30,11 @@ public sealed class TwoModeEnergyAmmoProviderComponent : BatteryAmmoProviderComp
 
     [ViewVariables(VVAccess.ReadOnly), DataField("hitscanSound")]
     public SoundSpecifier? HitscanSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/laser_cannon.ogg");
+
+    public SoundSpecifier? ToggleSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/egun_toggle.ogg");
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool InStun = true;
 }
 
 public enum EnergyModes

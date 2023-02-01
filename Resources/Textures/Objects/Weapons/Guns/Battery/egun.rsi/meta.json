@@ -64,6 +64,14 @@
             "directions": 4
         },
         {
+            "name": "laser-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "laser-inhand-right",
+            "directions": 4
+        },
+        {
             "name": "equipped-BACKPACK",
             "directions": 4
         }
