@@ -12,6 +12,7 @@ using Content.IntegrationTests.Tests.DeviceNetwork;
 using Content.IntegrationTests.Tests.Interaction.Click;
 using Content.IntegrationTests.Tests.Networking;
 using Content.Server.GameTicking;
+using Content.Server.White.Worldgen;
 using Content.Shared.CCVar;
 using NUnit.Framework;
 using Robust.Client;
@@ -51,6 +52,8 @@ public static class PoolManager
         (CCVars.SysWinTickPeriod.Name, "0", true),
         (CCVars.ThreadParallelCount.Name, "1", true),
         (CCVars.GameRoleTimers.Name, "false", false),
+        (WorldgenCVars.WorldgenEnabled.Name, "false", false), // Generation shit
+
     };
 
     private static int PairId;

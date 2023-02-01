@@ -107,6 +107,12 @@ public sealed class PrototypeSaveTest
                 //Iterate list of prototypes to spawn
                 foreach (var prototype in prototypes)
                 {
+
+                    //Generation Shit
+                    if (prototype.Components.ContainsKey("MapGrid")) // Yea this test just doesn't work, it parents a grid to another grid and causes game logic to explode.
+                        continue;
+                    //Generation Shit
+
                     uid = entityMan.SpawnEntity(prototype.ID, testLocation);
                     server.RunTicks(1);
 

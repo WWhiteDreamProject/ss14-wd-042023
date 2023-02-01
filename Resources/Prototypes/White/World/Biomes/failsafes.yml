@@ -1,0 +1,20 @@
+﻿- type: biome
+  id: WhiteFailsafe
+  priority: -999999 # This DEFINITELY shouldn't get selected!
+  noiseRanges: {}
+
+- type: biome
+  id: WhiteAsteroidsFallback
+  priority: -999998 # This probably shouldn't get selected.
+  noiseRanges: {}
+  chunkComponents:
+    - type: DebrisFeaturePlacerController
+      densityNoiseChannel: Density
+    - type: SimpleDebrisSelector
+      debrisTable:
+        - id: WhiteAsteroidDebrisSmall
+        - id: WhiteAsteroidDebrisMedium
+        - id: WhiteAsteroidDebrisLarge
+          prob: 0.7
+        - id: WhiteAsteroidDebrisLarger
+          prob: 0.4

@@ -1,0 +1,7210 @@
+meta:
+  format: 3
+  name: DemoStation
+  author: Space-Wizards
+  postmapinit: false
+tilemap:
+  0: Space
+  1: FloorArcadeBlue
+  2: FloorArcadeBlue2
+  3: FloorArcadeRed
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBasaslt
+  14: FloorBlue
+  15: FloorBlueCircuit
+  16: FloorBoxing
+  17: FloorCarpetClown
+  18: FloorCarpetOffice
+  19: FloorCave
+  20: FloorCaveDrought
+  21: FloorClown
+  22: FloorDark
+  23: FloorDarkDiagonal
+  24: FloorDarkDiagonalMini
+  25: FloorDarkHerringbone
+  26: FloorDarkMini
+  27: FloorDarkMono
+  28: FloorDarkOffset
+  29: FloorDarkPavement
+  30: FloorDarkPavementVertical
+  31: FloorDarkPlastic
+  32: FloorDirt
+  33: FloorEighties
+  34: FloorElevatorShaft
+  35: FloorFreezer
+  36: FloorGlass
+  37: FloorGold
+  38: FloorGrass
+  39: FloorGrassDark
+  40: FloorGrassJungle
+  41: FloorGrassLight
+  42: FloorGreenCircuit
+  43: FloorGym
+  44: FloorHydro
+  45: FloorKitchen
+  46: FloorLaundry
+  47: FloorLino
+  48: FloorMetalDiamond
+  49: FloorMime
+  50: FloorMono
+  51: FloorPlastic
+  52: FloorRGlass
+  53: FloorReinforced
+  54: FloorRockVault
+  55: FloorShowroom
+  56: FloorShuttleBlue
+  57: FloorShuttleOrange
+  58: FloorShuttlePurple
+  59: FloorShuttleRed
+  60: FloorShuttleWhite
+  61: FloorSilver
+  62: FloorSnow
+  63: FloorSteel
+  64: FloorSteelDiagonal
+  65: FloorSteelDiagonalMini
+  66: FloorSteelDirty
+  67: FloorSteelHerringbone
+  68: FloorSteelMini
+  69: FloorSteelMono
+  70: FloorSteelOffset
+  71: FloorSteelPavement
+  72: FloorSteelPavementVertical
+  73: FloorTechMaint
+  74: FloorTechMaint2
+  75: FloorTechMaint3
+  76: FloorWhite
+  77: FloorWhiteDiagonal
+  78: FloorWhiteDiagonalMini
+  79: FloorWhiteHerringbone
+  80: FloorWhiteMini
+  81: FloorWhiteMono
+  82: FloorWhiteOffset
+  83: FloorWhitePavement
+  84: FloorWhitePavementVertical
+  85: FloorWhitePlastic
+  86: FloorWood
+  87: FloorWoodTile
+  88: Lattice
+  89: Plating
+entities:
+- uid: 0
+  components:
+  - type: MetaData
+  - rot: -0.00194016273599118 rad
+    pos: 16.253944,2.5766659
+    parent: invalid
+    type: Transform
+  - chunks:
+      -1,-1:
+        ind: -1,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFkAAABZAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAA/AAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWQAAAD8AAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAD8AAAA/AAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAFkAAABZAAAAPwAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFkAAABCAAAAQgAAAEIAAABCAAAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABZAAAAWQAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABZAAAAWQAAAFkAAABZAAAAAAAAAA==
+      0,-1:
+        ind: 0,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAACAAAABCAAAAWQAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAgAAAAWAAAACAAAAAgAAAAIAAAAFkAAABZAAAAAAAAAAAAAABYAAAAAAAAAFkAAAAAAAAAWQAAAFgAAABYAAAAAAAAAFgAAAAAAAAAWQAAACAAAAAgAAAAWQAAAAAAAAAAAAAAWAAAAAAAAABZAAAAIAAAAFgAAABYAAAAWQAAAFkAAABYAAAAWAAAAAAAAABYAAAAWQAAACAAAABZAAAAAAAAAFgAAABZAAAAWQAAACAAAAAgAAAAWAAAACAAAABYAAAAWAAAAAAAAABYAAAAWQAAAFgAAABZAAAAWQAAAFkAAABZAAAAWQAAACAAAAAgAAAAIAAAACAAAAAgAAAAWQAAAFgAAABZAAAAWQAAAFgAAABYAAAAWQAAACAAAABZAAAAPwAAAD8AAABCAAAAQgAAAEIAAABCAAAAQgAAAEIAAABCAAAAQgAAAFkAAABYAAAAWQAAAEIAAABCAAAAQgAAAFkAAABZAAAAKQAAACkAAAApAAAAKQAAACkAAAA/AAAAQgAAAD8AAAAgAAAAWQAAACAAAAAgAAAAIAAAAFkAAAAAAAAAWQAAAFkAAAApAAAAKQAAACkAAAApAAAAKQAAAD8AAAAgAAAAIAAAACAAAAAgAAAAIAAAAFkAAABYAAAAAAAAAAAAAABZAAAAKQAAACkAAAApAAAAKQAAACkAAAA/AAAAIAAAACAAAAAgAAAAIAAAACAAAABZAAAAAAAAAAAAAAAAAAAAWQAAAFkAAAApAAAAKQAAACkAAAApAAAAPwAAACAAAAAgAAAAIAAAACAAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWQAAACkAAAApAAAAKQAAAD8AAAAgAAAAIAAAACAAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABZAAAAWQAAACkAAAA/AAAAIAAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABZAAAAPwAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAD8AAABZAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAA/AAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      1,-1:
+        ind: 1,-1
+        tiles: WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      1,-2:
+        ind: 1,-2
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      0,-2:
+        ind: 0,-2
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAQgAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAEIAAABZAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFkAAABCAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      0,0:
+        ind: 0,0
+        tiles: WQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAAA/AAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      -1,0:
+        ind: -1,0
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABZAAAAWQAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWQAAAFkAAABZAAAAWQAAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFkAAABZAAAAWQAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWQAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      1,0:
+        ind: 1,0
+        tiles: WQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    type: MapGrid
+  - type: Broadphase
+  - angularDamping: 0.05
+    linearDamping: 0.05
+    fixedRotation: False
+    bodyType: Dynamic
+    type: Physics
+  - fixtures: []
+    type: Fixtures
+  - type: OccluderTree
+  - type: Shuttle
+  - nextUpdate: 578.4568222
+    type: GridPathfinding
+  - gravityShakeSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/alert.ogg
+    type: Gravity
+  - chunkCollection:
+      0,-1:
+        0:
+          color: '#FFFFFFFF'
+          id: Bushh3
+          coordinates: 9.54653,-7.4238014
+        1:
+          color: '#FFFFFFFF'
+          id: Bushj2
+          coordinates: 11.046528,-6.955051
+        2:
+          color: '#FFFFFFFF'
+          id: Bushh3
+          coordinates: 12.046528,-5.986301
+        3:
+          color: '#FFFFFFFF'
+          id: Bushh2
+          coordinates: 11.015278,-5.017551
+        4:
+          color: '#FFFFFFFF'
+          id: Bushh1
+          coordinates: 9.150539,-3.9863017
+        37:
+          color: '#FFFFFFFF'
+          id: Bushl1
+          coordinates: 5.9422016,-8.731183
+        39:
+          color: '#FFFFFFFF'
+          id: Bushi1
+          coordinates: 2.9454994,-6.953244
+        40:
+          color: '#FFFFFFFF'
+          id: Bushi1
+          coordinates: 3.9611244,-5.953244
+        41:
+          color: '#FFFFFFFF'
+          id: Bushi3
+          coordinates: 6.8986244,-7.4376183
+        42:
+          color: '#FFFFFFFF'
+          id: Bushi3
+          coordinates: 2.0548744,-8.828243
+        44:
+          color: '#3B4234FF'
+          id: DirtMedium
+          coordinates: 8,-8
+        45:
+          color: '#3B4234FF'
+          id: DirtMedium
+          coordinates: 8,-7
+        46:
+          color: '#3B4234FF'
+          id: DirtMedium
+          coordinates: 9,-9
+        47:
+          color: '#3B4234FF'
+          id: DirtHeavy
+          coordinates: 6,-10
+        48:
+          color: '#3B4234FF'
+          id: DirtHeavy
+          coordinates: 7,-9
+        49:
+          color: '#3B4234FF'
+          id: DirtHeavy
+          coordinates: 8,-10
+        50:
+          color: '#3B4234FF'
+          id: DirtHeavy
+          coordinates: 9,-9
+        51:
+          color: '#3B4234FF'
+          id: DirtHeavy
+          coordinates: 9,-9
+        52:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 8,-2
+        54:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 8,-1
+        100:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 8,-10
+        101:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 8,-9
+        102:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 6,-10
+        103:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 7,-10
+        104:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 11,-14
+        105:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 12,-13
+        106:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 12,-14
+        107:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 13,-13
+        108:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 10,-14
+        109:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 9,-15
+        110:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 16,-9
+        111:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 16,-10
+        112:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 15,-11
+        113:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 8,-6
+      0,0:
+        5:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 9,1
+        6:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 10,1
+        7:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 11,1
+        8:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 12,1
+        9:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 13,1
+        10:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 14,1
+        11:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 15,1
+        12:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 9,3
+        13:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 10,3
+        14:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 11,3
+        15:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 12,3
+        16:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 13,3
+        17:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 14,3
+        18:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 15,3
+        19:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 8,3
+        20:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 7,3
+        21:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 6,3
+        22:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 5,3
+        23:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 4,3
+        24:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 2,3
+        25:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 3,3
+        26:
+          color: '#00A800FF'
+          id: BrickTileSteelLineN
+          coordinates: 1,3
+        27:
+          color: '#00A800FF'
+          id: BrickTileSteelLineW
+          coordinates: 0,2
+        28:
+          color: '#00A800FF'
+          id: BrickTileSteelCornerNw
+          coordinates: 0,3
+        29:
+          color: '#00A800FF'
+          id: BrickTileSteelCornerSw
+          coordinates: 0,1
+        30:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 1,1
+        31:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 2,1
+        32:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 3,1
+        33:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 4,1
+        34:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 5,1
+        35:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 6,1
+        36:
+          color: '#00A800FF'
+          id: BrickTileSteelLineS
+          coordinates: 7,1
+        53:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 8,0
+        55:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 10,1
+        56:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 12,1
+        57:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 11,1
+        58:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 13,2
+        59:
+          color: '#252615FF'
+          id: DirtHeavy
+          coordinates: 12,2
+        60:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 10,3
+        61:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 10,2
+        62:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 6,3
+        63:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 6,2
+        64:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 4,2
+        65:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 4,2
+        66:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 5,2
+        67:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 5,2
+        68:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 2,3
+        69:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 2,3
+        70:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 1,3
+        71:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 0,3
+        72:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 8,2
+        73:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 9,2
+        74:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 7,1
+        75:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 6,1
+        76:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: 0,1
+      -1,0:
+        77:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -3,0
+        79:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -5,0
+        80:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -5,0
+      -1,-1:
+        78:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -5,-1
+        81:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -5,-1
+        82:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -5,-2
+        83:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -5,-2
+        84:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-3
+        85:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-2
+        86:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-3
+        87:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-4
+        88:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-5
+        89:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-5
+        90:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-6
+        91:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-6
+        92:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -7,-7
+        93:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -7,-7
+        95:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -3,-12
+        96:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -3,-13
+        97:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -3,-13
+        98:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -3,-14
+        99:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -3,-14
+        115:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-11
+        116:
+          color: '#252615FF'
+          id: DirtMedium
+          coordinates: -6,-11
+    type: DecalGrid
+  - tiles:
+      -1,-1: 0
+      0,-1: 0
+      1,-1: 0
+      2,-1: 0
+      3,-1: 0
+      4,-1: 0
+      5,-1: 0
+      6,-1: 0
+      8,-1: 1
+      10,-1: 0
+      11,-1: 0
+      12,-1: 0
+      13,-1: 0
+      14,-1: 0
+      15,-1: 0
+      16,-1: 0
+      17,-1: 0
+      17,-2: 0
+      17,-3: 0
+      17,-4: 0
+      17,-5: 0
+      17,-6: 0
+      17,-7: 0
+      17,-8: 0
+      17,-9: 0
+      17,-10: 0
+      17,-11: 0
+      17,-12: 0
+      17,-13: 0
+      17,-14: 0
+      17,-15: 0
+      17,-16: 0
+      17,-17: 0
+      17,-18: 0
+      17,-19: 0
+      16,-19: 0
+      15,-19: 0
+      14,-19: 0
+      -1,-2: 0
+      -1,-3: 0
+      -1,-4: 0
+      -1,-5: 0
+      -1,-6: 0
+      -1,-7: 0
+      -1,-8: 0
+      -1,-10: 2
+      -1,-12: 0
+      -1,-13: 0
+      13,-19: 0
+      12,-19: 0
+      11,-19: 0
+      10,-19: 0
+      8,-19: 1
+      6,-19: 0
+      5,-19: 0
+      4,-19: 0
+      3,-19: 0
+      2,-19: 0
+      1,-19: 0
+      0,-19: 0
+      -1,-19: 0
+      -1,-18: 0
+      -1,-17: 0
+      -1,-16: 0
+      -1,-15: 0
+      -1,-14: 0
+      16,-3: 0
+      15,-3: 0
+      14,-3: 0
+      13,-3: 0
+      12,-3: 0
+      11,-3: 0
+      8,-3: 1
+      5,-3: 0
+      4,-3: 0
+      3,-3: 0
+      2,-3: 0
+      1,-3: 0
+      0,-3: 0
+      0,-5: 0
+      1,-5: 0
+      2,-5: 0
+      5,-5: 3
+      6,-5: 4
+      7,-5: 5
+      8,-5: 6
+      9,-5: 7
+      10,-5: 8
+      11,-5: 9
+      14,-5: 0
+      15,-5: 0
+      16,-5: 0
+      16,-7: 0
+      15,-7: 0
+      11,-7: 10
+      10,-7: 11
+      9,-7: 12
+      8,-7: 13
+      7,-7: 14
+      6,-7: 15
+      5,-7: 16
+      4,-7: 17
+      3,-7: 18
+      1,-7: 0
+      0,-7: 0
+      2,-9: 19
+      3,-9: 20
+      4,-9: 21
+      5,-9: 22
+      6,-9: 23
+      7,-9: 24
+      8,-9: 25
+      2,-11: 26
+      3,-11: 26
+      4,-11: 26
+      5,-11: 26
+      6,-11: 26
+      0,-13: 0
+      1,-13: 0
+      2,-13: 26
+      3,-13: 26
+      4,-13: 0
+      5,-13: 0
+      6,-13: 26
+      7,-13: 26
+      8,-13: 0
+      0,-15: 0
+      1,-15: 0
+      2,-15: 0
+      3,-15: 0
+      4,-15: 0
+      5,-15: 0
+      6,-15: 0
+      0,-17: 0
+      1,-17: 0
+      2,-17: 0
+      3,-17: 0
+      4,-17: 0
+      5,-17: 0
+      6,-17: 26
+      8,-17: 1
+      11,-17: 0
+      12,-17: 0
+      13,-17: 0
+      14,-17: 0
+      16,-17: 0
+      15,-17: 0
+      9,-15: 26
+      10,-15: 26
+      11,-15: 26
+      14,-15: 0
+      15,-15: 0
+      16,-15: 0
+      9,-13: 0
+      10,-13: 0
+      12,-13: 26
+      13,-13: 26
+      14,-13: 26
+      15,-13: 0
+      16,-13: 0
+      15,-11: 26
+      16,-11: 0
+      9,-9: 27
+      16,-9: 26
+      1,-2: 0
+      0,-2: 0
+      0,-4: 0
+      1,-4: 0
+      7,-4: 28
+      4,-2: 0
+      3,-2: 0
+      2,-2: 0
+      4,-6: 29
+      5,-6: 30
+      6,-6: 31
+      2,-4: 0
+      8,-4: 24
+      3,-4: 0
+      7,-6: 32
+      8,-6: 33
+      9,-4: 34
+      5,-10: 35
+      6,-10: 36
+      8,-10: 37
+      9,-8: 38
+      7,-8: 39
+      6,-8: 40
+      5,-8: 41
+      4,-10: 42
+      6,-12: 26
+      8,-12: 0
+      18,-8: 0
+      16,-8: 0
+      10,-8: 43
+      8,-8: 44
+      4,-8: 45
+      3,-8: 46
+      0,-8: 0
+      0,-10: 1
+      1,-10: 1
+      2,-10: 47
+      7,-10: 48
+      3,-10: 49
+      0,-12: 0
+      3,-12: 26
+      4,-12: 26
+      7,-12: 0
+      9,-12: 0
+      10,-12: 0
+      14,-12: 26
+      15,-12: 26
+      16,-12: 0
+      16,-10: 26
+      5,-12: 0
+      1,-14: 0
+      0,-14: 0
+      2,-14: 26
+      3,-14: 0
+      4,-14: 26
+      5,-14: 0
+      6,-14: 0
+      7,-14: 0
+      8,-14: 0
+      9,-14: 0
+      10,-14: 26
+      11,-14: 26
+      12,-14: 26
+      14,-14: 0
+      15,-14: 0
+      16,-14: 0
+      16,-16: 0
+      15,-16: 0
+      14,-16: 0
+      13,-16: 0
+      6,-16: 26
+      5,-16: 0
+      4,-16: 0
+      3,-16: 0
+      2,-16: 0
+      1,-16: 0
+      0,-16: 0
+      0,-18: 0
+      1,-18: 0
+      2,-18: 0
+      3,-18: 0
+      4,-18: 0
+      5,-18: 0
+      6,-18: 0
+      8,-18: 1
+      10,-18: 0
+      11,-18: 0
+      12,-18: 0
+      13,-18: 0
+      14,-18: 0
+      15,-18: 0
+      16,-18: 0
+      16,-6: 0
+      15,-6: 0
+      12,-6: 50
+      11,-6: 51
+      10,-6: 52
+      9,-6: 53
+      1,-6: 0
+      0,-6: 0
+      6,-2: 0
+      8,-2: 1
+      10,-2: 0
+      11,-2: 0
+      12,-2: 0
+      13,-2: 0
+      14,-2: 0
+      15,-2: 0
+      16,-2: 0
+      16,-4: 0
+      15,-4: 0
+      14,-4: 0
+      13,-4: 0
+      5,-2: 0
+      -2,-10: 1
+      8,-20: 0
+      8,0: 54
+      17,0: 0
+      9,-20: 0
+      10,-20: 0
+      11,-20: 0
+      12,-20: 0
+      13,-20: 0
+      14,-20: 0
+      15,-20: 0
+      16,-20: 0
+      17,-20: 0
+      7,-20: 0
+      6,-20: 0
+      5,-20: 0
+      4,-20: 0
+      -2,-14: 26
+      -3,-9: 1
+      -3,-11: 1
+      -2,-15: 0
+      -3,-5: 26
+      -4,-5: 26
+      -5,-5: 26
+      -5,-6: 26
+      -5,-7: 26
+      -5,-8: 26
+      -4,-15: 26
+      -3,-15: 26
+      -3,-14: 26
+      -4,-14: 26
+      -4,-13: 26
+      -3,-13: 26
+      -3,-12: 26
+      -4,-12: 26
+      -3,-10: 1
+      -4,-10: 55
+      -5,-10: 1
+      -3,-6: 26
+      -3,-7: 26
+      -3,-8: 26
+      -4,-8: 26
+      -4,-7: 26
+      -4,-6: 26
+      7,1: 56
+      7,2: 56
+      7,3: 54
+      6,3: 56
+      5,3: 54
+      4,3: 54
+      3,3: 56
+      2,3: 54
+      1,3: 56
+      0,3: 57
+      6,1: 54
+      6,2: 54
+      5,2: 56
+      5,1: 56
+      4,1: 54
+      4,2: 54
+      3,2: 54
+      3,1: 56
+      2,1: 54
+      2,2: 56
+      1,2: 54
+      1,1: 56
+      0,1: 54
+      0,2: 56
+      -1,1: 1
+      -3,-4: 26
+      -4,-4: 26
+      -5,-4: 26
+      -5,-3: 26
+      -4,-3: 26
+      -3,-3: 26
+      -3,-2: 26
+      -4,-2: 26
+      -5,-2: 26
+      -5,-1: 26
+      -4,-1: 26
+      -3,-1: 26
+      -3,0: 26
+      -4,0: 26
+      -5,0: 26
+      -5,1: 26
+      -4,1: 26
+      -3,1: 26
+      -2,1: 26
+      -2,2: 26
+      -3,2: 26
+      -4,2: 26
+      -5,2: 26
+      -6,-9: 26
+      -6,-11: 26
+      -6,-10: 58
+      -6,-5: 26
+      -6,-6: 26
+      -6,-7: 26
+      -6,-8: 26
+      -7,-8: 26
+      -7,-7: 26
+      -6,-4: 26
+      -6,-3: 26
+      -6,-2: 26
+      8,1: 56
+      9,1: 59
+      9,2: 56
+      8,2: 54
+      8,3: 56
+      9,3: 54
+      10,3: 56
+      10,2: 54
+      10,1: 56
+      11,1: 60
+      11,2: 56
+      11,3: 57
+      12,3: 57
+      12,2: 56
+      12,1: 61
+      13,1: 54
+      13,2: 62
+      13,3: 63
+      14,3: 56
+      14,2: 56
+      14,1: 56
+      15,1: 54
+      15,2: 54
+      15,3: 54
+      -6,1: 0
+      -6,2: 0
+      -8,-7: 0
+      -8,-8: 0
+      -8,-9: 0
+      -7,-9: 0
+      -7,-11: 0
+      -6,-12: 0
+      -7,-10: 0
+      -8,-6: 64
+      -8,-5: 64
+      -8,-4: 64
+      -8,-3: 64
+      -7,-6: 64
+      -7,-5: 64
+      -7,-4: 64
+      -7,-3: 64
+      -7,-2: 64
+      -7,-1: 64
+      -6,-1: 64
+      -5,-15: 64
+      -5,-14: 64
+      -5,-13: 64
+      -5,-12: 64
+      -5,-11: 64
+      -5,-9: 64
+      -4,-11: 64
+      -4,-9: 64
+      -2,-13: 64
+      -2,-12: 64
+      -2,-11: 64
+      -2,-9: 64
+      -2,-8: 64
+      -2,-7: 64
+      -2,-6: 64
+      -2,-5: 64
+      -2,-4: 64
+      -2,-3: 64
+      -2,-2: 64
+      -2,-1: 64
+      -1,-11: 64
+      -1,-9: 64
+      0,-11: 64
+      0,-9: 64
+      1,-12: 64
+      1,-11: 64
+      1,-9: 64
+      1,-8: 64
+      2,-12: 64
+      2,-8: 64
+      2,-7: 64
+      2,-6: 64
+      3,-6: 64
+      3,-5: 64
+      4,-5: 64
+      4,-4: 64
+      5,-4: 64
+      6,-4: 64
+      6,-3: 64
+      7,-16: 64
+      7,-15: 64
+      7,-11: 64
+      7,-3: 64
+      7,-2: 64
+      7,-1: 64
+      8,-16: 64
+      8,-15: 64
+      8,-11: 64
+      9,-16: 64
+      9,-11: 64
+      9,-10: 64
+      9,-3: 64
+      9,-2: 64
+      9,-1: 64
+      10,-16: 64
+      10,-11: 64
+      10,-10: 64
+      10,-9: 64
+      10,-4: 64
+      10,-3: 64
+      11,-16: 64
+      11,-13: 64
+      11,-12: 64
+      11,-11: 64
+      11,-10: 64
+      11,-9: 64
+      11,-8: 64
+      11,-4: 64
+      12,-16: 64
+      12,-15: 64
+      12,-12: 64
+      12,-11: 64
+      12,-10: 64
+      12,-9: 64
+      12,-8: 64
+      12,-7: 64
+      12,-5: 64
+      12,-4: 64
+      13,-15: 64
+      13,-14: 64
+      13,-12: 64
+      13,-11: 64
+      13,-10: 64
+      13,-9: 64
+      13,-8: 64
+      13,-7: 64
+      13,-6: 64
+      13,-5: 64
+      14,-11: 64
+      14,-10: 64
+      14,-9: 64
+      14,-8: 64
+      14,-7: 64
+      14,-6: 64
+      15,-10: 64
+      15,-9: 64
+      15,-8: 64
+      7,-19: 64
+      7,-18: 64
+      7,-17: 64
+      9,-19: 64
+      9,-18: 64
+      9,-17: 64
+      10,-17: 64
+      0,0: 64
+      0,4: 64
+      1,0: 64
+      1,4: 64
+      2,0: 64
+      2,4: 64
+      3,0: 64
+      3,4: 64
+      4,0: 64
+      4,4: 64
+      5,0: 64
+      5,4: 64
+      6,0: 64
+      6,4: 64
+      7,0: 64
+      7,4: 64
+      8,4: 64
+      9,0: 64
+      9,4: 64
+      10,0: 64
+      10,4: 64
+      11,0: 64
+      11,4: 64
+      12,0: 64
+      12,4: 64
+      13,0: 64
+      13,4: 64
+      14,0: 64
+      14,4: 64
+      15,0: 64
+      15,4: 64
+      -6,0: 64
+      -5,3: 64
+      -4,3: 64
+      -3,3: 64
+      -2,0: 64
+      -2,3: 64
+      -1,0: 64
+      -1,2: 64
+      -1,3: 64
+      -1,4: 64
+      16,0: 64
+      16,1: 64
+      16,2: 64
+      16,3: 64
+      16,4: 64
+    uniqueMixes:
+    - volume: 2500
+      immutable: True
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.824879
+      - 82.10312
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.824883
+      - 82.11954
+      - 0.004361888
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.02577
+      - 67.89262
+      - 0.021626977
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.035027
+      - 67.86383
+      - 0.0047362647
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.024118
+      - 67.89262
+      - 0.023290409
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.823317
+      - 82.09724
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.952211
+      - 67.54755
+      - 0.0034670131
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.95256
+      - 67.54755
+      - 0.0031123415
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.948915
+      - 67.54754
+      - 0.006758524
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.945192
+      - 67.54755
+      - 0.010480234
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.951302
+      - 67.547554
+      - 0.0043711327
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.945536
+      - 67.54754
+      - 0.010138333
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.81894
+      - 82.09566
+      - 0.0039560255
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.036211
+      - 67.89262
+      - 0.01118759
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.026285
+      - 67.89262
+      - 0.02111483
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.037685
+      - 67.89261
+      - 0.009722633
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.042488
+      - 67.89261
+      - 0.0049122036
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.032972
+      - 67.89262
+      - 0.014430293
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.03658
+      - 67.89262
+      - 0.010820021
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.036592
+      - 67.89262
+      - 0.010818764
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.042542
+      - 67.892624
+      - 0.004854798
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.03524
+      - 67.89262
+      - 0.012162315
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.030779
+      - 67.89262
+      - 0.016621575
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.823317
+      - 82.097244
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.823318
+      - 82.11366
+      - 0.0043629035
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.818954
+      - 82.09724
+      - 0.0043618875
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.043797
+      - 67.89262
+      - 0.0036069131
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.032978
+      - 67.89262
+      - 0.014424769
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.046099
+      - 67.89262
+      - 0.0013024057
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.035942
+      - 67.89262
+      - 0.011460264
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.04379
+      - 67.89262
+      - 0.0036082661
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.818956
+      - 82.097244
+      - 0.0043600793
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.952087
+      - 67.54755
+      - 0.0035837244
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.819353
+      - 82.112144
+      - 0.007924914
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.810236
+      - 82.09724
+      - 0.013078886
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.81459
+      - 82.08082
+      - 0.004360703
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.955318
+      - 67.54754
+      - 0.0003576629
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.02576
+      - 67.89261
+      - 0.021642216
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.030201
+      - 67.89262
+      - 0.017202742
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.026487
+      - 67.89261
+      - 0.020918213
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.819368
+      - 82.0973
+      - 0.0039620376
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.9503
+      - 67.54766
+      - 0.005399091
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.811047
+      - 82.11367
+      - 0.016633024
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.047083
+      - 67.89261
+      - 0.00032588092
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.043797
+      - 67.89262
+      - 0.0036069136
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.823315
+      - 82.097244
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.814583
+      - 82.09724
+      - 0.008729012
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.823317
+      - 82.09724
+      - 2.2513751E-07
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.952068
+      - 67.54754
+      - 0.0036105858
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.951931
+      - 67.54755
+      - 0.0037465186
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.95232
+      - 67.54756
+      - 0.0033400177
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 17.952131
+      - 67.54755
+      - 0.003541327
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.775002
+      - 81.91549
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.820513
+      - 82.0867
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.775002
+      - 81.91548
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.1653
+      - 79.62185
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 292.72498
+      moles:
+      - 3.0878E-06
+      - 0.016420623
+      - 0.004361888
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.775
+      - 81.91549
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.165304
+      - 79.62186
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.165302
+      - 79.62186
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.775
+      - 81.91548
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.164911
+      - 79.620384
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GridAtmosphere
+  - type: GasTileOverlay
+  - type: RadiationGridResistance
+- uid: 1
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 2
+  type: Window
+  components:
+  - pos: 7.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 3
+  type: Window
+  components:
+  - pos: 9.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 4
+  type: StorageCanister
+  components:
+  - pos: -1.5000372,2.5000005
+    parent: 0
+    type: Transform
+- uid: 5
+  type: AsteroidRock
+  components:
+  - pos: 14.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 6
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,0.5
+    parent: 0
+    type: Transform
+- uid: 7
+  type: Window
+  components:
+  - pos: 1.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 8
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 13.5,4.5
+    parent: 0
+    type: Transform
+- uid: 9
+  type: WallReinforced
+  components:
+  - pos: 7.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 10
+  type: WallReinforced
+  components:
+  - pos: 9.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 11
+  type: Window
+  components:
+  - pos: 6.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 12
+  type: WallReinforced
+  components:
+  - pos: 9.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 13
+  type: Window
+  components:
+  - pos: 10.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 14
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 15
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 16
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 17
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 18
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 19
+  type: Window
+  components:
+  - pos: 10.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 20
+  type: Window
+  components:
+  - pos: 3.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 21
+  type: Window
+  components:
+  - pos: 2.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 22
+  type: Window
+  components:
+  - pos: 2.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 23
+  type: Window
+  components:
+  - pos: 2.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 24
+  type: Window
+  components:
+  - pos: 4.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 25
+  type: Window
+  components:
+  - pos: 4.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 26
+  type: Window
+  components:
+  - pos: 3.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 27
+  type: Window
+  components:
+  - pos: 5.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 28
+  type: Window
+  components:
+  - pos: 6.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 29
+  type: Window
+  components:
+  - pos: 11.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 30
+  type: Window
+  components:
+  - pos: 12.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 31
+  type: Window
+  components:
+  - pos: 12.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 32
+  type: Window
+  components:
+  - pos: 13.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 33
+  type: UraniumOre1
+  components:
+  - pos: -4.8241014,1.3776193
+    parent: 0
+    type: Transform
+- uid: 34
+  type: Window
+  components:
+  - pos: 13.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 35
+  type: Window
+  components:
+  - pos: 14.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 36
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 37
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 6.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 38
+  type: ReinforcedGirder
+  components:
+  - pos: -3.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 39
+  type: WallReinforced
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -1.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 40
+  type: WallReinforced
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -1.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 41
+  type: AsteroidRock
+  components:
+  - pos: 8.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 42
+  type: AsteroidRock
+  components:
+  - pos: 9.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 43
+  type: AsteroidRock
+  components:
+  - pos: 15.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 44
+  type: AsteroidRock
+  components:
+  - pos: 14.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 45
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,4.5
+    parent: 0
+    type: Transform
+- uid: 46
+  type: CableApcExtension
+  components:
+  - pos: 3.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 47
+  type: ShardGlass
+  components:
+  - rot: 0.0005023700650781393 rad
+    pos: 6.2554493,-10.985465
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard1: null
+    type: RandomSprite
+- uid: 48
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 49
+  type: Window
+  components:
+  - pos: 2.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 50
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -1.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 51
+  type: ShardGlass
+  components:
+  - rot: 0.0005023700650781393 rad
+    pos: 6.4013844,-10.543961
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard2: null
+    type: RandomSprite
+- uid: 52
+  type: ShardGlass
+  components:
+  - rot: -7.269118640351735E-11 rad
+    pos: 14.220242,-12.570763
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard2: null
+    type: RandomSprite
+  - nextAttack: -7618.2943899
+    type: MeleeWeapon
+- uid: 53
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 54
+  type: ShardGlass
+  components:
+  - rot: -3.026798367500305E-09 rad
+    pos: 2.3909492,-12.614466
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard1: null
+    type: RandomSprite
+  - nextAttack: -7613.2726092
+    type: MeleeWeapon
+- uid: 55
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,1.5
+    parent: 0
+    type: Transform
+- uid: 56
+  type: WallReinforced
+  components:
+  - pos: 9.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 57
+  type: WallReinforced
+  components:
+  - pos: 7.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 58
+  type: WallReinforced
+  components:
+  - pos: 7.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 59
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 60
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 61
+  type: AsteroidRock
+  components:
+  - pos: 8.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 62
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 63
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,4.5
+    parent: 0
+    type: Transform
+- uid: 64
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,4.5
+    parent: 0
+    type: Transform
+- uid: 65
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 14.5,4.5
+    parent: 0
+    type: Transform
+- uid: 66
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 13.5,4.5
+    parent: 0
+    type: Transform
+- uid: 67
+  type: Window
+  components:
+  - pos: 7.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 68
+  type: Window
+  components:
+  - pos: 7.5,-18.5
+    parent: 0
+    type: Transform
+- uid: 69
+  type: Window
+  components:
+  - pos: 9.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 70
+  type: Window
+  components:
+  - pos: 9.5,-18.5
+    parent: 0
+    type: Transform
+- uid: 71
+  type: WindowDirectional
+  components:
+  - pos: 2.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 72
+  type: WindowDirectional
+  components:
+  - pos: 3.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 73
+  type: WindowDirectional
+  components:
+  - pos: 4.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 74
+  type: NitrogenCanister
+  components:
+  - pos: -3.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 75
+  type: WindowDirectional
+  components:
+  - pos: 6.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 76
+  type: WindowDirectional
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 77
+  type: WindowDirectional
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 78
+  type: WindowDirectional
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 79
+  type: WindowDirectional
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 80
+  type: UraniumOre1
+  components:
+  - pos: -7.105317,-6.335903
+    parent: 0
+    type: Transform
+- uid: 81
+  type: WindowDirectional
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 82
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 83
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 7.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 84
+  type: SubstationBasicEmpty
+  components:
+  - pos: -3.5,-12.5
+    parent: 0
+    type: Transform
+  - startingCharge: 2500000
+    type: Battery
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 85
+      machine_parts: !type:Container
+        ents:
+        - 86
+        - 87
+        - 88
+        - 89
+        - 90
+    type: ContainerContainer
+- uid: 85
+  type: SubstationMachineCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 84
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 86
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 84
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 87
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 84
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 88
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 84
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 89
+  type: CableMVStack1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 84
+    type: Transform
+  - count: 5
+    type: Stack
+  - canCollide: False
+    type: Physics
+- uid: 90
+  type: CableHVStack1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 84
+    type: Transform
+  - count: 5
+    type: Stack
+  - canCollide: False
+    type: Physics
+- uid: 91
+  type: SignHydro1
+  components:
+  - pos: 0.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 92
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 93
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 94
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 95
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 96
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 97
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 98
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 99
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 100
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 101
+  type: CableApcExtension
+  components:
+  - pos: 5.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 102
+  type: CableApcExtension
+  components:
+  - pos: 6.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 103
+  type: CableApcExtension
+  components:
+  - pos: 3.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 104
+  type: CableApcExtension
+  components:
+  - pos: 3.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 105
+  type: CableApcExtension
+  components:
+  - pos: 3.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 106
+  type: CableApcExtension
+  components:
+  - pos: 2.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 107
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 5.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 108
+  type: Windoor
+  components:
+  - pos: 5.5,-8.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 109
+    type: ContainerContainer
+- uid: 109
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 108
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 110
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 4.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 111
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 3.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 112
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 3.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 113
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 2.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 114
+  type: WindowDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 2.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 115
+  type: APCHyperCapacity
+  components:
+  - pos: 0.5,-8.5
+    parent: 0
+    type: Transform
+  - startingCharge: 198784.5
+    type: Battery
+  - enabled: False
+    type: AmbientSound
+  - canDisharge: False
+    type: PowerNetworkBattery
+- uid: 116
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 117
+  type: FloraTree04
+  components:
+  - pos: 6.7516594,-5.1523542
+    parent: 0
+    type: Transform
+- uid: 118
+  type: GasPipeStraight
+  components:
+  - pos: -2.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 119
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 120
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 121
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 122
+  type: Poweredlight
+  components:
+  - pos: 6.5,-4.5
+    parent: 0
+    type: Transform
+  - color: '#FFE4CEFF'
+    type: PointLight
+  - containers:
+      light_bulb: !type:ContainerSlot
+        ent: 123
+    type: ContainerContainer
+  - powerLoad: 25
+    type: ApcPowerReceiver
+  - address: 5c25c1a8
+    receiveFrequency: 1173
+    type: DeviceNetwork
+- uid: 123
+  type: LightTube
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 122
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 124
+  type: Poweredlight
+  components:
+  - pos: 10.5,-4.5
+    parent: 0
+    type: Transform
+  - color: '#FFE4CEFF'
+    type: PointLight
+  - containers:
+      light_bulb: !type:ContainerSlot
+        ent: 125
+    type: ContainerContainer
+  - powerLoad: 25
+    type: ApcPowerReceiver
+  - address: 789be46e
+    receiveFrequency: 1173
+    type: DeviceNetwork
+- uid: 125
+  type: LightTube
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 124
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 126
+  type: CableApcExtension
+  components:
+  - pos: 6.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 127
+  type: CableApcExtension
+  components:
+  - pos: 7.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 128
+  type: CableApcExtension
+  components:
+  - pos: 4.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 129
+  type: CableApcExtension
+  components:
+  - pos: 5.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 130
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 131
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,1.5
+    parent: 0
+    type: Transform
+- uid: 132
+  type: NitrogenCanister
+  components:
+  - pos: -5.5,-6.5
+    parent: 0
+    type: Transform
+  - releaseValve: True
+    gasMixture:
+      volume: 1000
+      temperature: 293.15
+      moles:
+      - 0
+      - 1.0067291
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GasCanister
+- uid: 133
+  type: CarbonDioxideCanister
+  components:
+  - pos: -3.5000372,0.5
+    parent: 0
+    type: Transform
+  - releaseValve: True
+    gasMixture:
+      volume: 1000
+      temperature: 293.15
+      moles:
+      - 0
+      - 0
+      - 1.0067291
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GasCanister
+  - locked: False
+    type: Lock
+- uid: 134
+  type: AirlockHydroGlassLocked
+  components:
+  - pos: -0.5,-9.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 135
+    type: ContainerContainer
+- uid: 135
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 134
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 136
+  type: CableMV
+  components:
+  - pos: -4.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 137
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,0.5
+    parent: 0
+    type: Transform
+- uid: 138
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 5.5,1.5
+    parent: 0
+    type: Transform
+- uid: 139
+  type: SMESBasic
+  components:
+  - pos: -3.5,-13.5
+    parent: 0
+    type: Transform
+  - startingCharge: 5501440
+    type: Battery
+  - loadingNetworkDemand: 74956870
+    currentReceiving: 74956870
+    currentSupply: 74956870
+    type: PowerNetworkBattery
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 140
+      machine_parts: !type:Container
+        ents:
+        - 141
+        - 142
+        - 143
+        - 144
+        - 145
+        - 146
+        - 147
+        - 148
+        - 149
+        - 150
+    type: ContainerContainer
+- uid: 140
+  type: SMESMachineCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 141
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 142
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 143
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 144
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 145
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 146
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 147
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 148
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 149
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 150
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 139
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 151
+  type: GasPipeStraight
+  components:
+  - pos: -2.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 152
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 153
+  type: FloraTree02
+  components:
+  - pos: 4.8454113,-6.91798
+    parent: 0
+    type: Transform
+- uid: 154
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 155
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 156
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 157
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 158
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 159
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 160
+  type: Windoor
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-6.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 161
+    type: ContainerContainer
+- uid: 161
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 160
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 162
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 163
+  type: Windoor
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-6.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 164
+    type: ContainerContainer
+- uid: 164
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 163
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 165
+  type: WindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 166
+  type: AirlockExternalGlass
+  components:
+  - pos: 8.5,-16.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 167
+    type: ContainerContainer
+- uid: 167
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 166
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 168
+  type: AirlockExternalGlass
+  components:
+  - pos: 8.5,-18.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 169
+    type: ContainerContainer
+- uid: 169
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 168
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 170
+  type: AsteroidRock
+  components:
+  - pos: 12.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 171
+  type: AirlockHydroGlassLocked
+  components:
+  - pos: 1.5,-9.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 172
+    type: ContainerContainer
+- uid: 172
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 171
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 173
+  type: AsteroidRock
+  components:
+  - pos: 14.5,-10.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSpaceQuartz
+    type: OreVein
+- uid: 174
+  type: AsteroidRock
+  components:
+  - pos: 7.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 175
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 176
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,1.5
+    parent: 0
+    type: Transform
+- uid: 177
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 2.5,-9.5
+    parent: 0
+    type: Transform
+  - address: 3c94f6d4
+    receiveFrequency: 1621
+    type: DeviceNetwork
+- uid: 178
+  type: FirelockEdge
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 8.5,-3.5
+    parent: 0
+    type: Transform
+  - address: 3d465fc9
+    receiveFrequency: 1621
+    type: DeviceNetwork
+- uid: 179
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,-7.5
+    parent: 0
+    type: Transform
+  - color: '#FFE4CEFF'
+    type: PointLight
+  - containers:
+      light_bulb: !type:ContainerSlot
+        ent: 180
+    type: ContainerContainer
+  - powerLoad: 25
+    type: ApcPowerReceiver
+  - address: 5d5d0f7c
+    receiveFrequency: 1173
+    type: DeviceNetwork
+- uid: 180
+  type: LightTube
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 179
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 181
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,1.5
+    parent: 0
+    type: Transform
+- uid: 182
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 183
+  type: FirelockEdge
+  components:
+  - pos: 8.5,-15.5
+    parent: 0
+    type: Transform
+  - address: 6c12c105
+    receiveFrequency: 1621
+    type: DeviceNetwork
+- uid: 184
+  type: AsteroidRock
+  components:
+  - pos: 7.5,-15.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSteel
+    type: OreVein
+- uid: 185
+  type: AsteroidRock
+  components:
+  - pos: 8.5,-14.5
+    parent: 0
+    type: Transform
+  - currentOre: OreGold
+    type: OreVein
+- uid: 186
+  type: AsteroidRock
+  components:
+  - pos: 9.5,-9.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSpaceQuartz
+    type: OreVein
+- uid: 187
+  type: AsteroidRock
+  components:
+  - pos: 10.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 188
+  type: AsteroidRock
+  components:
+  - pos: 10.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 189
+  type: AsteroidRock
+  components:
+  - pos: 9.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 190
+  type: AsteroidRock
+  components:
+  - pos: 13.5,-10.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSteel
+    type: OreVein
+- uid: 191
+  type: AsteroidRock
+  components:
+  - pos: 11.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 192
+  type: CableApcExtension
+  components:
+  - pos: 8.5,1.5
+    parent: 0
+    type: Transform
+- uid: 193
+  type: CableMV
+  components:
+  - pos: -2.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 194
+  type: CableMV
+  components:
+  - pos: -2.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 195
+  type: AsteroidRock
+  components:
+  - pos: 12.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 196
+  type: AsteroidRock
+  components:
+  - pos: 13.5,-11.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSteel
+    type: OreVein
+- uid: 197
+  type: AsteroidRock
+  components:
+  - pos: 11.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 198
+  type: Window
+  components:
+  - pos: 13.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 199
+  type: AsteroidRock
+  components:
+  - pos: 12.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 200
+  type: AsteroidRock
+  components:
+  - pos: 13.5,-6.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSteel
+    type: OreVein
+- uid: 201
+  type: AsteroidRock
+  components:
+  - pos: 13.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 202
+  type: AsteroidRock
+  components:
+  - pos: 11.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 203
+  type: AsteroidRock
+  components:
+  - pos: 12.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 204
+  type: AsteroidRock
+  components:
+  - pos: 11.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 205
+  type: AsteroidRock
+  components:
+  - pos: 14.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 206
+  type: AsteroidRock
+  components:
+  - pos: 15.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 207
+  type: AsteroidRock
+  components:
+  - pos: 14.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 208
+  type: AsteroidRock
+  components:
+  - pos: 13.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 209
+  type: AsteroidRock
+  components:
+  - pos: 12.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 210
+  type: AsteroidRock
+  components:
+  - pos: 13.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 211
+  type: AsteroidRockMining
+  components:
+  - pos: 12.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 212
+  type: AsteroidRockMining
+  components:
+  - pos: 10.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 213
+  type: AsteroidRockMining
+  components:
+  - pos: 11.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 214
+  type: AsteroidRockMining
+  components:
+  - pos: 11.5,-9.5
+    parent: 0
+    type: Transform
+  - currentOre: OrePlasma
+    type: OreVein
+- uid: 215
+  type: AsteroidRockMining
+  components:
+  - pos: 11.5,-10.5
+    parent: 0
+    type: Transform
+  - currentOre: OrePlasma
+    type: OreVein
+- uid: 216
+  type: Window
+  components:
+  - pos: 13.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 217
+  type: ReinforcedWindow
+  components:
+  - pos: 4.5,0.5
+    parent: 0
+    type: Transform
+- uid: 218
+  type: Window
+  components:
+  - pos: 12.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 219
+  type: ShardGlass
+  components:
+  - rot: 0.027135001495480537 rad
+    pos: 15.545254,-8.978922
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard2: null
+    type: RandomSprite
+  - nextAttack: -7622.4848471
+    type: MeleeWeapon
+  - sleepTime: 912.7211
+    type: Physics
+- uid: 220
+  type: Grille
+  components:
+  - pos: 12.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 221
+  type: Grille
+  components:
+  - pos: 14.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 222
+  type: ReinforcedWindow
+  components:
+  - pos: -1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 223
+  type: CableMV
+  components:
+  - pos: -2.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 224
+  type: Window
+  components:
+  - pos: 10.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 225
+  type: Window
+  components:
+  - pos: 10.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 226
+  type: Window
+  components:
+  - pos: 11.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 227
+  type: Window
+  components:
+  - pos: 12.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 228
+  type: Grille
+  components:
+  - pos: 14.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 229
+  type: Grille
+  components:
+  - pos: 12.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 230
+  type: Grille
+  components:
+  - pos: 16.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 231
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 8.5,4.5
+    parent: 0
+    type: Transform
+- uid: 232
+  type: Grille
+  components:
+  - pos: 16.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 233
+  type: Grille
+  components:
+  - pos: 16.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 234
+  type: Grille
+  components:
+  - pos: 16.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 235
+  type: GrilleBroken
+  components:
+  - pos: 16.5,-3.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 236
+  type: ReinforcedGirder
+  components:
+  - pos: -1.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 237
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,0.5
+    parent: 0
+    type: Transform
+- uid: 238
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,4.5
+    parent: 0
+    type: Transform
+- uid: 239
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 8.5,4.5
+    parent: 0
+    type: Transform
+- uid: 240
+  type: BaseComputer
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 3.5,1.5
+    parent: 0
+    type: Transform
+  - containers:
+    - board
+    type: Construction
+- uid: 241
+  type: Rack
+  components:
+  - pos: -3.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 242
+  type: CableHV
+  components:
+  - pos: -3.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 243
+  type: GrilleBroken
+  components:
+  - pos: 0.5,-13.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 244
+  type: CableHV
+  components:
+  - pos: -2.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 245
+  type: WallReinforced
+  components:
+  - pos: -1.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 246
+  type: UraniumOre1
+  components:
+  - pos: 15.4376335,-10.412939
+    parent: 0
+    type: Transform
+- uid: 247
+  type: WallReinforced
+  components:
+  - pos: -1.5,0.5
+    parent: 0
+    type: Transform
+- uid: 248
+  type: WallReinforced
+  components:
+  - pos: -0.5,0.5
+    parent: 0
+    type: Transform
+- uid: 249
+  type: ReinforcedWindow
+  components:
+  - pos: 0.5,0.5
+    parent: 0
+    type: Transform
+- uid: 250
+  type: UraniumOre1
+  components:
+  - pos: 14.484507,-11.334814
+    parent: 0
+    type: Transform
+- uid: 251
+  type: ReinforcedWindow
+  components:
+  - pos: 1.5,0.5
+    parent: 0
+    type: Transform
+- uid: 252
+  type: ReinforcedWindow
+  components:
+  - pos: 2.5,0.5
+    parent: 0
+    type: Transform
+- uid: 253
+  type: ReinforcedWindow
+  components:
+  - pos: 3.5,0.5
+    parent: 0
+    type: Transform
+- uid: 254
+  type: UraniumOre1
+  components:
+  - pos: 12.6563835,-12.241065
+    parent: 0
+    type: Transform
+- uid: 255
+  type: ReinforcedWindow
+  components:
+  - pos: 5.5,0.5
+    parent: 0
+    type: Transform
+- uid: 256
+  type: ReinforcedWindow
+  components:
+  - pos: 6.5,0.5
+    parent: 0
+    type: Transform
+- uid: 257
+  type: ReinforcedGirder
+  components:
+  - pos: -2.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 258
+  type: GasPort
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 259
+  type: GasPort
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 260
+  type: GasPressurePump
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 261
+  type: GasPressurePump
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 262
+  type: GasPressurePump
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 263
+  type: GasPipeTJunction
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -4.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 264
+  type: GasPipeTJunction
+  components:
+  - pos: -4.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 265
+  type: GasPressurePump
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 266
+  type: GasPipeFourway
+  components:
+  - pos: -4.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 267
+  type: GasPipeTJunction
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -4.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 268
+  type: GasPort
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 269
+  type: GasPort
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 270
+  type: GasPort
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 271
+  type: GasPort
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 272
+  type: GasPipeTJunction
+  components:
+  - pos: -4.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 273
+  type: GasPipeFourway
+  components:
+  - pos: -4.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 274
+  type: GasPort
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 275
+  type: GasPort
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,0.5
+    parent: 0
+    type: Transform
+- uid: 276
+  type: GasFilterFlipped
+  components:
+  - pos: -2.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 277
+  type: GasFilterFlipped
+  components:
+  - pos: -2.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 278
+  type: GasPipeBend
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -4.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 279
+  type: GasPipeFourway
+  components:
+  - pos: -4.5,1.5
+    parent: 0
+    type: Transform
+- uid: 280
+  type: GasPipeFourway
+  components:
+  - pos: -4.5,0.5
+    parent: 0
+    type: Transform
+- uid: 281
+  type: GasPressurePump
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 282
+  type: WallReinforced
+  components:
+  - pos: -4.5,3.5
+    parent: 0
+    type: Transform
+- uid: 283
+  type: WallReinforced
+  components:
+  - pos: -4.5,3.5
+    parent: 0
+    type: Transform
+- uid: 284
+  type: WallReinforced
+  components:
+  - pos: -2.5,3.5
+    parent: 0
+    type: Transform
+- uid: 285
+  type: WallReinforced
+  components:
+  - pos: -2.5,3.5
+    parent: 0
+    type: Transform
+- uid: 286
+  type: WallReinforced
+  components:
+  - pos: -2.5,3.5
+    parent: 0
+    type: Transform
+- uid: 287
+  type: WallReinforced
+  components:
+  - pos: -2.5,3.5
+    parent: 0
+    type: Transform
+- uid: 288
+  type: WallReinforced
+  components:
+  - pos: -1.5,3.5
+    parent: 0
+    type: Transform
+- uid: 289
+  type: WallReinforced
+  components:
+  - pos: -0.5,3.5
+    parent: 0
+    type: Transform
+- uid: 290
+  type: WallReinforced
+  components:
+  - pos: -1.5,3.5
+    parent: 0
+    type: Transform
+- uid: 291
+  type: WallReinforced
+  components:
+  - pos: -2.5,3.5
+    parent: 0
+    type: Transform
+- uid: 292
+  type: WallReinforced
+  components:
+  - pos: -3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 293
+  type: WallReinforced
+  components:
+  - pos: -3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 294
+  type: WallReinforced
+  components:
+  - pos: -2.5,3.5
+    parent: 0
+    type: Transform
+- uid: 295
+  type: WallReinforced
+  components:
+  - pos: -0.5,3.5
+    parent: 0
+    type: Transform
+- uid: 296
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,4.5
+    parent: 0
+    type: Transform
+- uid: 297
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,4.5
+    parent: 0
+    type: Transform
+- uid: 298
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,4.5
+    parent: 0
+    type: Transform
+- uid: 299
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 3.5,4.5
+    parent: 0
+    type: Transform
+- uid: 300
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 2.5,4.5
+    parent: 0
+    type: Transform
+- uid: 301
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 3.5,4.5
+    parent: 0
+    type: Transform
+- uid: 302
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 4.5,4.5
+    parent: 0
+    type: Transform
+- uid: 303
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 5.5,4.5
+    parent: 0
+    type: Transform
+- uid: 304
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 6.5,4.5
+    parent: 0
+    type: Transform
+- uid: 305
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 6.5,4.5
+    parent: 0
+    type: Transform
+- uid: 306
+  type: WallReinforced
+  components:
+  - pos: -0.5,3.5
+    parent: 0
+    type: Transform
+- uid: 307
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 5.5,4.5
+    parent: 0
+    type: Transform
+- uid: 308
+  type: WallReinforced
+  components:
+  - pos: -4.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 309
+  type: WallReinforced
+  components:
+  - pos: -4.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 310
+  type: WallReinforced
+  components:
+  - pos: -4.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 311
+  type: WallReinforced
+  components:
+  - pos: -4.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 312
+  type: WallReinforced
+  components:
+  - pos: -4.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 313
+  type: WallReinforced
+  components:
+  - pos: -4.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 314
+  type: WallReinforced
+  components:
+  - pos: -4.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 315
+  type: GasPort
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 316
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 6.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 317
+  type: GasPipeBend
+  components:
+  - pos: 7.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 318
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,4.5
+    parent: 0
+    type: Transform
+- uid: 319
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,4.5
+    parent: 0
+    type: Transform
+- uid: 320
+  type: NitrogenCanister
+  components:
+  - pos: -5.499999,-5.5
+    parent: 0
+    type: Transform
+  - releaseValve: True
+    gasMixture:
+      volume: 1000
+      temperature: 293.15
+      moles:
+      - 0
+      - 1.0067291
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GasCanister
+- uid: 321
+  type: CableMV
+  components:
+  - pos: -2.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 322
+  type: CableMV
+  components:
+  - pos: -1.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 323
+  type: CableMV
+  components:
+  - pos: -1.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 324
+  type: CableMV
+  components:
+  - pos: -0.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 325
+  type: CableMV
+  components:
+  - pos: 0.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 326
+  type: CableMV
+  components:
+  - pos: 0.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 327
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,1.5
+    parent: 0
+    type: Transform
+- uid: 328
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 329
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 330
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 331
+  type: GasCanisterBrokenBase
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -5.5,-2.4999907
+    parent: 0
+    type: Transform
+- uid: 332
+  type: GasCanisterBrokenBase
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -5.500023,-1.4999954
+    parent: 0
+    type: Transform
+- uid: 333
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 334
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 335
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 336
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 337
+  type: GasPipeTJunction
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 338
+  type: GasPipeBend
+  components:
+  - pos: -2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 339
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 340
+  type: GasPipeBend
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -6.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 341
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 6.5,1.5
+    parent: 0
+    type: Transform
+- uid: 342
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 343
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 344
+  type: GasFilterFlipped
+  components:
+  - pos: -2.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 345
+  type: GasPressurePump
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 346
+  type: OxygenCanister
+  components:
+  - pos: -3.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 347
+  type: GasPort
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,1.5
+    parent: 0
+    type: Transform
+- uid: 348
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,0.5
+    parent: 0
+    type: Transform
+- uid: 349
+  type: GasFilterFlipped
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 350
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 16.5,0.5
+    parent: 0
+    type: Transform
+- uid: 351
+  type: GasPassiveGate
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,-8.5
+    parent: 0
+    type: Transform
+  - flowRate: 4.953041E-06
+    type: GasPassiveGate
+- uid: 352
+  type: CableMV
+  components:
+  - pos: -2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 353
+  type: GasPipeBend
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 354
+  type: CableMV
+  components:
+  - pos: -1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 355
+  type: CableMV
+  components:
+  - pos: -0.5,2.5
+    parent: 0
+    type: Transform
+- uid: 356
+  type: CableMV
+  components:
+  - pos: -0.5,2.5
+    parent: 0
+    type: Transform
+- uid: 357
+  type: CableMV
+  components:
+  - pos: -0.5,2.5
+    parent: 0
+    type: Transform
+- uid: 358
+  type: CableMV
+  components:
+  - pos: 0.5,2.5
+    parent: 0
+    type: Transform
+- uid: 359
+  type: CableMV
+  components:
+  - pos: 1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 360
+  type: CableMV
+  components:
+  - pos: 1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 361
+  type: CableMV
+  components:
+  - pos: 1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 362
+  type: CableMV
+  components:
+  - pos: 2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 363
+  type: CableMV
+  components:
+  - pos: 2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 364
+  type: CableMV
+  components:
+  - pos: 4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 365
+  type: CableMV
+  components:
+  - pos: 4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 366
+  type: CableMV
+  components:
+  - pos: 4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 367
+  type: CableMV
+  components:
+  - pos: 5.5,2.5
+    parent: 0
+    type: Transform
+- uid: 368
+  type: CableMV
+  components:
+  - pos: 6.5,2.5
+    parent: 0
+    type: Transform
+- uid: 369
+  type: CableMV
+  components:
+  - pos: 6.5,2.5
+    parent: 0
+    type: Transform
+- uid: 370
+  type: CableMV
+  components:
+  - pos: 6.5,2.5
+    parent: 0
+    type: Transform
+- uid: 371
+  type: CableMV
+  components:
+  - pos: 6.5,2.5
+    parent: 0
+    type: Transform
+- uid: 372
+  type: CableMV
+  components:
+  - pos: 6.5,2.5
+    parent: 0
+    type: Transform
+- uid: 373
+  type: CableMV
+  components:
+  - pos: 7.5,2.5
+    parent: 0
+    type: Transform
+- uid: 374
+  type: CableMV
+  components:
+  - pos: 7.5,2.5
+    parent: 0
+    type: Transform
+- uid: 375
+  type: CableMV
+  components:
+  - pos: 4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 376
+  type: CableMV
+  components:
+  - pos: 4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 377
+  type: CableMV
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 378
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -1.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 379
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -0.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 380
+  type: GasPipeBend
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 381
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 1.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 382
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 1.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 383
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,4.5
+    parent: 0
+    type: Transform
+- uid: 384
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 14.5,4.5
+    parent: 0
+    type: Transform
+- uid: 385
+  type: GasPipeBend
+  components:
+  - pos: 7.5,1.5
+    parent: 0
+    type: Transform
+- uid: 386
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 387
+  type: Window
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 388
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 389
+  type: GasPipeBend
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 390
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 391
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 392
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 5.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 393
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 6.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 394
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 395
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 396
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 397
+  type: GasPipeStraight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 8.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 398
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 399
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 400
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 401
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 402
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,0.5
+    parent: 0
+    type: Transform
+- uid: 403
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 404
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,4.5
+    parent: 0
+    type: Transform
+- uid: 405
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 2.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 406
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 4.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 407
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 4.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 408
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 5.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 409
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 3.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 410
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 14.5,4.5
+    parent: 0
+    type: Transform
+- uid: 411
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 13.5,4.5
+    parent: 0
+    type: Transform
+- uid: 412
+  type: GasPort
+  components:
+  - pos: -1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 413
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,0.5
+    parent: 0
+    type: Transform
+- uid: 414
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,4.5
+    parent: 0
+    type: Transform
+- uid: 415
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 15.5,4.5
+    parent: 0
+    type: Transform
+- uid: 416
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 15.5,4.5
+    parent: 0
+    type: Transform
+- uid: 417
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 16.5,4.5
+    parent: 0
+    type: Transform
+- uid: 418
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,4.5
+    parent: 0
+    type: Transform
+- uid: 419
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,4.5
+    parent: 0
+    type: Transform
+- uid: 420
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 12.5,4.5
+    parent: 0
+    type: Transform
+- uid: 421
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -4.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 422
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -1.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 423
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 424
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 425
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 426
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 427
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 12.5,0.5
+    parent: 0
+    type: Transform
+- uid: 428
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -1.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 429
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 430
+  type: WallReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 431
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 13.5,0.5
+    parent: 0
+    type: Transform
+- uid: 432
+  type: ClothingOuterApron
+  components:
+  - rot: -1.9646524407335164E-09 rad
+    pos: 5.4614487,-5.4892654
+    parent: 0
+    type: Transform
+- uid: 433
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 15.5,0.5
+    parent: 0
+    type: Transform
+- uid: 434
+  type: MaintenanceWeaponSpawner
+  components:
+  - pos: -5.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 435
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 14.5,0.5
+    parent: 0
+    type: Transform
+- uid: 436
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 16.5,1.5
+    parent: 0
+    type: Transform
+- uid: 437
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 16.5,2.5
+    parent: 0
+    type: Transform
+- uid: 438
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 16.5,3.5
+    parent: 0
+    type: Transform
+- uid: 439
+  type: Table
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 15.5,2.5
+    parent: 0
+    type: Transform
+- uid: 440
+  type: Table
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 15.5,1.5
+    parent: 0
+    type: Transform
+- uid: 441
+  type: Table
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 15.5,3.5
+    parent: 0
+    type: Transform
+- uid: 442
+  type: Chair
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 14.5,2.5
+    parent: 0
+    type: Transform
+- uid: 443
+  type: CableTerminal
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -2.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 444
+  type: CableMV
+  components:
+  - pos: -2.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 445
+  type: CableMV
+  components:
+  - pos: -2.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 446
+  type: CableMV
+  components:
+  - pos: -2.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 447
+  type: CableMV
+  components:
+  - pos: -2.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 448
+  type: CableHV
+  components:
+  - pos: -2.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 449
+  type: CableHV
+  components:
+  - pos: -2.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 450
+  type: CableHV
+  components:
+  - pos: -2.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 451
+  type: CableHV
+  components:
+  - pos: -2.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 452
+  type: CableHV
+  components:
+  - pos: -3.5,-12.5
+    parent: 0
+    type: Transform
+- uid: 453
+  type: AirlockEngineeringGlassLocked
+  components:
+  - pos: -2.5,-10.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 454
+    type: ContainerContainer
+- uid: 454
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 453
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 455
+  type: AirlockAtmosphericsGlassLocked
+  components:
+  - pos: -2.5,-8.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 456
+    type: ContainerContainer
+- uid: 456
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 455
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 457
+  type: ComputerBroken
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 458
+  type: ComputerFrame
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 459
+  type: ComputerSurveillanceWirelessCameraMonitor
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 4.5,1.5
+    parent: 0
+    type: Transform
+  - address: 41009f31
+    transmitFrequency: 1926
+    receiveFrequency: 1926
+    type: DeviceNetwork
+  - containers:
+    - board
+    type: Construction
+  - containers:
+      board: !type:Container
+        ents:
+        - 460
+    type: ContainerContainer
+- uid: 460
+  type: SurveillanceWirelessCameraMonitorCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 459
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 461
+  type: BaseComputer
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 5.5,1.5
+    parent: 0
+    type: Transform
+  - containers:
+    - board
+    type: Construction
+- uid: 462
+  type: ReinforcedGirder
+  components:
+  - pos: -5.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 463
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -0.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 464
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 465
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 466
+  type: WarningAir
+  components:
+  - pos: -3.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 467
+  type: WarningWaste
+  components:
+  - pos: -1.5,3.5
+    parent: 0
+    type: Transform
+- uid: 468
+  type: GasPipeHalf
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 7.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 469
+  type: AsteroidRockMining
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 7.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 470
+  type: WardrobeBotanistFilled
+  components:
+  - pos: 12.499926,3.5
+    parent: 0
+    type: Transform
+  - containers:
+      entity_storage: !type:Container
+        ents:
+        - 476
+        - 475
+        - 474
+        - 473
+        - 472
+        - 471
+        - 477
+    type: ContainerContainer
+- uid: 471
+  type: ClothingShoesColorBrown
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 472
+  type: ClothingBackpackHydroponics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 473
+  type: ClothingUniformJumpsuitHydroponics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - mode: SensorBinary
+    type: SuitSensor
+  - address: 5cfe66da
+    transmitFrequency: 1262
+    type: DeviceNetwork
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 474
+  type: ClothingUniformOveralls
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - mode: SensorVitals
+    type: SuitSensor
+  - address: 4f9767b8
+    transmitFrequency: 1262
+    type: DeviceNetwork
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 475
+  type: ClothingUniformJumpskirtHydroponics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - mode: SensorVitals
+    type: SuitSensor
+  - address: 2ade8e9f
+    transmitFrequency: 1262
+    type: DeviceNetwork
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 476
+  type: WeedSpray
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 477
+  type: ClothingOuterApronBotanist
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 470
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 478
+  type: WardrobeBotanist
+  components:
+  - pos: 11.499926,3.5
+    parent: 0
+    type: Transform
+  - containers:
+      entity_storage: !type:Container
+        ents:
+        - 479
+    type: ContainerContainer
+- uid: 479
+  type: PestSpray
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 478
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 480
+  type: WardrobeBotanist
+  components:
+  - pos: 13.499926,3.5
+    parent: 0
+    type: Transform
+- uid: 481
+  type: BookBotanicalTextbook
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 15.39019,2.3207784
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 482
+  type: ClothingHandsGlovesLeather
+  components:
+  - rot: -1.1641532182693481E-10 rad
+    pos: 9.835564,-4.9103184
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 483
+  type: CrowbarRed
+  components:
+  - pos: 2.4898453,1.9498138
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 484
+  type: AirlockHydroGlassLocked
+  components:
+  - pos: 8.5,-2.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 485
+    type: ContainerContainer
+- uid: 485
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 484
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 486
+  type: ClosetEmergency
+  components:
+  - pos: 0.5,3.5
+    parent: 0
+    type: Transform
+- uid: 487
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 488
+  type: AirlockHydroGlassLocked
+  components:
+  - pos: 8.5,-0.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 489
+    type: ContainerContainer
+- uid: 489
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 488
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 490
+  type: GasPipeFourway
+  components:
+  - pos: 7.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 491
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 492
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 493
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 494
+  type: GasPipeFourway
+  components:
+  - pos: 9.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 495
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 496
+  type: GasPassiveVent
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 6.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 497
+  type: GasPipeStraight
+  components:
+  - pos: 7.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 498
+  type: GasPipeStraight
+  components:
+  - pos: 9.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 499
+  type: GasPassiveVent
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 500
+  type: GasPassiveVent
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 501
+  type: GasPassiveVent
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 6.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 502
+  type: GasPassiveVent
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 6.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 503
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 504
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 8.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 505
+  type: GasPipeStraight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 506
+  type: WallReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -0.5,2.5
+    parent: 0
+    type: Transform
+- uid: 507
+  type: AirlockAtmosphericsGlassLocked
+  components:
+  - pos: -0.5,1.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 508
+    type: ContainerContainer
+- uid: 508
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 507
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 509
+  type: AirlockMaintCommonLocked
+  components:
+  - pos: -4.5,-9.5
+    parent: 0
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents:
+        - 510
+    type: ContainerContainer
+- uid: 510
+  type: DoorElectronics
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 509
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 511
+  type: WaterTankHighCapacity
+  components:
+  - pos: 7.5,3.5
+    parent: 0
+    type: Transform
+- uid: 512
+  type: WindowDirectional
+  components:
+  - pos: 9.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 513
+  type: SurveillanceWirelessCameraAnchoredEntertainment
+  components:
+  - pos: 13.5,1.5
+    parent: 0
+    type: Transform
+  - address: fe38664
+    transmitFrequency: 1926
+    receiveFrequency: 1939
+    type: DeviceNetwork
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 514
+      machine_parts: !type:Container
+        ents:
+        - 515
+        - 516
+        - 517
+        - 518
+        - 519
+        - 520
+        - 521
+    type: ContainerContainer
+- uid: 514
+  type: SurveillanceWirelessCameraAnchoredCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 515
+  type: MicroLaserStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 516
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 517
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 518
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 519
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 520
+  type: SheetGlass1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - count: 2
+    type: Stack
+  - canCollide: False
+    type: Physics
+- uid: 521
+  type: CableApcStack1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 513
+    type: Transform
+  - count: 2
+    type: Stack
+  - canCollide: False
+    type: Physics
+- uid: 522
+  type: AsteroidRock
+  components:
+  - pos: -6.5,-2.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSteel
+    type: OreVein
+- uid: 523
+  type: AsteroidRock
+  components:
+  - pos: -6.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 524
+  type: AsteroidRock
+  components:
+  - pos: -5.5,-0.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSteel
+    type: OreVein
+- uid: 525
+  type: AsteroidRock
+  components:
+  - pos: -6.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 526
+  type: AsteroidRock
+  components:
+  - pos: -6.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 527
+  type: AsteroidRock
+  components:
+  - pos: -7.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 528
+  type: AsteroidRock
+  components:
+  - pos: -7.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 529
+  type: AsteroidRock
+  components:
+  - pos: -6.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 530
+  type: AsteroidRock
+  components:
+  - pos: -7.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 531
+  type: AsteroidRock
+  components:
+  - pos: -6.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 532
+  type: AsteroidRockMining
+  components:
+  - pos: -7.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 533
+  type: AsteroidRockMining
+  components:
+  - pos: -5.5,0.5
+    parent: 0
+    type: Transform
+  - currentOre: OreSilver
+    type: OreVein
+- uid: 534
+  type: CableMV
+  components:
+  - pos: -1.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 535
+  type: APCHyperCapacity
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -1.5,-11.5
+    parent: 0
+    type: Transform
+  - startingCharge: 165608.73
+    type: Battery
+  - loadingNetworkDemand: 20
+    currentSupply: 20
+    supplyRampPosition: 20
+    type: PowerNetworkBattery
+- uid: 536
+  type: APCSuperCapacity
+  components:
+  - pos: 3.5,4.5
+    parent: 0
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 537
+  type: WaterTankHighCapacity
+  components:
+  - pos: 8.5,3.5000005
+    parent: 0
+    type: Transform
+- uid: 538
+  type: WaterTankHighCapacity
+  components:
+  - pos: 9.5,3.5
+    parent: 0
+    type: Transform
+- uid: 539
+  type: SurveillanceCameraWirelessRouterBase
+  components:
+  - pos: 5.5,3.5
+    parent: 0
+    type: Transform
+  - address: 6deb35bc
+    transmitFrequency: 1926
+    receiveFrequency: 1926
+    type: DeviceNetwork
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 540
+      machine_parts: !type:Container
+        ents:
+        - 541
+        - 542
+        - 543
+        - 544
+        - 545
+    type: ContainerContainer
+- uid: 540
+  type: SurveillanceCameraWirelessRouterCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 539
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 541
+  type: MicroLaserStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 539
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 542
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 539
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 543
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 539
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 544
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 539
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 545
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 539
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 546
+  type: WaterCooler
+  components:
+  - pos: 14.499926,3.4999995
+    parent: 0
+    type: Transform
+- uid: 547
+  type: SurveillanceCameraWirelessRouterBase
+  components:
+  - pos: 4.5,3.5
+    parent: 0
+    type: Transform
+  - address: 25e4d481
+    transmitFrequency: 1926
+    receiveFrequency: 1926
+    type: DeviceNetwork
+  - containers:
+      machine_board: !type:Container
+        ents:
+        - 548
+      machine_parts: !type:Container
+        ents:
+        - 549
+        - 550
+        - 551
+        - 552
+        - 553
+    type: ContainerContainer
+- uid: 548
+  type: SurveillanceCameraWirelessRouterCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 547
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 549
+  type: MicroLaserStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 547
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 550
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 547
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 551
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 547
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 552
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 547
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 553
+  type: CapacitorStockPart
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 547
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 554
+  type: DrinkVodkaGlass
+  components:
+  - rot: -1.5133991837501526E-09 rad
+    pos: 15.395651,2.9265704
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 555
+  type: DrinkWaterCup
+  components:
+  - rot: -1.5133991837501526E-09 rad
+    pos: 15.239424,3.614071
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 556
+  type: DrinkWaterCup
+  components:
+  - rot: -1.5133991837501526E-09 rad
+    pos: 15.520674,3.5828147
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 557
+  type: SinkStemlessWater
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,1.5
+    parent: 0
+    type: Transform
+- uid: 558
+  type: SinkStemlessWater
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 10.5,1.5
+    parent: 0
+    type: Transform
+- uid: 559
+  type: CableApcExtension
+  components:
+  - pos: 3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 560
+  type: CableMV
+  components:
+  - pos: -2.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 561
+  type: CableMV
+  components:
+  - pos: -2.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 562
+  type: FloorTileItemSteel
+  components:
+  - rot: -0.9529871335923614 rad
+    pos: -2.7376032,-13.641603
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 563
+  type: FloorTileItemSteel
+  components:
+  - rot: 1.9565346397880892 rad
+    pos: -3.4573364,-12.700518
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 564
+  type: CableMV
+  components:
+  - pos: -2.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 565
+  type: CableMV
+  components:
+  - pos: -2.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 566
+  type: AsteroidRockMining
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 15.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 567
+  type: CableMV
+  components:
+  - pos: -2.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 568
+  type: CableMV
+  components:
+  - pos: -2.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 569
+  type: CableMV
+  components:
+  - pos: -2.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 570
+  type: CableMV
+  components:
+  - pos: -2.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 571
+  type: CableMV
+  components:
+  - pos: -2.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 572
+  type: CableMV
+  components:
+  - pos: -2.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 573
+  type: CableMV
+  components:
+  - pos: -2.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 574
+  type: CableMV
+  components:
+  - pos: -2.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 575
+  type: CableMV
+  components:
+  - pos: -2.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 576
+  type: CableMV
+  components:
+  - pos: -2.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 577
+  type: CableMV
+  components:
+  - pos: -2.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 578
+  type: CableMV
+  components:
+  - pos: -2.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 579
+  type: CableMV
+  components:
+  - pos: -2.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 580
+  type: CableMV
+  components:
+  - pos: -2.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 581
+  type: CableMV
+  components:
+  - pos: -2.5,0.5
+    parent: 0
+    type: Transform
+- uid: 582
+  type: CableMV
+  components:
+  - pos: -2.5,0.5
+    parent: 0
+    type: Transform
+- uid: 583
+  type: CableMV
+  components:
+  - pos: -2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 584
+  type: CableMV
+  components:
+  - pos: -2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 585
+  type: CableMV
+  components:
+  - pos: -2.5,1.5
+    parent: 0
+    type: Transform
+- uid: 586
+  type: CableMV
+  components:
+  - pos: -1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 587
+  type: CableMV
+  components:
+  - pos: -1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 588
+  type: CableMV
+  components:
+  - pos: -0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 589
+  type: CableMV
+  components:
+  - pos: -0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 590
+  type: CableMV
+  components:
+  - pos: 0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 591
+  type: CableMV
+  components:
+  - pos: 0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 592
+  type: CableMV
+  components:
+  - pos: 0.5,1.5
+    parent: 0
+    type: Transform
+- uid: 593
+  type: CableMV
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 594
+  type: CableMV
+  components:
+  - pos: 3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 595
+  type: CableMV
+  components:
+  - pos: 3.5,4.5
+    parent: 0
+    type: Transform
+- uid: 596
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-9.5
+    parent: 0
+    type: Transform
+- uid: 597
+  type: CableApcExtension
+  components:
+  - pos: 8.5,-10.5
+    parent: 0
+    type: Transform
+- uid: 598
+  type: CableApcExtension
+  components:
+  - pos: 3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 599
+  type: CableApcExtension
+  components:
+  - pos: 3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 600
+  type: CableApcExtension
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 601
+  type: CableApcExtension
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 602
+  type: CableApcExtension
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 603
+  type: CableApcExtension
+  components:
+  - pos: 3.5,3.5
+    parent: 0
+    type: Transform
+- uid: 604
+  type: CableApcExtension
+  components:
+  - pos: 3.5,4.5
+    parent: 0
+    type: Transform
+- uid: 605
+  type: CableApcExtension
+  components:
+  - pos: 3.5,4.5
+    parent: 0
+    type: Transform
+- uid: 606
+  type: CableApcExtension
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 607
+  type: CableApcExtension
+  components:
+  - pos: 3.5,2.5
+    parent: 0
+    type: Transform
+- uid: 608
+  type: CableApcExtension
+  components:
+  - pos: 2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 609
+  type: CableApcExtension
+  components:
+  - pos: 2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 610
+  type: CableApcExtension
+  components:
+  - pos: 1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 611
+  type: CableApcExtension
+  components:
+  - pos: 1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 612
+  type: CableApcExtension
+  components:
+  - pos: 4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 613
+  type: CableApcExtension
+  components:
+  - pos: 5.5,2.5
+    parent: 0
+    type: Transform
+- uid: 614
+  type: CableApcExtension
+  components:
+  - pos: 6.5,2.5
+    parent: 0
+    type: Transform
+- uid: 615
+  type: CableApcExtension
+  components:
+  - pos: 7.5,2.5
+    parent: 0
+    type: Transform
+- uid: 616
+  type: CableApcExtension
+  components:
+  - pos: 7.5,2.5
+    parent: 0
+    type: Transform
+- uid: 617
+  type: CableApcExtension
+  components:
+  - pos: 7.5,2.5
+    parent: 0
+    type: Transform
+- uid: 618
+  type: CableApcExtension
+  components:
+  - pos: 8.5,2.5
+    parent: 0
+    type: Transform
+- uid: 619
+  type: CableApcExtension
+  components:
+  - pos: 9.5,2.5
+    parent: 0
+    type: Transform
+- uid: 620
+  type: CableApcExtension
+  components:
+  - pos: 10.5,2.5
+    parent: 0
+    type: Transform
+- uid: 621
+  type: CableApcExtension
+  components:
+  - pos: 11.5,2.5
+    parent: 0
+    type: Transform
+- uid: 622
+  type: CableApcExtension
+  components:
+  - pos: 11.5,2.5
+    parent: 0
+    type: Transform
+- uid: 623
+  type: CableApcExtension
+  components:
+  - pos: 11.5,2.5
+    parent: 0
+    type: Transform
+- uid: 624
+  type: CableApcExtension
+  components:
+  - pos: 12.5,2.5
+    parent: 0
+    type: Transform
+- uid: 625
+  type: CableApcExtension
+  components:
+  - pos: 13.5,2.5
+    parent: 0
+    type: Transform
+- uid: 626
+  type: CableApcExtension
+  components:
+  - pos: 13.5,2.5
+    parent: 0
+    type: Transform
+- uid: 627
+  type: CableApcExtension
+  components:
+  - pos: 14.5,2.5
+    parent: 0
+    type: Transform
+- uid: 628
+  type: CableApcExtension
+  components:
+  - pos: 14.5,2.5
+    parent: 0
+    type: Transform
+- uid: 629
+  type: CableApcExtension
+  components:
+  - pos: 8.5,2.5
+    parent: 0
+    type: Transform
+- uid: 630
+  type: CableApcExtension
+  components:
+  - pos: 8.5,1.5
+    parent: 0
+    type: Transform
+- uid: 631
+  type: CableApcExtension
+  components:
+  - pos: 8.5,1.5
+    parent: 0
+    type: Transform
+- uid: 632
+  type: CableApcExtension
+  components:
+  - pos: 8.5,1.5
+    parent: 0
+    type: Transform
+- uid: 633
+  type: CableApcExtension
+  components:
+  - pos: 8.5,0.5
+    parent: 0
+    type: Transform
+- uid: 634
+  type: CableApcExtension
+  components:
+  - pos: 8.5,0.5
+    parent: 0
+    type: Transform
+- uid: 635
+  type: CableApcExtension
+  components:
+  - pos: 8.5,0.5
+    parent: 0
+    type: Transform
+- uid: 636
+  type: CableApcExtension
+  components:
+  - pos: 8.5,0.5
+    parent: 0
+    type: Transform
+- uid: 637
+  type: Grille
+  components:
+  - pos: 6.5,0.5
+    parent: 0
+    type: Transform
+- uid: 638
+  type: RandomSpawner
+  components:
+  - pos: 10.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 639
+  type: MaintenanceFluffSpawner
+  components:
+  - pos: 15.5,1.5
+    parent: 0
+    type: Transform
+- uid: 640
+  type: RandomSpawner
+  components:
+  - pos: 9.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 641
+  type: RandomSpawner
+  components:
+  - pos: 3.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 642
+  type: RandomSpawner
+  components:
+  - pos: -6.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 643
+  type: RandomSpawner
+  components:
+  - pos: -4.5,2.5
+    parent: 0
+    type: Transform
+- uid: 644
+  type: CrateFilledSpawner
+  components:
+  - pos: 6.5,3.5
+    parent: 0
+    type: Transform
+- uid: 645
+  type: HydroponicsToolScythe
+  components:
+  - pos: 10.481146,3.4995947
+    parent: 0
+    type: Transform
+- uid: 646
+  type: hydroponicsSoil
+  components:
+  - pos: 10.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 647
+  type: hydroponicsSoil
+  components:
+  - pos: 11.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 648
+  type: hydroponicsSoil
+  components:
+  - pos: 4.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 649
+  type: hydroponicsSoil
+  components:
+  - pos: 10.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 650
+  type: CrateHydroponicsSeedsMedicinal
+  components:
+  - pos: 11.5,1.5
+    parent: 0
+    type: Transform
+- uid: 651
+  type: CrateHydroponicsSeedsExotic
+  components:
+  - pos: 12.5,1.5
+    parent: 0
+    type: Transform
+- uid: 652
+  type: Grille
+  components:
+  - pos: 14.5,0.5
+    parent: 0
+    type: Transform
+- uid: 653
+  type: Grille
+  components:
+  - pos: 11.5,0.5
+    parent: 0
+    type: Transform
+- uid: 654
+  type: Grille
+  components:
+  - pos: 12.5,0.5
+    parent: 0
+    type: Transform
+- uid: 655
+  type: Grille
+  components:
+  - pos: 13.5,0.5
+    parent: 0
+    type: Transform
+- uid: 656
+  type: Grille
+  components:
+  - pos: 15.5,0.5
+    parent: 0
+    type: Transform
+- uid: 657
+  type: Grille
+  components:
+  - pos: 5.5,0.5
+    parent: 0
+    type: Transform
+- uid: 658
+  type: Grille
+  components:
+  - pos: 4.5,0.5
+    parent: 0
+    type: Transform
+- uid: 659
+  type: Grille
+  components:
+  - pos: 3.5,0.5
+    parent: 0
+    type: Transform
+- uid: 660
+  type: Grille
+  components:
+  - pos: 2.5,0.5
+    parent: 0
+    type: Transform
+- uid: 661
+  type: Grille
+  components:
+  - pos: 1.5,0.5
+    parent: 0
+    type: Transform
+- uid: 662
+  type: Grille
+  components:
+  - pos: 0.5,0.5
+    parent: 0
+    type: Transform
+- uid: 663
+  type: Grille
+  components:
+  - pos: 16.5,1.5
+    parent: 0
+    type: Transform
+- uid: 664
+  type: Grille
+  components:
+  - pos: 16.5,2.5
+    parent: 0
+    type: Transform
+- uid: 665
+  type: Grille
+  components:
+  - pos: 16.5,3.5
+    parent: 0
+    type: Transform
+- uid: 666
+  type: Grille
+  components:
+  - pos: -1.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 667
+  type: Grille
+  components:
+  - pos: 10.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 668
+  type: Grille
+  components:
+  - pos: 10.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 669
+  type: Grille
+  components:
+  - pos: 11.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 670
+  type: Grille
+  components:
+  - pos: 12.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 671
+  type: Grille
+  components:
+  - pos: 12.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 672
+  type: Grille
+  components:
+  - pos: 13.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 673
+  type: Grille
+  components:
+  - pos: 13.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 674
+  type: Grille
+  components:
+  - pos: 14.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 675
+  type: Grille
+  components:
+  - pos: 6.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 676
+  type: Grille
+  components:
+  - pos: 6.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 677
+  type: Grille
+  components:
+  - pos: 5.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 678
+  type: Grille
+  components:
+  - pos: 4.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 679
+  type: Grille
+  components:
+  - pos: 4.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 680
+  type: Grille
+  components:
+  - pos: 3.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 681
+  type: Grille
+  components:
+  - pos: 3.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 682
+  type: Grille
+  components:
+  - pos: 2.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 683
+  type: Grille
+  components:
+  - pos: 2.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 684
+  type: Grille
+  components:
+  - pos: 2.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 685
+  type: Grille
+  components:
+  - pos: 1.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 686
+  type: Grille
+  components:
+  - pos: -1.5,-6.5
+    parent: 0
+    type: Transform
+- uid: 687
+  type: Grille
+  components:
+  - pos: -1.5,-5.5
+    parent: 0
+    type: Transform
+- uid: 688
+  type: Grille
+  components:
+  - pos: -1.5,-4.5
+    parent: 0
+    type: Transform
+- uid: 689
+  type: Grille
+  components:
+  - pos: -1.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 690
+  type: Grille
+  components:
+  - pos: -1.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 691
+  type: Grille
+  components:
+  - pos: -1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 692
+  type: UraniumOre1
+  components:
+  - pos: -6.355318,-6.414028
+    parent: 0
+    type: Transform
+- uid: 693
+  type: Grille
+  components:
+  - pos: 1.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 694
+  type: Grille
+  components:
+  - pos: 2.5,-11.5
+    parent: 0
+    type: Transform
+- uid: 695
+  type: Grille
+  components:
+  - pos: 9.5,-18.5
+    parent: 0
+    type: Transform
+- uid: 696
+  type: Grille
+  components:
+  - pos: 9.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 697
+  type: Grille
+  components:
+  - pos: 9.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 698
+  type: Grille
+  components:
+  - pos: 10.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 699
+  type: Grille
+  components:
+  - pos: 10.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 700
+  type: Grille
+  components:
+  - pos: 11.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 701
+  type: Grille
+  components:
+  - pos: 12.5,-15.5
+    parent: 0
+    type: Transform
+- uid: 702
+  type: Grille
+  components:
+  - pos: 12.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 703
+  type: Grille
+  components:
+  - pos: 13.5,-14.5
+    parent: 0
+    type: Transform
+- uid: 704
+  type: Grille
+  components:
+  - pos: 13.5,-13.5
+    parent: 0
+    type: Transform
+- uid: 705
+  type: Grille
+  components:
+  - pos: 7.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 706
+  type: Grille
+  components:
+  - pos: 7.5,-17.5
+    parent: 0
+    type: Transform
+- uid: 707
+  type: Grille
+  components:
+  - pos: 7.5,-18.5
+    parent: 0
+    type: Transform
+- uid: 708
+  type: FoodMeatRotten
+  components:
+  - pos: 10.210819,-6.4002185
+    parent: 0
+    type: Transform
+- uid: 709
+  type: FoodMeatRotten
+  components:
+  - pos: 11.460817,-4.9939685
+    parent: 0
+    type: Transform
+- uid: 710
+  type: FoodMeatRotten
+  components:
+  - pos: 15.514809,1.5247669
+    parent: 0
+    type: Transform
+- uid: 711
+  type: FoodMeatRotten
+  components:
+  - pos: 10.795189,-6.811798
+    parent: 0
+    type: Transform
+...
