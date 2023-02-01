@@ -9,7 +9,7 @@ public sealed class WorldgenCVars
     ///     Whether or not world generation is enabled.
     /// </summary>
     public static readonly CVarDef<bool> WorldgenEnabled =
-        CVarDef.Create("white.worldgen.enabled", true, CVar.SERVERONLY);
+        CVarDef.Create("white.worldgen.enabled", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     The worldgen config to use.
