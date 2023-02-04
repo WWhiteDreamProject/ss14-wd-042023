@@ -29,7 +29,6 @@ using Content.Server.White.JoinQueue;
 using Content.Server.White.Stalin;
 using Content.Server.White.Sponsors;
 using Content.Server.White.TTS;
-using Content.Server.White.Worldgen.Tools;
 
 
 namespace Content.Server.IoC
@@ -69,7 +68,6 @@ namespace Content.Server.IoC
             IoCManager.Register<JoinQueueManager>();
             IoCManager.Register<TTSManager>();
             IoCManager.Register<UtkaSocketWrapper>();
-            IoCManager.Register<PoissonDiskSampler>();
             IoCManager.Register<StalinManager>();
         }
     }

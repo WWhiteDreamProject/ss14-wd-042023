@@ -83,6 +83,4 @@ public enum LogType
     AdminMessage = 78,
     Anomaly = 79,
     WireHacking = 80,
-    // haha why
-    ALPlacedStructure = -3149001,
 }
