@@ -20,7 +20,11 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
             return;
         }
 
+<<<<<<< HEAD
         // args.Component.TryGetData(TypingIndicatorVisuals.IsTyping, out bool isTyping); // CX-TypingIndicator
+=======
+        AppearanceSystem.TryGetData<bool>(uid, TypingIndicatorVisuals.IsTyping, out var isTyping, args.Component);
+>>>>>>> 0b5fabbc13411dc7e435371272c5f4aca07aca56
         var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);
         if (!layerExists)
             layer = args.Sprite.LayerMapReserveBlank(TypingIndicatorLayers.Base);

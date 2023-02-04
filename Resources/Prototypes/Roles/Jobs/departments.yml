@@ -30,6 +30,7 @@
   - SecurityCadet
   - ServiceWorker
   - TechnicalAssistant
+  - ResearchAssistant
 
 - type: department
   id: Command
@@ -86,6 +87,7 @@
   roles:
   - ResearchDirector
   - Scientist
+<<<<<<< HEAD
 
 - type: department
   id: Silicon
@@ -94,3 +96,6 @@
   roles:
     - Cyborg
     - MedicalCyborg
+=======
+  - ResearchAssistant
+>>>>>>> 0b5fabbc13411dc7e435371272c5f4aca07aca56
