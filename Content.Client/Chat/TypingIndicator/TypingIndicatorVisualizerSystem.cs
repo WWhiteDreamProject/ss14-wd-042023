@@ -1,6 +1,5 @@
 ﻿using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Chat.TypingIndicator;
@@ -20,11 +19,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
             return;
         }
 
-<<<<<<< HEAD
-        // args.Component.TryGetData(TypingIndicatorVisuals.IsTyping, out bool isTyping); // CX-TypingIndicator
-=======
-        AppearanceSystem.TryGetData<bool>(uid, TypingIndicatorVisuals.IsTyping, out var isTyping, args.Component);
->>>>>>> 0b5fabbc13411dc7e435371272c5f4aca07aca56
+        //AppearanceSystem.TryGetData<bool>(uid, TypingIndicatorVisuals.IsTyping, out var isTyping, args.Component);
         var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);
         if (!layerExists)
             layer = args.Sprite.LayerMapReserveBlank(TypingIndicatorLayers.Base);

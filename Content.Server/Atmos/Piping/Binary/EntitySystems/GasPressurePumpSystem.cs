@@ -25,12 +25,9 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-<<<<<<< HEAD
         [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
-=======
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
->>>>>>> 0b5fabbc13411dc7e435371272c5f4aca07aca56
 
         public override void Initialize()
         {

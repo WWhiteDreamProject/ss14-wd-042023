@@ -83854,12 +83854,6 @@ entities:
   - pos: -14.5,33.5
     parent: 8364
     type: Transform
-- uid: 8812
-  type: VehicleKeyPussyWagon
-  components:
-  - pos: -49.53985,-5.3556643
-    parent: 8364
-    type: Transform
 - uid: 8813
   type: MagazinePistol
   components:
@@ -118398,12 +118392,6 @@ entities:
   - flags: SessionSpecific
     type: MetaData
   - pos: -51.5,-4.5
-    parent: 8364
-    type: Transform
-- uid: 14104
-  type: SpawnVehiclePussywagon
-  components:
-  - pos: -51.5,-5.5
     parent: 8364
     type: Transform
 - uid: 14105
