@@ -27,6 +27,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         public override void Initialize()
         {
@@ -157,7 +158,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             if (!Resolve(uid, ref pump, ref appearance, false))
                 return;
 
-            appearance.SetData(PumpVisuals.Enabled, pump.Enabled);
+            _appearance.SetData(uid, PumpVisuals.Enabled, pump.Enabled, appearance);
         }
     }
 }

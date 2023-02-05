@@ -16,3 +16,6 @@
   id: WhiteMapBox
   maps:
     - WhiteBox
+    - WhiteMoose
+    - WhiteMeta
+    - WhiteKettle

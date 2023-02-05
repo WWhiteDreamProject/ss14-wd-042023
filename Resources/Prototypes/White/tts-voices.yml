@@ -169,7 +169,7 @@
 - type: ttsVoice
   id: gTTS - Japanese
   name: tts-voice-name-ja
-  sex: FeUnsexed
+  sex: Unsexed
   speaker: ja
 
 - type: ttsVoice
@@ -271,7 +271,7 @@
 - type: ttsVoice
   id: gTTS - Russian
   name: tts-voice-name-ru
-  sex: FeUnsexed
+  sex: Unsexed
   speaker: ru
 
 - type: ttsVoice
