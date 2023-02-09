@@ -1,0 +1,12 @@
+﻿<windows:EmotionsWindow
+    xmlns="https://spacestation14.io"
+    xmlns:windows="clr-namespace:Content.Client.UserInterface.Systems.Emotions.Windows"
+    Title="Emotions Menu"
+    VerticalExpand="True"
+    HorizontalExpand="True"
+    MinHeight="250"
+    MinWidth="300">
+    <BoxContainer Orientation="Vertical" Name="EmotionsContainer" Access="Public">
+        
+    </BoxContainer>
+</windows:EmotionsWindow>
