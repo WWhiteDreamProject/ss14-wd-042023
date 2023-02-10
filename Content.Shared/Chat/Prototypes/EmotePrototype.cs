@@ -21,6 +21,13 @@ public sealed class EmotePrototype : IPrototype
     public EmoteCategory Category = EmoteCategory.General;
 
     /// <summary>
+    ///     Текст для кнопки в эмоут меню.
+    ///     Бля ну или как это описать, вы поняли короче. ¯\_(ツ)_/¯
+    /// </summary>
+    [DataField("buttonText")]
+    public string ButtonText { get; } = "Unknown";
+
+    /// <summary>
     ///     Collection of words that will be sent to chat if emote activates.
     ///     Will be picked randomly from list.
     /// </summary>
