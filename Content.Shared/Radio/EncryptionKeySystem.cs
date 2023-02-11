@@ -41,13 +41,13 @@ public sealed class EncryptionKeySystem : EntitySystem
     {
         foreach (var id in channels)
         {
+            if (id == "Common")
+                continue;
             var proto = protoManager.Index<RadioChannelPrototype>(id);
-            string keyCode = "" + proto.KeyCode;
-            if (id != "Common")
-                keyCode = ":" + keyCode;
-            examineEvent.PushMarkup(Loc.GetString(channelFTLPattern,
+            var keycodes = $":{string.Join(", :", proto.KeyCodes.ToArray())}";
+            examineEvent.PushMarkup(Loc.GetString("examine-headset-channel",
                 ("color", proto.Color),
-                ("key", keyCode),
+                ("keys", keycodes),
                 ("id", proto.LocalizedName),
                 ("freq", proto.Frequency)));
         }
