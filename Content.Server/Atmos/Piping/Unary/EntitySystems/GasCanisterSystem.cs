@@ -5,7 +5,7 @@ using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Managers;
-using Content.Server.Lock;
+using Content.Shared.Lock;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
@@ -333,7 +333,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             args.GasMixtures = new Dictionary<string, GasMixture?> { {Name(uid), component.Air} };
         }
 
-        private void OnLockToggled(EntityUid uid, GasCanisterComponent component, LockToggledEvent args)
+        private void OnLockToggled(EntityUid uid, GasCanisterComponent component, ref LockToggledEvent args)
         {
             _appearanceSystem.SetData(uid, GasCanisterVisuals.Locked, args.Locked);
         }

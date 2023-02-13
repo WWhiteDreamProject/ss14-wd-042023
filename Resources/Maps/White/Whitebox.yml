@@ -3883,11 +3883,10 @@ entities:
   - dockJointId: docking46345
     dockedWith: 21828
     type: Docking
-  - changeAirtight: False
-    state: Open
+  - SecondsUntilStateChange: -25024.332
+    changeAirtight: False
+    state: Opening
     type: Door
-  - canCollide: False
-    type: Physics
   - fixtures:
     - shape: !type:PolygonShape
         vertices:
@@ -5236,7 +5235,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 100
+  - index: 5
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -73288,7 +73287,7 @@ entities:
       64,28: 0
       65,16: 0
       65,17: 1
-      65,18: 8
+      65,18: 4
       65,19: 1
       65,20: 0
       65,21: 0
@@ -75483,9 +75482,9 @@ entities:
       42,-23: 0
       42,-22: 0
       42,-21: 0
-      42,-20: 8
-      42,-19: 8
-      42,-18: 8
+      42,-20: 4
+      42,-19: 4
+      42,-18: 4
       42,-17: 0
       43,-32: 0
       43,-31: 0
@@ -75548,9 +75547,9 @@ entities:
       46,-22: 0
       46,-21: 0
       46,-20: 0
-      46,-19: 8
-      46,-18: 8
-      46,-17: 8
+      46,-19: 4
+      46,-18: 4
+      46,-17: 4
       47,-32: 0
       47,-31: 0
       47,-30: 0
@@ -78663,9 +78662,9 @@ entities:
       16,-71: 0
       16,-70: 0
       16,-68: 0
-      16,-67: 9
-      16,-66: 9
-      16,-65: 9
+      16,-67: 8
+      16,-66: 8
+      16,-65: 8
       17,-75: 0
       17,-74: 0
       17,-73: 0
@@ -78673,9 +78672,9 @@ entities:
       17,-71: 0
       17,-70: 0
       17,-68: 0
-      17,-67: 9
-      17,-66: 9
-      17,-65: 9
+      17,-67: 8
+      17,-66: 8
+      17,-65: 8
       18,-75: 0
       18,-74: 0
       18,-73: 0
@@ -78683,9 +78682,9 @@ entities:
       18,-71: 0
       18,-70: 0
       18,-68: 0
-      18,-67: 9
-      18,-66: 9
-      18,-65: 9
+      18,-67: 8
+      18,-66: 8
+      18,-65: 8
       19,-75: 0
       19,-74: 0
       19,-73: 0
@@ -79934,9 +79933,9 @@ entities:
       12,-71: 0
       12,-70: 0
       12,-68: 0
-      12,-67: 10
-      12,-66: 10
-      12,-65: 10
+      12,-67: 9
+      12,-66: 9
+      12,-65: 9
       13,-79: 0
       13,-78: 0
       13,-77: 0
@@ -79948,9 +79947,9 @@ entities:
       13,-71: 0
       13,-70: 0
       13,-68: 0
-      13,-67: 10
-      13,-66: 10
-      13,-65: 10
+      13,-67: 9
+      13,-66: 9
+      13,-65: 9
       14,-75: 0
       14,-74: 0
       14,-73: 0
@@ -79958,9 +79957,9 @@ entities:
       14,-71: 0
       14,-70: 0
       14,-68: 0
-      14,-67: 10
-      14,-66: 10
-      14,-65: 10
+      14,-67: 9
+      14,-66: 9
+      14,-65: 9
       15,-75: 0
       15,-74: 0
       15,-73: 0
@@ -82292,8 +82291,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.04244
-      - 75.39776
+      - 21.213781
+      - 79.80423
       - 0
       - 0
       - 0
@@ -82337,8 +82336,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -82352,8 +82351,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 20.04244
-      - 75.39776
+      - 21.213781
+      - 79.80423
       - 0
       - 0
       - 0
@@ -82382,23 +82381,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.011457
-      - 75.28119
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 18.405577
-      - 69.24003
+      - 21.180986
+      - 79.68085
       - 0
       - 0
       - 0
@@ -83766,18 +83750,6 @@ entities:
   - pos: 9.5,25.5
     parent: 8364
     type: Transform
-  - inputs:
-      Open:
-      - port: Timer
-        uid: 27319
-      Close:
-      - port: Start
-        uid: 27319
-      Toggle: []
-      AutoClose:
-      - port: Timer
-        uid: 27319
-    type: SignalReceiver
 - uid: 8570
   type: Rack
   components:
@@ -84174,18 +84146,6 @@ entities:
   - pos: -1.5,25.5
     parent: 8364
     type: Transform
-  - inputs:
-      Open:
-      - port: Timer
-        uid: 27318
-      Close:
-      - port: Start
-        uid: 27318
-      Toggle: []
-      AutoClose:
-      - port: Timer
-        uid: 27318
-    type: SignalReceiver
 - uid: 8625
   type: WindoorSecurityLocked
   components:
@@ -84194,18 +84154,6 @@ entities:
   - pos: -5.5,25.5
     parent: 8364
     type: Transform
-  - inputs:
-      Open:
-      - port: Timer
-        uid: 27317
-      Close:
-      - port: Start
-        uid: 27317
-      Toggle: []
-      AutoClose:
-      - port: Timer
-        uid: 27317
-    type: SignalReceiver
 - uid: 8626
   type: WindoorSecurityLocked
   components:
@@ -84214,18 +84162,6 @@ entities:
   - pos: -9.5,25.5
     parent: 8364
     type: Transform
-  - inputs:
-      Open:
-      - port: Timer
-        uid: 27316
-      Close:
-      - port: Start
-        uid: 27316
-      Toggle: []
-      AutoClose:
-      - port: Timer
-        uid: 27316
-    type: SignalReceiver
 - uid: 8627
   type: BedsheetWhite
   components:
@@ -170229,11 +170165,10 @@ entities:
   - dockJointId: docking46345
     dockedWith: 562
     type: Docking
-  - changeAirtight: False
-    state: Open
+  - SecondsUntilStateChange: -25024.332
+    changeAirtight: False
+    state: Opening
     type: Door
-  - canCollide: False
-    type: Physics
   - fixtures:
     - shape: !type:PolygonShape
         vertices:
@@ -213420,298 +213355,6 @@ entities:
   type: SpawnPointResearchAssistant
   components:
   - pos: 72.5,-26.5
-    parent: 8364
-    type: Transform
-- uid: 27316
-  type: BrigTimer
-  components:
-  - pos: -8.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8626
-      Timer:
-      - port: AutoClose
-        uid: 8626
-      - port: Open
-        uid: 8626
-    type: SignalTransmitter
-- uid: 27317
-  type: BrigTimer
-  components:
-  - pos: -4.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8625
-      Timer:
-      - port: AutoClose
-        uid: 8625
-      - port: Open
-        uid: 8625
-    type: SignalTransmitter
-- uid: 27318
-  type: BrigTimer
-  components:
-  - pos: -0.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8624
-      Timer:
-      - port: AutoClose
-        uid: 8624
-      - port: Open
-        uid: 8624
-    type: SignalTransmitter
-- uid: 27319
-  type: BrigTimer
-  components:
-  - pos: 10.5,25.5
-    parent: 8364
-    type: Transform
-  - outputs:
-      Start:
-      - port: Close
-        uid: 8569
-      Timer:
-      - port: AutoClose
-        uid: 8569
-      - port: Open
-        uid: 8569
-    type: SignalTransmitter
-- uid: 27320
-  type: Multitool
-  components:
-  - pos: -17.60916,24.513023
-    parent: 8364
-    type: Transform
-- uid: 27321
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 29.5,-25.5
-    parent: 8364
-    type: Transform
-- uid: 27322
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 28.5,-25.5
-    parent: 8364
-    type: Transform
-- uid: 27323
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 27.5,-25.5
-    parent: 8364
-    type: Transform
-- uid: 27324
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 33.5,-25.5
-    parent: 8364
-    type: Transform
-- uid: 27325
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 34.5,-25.5
-    parent: 8364
-    type: Transform
-- uid: 27326
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 37.5,-24.5
-    parent: 8364
-    type: Transform
-- uid: 27327
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 36.5,-25.5
-    parent: 8364
-    type: Transform
-- uid: 27328
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 30.5,-28.5
-    parent: 8364
-    type: Transform
-- uid: 27329
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 31.5,-28.5
-    parent: 8364
-    type: Transform
-- uid: 27330
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 32.5,-28.5
-    parent: 8364
-    type: Transform
-- uid: 27331
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 32.5,-29.5
-    parent: 8364
-    type: Transform
-- uid: 27332
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 31.5,-29.5
-    parent: 8364
-    type: Transform
-- uid: 27333
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 30.5,-29.5
-    parent: 8364
-    type: Transform
-- uid: 27334
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 36.5,-22.5
-    parent: 8364
-    type: Transform
-- uid: 27335
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 37.5,-21.5
-    parent: 8364
-    type: Transform
-- uid: 27336
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 39.5,-21.5
-    parent: 8364
-    type: Transform
-- uid: 27337
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: 40.5,-22.5
-    parent: 8364
-    type: Transform
-- uid: 27338
-  type: SpawnPointCyborg
-  components:
-  - pos: 52.5,-17.5
-    parent: 8364
-    type: Transform
-- uid: 27339
-  type: SpawnPointCyborg
-  components:
-  - pos: 52.5,-18.5
-    parent: 8364
-    type: Transform
-- uid: 27340
-  type: SpawnPointCyborg
-  components:
-  - pos: 52.5,-19.5
-    parent: 8364
-    type: Transform
-- uid: 27341
-  type: SpawnPointCyborg
-  components:
-  - pos: 54.5,-17.5
-    parent: 8364
-    type: Transform
-- uid: 27342
-  type: SpawnPointCyborg
-  components:
-  - pos: 54.5,-18.5
-    parent: 8364
-    type: Transform
-- uid: 27343
-  type: SpawnPointCyborg
-  components:
-  - pos: 54.5,-19.5
-    parent: 8364
-    type: Transform
-- uid: 27344
-  type: SpawnPointCyborg
-  components:
-  - pos: 23.5,-9.5
-    parent: 8364
-    type: Transform
-- uid: 27345
-  type: SpawnPointCyborg
-  components:
-  - pos: 55.5,-17.5
-    parent: 8364
-    type: Transform
-- uid: 27346
-  type: SpawnPointCyborg
-  components:
-  - pos: 55.5,-18.5
-    parent: 8364
-    type: Transform
-- uid: 27347
-  type: SpawnPointCyborg
-  components:
-  - pos: 55.5,-19.5
-    parent: 8364
-    type: Transform
-- uid: 27348
-  type: SpawnPointCyborg
-  components:
-  - pos: 53.5,-17.5
-    parent: 8364
-    type: Transform
-- uid: 27349
-  type: SpawnPointCyborg
-  components:
-  - pos: 53.5,-18.5
-    parent: 8364
-    type: Transform
-- uid: 27350
-  type: SpawnPointCyborg
-  components:
-  - pos: 53.5,-19.5
-    parent: 8364
-    type: Transform
-- uid: 27351
-  type: SpawnPointCyborg
-  components:
-  - pos: 24.5,-9.5
-    parent: 8364
-    type: Transform
-- uid: 27352
-  type: SpawnPointCyborg
-  components:
-  - pos: -1.5,-6.5
-    parent: 8364
-    type: Transform
-- uid: 27353
-  type: SpawnPointCyborg
-  components:
-  - pos: 0.5,-6.5
-    parent: 8364
-    type: Transform
-- uid: 27354
-  type: SpawnPointCyborg
-  components:
-  - pos: -3.5,20.5
-    parent: 8364
-    type: Transform
-- uid: 27355
-  type: SpawnPointCyborg
-  components:
-  - pos: -3.5,21.5
-    parent: 8364
-    type: Transform
-- uid: 27356
-  type: SpawnPointCyborg
-  components:
-  - pos: 3.5,19.5
-    parent: 8364
-    type: Transform
-- uid: 27357
-  type: SpawnPointCyborg
-  components:
-  - pos: 4.5,19.5
     parent: 8364
     type: Transform
 ...
