@@ -22347,8 +22347,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -118546,6 +118546,198 @@ entities:
       - port: Open
         uid: 4694
     type: SignalTransmitter
+- uid: 14237
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -20.5,-19.5
+    parent: 6
+    type: Transform
+- uid: 14238
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -21.5,-19.5
+    parent: 6
+    type: Transform
+- uid: 14239
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -22.5,-19.5
+    parent: 6
+    type: Transform
+- uid: 14240
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -22.5,-21.5
+    parent: 6
+    type: Transform
+- uid: 14241
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -21.5,-21.5
+    parent: 6
+    type: Transform
+- uid: 14242
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -20.5,-21.5
+    parent: 6
+    type: Transform
+- uid: 14243
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -33.5,-22.5
+    parent: 6
+    type: Transform
+- uid: 14244
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -32.5,-22.5
+    parent: 6
+    type: Transform
+- uid: 14245
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -31.5,-22.5
+    parent: 6
+    type: Transform
+- uid: 14246
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -32.5,-15.5
+    parent: 6
+    type: Transform
+- uid: 14247
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -32.5,-16.5
+    parent: 6
+    type: Transform
+- uid: 14248
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -28.5,-16.5
+    parent: 6
+    type: Transform
+- uid: 14249
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -29.5,-27.5
+    parent: 6
+    type: Transform
+- uid: 14250
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -24.5,-27.5
+    parent: 6
+    type: Transform
+- uid: 14251
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -23.5,-27.5
+    parent: 6
+    type: Transform
+- uid: 14252
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -23.5,-28.5
+    parent: 6
+    type: Transform
+- uid: 14253
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -24.5,-28.5
+    parent: 6
+    type: Transform
+- uid: 14254
+  type: SpawnPointCyborg
+  components:
+  - pos: -35.5,-2.5
+    parent: 6
+    type: Transform
+- uid: 14255
+  type: SpawnPointCyborg
+  components:
+  - pos: -34.5,-2.5
+    parent: 6
+    type: Transform
+- uid: 14256
+  type: SpawnPointCyborg
+  components:
+  - pos: -33.5,-2.5
+    parent: 6
+    type: Transform
+- uid: 14257
+  type: SpawnPointCyborg
+  components:
+  - pos: -35.5,-1.5
+    parent: 6
+    type: Transform
+- uid: 14258
+  type: SpawnPointCyborg
+  components:
+  - pos: -34.5,-1.5
+    parent: 6
+    type: Transform
+- uid: 14259
+  type: SpawnPointCyborg
+  components:
+  - pos: -33.5,-1.5
+    parent: 6
+    type: Transform
+- uid: 14260
+  type: SpawnPointCyborg
+  components:
+  - pos: -35.5,-3.5
+    parent: 6
+    type: Transform
+- uid: 14261
+  type: SpawnPointCyborg
+  components:
+  - pos: -34.5,-3.5
+    parent: 6
+    type: Transform
+- uid: 14262
+  type: SpawnPointCyborg
+  components:
+  - pos: -33.5,-3.5
+    parent: 6
+    type: Transform
+- uid: 14263
+  type: SpawnPointCyborg
+  components:
+  - pos: -32.5,-1.5
+    parent: 6
+    type: Transform
+- uid: 14264
+  type: SpawnPointCyborg
+  components:
+  - pos: -32.5,-2.5
+    parent: 6
+    type: Transform
+- uid: 14265
+  type: SpawnPointCyborg
+  components:
+  - pos: -32.5,-3.5
+    parent: 6
+    type: Transform
+- uid: 14266
+  type: SpawnPointCyborg
+  components:
+  - pos: -27.5,-1.5
+    parent: 6
+    type: Transform
+- uid: 14267
+  type: SpawnPointCyborg
+  components:
+  - pos: -26.5,-1.5
+    parent: 6
+    type: Transform
+- uid: 14268
+  type: SpawnPointCyborg
+  components:
+  - pos: -24.5,-1.5
+    parent: 6
+    type: Transform
 - uid: 14269
   type: CarpetSBlue
   components:
@@ -118653,6 +118845,12 @@ entities:
   type: AnomalyScanner
   components:
   - pos: 1.0719459,-75.33638
+    parent: 6
+    type: Transform
+- uid: 14286
+  type: SpawnPointCyborg
+  components:
+  - pos: -25.5,-1.5
     parent: 6
     type: Transform
 - uid: 14290

@@ -40278,8 +40278,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -40368,8 +40368,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.389294
-      - 65.41687
+      - 16.429127
+      - 61.804813
       - 0
       - 0
       - 0
@@ -40383,8 +40383,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -212476,6 +212476,12 @@ entities:
   - pos: -52.5,51.5
     parent: 82
     type: Transform
+- uid: 25668
+  type: SpawnPointCyborg
+  components:
+  - pos: -28.5,54.5
+    parent: 82
+    type: Transform
 - uid: 25669
   type: ReinforcedWindow
   components:
@@ -212577,6 +212583,12 @@ entities:
   type: RandomVending
   components:
   - pos: 31.5,-35.5
+    parent: 82
+    type: Transform
+- uid: 25686
+  type: SpawnPointCyborg
+  components:
+  - pos: -27.5,54.5
     parent: 82
     type: Transform
 - uid: 25687
@@ -212712,6 +212724,12 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: 23.5,-32.5
+    parent: 82
+    type: Transform
+- uid: 25706
+  type: SpawnPointCyborg
+  components:
+  - pos: -26.5,54.5
     parent: 82
     type: Transform
 - uid: 25707
@@ -213678,6 +213696,24 @@ entities:
   - pos: -34.5,-12.5
     parent: 82
     type: Transform
+- uid: 25850
+  type: SpawnPointCyborg
+  components:
+  - pos: -28.5,53.5
+    parent: 82
+    type: Transform
+- uid: 25851
+  type: SpawnPointCyborg
+  components:
+  - pos: -27.5,53.5
+    parent: 82
+    type: Transform
+- uid: 25852
+  type: SpawnPointCyborg
+  components:
+  - pos: -26.5,53.5
+    parent: 82
+    type: Transform
 - uid: 25853
   type: KitchenReagentGrinder
   components:
@@ -213756,6 +213792,12 @@ entities:
   - pos: -71.51004,11.717871
     parent: 82
     type: Transform
+- uid: 25866
+  type: SpawnPointCyborg
+  components:
+  - pos: -18.5,49.5
+    parent: 82
+    type: Transform
 - uid: 25867
   type: Table
   components:
@@ -213771,6 +213813,24 @@ entities:
   - name: Bridge
     destinationAddress: Bridge
     type: FaxMachine
+- uid: 25869
+  type: SpawnPointCyborg
+  components:
+  - pos: -18.5,48.5
+    parent: 82
+    type: Transform
+- uid: 25870
+  type: SpawnPointCyborg
+  components:
+  - pos: -18.5,47.5
+    parent: 82
+    type: Transform
+- uid: 25871
+  type: SpawnPointCyborg
+  components:
+  - pos: -14.5,38.5
+    parent: 82
+    type: Transform
 - uid: 25872
   type: Paper
   components:
@@ -213799,6 +213859,18 @@ entities:
     type: Transform
   - name: Engineering
     type: FaxMachine
+- uid: 25876
+  type: SpawnPointCyborg
+  components:
+  - pos: -14.5,37.5
+    parent: 82
+    type: Transform
+- uid: 25877
+  type: SpawnPointCyborg
+  components:
+  - pos: -9.5,38.5
+    parent: 82
+    type: Transform
 - uid: 25878
   type: Paper
   components:
@@ -213881,6 +213953,24 @@ entities:
     type: Transform
   - name: Brig
     type: FaxMachine
+- uid: 25890
+  type: SpawnPointCyborg
+  components:
+  - pos: -10.5,38.5
+    parent: 82
+    type: Transform
+- uid: 25891
+  type: SpawnPointCyborg
+  components:
+  - pos: -11.5,38.5
+    parent: 82
+    type: Transform
+- uid: 25892
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -23.5,-33.5
+    parent: 82
+    type: Transform
 - uid: 25893
   type: FaxMachineBase
   components:
@@ -213889,6 +213979,24 @@ entities:
     type: Transform
   - name: Lawyers Office
     type: FaxMachine
+- uid: 25894
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -25.5,-33.5
+    parent: 82
+    type: Transform
+- uid: 25895
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -24.5,-33.5
+    parent: 82
+    type: Transform
+- uid: 25896
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -25.5,-34.5
+    parent: 82
+    type: Transform
 - uid: 25897
   type: SpawnPointDetective
   components:
@@ -214099,6 +214207,12 @@ entities:
   type: IntercomScience
   components:
   - pos: 25.5,77.5
+    parent: 82
+    type: Transform
+- uid: 25930
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -24.5,-34.5
     parent: 82
     type: Transform
 - uid: 25931
@@ -214407,6 +214521,18 @@ entities:
     type: Transform
   - name: AI Core
     type: FaxMachine
+- uid: 25970
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -23.5,-34.5
+    parent: 82
+    type: Transform
+- uid: 25971
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -31.5,-26.5
+    parent: 82
+    type: Transform
 - uid: 25972
   type: Intercom
   components:
@@ -215860,6 +215986,84 @@ entities:
   components:
   - rot: 3.141592653589793 rad
     pos: 71.5,-25.5
+    parent: 82
+    type: Transform
+- uid: 26185
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -32.5,-26.5
+    parent: 82
+    type: Transform
+- uid: 26186
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -30.5,-26.5
+    parent: 82
+    type: Transform
+- uid: 26187
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -32.5,-27.5
+    parent: 82
+    type: Transform
+- uid: 26188
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -31.5,-27.5
+    parent: 82
+    type: Transform
+- uid: 26189
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -30.5,-27.5
+    parent: 82
+    type: Transform
+- uid: 26190
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -39.5,-35.5
+    parent: 82
+    type: Transform
+- uid: 26191
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -38.5,-35.5
+    parent: 82
+    type: Transform
+- uid: 26192
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -46.5,-30.5
+    parent: 82
+    type: Transform
+- uid: 26193
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -47.5,-30.5
+    parent: 82
+    type: Transform
+- uid: 26194
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -48.5,-30.5
+    parent: 82
+    type: Transform
+- uid: 26195
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -46.5,-32.5
+    parent: 82
+    type: Transform
+- uid: 26196
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -45.5,-32.5
+    parent: 82
+    type: Transform
+- uid: 26197
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -44.5,-32.5
     parent: 82
     type: Transform
 ...
