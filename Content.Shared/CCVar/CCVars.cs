@@ -1572,5 +1572,11 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> NonPeacefulRoundEndEnabled =
             CVarDef.Create("white.non_peaceful_round_end_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+        public static readonly CVarDef<bool> MeatyOrePanelEnabled =
+            CVarDef.Create("white.meatyore_panel_enabled", true, CVar.REPLICATED | CVar.SERVER | CVar.ARCHIVE);
+
+        public static readonly CVarDef<int> MeatyOreDefaultBalance =
+            CVarDef.Create("white.meatyore_default_balance", 15, CVar.SERVER | CVar.ARCHIVE);
     }
 }

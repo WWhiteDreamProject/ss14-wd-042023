@@ -49,6 +49,14 @@ public sealed partial class StoreSystem
         UpdateUserInterface(user, storeEnt, component);
     }
 
+    public void CloseUi(EntityUid user, StoreComponent component)
+    {
+        if (!TryComp<ActorComponent>(user, out var actor))
+            return;
+
+        _ui.TryClose(component.Owner, StoreUiKey.Key, actor.PlayerSession);
+    }
+
     /// <summary>
     /// Updates the user interface for a store and refreshes the listings
     /// </summary>
@@ -157,7 +165,7 @@ public sealed partial class StoreSystem
         //broadcast event
         if (listing.ProductEvent != null)
         {
-            RaiseLocalEvent(listing.ProductEvent);
+            RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
         //log dat shit.
