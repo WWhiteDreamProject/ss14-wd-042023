@@ -5,6 +5,7 @@ using Content.Client.UserInterface.Systems.Emotions.Windows;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
@@ -31,15 +32,18 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
 
         _window.OnOpen += OnWindowOpened;
         _window.OnClose += OnWindowClosed;
+
         var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
+
         foreach (var emote in emotions)
         {
             var control = new Button();
+            control.OnPressed += _ => _chatManager.SendMessage(_random.Pick(emote.ChatMessages).ToCharArray(), ChatSelectChannel.Emotes);
             control.Text = emote.ButtonText;
-            {
-                control.OnPressed += _ => _chatManager.SendMessage(_random.Pick(emote.ChatMessages).ToCharArray(), ChatSelectChannel.Emotes);
-            }
             control.HorizontalExpand = true;
+            control.VerticalExpand = true;
+            control.MaxWidth = 250;
+            control.MaxHeight = 50;
             _window.EmotionsContainer.AddChild(control);
         }
 
