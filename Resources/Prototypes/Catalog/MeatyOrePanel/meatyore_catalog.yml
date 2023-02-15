@@ -1486,7 +1486,7 @@
   description: FuckMe
   productEvent: !type:MeatyTraitorRequestActionEvent
   cost:
-    MeatyOreCoin: 1
+    MeatyOreCoin: 10
   categories:
     - MeatyOreAntag
   conditions:
