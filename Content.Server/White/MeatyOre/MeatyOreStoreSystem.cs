@@ -12,8 +12,12 @@ using Content.Shared.CCVar;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Nuke;
+using Content.Shared.Verbs;
 using Content.Shared.White.MeatyOre;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
@@ -55,6 +59,47 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
         SubscribeNetworkEvent<MeatyOreShopRequestEvent>(OnShopRequested);
         SubscribeLocalEvent<MindComponent, MeatyTraitorRequestActionEvent>(OnAntagPurchase);
+        SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
+
+    }
+
+    private void MeatyOreVerbs(GetVerbsEvent<Verb> ev)
+    {
+        if(ev.User == ev.Target) return;
+        if(!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent)) return;
+        if(!_adminManager.HasAdminFlag(actorComponent.PlayerSession, AdminFlags.MeatyOre)) return;
+        if(!HasComp<HumanoidAppearanceComponent>(ev.Target)) return;
+        if(!TryComp<MobStateComponent>(ev.Target, out var state) || state?.CurrentState != MobState.Alive) return;
+        if (!_meatyOreStores.TryGetValue(actorComponent.PlayerSession, out var store))
+        {
+            store = CreateStore(actorComponent.PlayerSession);
+        }
+
+        if(!TryComp<MindComponent>(ev.Target, out var targetMind) || !targetMind.HasMind) return;
+        if (targetMind!.Mind!.AllRoles.Any(x => x.Antagonist)) return;
+
+        if(targetMind.Mind.CurrentJob?.CanBeAntag != true) return;
+        if(targetMind.Mind.Session == null) return;
+
+        if (!store.Balance.TryGetValue("MeatyOreCoin", out var currency)) return;
+
+        if(currency - 10 < 0) return;
+
+        var verb = new Verb()
+        {
+            Text = $"Выдать роль.",
+            ConfirmationPopup = true,
+            Message = $"Цена - {MeatyOreCurrensyPrototype}:10",
+            Act = () =>
+            {
+                _traitorRuleSystem.MakeTraitor(targetMind.Mind.Session);
+                _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> {{MeatyOreCurrensyPrototype, -10}}, store.Owner, store);
+            },
+            Category = VerbCategory.MeatyOre
+        };
+
+        ev.Verbs.Add(verb);
+
     }
 
     private void OnPanelEnableChanged(bool newValue)
@@ -154,4 +199,8 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         return storeComponent;
     }
+
+
+
+
 }

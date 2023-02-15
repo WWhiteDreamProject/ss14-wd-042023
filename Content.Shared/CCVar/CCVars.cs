@@ -1577,6 +1577,6 @@ namespace Content.Shared.CCVar
             CVarDef.Create("white.meatyore_panel_enabled", true, CVar.REPLICATED | CVar.SERVER | CVar.ARCHIVE);
 
         public static readonly CVarDef<int> MeatyOreDefaultBalance =
-            CVarDef.Create("white.meatyore_default_balance", 15, CVar.SERVER | CVar.ARCHIVE);
+            CVarDef.Create("white.meatyore_default_balance", 20, CVar.SERVER | CVar.ARCHIVE);
     }
 }

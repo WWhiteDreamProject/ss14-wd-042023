@@ -1482,8 +1482,8 @@
 
 - type: listing
   id: MeatyBecomeTraitor
-  name: Traitor
-  description: FuckMe
+  name: Антажка
+  description: Выдать себе антажку
   productEvent: !type:MeatyTraitorRequestActionEvent
   cost:
     MeatyOreCoin: 10
@@ -1491,3 +1491,14 @@
     - MeatyOreAntag
   conditions:
     - !type:BuyerBlockForAntagCondition
+
+
+# Special
+
+- type: listing
+  id: MeatyClothingHeadHatCatEars
+  productEntity: ClothingHeadHatCatEars
+  cost:
+    MeatyOreCoin: 5
+  categories:
+    - MeatyOreSpecial
