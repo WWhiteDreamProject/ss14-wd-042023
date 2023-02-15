@@ -1,0 +1,116 @@
+# vocal emotes
+- type: emote
+  id: Scream
+  category: Vocal
+  buttonText: Кричать
+  chatMessages: [кричит, орет]
+  chatTriggers:
+    - scream
+    - screams
+    - screaming
+    - screamed
+    - shriek
+    - shrieks
+    - shrieking
+    - shrieked
+    - screech
+    - screechs
+    - screeching
+    - screeched
+    - yell
+    - yells
+    - yelled
+    - yelling
+    - кричит
+    - закричал
+    - закричала
+    - орет
+    - заорал
+    - заорала
+    - визжит
+    - завизжал
+    - завизжала
+    - взвизгнул
+    - взвизгнула
+
+- type: emote
+  id: Laugh
+  category: Vocal
+  buttonText: Смеяться
+  chatMessages: [смеется]
+  chatTriggers:
+    - laugh
+    - laughs
+    - laughing
+    - laughed
+    - chuckle
+    - chuckles
+    - chuckled
+    - chuckling
+    - giggle
+    - giggles
+    - giggling
+    - giggled
+    - смеется
+    - просмеялся
+    - засмеялся
+    - засмеялась
+    - хихикает
+    - хихикнул
+    - хихикнула
+    - хихикает
+
+# hand emotes
+- type: emote
+  id: Clap
+  category: Gesture
+  buttonText: Хлопать
+  chatMessages: [хлопает]
+  chatTriggers:
+    - clap
+    - claps
+    - clapping
+    - clapped
+    - хлопает
+    - захлопала
+    - захлопал
+    - похлопал
+
+- type: emote
+  id: Snap
+  category: Gesture
+  buttonText: Щелкать пальцами
+  chatMessages: [щелкает пальцами]
+  chatTriggers:
+    - snap
+    - snaps
+    - snapping
+    - snapped
+    - snap fingers
+    - snaps fingers
+    - snapping fingers
+    - snapped fingers
+    - щелкает пальцами
+    - щелкает
+    - щелкнул
+    - щелкнула
+    - щелкунл пальцами
+    - щелкунла пальцами
+
+- type: emote
+  id: WaveHand
+  category: Gesture
+  buttonText: Махать рукой
+  chatMessages: [машет рукой]
+
+- type: emote
+  id: Nod
+  category: Gesture
+  buttonText: Кивать
+  chatMessages: [кивает]
+
+- type: emote
+  id: ShakeHead
+  category: Gesture
+  buttonText: Покачать головой
+  chatMessages: [качает головой]

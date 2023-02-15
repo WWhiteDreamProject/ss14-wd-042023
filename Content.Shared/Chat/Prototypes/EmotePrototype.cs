@@ -21,6 +21,13 @@ public sealed class EmotePrototype : IPrototype
     public EmoteCategory Category = EmoteCategory.General;
 
     /// <summary>
+    ///     Текст для кнопки в эмоут меню.
+    ///     Бля ну или как это описать, вы поняли короче. ¯\_(ツ)_/¯
+    /// </summary>
+    [DataField("buttonText")]
+    public string ButtonText { get; } = "Unknown";
+
+    /// <summary>
     ///     Collection of words that will be sent to chat if emote activates.
     ///     Will be picked randomly from list.
     /// </summary>
@@ -33,7 +40,7 @@ public sealed class EmotePrototype : IPrototype
     ///     All words should be unique across all emote prototypes.
     /// </summary>
     [DataField("chatTriggers")]
-    public HashSet<string> ChatTriggers = new();
+    public HashSet<string>? ChatTriggers = new();
 }
 
 /// <summary>
@@ -46,6 +53,6 @@ public enum EmoteCategory : byte
 {
     Invalid = 0,
     Vocal = 1 << 0,
-    Hands = 1 << 1,
+    Gesture = 1 << 1,
     General = byte.MaxValue
 }
