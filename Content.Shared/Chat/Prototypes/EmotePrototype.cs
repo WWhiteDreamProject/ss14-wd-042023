@@ -40,7 +40,7 @@ public sealed class EmotePrototype : IPrototype
     ///     All words should be unique across all emote prototypes.
     /// </summary>
     [DataField("chatTriggers")]
-    public HashSet<string> ChatTriggers = new();
+    public HashSet<string>? ChatTriggers = new();
 }
 
 /// <summary>
@@ -53,6 +53,6 @@ public enum EmoteCategory : byte
 {
     Invalid = 0,
     Vocal = 1 << 0,
-    Hands = 1 << 1,
+    Gesture = 1 << 1,
     General = byte.MaxValue
 }

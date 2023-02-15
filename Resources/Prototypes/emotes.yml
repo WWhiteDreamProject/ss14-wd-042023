@@ -63,7 +63,7 @@
 # hand emotes
 - type: emote
   id: Clap
-  category: Hands
+  category: Gesture
   buttonText: Хлопать
   chatMessages: [хлопает]
   chatTriggers:
@@ -78,7 +78,7 @@
 
 - type: emote
   id: Snap
-  category: Hands
+  category: Gesture
   buttonText: Щелкать пальцами
   chatMessages: [щелкает пальцами]
   chatTriggers:
@@ -96,3 +96,21 @@
     - щелкнула
     - щелкунл пальцами
     - щелкунла пальцами
+
+- type: emote
+  id: WaveHand
+  category: Gesture
+  buttonText: Махать рукой
+  chatMessages: [машет рукой]
+
+- type: emote
+  id: Nod
+  category: Gesture
+  buttonText: Кивать
+  chatMessages: [кивает]
+
+- type: emote
+  id: ShakeHead
+  category: Gesture
+  buttonText: Покачать головой
+  chatMessages: [качает головой]
