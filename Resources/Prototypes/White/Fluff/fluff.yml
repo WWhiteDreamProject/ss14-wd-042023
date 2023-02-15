@@ -1,0 +1,21 @@
+﻿# DOOMMAX
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterSuitGlamorous
+  name: glamorous suit
+  description: An emergency suit in cases of... emergencies. But glamorous.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/DOOMMAX/glamorous.rsi
+    - type: Clothing
+      sprite: White/Fluff/DOOMMAX/glamorous.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 0.7
+      sprintModifier: 0.7
+    - type: TemperatureProtection
+      coefficient: 0.7
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadHelmetEVA
+    - type: ContainerContainer
+      containers:
+        toggleable-clothing: !type:ContainerSlot {}
