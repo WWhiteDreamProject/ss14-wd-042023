@@ -23,6 +23,11 @@ namespace Content.Server.Administration.Managers
         IEnumerable<IPlayerSession> ActiveAdmins { get; }
 
         /// <summary>
+        ///     Gets active admins with Admin flag.
+        /// </summary>
+        IEnumerable<IPlayerSession> AdminsWithFlag { get; }
+
+        /// <summary>
         /// Gets all admins currently on the server, even de-adminned ones.
         /// </summary>
         IEnumerable<IPlayerSession> AllAdmins { get; }

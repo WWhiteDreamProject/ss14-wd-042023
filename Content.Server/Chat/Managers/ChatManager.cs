@@ -98,7 +98,7 @@ namespace Content.Server.Chat.Managers
 
         public void SendAdminAnnouncement(string message)
         {
-            var clients = _adminManager.ActiveAdmins.Select(p => p.ConnectedClient);
+            var clients = _adminManager.AdminsWithFlag.Select(p => p.ConnectedClient);
 
             var wrappedMessage = Loc.GetString("chat-manager-send-admin-announcement-wrap-message",
                 ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")), ("message", FormattedMessage.EscapeText(message)));

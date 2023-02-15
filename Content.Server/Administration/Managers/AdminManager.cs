@@ -28,6 +28,7 @@ namespace Content.Server.Administration.Managers
         [Dependency] private readonly IResourceManager _res = default!;
         [Dependency] private readonly IServerConsoleHost _consoleHost = default!;
         [Dependency] private readonly IChatManager _chat = default!;
+        [Dependency] private readonly IAdminManager _adminManager = default!;
 
         private readonly Dictionary<IPlayerSession, AdminReg> _admins = new();
         private readonly HashSet<NetUserId> _promotedPlayers = new();
@@ -37,6 +38,9 @@ namespace Content.Server.Administration.Managers
         public IEnumerable<IPlayerSession> ActiveAdmins => _admins
             .Where(p => p.Value.Data.Active)
             .Select(p => p.Key);
+
+        public IEnumerable<IPlayerSession> AdminsWithFlag => ActiveAdmins
+            .Where(p => _adminManager.HasAdminFlag(p, AdminFlags.Admin));
 
         public IEnumerable<IPlayerSession> AllAdmins => _admins.Select(p => p.Key);
 

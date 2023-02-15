@@ -548,7 +548,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return Filter.Empty()
             .AddWhereAttachedEntity(HasComp<GhostComponent>)
             .Recipients
-            .Union(_adminManager.ActiveAdmins)
+            .Union(_adminManager.AdminsWithFlag)
             .Select(p => p.ConnectedClient);
     }
 
