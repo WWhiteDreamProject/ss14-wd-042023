@@ -155,7 +155,7 @@ public sealed class StalinManager
             _taskManager.RunOnMainThread(() =>
             {
                 _chatManager.DispatchServerMessage(session, Loc.GetString("stalin-request-failed",
-                    ("error", e.InnerException!)));
+                    ("error", e.InnerException!.ToString())));
 
                 var sawmill = Logger.GetSawmill("yayca");
                 sawmill.Log(LogLevel.Warning, $"API отвалился, звоните Утке...");
