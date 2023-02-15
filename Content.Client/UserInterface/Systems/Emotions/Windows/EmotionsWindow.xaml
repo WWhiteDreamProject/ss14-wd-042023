@@ -6,7 +6,7 @@
     HorizontalExpand="True"
     MinHeight="250"
     MinWidth="300">
-    <BoxContainer Orientation="Vertical" Name="EmotionsContainer" Access="Public">
-        
-    </BoxContainer>
+    <GridContainer Name="EmotionsContainer" Access="Public">
+
+    </GridContainer>
 </windows:EmotionsWindow>
