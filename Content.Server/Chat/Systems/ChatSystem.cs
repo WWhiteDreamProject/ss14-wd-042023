@@ -129,6 +129,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (HasComp<GhostComponent>(source))
         {
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
+            if(desiredType == InGameICChatType.Emote) return;
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, hideChat, shell, player);
             return;
         }
