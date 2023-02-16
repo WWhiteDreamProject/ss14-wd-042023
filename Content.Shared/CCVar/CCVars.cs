@@ -1390,6 +1390,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> GhostRoleTime =
             CVarDef.Create("ghost.role_time", 3f, CVar.REPLICATED);
 
+        public static readonly CVarDef<float> GhostRespawnTime =
+            CVarDef.Create("ghost.respawn_time", 30f, CVar.SERVERONLY);
+
+        public static readonly CVarDef<int> GhostRespawnMaxPlayers =
+            CVarDef.Create("ghost.respawn_max_players", 40, CVar.SERVERONLY);
+
         /*
          * Fire alarm
          */

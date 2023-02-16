@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
@@ -8,6 +9,7 @@ using Content.Server.Visible;
 using Content.Server.Warps;
 using Content.Shared.Actions;
 using Content.Shared.Administration;
+using Content.Shared.CCVar;
 using Content.Shared.Examine;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
@@ -18,6 +20,7 @@ using Content.Shared.Storage.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -38,6 +41,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly FollowerSystem _followerSystem = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
 
         public override void Initialize()
         {
@@ -58,10 +62,51 @@ namespace Content.Server.Ghost
             SubscribeNetworkEvent<GhostReturnToBodyRequest>(OnGhostReturnToBodyRequest);
             SubscribeNetworkEvent<GhostWarpToTargetRequestEvent>(OnGhostWarpToTargetRequest);
 
+            SubscribeNetworkEvent<GhostReturnToRoundRequest>(OnGhostReturnToRoundRequest);
+
             SubscribeLocalEvent<GhostComponent, BooActionEvent>(OnActionPerform);
             SubscribeLocalEvent<GhostComponent, InsertIntoEntityStorageAttemptEvent>(OnEntityStorageInsertAttempt);
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
+        }
+
+        private void OnGhostReturnToRoundRequest(GhostReturnToRoundRequest msg, EntitySessionEventArgs args)
+        {
+            var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var maxPlayers = cfg.GetCVar(CCVars.GhostRespawnMaxPlayers);
+            if (_playerManager.PlayerCount >= maxPlayers)
+            {
+                var message = Loc.GetString("ghost-respawn-max-players", ("players", maxPlayers));
+                var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+                _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Server, message,
+                    wrappedMessage, default, false, args.SenderSession.ConnectedClient, Color.Red);
+                return;
+            }
+            var uid = args.SenderSession.AttachedEntity;
+            if (uid == null)
+                return;
+            if (EntityManager.TryGetComponent<GhostComponent>(uid, out var ghost) &&
+                ghost.TimeOfDeath != TimeSpan.Zero)
+            {
+                var timeUntilRespawn = (double)cfg.GetCVar(CCVars.GhostRespawnTime);
+                var timePast = (_gameTiming.CurTime - ghost.TimeOfDeath).TotalMinutes;
+                if (timePast >= timeUntilRespawn)
+                {
+                    var ticker = Get<GameTicker>();
+                    var playerMgr = IoCManager.Resolve<IPlayerManager>();
+                    var userId = args.SenderSession.UserId;
+                    playerMgr.TryGetSessionById(userId, out var targetPlayer);
+                    if (targetPlayer != null)
+                        ticker.Respawn(targetPlayer);
+                }
+                else
+                {
+                    var message = Loc.GetString("ghost-respawn-time-left", ("time", (int)(timeUntilRespawn-timePast)));
+                    var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+                    _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Server, message,
+                        wrappedMessage, default, false, args.SenderSession.ConnectedClient, Color.Red);
+                }
+            }
         }
 
         private void OnActionPerform(EntityUid uid, GhostComponent component, BooActionEvent args)
