@@ -24,6 +24,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Players;
+using Robust.Shared.Utility;
 
 namespace Content.Server.White;
 
@@ -36,11 +37,6 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly TraitorRuleSystem _traitorRuleSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-
-
-
-
-
 
     private static readonly string StorePresetPrototype = "StorePresetMeatyOre";
     private static readonly string MeatyOreCurrensyPrototype = "MeatyOreCoin";
@@ -70,10 +66,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         if(!_adminManager.HasAdminFlag(actorComponent.PlayerSession, AdminFlags.MeatyOre)) return;
         if(!HasComp<HumanoidAppearanceComponent>(ev.Target)) return;
         if(!TryComp<MobStateComponent>(ev.Target, out var state) || state?.CurrentState != MobState.Alive) return;
-        if (!_meatyOreStores.TryGetValue(actorComponent.PlayerSession, out var store))
-        {
-            store = CreateStore(actorComponent.PlayerSession);
-        }
+        if(!TryGetStore(actorComponent.PlayerSession, out var store)) return;
 
         if(!TryComp<MindComponent>(ev.Target, out var targetMind) || !targetMind.HasMind) return;
         if (targetMind!.Mind!.AllRoles.Any(x => x.Antagonist)) return;
@@ -167,8 +160,11 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         if (!adminData.HasFlag(AdminFlags.MeatyOre)) return false;
 
-        if (_meatyOreStores.TryGetValue(session, out store!))
+        var existingStore = _meatyOreStores.FirstOrNull(x => x.Key.UserId == session.UserId);
+
+        if (existingStore != null)
         {
+            store = existingStore.Value.Value;
             return true;
         }
 
