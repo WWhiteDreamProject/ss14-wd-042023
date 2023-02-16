@@ -98,6 +98,11 @@ namespace Content.Server.Ghost
                     playerMgr.TryGetSessionById(userId, out var targetPlayer);
                     if (targetPlayer != null)
                         ticker.Respawn(targetPlayer);
+                    var message = Loc.GetString("ghost-respawn-window-rules-footer");
+                    var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+                    _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Server, message,
+                        wrappedMessage, default, false, args.SenderSession.ConnectedClient, Color.Red);
+
                 }
                 else
                 {
