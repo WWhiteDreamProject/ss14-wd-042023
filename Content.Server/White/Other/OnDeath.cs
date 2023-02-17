@@ -35,10 +35,10 @@ public sealed class OnDeath : EntitySystem
         switch (args.NewMobState)
         {
             case MobState.Invalid:
-                ClearPlayingStreams();
+                StopPlayingStream(uid);
                 break;
             case MobState.Alive:
-                ClearPlayingStreams();
+                StopPlayingStream(uid);
                 break;
             case MobState.Critical:
                 PlayPlayingStream(uid);
@@ -90,18 +90,9 @@ public sealed class OnDeath : EntitySystem
     private void PlayDeathSound(EntityUid uid)
         => _audio.PlayEntity(DeathSounds, uid, uid, AudioParams.Default);
 
-    private void ClearPlayingStreams()
-    {
-        foreach (var zxc in _playingStreams)
-        {
-            zxc.Value.Stop();
-        }
-        _playingStreams.Clear();
-    }
-
     private void OnGhosted(EntityUid uid, GhostComponent component, ComponentInit args)
     {
-        ClearPlayingStreams();
+        StopPlayingStream(uid);
     }
 
 }
