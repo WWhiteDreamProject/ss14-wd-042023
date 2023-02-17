@@ -44,7 +44,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     private static bool MeatyOrePanelEnabled;
 
 
-    private readonly Dictionary<IPlayerSession, StoreComponent> _meatyOreStores = new();
+    private readonly Dictionary<NetUserId, StoreComponent> _meatyOreStores = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -101,13 +101,14 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         {
             foreach (var meatyOreStoreData in _meatyOreStores)
             {
-                var playerEntity = meatyOreStoreData.Key.AttachedEntity;
+                var session = _playerManager.GetSessionByUserId(meatyOreStoreData.Key);
+                if(session == null) continue;
+                var playerEntity = session.AttachedEntity;
                 if(!playerEntity.HasValue) continue;
 
                 _storeSystem.CloseUi(playerEntity.Value, meatyOreStoreData.Value);
             }
         }
-
         MeatyOrePanelEnabled = newValue;
     }
 
@@ -126,8 +127,10 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         base.Update(frameTime);
         foreach (var storesData in _meatyOreStores)
         {
-            if(storesData.Key.AttachedEntity == null) continue;
-            Transform(storesData.Value.Owner).Coordinates = Transform(storesData.Key.AttachedEntity.Value).Coordinates;
+            var session = _playerManager.GetSessionByUserId(storesData.Key);
+            if(session?.AttachedEntity == null) continue;
+            var attachedEntity = session.AttachedEntity;
+            Transform(storesData.Value.Owner).Coordinates = Transform(attachedEntity.Value).Coordinates;
         }
     }
 
@@ -162,13 +165,9 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         var existingStore = _meatyOreStores.FirstOrNull(x => x.Key.UserId == session.UserId);
 
-        if (existingStore != null)
-        {
-            store = existingStore.Value.Value;
-            return true;
-        }
+        if (_meatyOreStores.TryGetValue(session.UserId, out store!)) return true;
 
-        store = CreateStore(session);
+        store = CreateStore(session.UserId);
         return true;
     }
 
@@ -182,8 +181,9 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         _meatyOreStores.Clear();
     }
 
-    private StoreComponent CreateStore(IPlayerSession session)
+    private StoreComponent CreateStore(NetUserId userId)
     {
+        var session = _playerManager.GetSessionByUserId(userId);
         var shopEntity = _entityManager.SpawnEntity("StoreMeatyOreEntity", Transform(session.AttachedEntity!.Value).Coordinates);
         var storeComponent = Comp<StoreComponent>(shopEntity);
 
@@ -191,7 +191,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         storeComponent.Balance.Clear();
 
         _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>() { { MeatyOreCurrensyPrototype, DefaultMeatyOreCoinBalance } }, storeComponent.Owner, storeComponent);
-        _meatyOreStores[session] = storeComponent;
+        _meatyOreStores[userId] = storeComponent;
 
         return storeComponent;
     }
