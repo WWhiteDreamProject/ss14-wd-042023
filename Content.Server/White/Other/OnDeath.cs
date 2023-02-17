@@ -1,4 +1,5 @@
 ﻿using Content.Server.Chat.Systems;
+using Content.Server.Ghost.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio;
@@ -15,9 +16,10 @@ public sealed class OnDeath : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandleDeathEvent);
+        SubscribeLocalEvent<GhostComponent, ComponentInit>(OnGhosted);
     }
 
-    private Dictionary<EntityUid, IPlayingAudioStream> _playingStreams = new();
+    private readonly Dictionary<EntityUid, IPlayingAudioStream> _playingStreams = new();
     private static readonly SoundSpecifier DeathSounds = new SoundCollectionSpecifier("deathSounds");
     private static readonly SoundSpecifier HeartSounds = new SoundCollectionSpecifier("heartSounds");
     private static readonly string[] DeathGaspMessages =
@@ -33,10 +35,10 @@ public sealed class OnDeath : EntitySystem
         switch (args.NewMobState)
         {
             case MobState.Invalid:
-                ClearPlayingStreams(uid);
+                ClearPlayingStreams();
                 break;
             case MobState.Alive:
-                ClearPlayingStreams(uid);
+                ClearPlayingStreams();
                 break;
             case MobState.Critical:
                 PlayPlayingStream(uid);
@@ -88,12 +90,18 @@ public sealed class OnDeath : EntitySystem
     private void PlayDeathSound(EntityUid uid)
         => _audio.PlayEntity(DeathSounds, uid, uid, AudioParams.Default);
 
-    private void ClearPlayingStreams(EntityUid uid)
+    private void ClearPlayingStreams()
     {
-        if (_playingStreams != null)
+        foreach (var zxc in _playingStreams)
         {
-            StopPlayingStream(uid);
+            zxc.Value.Stop();
         }
+        _playingStreams.Clear();
+    }
+
+    private void OnGhosted(EntityUid uid, GhostComponent component, ComponentInit args)
+    {
+        ClearPlayingStreams();
     }
 
 }
