@@ -1,4 +1,5 @@
 ﻿using Content.Server.Chat.Systems;
+using Content.Server.Ghost.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio;
@@ -15,9 +16,10 @@ public sealed class OnDeath : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandleDeathEvent);
+        SubscribeLocalEvent<GhostComponent, ComponentInit>(OnGhosted);
     }
 
-    private IPlayingAudioStream? _playingStream;
+    private readonly Dictionary<EntityUid, IPlayingAudioStream> _playingStreams = new();
     private static readonly SoundSpecifier DeathSounds = new SoundCollectionSpecifier("deathSounds");
     private static readonly SoundSpecifier HeartSounds = new SoundCollectionSpecifier("heartSounds");
     private static readonly string[] DeathGaspMessages =
@@ -33,16 +35,16 @@ public sealed class OnDeath : EntitySystem
         switch (args.NewMobState)
         {
             case MobState.Invalid:
-                ClearPlayingStream();
+                StopPlayingStream(uid);
                 break;
             case MobState.Alive:
-                ClearPlayingStream();
+                StopPlayingStream(uid);
                 break;
             case MobState.Critical:
                 PlayPlayingStream(uid);
                 break;
             case MobState.Dead:
-                StopPlayingStream();
+                StopPlayingStream(uid);
                 var deathGaspMessage = SelectRandomDeathGaspMessage();
                 var localizedMessage = LocalizeDeathGaspMessage(deathGaspMessage);
                 SendDeathGaspMessage(uid, localizedMessage);
@@ -53,10 +55,28 @@ public sealed class OnDeath : EntitySystem
 
 
     private void PlayPlayingStream(EntityUid uid)
-        => _playingStream = _audio.PlayEntity(HeartSounds, uid, uid, AudioParams.Default.WithLoop(true));
+    {
+        if (_playingStreams.TryGetValue(uid, out var currentStream))
+        {
+            currentStream.Stop();
+        }
 
-    private void StopPlayingStream()
-        => _playingStream?.Stop();
+        var newStream = _audio.PlayEntity(HeartSounds, uid, uid, AudioParams.Default.WithLoop(true));
+        if (newStream != null)
+        {
+            _playingStreams[uid] = newStream;
+        }
+
+    }
+
+    private void StopPlayingStream(EntityUid uid)
+    {
+        if (_playingStreams.TryGetValue(uid, out var currentStream))
+        {
+            currentStream.Stop();
+            _playingStreams.Remove(uid);
+        }
+    }
 
     private string SelectRandomDeathGaspMessage()
         => DeathGaspMessages[_random.Next(DeathGaspMessages.Length)];
@@ -70,12 +90,9 @@ public sealed class OnDeath : EntitySystem
     private void PlayDeathSound(EntityUid uid)
         => _audio.PlayEntity(DeathSounds, uid, uid, AudioParams.Default);
 
-    private void ClearPlayingStream()
+    private void OnGhosted(EntityUid uid, GhostComponent component, ComponentInit args)
     {
-        if (_playingStream != null)
-        {
-            StopPlayingStream();
-        }
+        StopPlayingStream(uid);
     }
 
 }
