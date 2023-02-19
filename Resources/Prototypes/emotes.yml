@@ -1,26 +1,9 @@
-# vocal emotes
 - type: emote
   id: Scream
   category: Vocal
   buttonText: Кричать
-  chatMessages: [кричит, орет]
+  chatMessages: [кричит, орет, вопит, рявкает]
   chatTriggers:
-    - scream
-    - screams
-    - screaming
-    - screamed
-    - shriek
-    - shrieks
-    - shrieking
-    - shrieked
-    - screech
-    - screechs
-    - screeching
-    - screeched
-    - yell
-    - yells
-    - yelled
-    - yelling
     - кричит
     - закричал
     - закричала
@@ -32,25 +15,17 @@
     - завизжала
     - взвизгнул
     - взвизгнула
+    - рявкает
+    - рявкнул
+    - рявкнула
+    - вопит
 
 - type: emote
   id: Laugh
   category: Vocal
   buttonText: Смеяться
-  chatMessages: [смеется]
+  chatMessages: [смеется, ржет, усмехается, хохочет, гогочет]
   chatTriggers:
-    - laugh
-    - laughs
-    - laughing
-    - laughed
-    - chuckle
-    - chuckles
-    - chuckled
-    - chuckling
-    - giggle
-    - giggles
-    - giggling
-    - giggled
     - смеется
     - просмеялся
     - засмеялся
@@ -59,18 +34,19 @@
     - хихикнул
     - хихикнула
     - хихикает
+    - ржет
+    - усмехается
+    - усмехнулась
+    - усмехнулся
+    - хохочет
+    - гогочет
 
-# hand emotes
 - type: emote
   id: Clap
   category: Gesture
   buttonText: Хлопать
   chatMessages: [хлопает]
   chatTriggers:
-    - clap
-    - claps
-    - clapping
-    - clapped
     - хлопает
     - захлопала
     - захлопал
@@ -82,14 +58,6 @@
   buttonText: Щелкать пальцами
   chatMessages: [щелкает пальцами]
   chatTriggers:
-    - snap
-    - snaps
-    - snapping
-    - snapped
-    - snap fingers
-    - snaps fingers
-    - snapping fingers
-    - snapped fingers
     - щелкает пальцами
     - щелкает
     - щелкнул
@@ -114,3 +82,27 @@
   category: Gesture
   buttonText: Покачать головой
   chatMessages: [качает головой]
+
+- type: emote
+  id: Frown
+  category: Gesture
+  buttonText: Хмуриться
+  chatMessages: [хмуриться]
+
+- type: emote
+  id: Smile
+  category: Gesture
+  buttonText: Улыбаться
+  chatMessages: [улыбается]
+
+- type: emote
+  id: Sniff
+  category: Gesture
+  buttonText: Принюхиваться
+  chatMessages: [принюхивается]
+
+- type: emote
+  id: LickLips
+  category: Gesture
+  buttonText: Облизываться
+  chatMessages: [облизывается]

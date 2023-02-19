@@ -25,7 +25,7 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
     private EmotionsWindow? _window;
     private MenuButton? EmotionsButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotionsButton;
 
-    private DateTime _lastEmtionTimeUse = DateTime.Now;
+    private DateTime _lastEmotionTimeUse = DateTime.Now;
     private float _emoteCooldown = 1.5f;
 
     public void OnStateEntered(GameplayState state)
@@ -42,7 +42,7 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
         foreach (var emote in emotions)
         {
             var control = new Button();
-            control.OnPressed += _ => UseEmote(_random.Pick(emote.ChatMessages).ToCharArray());
+            control.OnPressed += _ => UseEmote(_random.Pick(emote.ChatMessages));
             control.Text = emote.ButtonText;
             control.HorizontalExpand = true;
             control.VerticalExpand = true;
@@ -67,17 +67,17 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
         EmotionsButton.OnPressed -= EmotionsButtonPressed;
     }
 
-    private void UseEmote(char[] emote)
+    private void UseEmote(string emote)
     {
-        var timeSpan = DateTime.Now - _lastEmtionTimeUse;
+        var timeSpan = DateTime.Now - _lastEmotionTimeUse;
         var seconds = timeSpan.TotalSeconds;
         if (seconds < _emoteCooldown)
         {
             return;
         }
 
-        _lastEmtionTimeUse = DateTime.Now;
-        _chatManager.SendMessage(emote, ChatSelectChannel.Emotes);
+        _lastEmotionTimeUse = DateTime.Now;
+        _chatManager.SendMessage(emote.ToCharArray(), ChatSelectChannel.Emotes);
     }
 
     public void LoadButton()
