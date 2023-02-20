@@ -87,10 +87,10 @@ namespace Content.Server.AME.Components
             if (fuelJar != null && _powerSupplier != null)
             {
                 var availableInject = fuelJar.FuelAmount >= InjectionAmount * AmountFuelConsumedPerInjection 
-                    ? InjectionAmount * AmountFuelConsumedPerInjection  
+                    ? InjectionAmount  
                     : fuelJar.FuelAmount;
                 _powerSupplier.MaxSupply = group.InjectFuel(availableInject, out var overloading);
-                fuelJar.FuelAmount -= availableInject;
+                fuelJar.FuelAmount -= availableInject * AmountFuelConsumedPerInjection;
                 InjectSound(overloading);
                 UpdateUserInterface();
             }
