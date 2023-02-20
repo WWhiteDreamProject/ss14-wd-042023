@@ -1,6 +1,5 @@
 ### Loc for the pneumatic cannon.
 
-pneumatic-cannon-component-itemslot-name = Gas Tank
 pneumatic-cannon-component-verb-gas-tank-name = Извлечь газовый баллон
 pneumatic-cannon-component-verb-eject-items-name = Извлечь содержимое
 

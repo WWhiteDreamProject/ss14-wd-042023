@@ -1,14 +1,4 @@
 whitelist-not-whitelisted = Вас нет в вайтлисте.
-# proper handling for having a min/max or not
-whitelist-playercount-invalid =
-    { $min ->
-        [0] The whitelist for this server only applies below { $max } players.
-       *[other]
-            The whitelist for this server only applies above { $min } { $max ->
-                [2147483647] -> players, so you may be able to join later.
-               *[other] -> players and below { $max } players, so you may be able to join later.
-            }
-    }
 whitelist-not-whitelisted-rp = Вас нет в вайтлисте. Чтобы попасть в вайтлист, посетите наш Discord (ссылку можно найти по адресу https://discord.station13.ru).
 command-whitelistadd-description = Добавить игрока с указанным юзернеймом в вайтлист.
 command-whitelistadd-help = whitelistadd <username>
@@ -32,7 +22,7 @@ panic-bunker-account-denied-reason = Этот сервер находится в
 panic-bunker-account-reason-account = Ваш аккаунт должен быть старше { $minutes } минут
 panic-bunker-account-reason-overall =
     Необходимо минимальное отыгранное время — { $hours } { $hours ->
-        [one] час
-        [few] часа
-       *[other] часов
-    }.
+    [one] час
+    [few] часа
+    *[other] часов
+}.
