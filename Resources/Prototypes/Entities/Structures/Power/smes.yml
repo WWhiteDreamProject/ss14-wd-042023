@@ -22,7 +22,7 @@
     - type: Smes
     - type: UpgradeBattery
       maxChargeMultiplier: 2
-      baseMaxCharge: 8000000
+      baseMaxCharge: 24000000
     - type: Appearance
       visuals:
         - type: SmesVisualizer
@@ -72,8 +72,8 @@
   suffix: Basic, 8MW
   components:
   - type: Battery
-    maxCharge: 8000000
-    startingCharge: 8000000
+    maxCharge: 24000000
+    startingCharge: 24000000
 
 - type: entity
   parent: SMESBasic

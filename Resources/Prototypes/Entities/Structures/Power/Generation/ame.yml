@@ -45,6 +45,7 @@
   - type: Anchorable
   - type: Pullable
   - type: AMEController
+    amountFuelConsumedPerInjection: 3
   - type: Explosive
     explosionType: Default
     intensitySlope: 5

@@ -14,7 +14,7 @@
     sprite: Objects/Power/AME/ame_jar.rsi
     state: jar
   product: CrateEngineeringAMEJar
-  cost: 2000
+  cost: 8000
   category: Engineering
   group: market
 

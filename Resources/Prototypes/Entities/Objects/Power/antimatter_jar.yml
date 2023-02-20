@@ -13,6 +13,6 @@
     netsync: false
   - type: AMEFuelContainer
   - type: StaticPrice
-    price: 500
+    price: 2000
   - type: GuideHelp
     guides: [ AME, Power ]
