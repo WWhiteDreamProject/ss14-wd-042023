@@ -134,12 +134,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (desiredType != InGameICChatType.Emote &&  HasComp<HumanoidAppearanceComponent>(source))
-        {
-            var humanoidComponent = EntityManager.GetComponent<HumanoidAppearanceComponent>(source);
-            nameOverride = $"[color=#{humanoidComponent.HumanoidSpeakColor}]{Name(source)}[/color]";
-        }
-
         // Sus
         if (player?.AttachedEntity is { Valid: true } entity && source != entity)
         {
@@ -302,6 +296,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             RaiseLocalEvent(source, nameEv);
             name = nameEv.Name;
         }
+
+        var colorEv = new SetSpeakerColorEvent(source, name);
+        RaiseLocalEvent(source, colorEv);
+        name = colorEv.Name;
+
 
         var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
@@ -655,6 +654,19 @@ public sealed class TransformSpeakerNameEvent : EntityEventArgs
     public string Name;
 
     public TransformSpeakerNameEvent(EntityUid sender, string name)
+    {
+        Sender = sender;
+        Name = name;
+    }
+
+
+}
+
+public class SetSpeakerColorEvent
+{
+    public EntityUid Sender { get; set; }
+    public string Name { get; set; }
+    public SetSpeakerColorEvent(EntityUid sender, string name)
     {
         Sender = sender;
         Name = name;

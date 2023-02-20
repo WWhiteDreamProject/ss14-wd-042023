@@ -74,9 +74,6 @@ public sealed class HumanoidAppearanceComponent : Component
 
     [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
-
-    [ViewVariables(VVAccess.ReadWrite)] public string? HumanoidSpeakColor;
-
 }
 
 [Serializable, NetSerializable]

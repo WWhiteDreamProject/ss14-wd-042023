@@ -22,10 +22,12 @@ public sealed partial class TTSSystem : EntitySystem
 
     private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
     private bool _isEnabled = false;
+    private string _apiUrl = string.Empty;
 
     public override void Initialize()
     {
         _cfg.OnValueChanged(CCVars.TTSEnabled, v => _isEnabled = v, true);
+        _cfg.OnValueChanged(CCVars.TTSApiUrl, url => _apiUrl = url, true);
 
         SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
@@ -43,6 +45,11 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_isEnabled ||
             args.Message.Length > MaxMessageChars)
             return;
+
+        if (string.IsNullOrEmpty(_apiUrl))
+        {
+            return;
+        }
 
         var voiceId = component.VoicePrototypeId;
         var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
