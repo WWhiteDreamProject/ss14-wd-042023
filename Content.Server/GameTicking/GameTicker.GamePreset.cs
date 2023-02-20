@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -18,6 +19,7 @@ namespace Content.Server.GameTicking
         public const float PresetFailedCooldownIncrease = 30f;
 
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly GhostSystem _ghostSystem = default!;
 
         public GamePresetPrototype? Preset { get; private set; }
 
@@ -236,6 +238,12 @@ namespace Content.Server.GameTicking
                 mind.Visit(ghost);
             else
                 mind.TransferTo(ghost);
+
+            var player = mind.Session;
+            var userId = player!.UserId;
+            if (!_ghostSystem._deathTime.TryGetValue(userId, out _))
+                _ghostSystem._deathTime[userId] = _gameTiming.CurTime;
+
             return true;
         }
     }

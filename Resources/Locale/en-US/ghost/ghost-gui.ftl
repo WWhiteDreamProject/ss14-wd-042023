@@ -20,3 +20,11 @@ ghost-roles-window-request-role-button-timer = Request ({$time}s)
 ghost-roles-window-follow-role-button = Follow
 ghost-roles-window-no-roles-available-label = There are currently no available ghost roles.
 ghost-roles-window-rules-footer = The button will enable after {$time} seconds (this delay is to make sure you read the rules).
+
+ghost-respawn-time-left = Minutes left until respawn availability - { $time }.
+ghost-respawn-max-players = Function not available, players on the server should be less than { $players }.
+ghost-respawn-window-title = Rules of returning to round
+ghost-respawn-window-request-button-timer = Accept ({ $time }sec.)
+ghost-respawn-window-request-button = Accept
+ghost-respawn-window-rules-footer = Пользуясь это функцией, вы [color=#ff7700]обязуетесь[/color] [color=#ff0000]не переносить[/color] знания своего прошлого персонажа в нового, [color=#ff0000]не метамстить[/color]. Каждый новый персонаж - [color=#ff7700]чистый уникальный лист[/color], который никак не связан с предыдущим. Поэтому не забудьте [color=#ff7700]поменять персонажа[/color] перед заходом, а также помните, что за нарушение пункта, указанного здесь, следует [color=#ff0000]бан в размере от 3ех дней[/color].
+ghost-respawn-bug = No time of death. Use #dev-chat in discord of White Dream.
