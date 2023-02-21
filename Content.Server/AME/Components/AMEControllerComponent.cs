@@ -86,11 +86,21 @@ namespace Content.Server.AME.Components
             _entities.TryGetComponent<AMEFuelContainerComponent?>(jar, out var fuelJar);
             if (fuelJar != null && _powerSupplier != null)
             {
-                var availableInject = fuelJar.FuelAmount >= InjectionAmount * AmountFuelConsumedPerInjection 
-                    ? InjectionAmount  
-                    : fuelJar.FuelAmount;
+                int availableInject;
+
+                if (fuelJar.FuelAmount >= InjectionAmount * AmountFuelConsumedPerInjection)
+                {
+                    availableInject = InjectionAmount;
+                    fuelJar.FuelAmount -= availableInject * AmountFuelConsumedPerInjection;
+                }
+                else
+                {
+                    availableInject = fuelJar.FuelAmount;
+                    fuelJar.FuelAmount -= availableInject;
+                }
+
                 _powerSupplier.MaxSupply = group.InjectFuel(availableInject, out var overloading);
-                fuelJar.FuelAmount -= availableInject * AmountFuelConsumedPerInjection;
+
                 InjectSound(overloading);
                 UpdateUserInterface();
             }
