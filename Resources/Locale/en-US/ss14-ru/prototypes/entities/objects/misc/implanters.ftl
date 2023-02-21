@@ -28,3 +28,6 @@ ent-MicroBombImplanter = micro bomb implanter
 ent-MacroBombImplanter = macro bomb implanter
     .desc = a single use implanter, the implant creates a large explosion on death after the alloted time
     .suffix = { "" }
+ent-MindshieldImplanter = имплантер Защиты Разума
+    .desc = Одноразовый имплантер, содержащий имплант защиты разума.
+    .suffix = { "" }

@@ -40,6 +40,9 @@
   id: BotanyShovel
 
 - type: Tag
+  id: MindshieldImplant
+
+- type: Tag
   id: Bottle
 
 - type: Tag

@@ -13,9 +13,11 @@
   startingGear: SecurityCadetGear
   icon: "SecurityCadet"
   supervisors: job-supervisors-security
+  special:
+    - !type:AddImplantSpecial
+      implants: [ MindShieldImplant ]
   whitelistedSpecies:
     - Human
-    - Dwarf
   canBeAntag: false
   access:
   - Security

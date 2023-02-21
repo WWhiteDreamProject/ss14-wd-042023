@@ -22,3 +22,6 @@ ent-MicroBombImplant = micro bomb implant
 ent-MacroBombImplant = macro bomb implant
     .desc = a large explosion packed into a small implant, be warned as this could be dangerous for your teammates
     .suffix = { "" }
+ent-MindShieldImplant = имплант Защиты Разума
+    .desc = Маленький имплант, который защищает мозги носителя от промывки.
+    .suffix = { "" }

@@ -54,6 +54,8 @@ public sealed class MeleeWeaponComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Attacking = false;
 
+    [ViewVariables(VVAccess.ReadWrite), DataField("canHeavyAttack")]
+    public bool CanHeavyAttack = true;
     /// <summary>
     /// When did we start a heavy attack.
     /// </summary>

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "reva_podsos"
+    },
+    {
+      "name": "reva_head"
+    },
+    {
+      "name": "reva_head_animated",
+      "delays": [
+        [
+          60,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "reva_podsos_animated",
+      "delays": [
+        [
+          60,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    }
+  ]
+}

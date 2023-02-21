@@ -78,6 +78,19 @@
     - type: WirelessNetworkConnection
       range: 500
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindShieldImplant
+  name: mindshield
+  description: protects your mind
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+    - type: Tag
+      tags:
+        - MindshieldImplant
+
+
 #Traitor implants
 
 - type: entity

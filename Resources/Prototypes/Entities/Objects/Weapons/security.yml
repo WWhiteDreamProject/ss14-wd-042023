@@ -60,6 +60,8 @@
         types:
           Blunt: 0 # why is this classed as a melee weapon? Is it needed for some interaction?
       angle: 10
+      canHeavyAttack:
+        false
     - type: Item
       size: 5
       sprite: Objects/Weapons/Melee/flash.rsi

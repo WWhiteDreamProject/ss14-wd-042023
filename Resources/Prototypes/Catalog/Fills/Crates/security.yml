@@ -8,6 +8,15 @@
         amount: 3
 
 - type: entity
+  id: CreateSecurityMindShield
+  parent: CrateSecgear
+  components:
+    - type: StorageFill
+      contents:
+        - id: MindshieldImplanter
+          amount: 5
+
+- type: entity
   id: CrateSecurityHelmet
   parent: CrateSecgear
   components:

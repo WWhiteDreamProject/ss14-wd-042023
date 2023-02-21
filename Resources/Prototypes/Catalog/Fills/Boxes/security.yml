@@ -14,6 +14,20 @@
       - state: handcuff
 
 - type: entity
+  name: mindshield box
+  parent: BoxCardboard
+  id: BoxMindShield
+  description: A box full of mindshields.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MindshieldImplanter
+        amount: 5
+  - type: Sprite
+    layers:
+      - state: box_security
+
+- type: entity
   name: flashbang box
   parent: BoxCardboard
   id: BoxFlashbang

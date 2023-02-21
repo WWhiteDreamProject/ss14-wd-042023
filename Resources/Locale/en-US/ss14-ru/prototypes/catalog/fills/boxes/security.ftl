@@ -1,6 +1,9 @@
 ent-BoxHandcuff = handcuff box
     .desc = A box full of handcuffs.
     .suffix = { "" }
+ent-BoxMindShield = MindShield box
+    .desc = A box full of MindShields.
+    .suffix = { "" }
 ent-BoxFlashbang = flashbang box
     .desc = WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.
     .suffix = { "" }

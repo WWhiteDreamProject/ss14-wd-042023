@@ -7,6 +7,27 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
 namespace Content.Shared.Implants;
+public class SubdermalImplantInserted
+{
+    public EntityUid Entity;
+    public SubdermalImplantComponent Component;
+    public SubdermalImplantInserted(EntityUid entity, SubdermalImplantComponent component)
+    {
+        Entity = entity;
+        Component = component;
+    }
+}
+
+public class SubdermalImplantRemoved
+{
+    public EntityUid Entity;
+    public SubdermalImplantComponent Component;
+    public SubdermalImplantRemoved(EntityUid entity, SubdermalImplantComponent component)
+    {
+        Entity = entity;
+        Component = component;
+    }
+}
 
 public abstract class SharedImplanterSystem : EntitySystem
 {
@@ -56,10 +77,17 @@ public abstract class SharedImplanterSystem : EntitySystem
         var implantedComp = EnsureComp<ImplantedComponent>(target);
         var implantContainer = implantedComp.ImplantContainer;
 
+        // НУ НЕ МОЖЕТ БЫТЬ ДВА ОДИНАКОВЫХ ИМПЛАНТА В ЧЕЛОВЕКЕ
+        if(implantedComp.ImplantContainer.ContainedEntities.Any(x=> MetaData(x).EntityName == MetaData(implant).EntityName))
+        {
+            return;
+        }
+
         implanterContainer.Remove(implant);
         implantComp.ImplantedEntity = target;
         implantContainer.OccludesLight = false;
         implantContainer.Insert(implant);
+        RaiseLocalEvent(new SubdermalImplantInserted(implantComp.ImplantedEntity!.Value, implantComp));
 
         if (component.CurrentMode == ImplanterToggleMode.Inject && !component.ImplantOnly)
             DrawMode(component);
@@ -102,6 +130,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                 }
 
                 implantContainer.Remove(implant);
+                RaiseLocalEvent(new SubdermalImplantRemoved(implantComp.ImplantedEntity!.Value, implantComp));
                 implantComp.ImplantedEntity = null;
                 implanterContainer.Insert(implant);
                 permanentFound = implantComp.Permanent;

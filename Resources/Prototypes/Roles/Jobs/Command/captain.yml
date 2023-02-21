@@ -16,9 +16,11 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  special:
+    - !type:AddImplantSpecial
+      implants: [ MindShieldImplant ]
   whitelistedSpecies:
     - Human
-    - Dwarf
   accessGroups:
   - AllAccess
 

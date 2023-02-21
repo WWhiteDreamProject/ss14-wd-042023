@@ -43,6 +43,12 @@
     id: Traitor
 
 - type: gameRule
+  id: Revolution
+  config:
+    !type:GenericGameRuleConfiguration
+    id: Revolution
+
+- type: gameRule
   id: TraitorDeathMatch
   config:
     !type:GenericGameRuleConfiguration

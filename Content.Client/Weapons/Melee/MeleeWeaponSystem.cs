@@ -85,7 +85,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var currentTime = Timing.CurTime;
 
         // Heavy attack.
-        if (altDown == BoundKeyState.Down)
+        if (altDown == BoundKeyState.Down && weapon.CanHeavyAttack)
         {
             // We did the click to end the attack but haven't pulled the key up.
             if (weapon.Attacking)
