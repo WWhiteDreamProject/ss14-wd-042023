@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server.Borgs;
 using Content.Server.Chat.Managers;
 using Content.Server.Flash;
 using Content.Server.GameTicking.Presets;
@@ -142,6 +143,8 @@ public sealed class RevolutionRuleSystem : GameRuleSystem
         if(msg.Cancelled)
             return;
         if(!TryComp<ActorComponent>(msg.Target, out var actor))
+            return;
+        if(HasComp<BorgComponent>(msg.Target))
             return;
         if(TryComp<RevolutionaryComponent>(msg.User, out var comp) && !comp!.HeadRevolutionary)
             return;
