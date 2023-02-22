@@ -102,11 +102,11 @@ namespace Content.Server.Flash
             return false;
         }
 
-        public void Flash(EntityUid target, EntityUid? user, EntityUid? used, float flashDuration, float slowTo, bool displayPopup = true, FlashableComponent? flashable = null)
+        public void Flash(EntityUid target, EntityUid? user, EntityUid? used, float flashDuration, float slowTo, bool displayPopup = true, FlashableComponent? flashable = null, bool massFlash = false)
         {
             if (!Resolve(target, ref flashable, false)) return;
 
-            var attempt = new FlashAttemptEvent(target, user, used);
+            var attempt = new FlashAttemptEvent(target, user, used, massFlash);
             RaiseLocalEvent(target, attempt, true);
 
             if (attempt.Cancelled)
@@ -148,7 +148,7 @@ namespace Content.Server.Flash
                     continue;
 
                 // They shouldn't have flash removed in between right?
-                Flash(entity, user, source, duration, slowTo, displayPopup, flashableQuery.GetComponent(entity));
+                Flash(entity, user, source, duration, slowTo, displayPopup, flashableQuery.GetComponent(entity), true);
             }
             if (sound != null)
             {
@@ -199,12 +199,14 @@ namespace Content.Server.Flash
         public readonly EntityUid Target;
         public readonly EntityUid? User;
         public readonly EntityUid? Used;
+        public readonly bool MassFlash;
 
-        public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
+        public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used, bool massFlash)
         {
             Target = target;
             User = user;
             Used = used;
+            MassFlash = massFlash;
         }
     }
 }
