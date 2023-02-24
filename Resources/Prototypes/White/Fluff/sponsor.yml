@@ -3,3 +3,9 @@
   id: SuitGlamorousLoadout
   entity: ClothingOuterSuitGlamorous
   sponsorOnly: true
+
+# Maury
+- type: loadout
+  id: ClothingUniformJumpsuitMaury #Should be ClothingUniformMauryLoadout but like i said i`m retard
+  entity: ClothingUniformJumpsuitMauryZ
+  sponsorOnly: true
