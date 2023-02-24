@@ -15,3 +15,12 @@ marking-CatEarsCurled-ears_curled_inner = Внутреннее ухо
 marking-CatEarsTorn = Рассечённые ушки
 marking-CatEarsTorn-ears_torn_outer = Наружное ухо
 marking-CatEarsTorn-ears_torn_inner = Внутреннее ухо
+
+marking-CatTailMaury = Особенный хвост
+marking-CatTailMaury-tail_cat_wag_z = Основной
+marking-CatTailMaury-tail_cat_wag_tip = Градиент
+
+marking-FoxEarsMaury = Особенные ушки
+marking-FoxEarsMaury-ears_fox_outer = Наружное ухо
+marking-FoxEarsMaury-ears_fox_inner = Внутреннее ухо
+marking-FoxEarsMaury-ears_fox_tip = Градиент

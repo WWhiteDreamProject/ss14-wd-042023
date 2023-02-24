@@ -19,3 +19,15 @@
     - type: ContainerContainer
       containers:
         toggleable-clothing: !type:ContainerSlot {}
+
+# Maury
+- type: entity
+  parent: ClothingUniformJumpsuitChemistry
+  id: ClothingUniformJumpsuitMauryZ #Should be ClothingUniformJumpsuitMaury but i`m retard and lazy idiot
+  name: Rupi's chemist uniform
+  description: Обычно NanoTrasen не позволяет сотрудникам изменять выданную им униформу, но по отношению к Руперту они проявили снисходительность.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Maury/chemshit.rsi
+    - type: Clothing
+      sprite: White/Fluff/Maury/chemshit.rsi

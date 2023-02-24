@@ -150,7 +150,7 @@
   name: rev-title
   description: rev-description
   minPlayers: 6
-  showInVote: true
+  showInVote: false
   rules:
     - Revolution
     - BasicStationEventScheduler

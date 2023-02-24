@@ -14,6 +14,10 @@
     {
       "name": "ears_fox_outer",
       "directions": 4
+    },
+    {
+        "name": "ears_fox_tip",
+        "directions": 4
     }
   ]
 }

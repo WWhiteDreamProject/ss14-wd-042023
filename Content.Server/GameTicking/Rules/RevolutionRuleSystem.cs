@@ -140,13 +140,19 @@ public sealed class RevolutionRuleSystem : GameRuleSystem
     {
         if(!RuleAdded)
             return;
+        if(msg.User == null)
+            return;
+        if(msg.MassFlash)
+            return;
         if(msg.Cancelled)
             return;
         if(!TryComp<ActorComponent>(msg.Target, out var actor))
             return;
         if(HasComp<BorgComponent>(msg.Target))
             return;
-        if(TryComp<RevolutionaryComponent>(msg.User, out var comp) && !comp!.HeadRevolutionary)
+        if(!TryComp<RevolutionaryComponent>(msg.User, out var comp))
+            return;
+        if(!comp.HeadRevolutionary)
             return;
         if (TryComp<MindComponent>(msg.Target, out var mindComponent) && mindComponent.HasMind
             && _headJobPrototypes.Contains(mindComponent.Mind!.CurrentJob!.Prototype))
