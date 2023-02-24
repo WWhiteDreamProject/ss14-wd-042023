@@ -95,8 +95,8 @@ namespace Content.Server.AME.Components
                 }
                 else
                 {
-                    availableInject = fuelJar.FuelAmount;
-                    fuelJar.FuelAmount -= availableInject;
+                    availableInject = InjectionAmount;
+                    fuelJar.FuelAmount = 0;
                 }
 
                 _powerSupplier.MaxSupply = group.InjectFuel(availableInject, out var overloading);
