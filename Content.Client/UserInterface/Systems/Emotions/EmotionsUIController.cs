@@ -77,7 +77,7 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
         }
 
         _lastEmotionTimeUse = DateTime.Now;
-        _chatManager.SendMessage(emote.ToCharArray(), ChatSelectChannel.Emotes);
+        _chatManager.SendMessage(emote, ChatSelectChannel.Emotes);
     }
 
     public void LoadButton()
