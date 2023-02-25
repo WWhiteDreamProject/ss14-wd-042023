@@ -1450,7 +1450,7 @@
   id: MeatySingularityToy
   productEntity: SingularityToy
   cost:
-    MeatyOreCoin: 2
+    MeatyOreCoin: 20
   categories:
     - MeatyOreToys
 
