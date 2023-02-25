@@ -1,28 +1,29 @@
 # Chat window radio wrap (prefix and postfix)
 chat-radio-message-wrap = [color={$color}]{$channel} {$name} говорит: "{$message}"[/color]
 
-headset-encryption-key-successfully-installed = You put the key into the headset.
-headset-encryption-key-slots-already-full = There is no place for another key.
-headset-encryption-keys-all-extracted = You pop out the encryption keys from the headset!
-headset-encryption-keys-no-keys = This headset has no encryption keys!
-headset-encryption-keys-are-locked = The headset's key slots are locked, you cannot add or remove any keys.
+headset-encryption-key-successfully-installed = Вы вставляете ключ в гарнитуру.
+headset-encryption-key-slots-already-full = Здесь нет места для другого ключа.
+headset-encryption-keys-all-extracted = Вы вытаскиваете ключи шифрования из гарнитуры!
+headset-encryption-keys-no-keys = У этой гарнитуры нет ключей шифрования!
+headset-encryption-keys-are-locked = Слоты для ключей гарнитуры заблокированы, вы не можете добавлять или удалять какие-либо ключи.
 
-examine-encryption-key-channels-prefix = It is providing these frequencies to the headset:
+examine-encryption-key-channels-prefix = Он обеспечивает эти частоты для гарнитуры:
 
-examine-radio-frequency = It's set to broadcast over the {$frequency} frequency.
+examine-radio-frequency = Он настроен на трансляцию на частоте {$frequency}.
 
-examine-headset-channels-prefix = A small screen on the headset displays the following available frequencies:
+examine-headset-channels-prefix = На небольшом экране гарнитуры отображаются следующие доступные частоты:
 examine-headset-channel = [color={$color}]{$keys} для {$id} ({$freq})[/color]
-examine-headset-no-keys = It seems broken. There are no encryption keys in it.
-examine-headset-chat-prefix = Use this {$prefix} for your department's frequency.
-examine-headset-default-channel = It's indicates that default channel of this headset is [color={$color}]{$channel}[/color].
-examine-encryption-key-default-channel = It's seems like [color={$color}]{$channel}[/color] is a default channel.
+examine-headset-no-keys = Похоже, это сломано. Нет ключей шифрования.
+examine-default-channel = Используй {$prefix} для стандартного ([color={$color}]{$channel}[/color]).
+examine-headset-chat-prefix = Используй {$prefix} для частоты своего отдела.
+examine-headset-default-channel = Это указывает на то, что канал по умолчанию этой гарнитуры - [color={$color}]{$channel}[/color].
+examine-encryption-key-default-channel = Похоже, что [color={$color}]{$channel}[/color] - это канал по умолчанию.
 
 chat-radio-common = Общий
 chat-radio-centcom = ЦентКом
 chat-radio-command = Командование
 chat-radio-engineering = Инженерный
-chat-radio-medical = Медецинский
+chat-radio-medical = Медицинский
 chat-radio-science = Научный
 chat-radio-security = Безопасность
 chat-radio-service = Сервисный
