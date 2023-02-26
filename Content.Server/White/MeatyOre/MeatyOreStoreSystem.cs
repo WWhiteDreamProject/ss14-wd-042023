@@ -6,6 +6,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Mind.Components;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
+using Content.Server.White.Sponsors;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -17,13 +18,16 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Nuke;
 using Content.Shared.Verbs;
 using Content.Shared.White.MeatyOre;
+using Content.Shared.White.Sponsors;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Players;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.White;
@@ -37,10 +41,13 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly TraitorRuleSystem _traitorRuleSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly PVSOverrideSystem _pvsOverrideSystem = default!;
+
 
     private static readonly string StorePresetPrototype = "StorePresetMeatyOre";
     private static readonly string MeatyOreCurrensyPrototype = "MeatyOreCoin";
-    private static int DefaultMeatyOreCoinBalance = 0;
     private static bool MeatyOrePanelEnabled;
 
 
@@ -49,7 +56,6 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     {
         base.Initialize();
 
-        _configurationManager.OnValueChanged(CCVars.MeatyOreDefaultBalance, balance => DefaultMeatyOreCoinBalance = balance, true);
         _configurationManager.OnValueChanged(CCVars.MeatyOrePanelEnabled, OnPanelEnableChanged, true);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
@@ -63,7 +69,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     {
         if(ev.User == ev.Target) return;
         if(!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent)) return;
-        if(!_adminManager.HasAdminFlag(actorComponent.PlayerSession, AdminFlags.MeatyOre)) return;
+        if(!_sponsorsManager.TryGetInfo(actorComponent.PlayerSession.UserId, out _)) return;
         if(!HasComp<HumanoidAppearanceComponent>(ev.Target)) return;
         if(!TryComp<MobStateComponent>(ev.Target, out var state) || state?.CurrentState != MobState.Alive) return;
         if(!TryGetStore(actorComponent.PlayerSession, out var store)) return;
@@ -85,8 +91,8 @@ public sealed class MeatyOreStoreSystem : EntitySystem
             Message = $"Цена - {MeatyOreCurrensyPrototype}:10",
             Act = () =>
             {
-                _traitorRuleSystem.MakeTraitor(targetMind.Mind.Session);
                 _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> {{MeatyOreCurrensyPrototype, -10}}, store.Owner, store);
+                _traitorRuleSystem.MakeTraitor(targetMind.Mind.Session);
             },
             Category = VerbCategory.MeatyOre
         };
@@ -121,19 +127,6 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         _traitorRuleSystem.MakeTraitor(component.Mind?.Session!);
     }
 
-    //Зло есть зло. Меньшее, большее, какая разница?
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        foreach (var storesData in _meatyOreStores)
-        {
-            var session = _playerManager.GetSessionByUserId(storesData.Key);
-            if(session?.AttachedEntity == null) continue;
-            var attachedEntity = session.AttachedEntity;
-            Transform(storesData.Value.Owner).Coordinates = Transform(attachedEntity.Value).Coordinates;
-        }
-    }
-
     private void OnShopRequested(MeatyOreShopRequestEvent msg, EntitySessionEventArgs args)
     {
 
@@ -158,16 +151,14 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     {
         store = null!;
 
-        var adminData = _adminManager.GetAdminData(session, true);
-        if(adminData == null) return false;
-
-        if (!adminData.HasFlag(AdminFlags.MeatyOre)) return false;
-
-        var existingStore = _meatyOreStores.FirstOrNull(x => x.Key.UserId == session.UserId);
+        if (!_sponsorsManager.TryGetInfo(session.UserId, out var sponsorInfo))
+        {
+            return false;
+        }
 
         if (_meatyOreStores.TryGetValue(session.UserId, out store!)) return true;
 
-        store = CreateStore(session.UserId);
+        store = CreateStore(session.UserId, sponsorInfo.MeatyOreCoin);
         return true;
     }
 
@@ -181,17 +172,18 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         _meatyOreStores.Clear();
     }
 
-    private StoreComponent CreateStore(NetUserId userId)
+    private StoreComponent CreateStore(NetUserId userId, int balance)
     {
         var session = _playerManager.GetSessionByUserId(userId);
-        var shopEntity = _entityManager.SpawnEntity("StoreMeatyOreEntity", Transform(session.AttachedEntity!.Value).Coordinates);
+        var shopEntity = _entityManager.SpawnEntity("StoreMeatyOreEntity", MapCoordinates.Nullspace);
         var storeComponent = Comp<StoreComponent>(shopEntity);
 
         _storeSystem.InitializeFromPreset("StorePresetMeatyOre", shopEntity, storeComponent);
         storeComponent.Balance.Clear();
 
-        _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>() { { MeatyOreCurrensyPrototype, DefaultMeatyOreCoinBalance } }, storeComponent.Owner, storeComponent);
+        _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>() { { MeatyOreCurrensyPrototype, balance } }, storeComponent.Owner, storeComponent);
         _meatyOreStores[userId] = storeComponent;
+        _pvsOverrideSystem.AddSessionOverride(shopEntity, session);
 
         return storeComponent;
     }

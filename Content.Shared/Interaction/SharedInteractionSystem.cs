@@ -19,6 +19,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
+using Content.Shared.White.MeatyOre;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Input;
@@ -107,6 +108,11 @@ namespace Content.Shared.Interaction
             if (!_containerSystem.IsInSameOrParentContainer(user, ev.Target) && !CanAccessViaStorage(user, ev.Target))
             {
                 ev.Cancel();
+                return;
+            }
+
+            if (CompOrNull<IgnorBUIInteractionRangeComponent>(ev.Target) != null)
+            {
                 return;
             }
 

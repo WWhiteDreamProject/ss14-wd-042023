@@ -31,3 +31,4 @@
         - key: enum.StoreUiKey.Key
           type: StoreBoundUserInterface
           range: -1
+    - type: IgnorBUIInteractionRange
