@@ -26,12 +26,6 @@ public sealed class MeatyOreUIController : UIController
 
 
     private MenuButton? MeatyOreButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.MeatyOreButton;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     public void LoadButton()
     {
         MeatyOreButton!.OnPressed += MeatyOreButtonPressed;
