@@ -31,3 +31,4 @@ chat-manager-send-hook-ooc-wrap-message = OOC: (D){$senderName}: {$message}
 
 chat-manager-dead-channel-name = DEAD
 chat-manager-admin-channel-name = ADMIN
+chat-manager-admin-discord-channel-name = D-ADMIN

@@ -21,6 +21,7 @@ namespace Content.Server.Chat.Managers
         void TrySendOOCMessage(IPlayerSession player, string message, OOCChatType type);
 
         void SendHookOOC(string sender, string message);
+        void SendHookAdminChat(string sender, string message);
         void SendAdminAnnouncement(string message);
 
         void ChatMessageToOne(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat,

@@ -10,6 +10,7 @@ using Content.Server.Players;
 using Content.Server.Popups;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.UtkaIntegration;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -55,6 +56,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly UtkaTCPWrapper _utkaSockets = default!;
+
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperRange = 2; // how far whisper goes in world units
@@ -426,6 +429,24 @@ public sealed partial class ChatSystem : SharedChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
         else
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user}: {action}");
+
+        string ckey = string.Empty;
+
+        if (TryComp<ActorComponent>(source, out var actorComponent))
+        {
+            ckey = actorComponent.PlayerSession.Name;
+        }
+
+        if(string.IsNullOrEmpty(ckey)) return;
+
+        var utkaEmoteEvent = new UtkaChatMeEvent()
+        {
+            Ckey = ckey,
+            Message = action,
+            CharacterName = MetaData(source).EntityName
+        };
+
+        _utkaSockets.SendMessageToAll(utkaEmoteEvent);
     }
 
     // ReSharper disable once InconsistentNaming

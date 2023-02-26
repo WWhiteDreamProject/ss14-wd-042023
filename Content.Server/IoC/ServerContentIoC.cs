@@ -67,7 +67,7 @@ namespace Content.Server.IoC
             IoCManager.Register<SponsorsManager>();
             IoCManager.Register<JoinQueueManager>();
             IoCManager.Register<TTSManager>();
-            IoCManager.Register<UtkaSocketWrapper>();
+            IoCManager.Register<UtkaTCPWrapper>();
             IoCManager.Register<StalinManager>();
         }
     }

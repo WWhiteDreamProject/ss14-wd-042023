@@ -4,6 +4,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.MoMMI;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
+using Content.Server.UtkaIntegration;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -42,6 +43,8 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+        [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
+
         [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
 
         /// <summary>
@@ -118,6 +121,26 @@ namespace Content.Server.Chat.Managers
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hook OOC from {sender}: {message}");
         }
 
+        public void SendHookAdminChat(string sender, string message)
+        {
+            var admins = _adminManager.ActiveAdmins;
+
+            var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                ("adminChannelName", Loc.GetString("chat-manager-admin-discord-channel-name")),
+                ("playerName", sender), ("message", FormattedMessage.EscapeText(message)));
+
+            ChatMessageToMany(ChatChannel.Admin, message, wrappedMessage, EntityUid.Invalid, false, true, admins.Select(p => p.ConnectedClient));
+
+            var asayEventMessage = new UtkaChatEventMessage()
+            {
+                Command = "asay",
+                Ckey = sender,
+                Message = message
+            };
+
+            _utkaSocketWrapper.SendMessageToAll(asayEventMessage);
+        }
+
         #endregion
 
         #region Public OOC Chat API
@@ -188,6 +211,16 @@ namespace Content.Server.Chat.Managers
             ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride);
             _mommiLink.SendOOCMessage(player.Name, message);
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
+
+            var toUtkaMessage = new UtkaChatEventMessage()
+            {
+                Command = "ooc",
+                Ckey = player.Name,
+                Message = message,
+            };
+
+            _utkaSocketWrapper.SendMessageToAll(toUtkaMessage);
+
         }
 
         private void SendAdminChat(IPlayerSession player, string message)
@@ -218,6 +251,15 @@ namespace Content.Server.Chat.Managers
             }
 
             _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
+
+            var asayEventMessage = new UtkaChatEventMessage()
+            {
+                Command = "asay",
+                Ckey = player.Name,
+                Message = message
+            };
+
+            _utkaSocketWrapper.SendMessageToAll(asayEventMessage);
         }
 
         #endregion

@@ -10,6 +10,7 @@ using Content.Server.Communications;
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Server.UtkaIntegration;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
@@ -37,6 +38,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
+        [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -179,6 +181,8 @@ namespace Content.Server.RoundEnd
 
             ActivateCooldown();
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
+
+            SendRoundStatus("Shuttle called");
         }
 
         public void CancelRoundEndCountdown(EntityUid? requester = null, bool checkCooldown = true, EntityUid? player = null)
@@ -210,6 +214,19 @@ namespace Content.Server.RoundEnd
             ExpectedCountdownEnd = null;
             ActivateCooldown();
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
+
+            SendRoundStatus("Shuttle recalled");
+        }
+
+        private void SendRoundStatus(string status)
+        {
+            var utkaRoundStatusEvent = new UtkaRoundStatusEvent()
+            {
+                Message = status
+            };
+
+            _utkaSocketWrapper.SendMessageToAll(utkaRoundStatusEvent);
+
         }
 
         public void EndRound()

@@ -1,14 +1,20 @@
-﻿using Content.Server.Chat.Managers;
+﻿using System.Net;
+using Content.Server.Chat.Managers;
 
 namespace Content.Server.UtkaIntegration;
 
 public sealed class UtkaSendOOCMessage : IUtkaCommand
 {
-    public string Name => "OOC";
-    public void Execute(UtkaSocket socket, FromDiscordMessage message, string[] args)
+    public string Name => "ooc";
+    public Type RequestMessageType => typeof(UtkaOOCRequest);
+
+    public void Execute(UtkaTCPSession session, UtkaBaseMessage baseMessage)
     {
+        if (baseMessage is not UtkaOOCRequest message) return;
+        if(string.IsNullOrWhiteSpace(message.Message) || string.IsNullOrWhiteSpace(message.CKey)) return;
+
+
         var chatSystem = IoCManager.Resolve<IChatManager>();
-        var finalMessage = string.Join(" ", message.Message!);
-        chatSystem.SendHookOOC($"{message.Ckey}", $"{finalMessage}");
+        chatSystem.SendHookOOC($"{message.CKey}", $"{message.Message}");
     }
 }

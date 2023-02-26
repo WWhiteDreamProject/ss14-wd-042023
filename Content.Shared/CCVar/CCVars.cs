@@ -1563,7 +1563,7 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> ConfigPresetDebug =
             CVarDef.Create("config.preset_debug", true, CVar.SERVERONLY);
         public static readonly CVarDef<string> UtkaSocketKey =
-            CVarDef.Create("utka.socket_key", String.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+            CVarDef.Create("utka.socket_key", "ass", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
         public static readonly CVarDef<string> StalinSalt =
             CVarDef.Create("stalin.salt", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
