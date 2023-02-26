@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Serialization;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using Component = Robust.Shared.GameObjects.Component;
 
 namespace Content.Shared.White.MeatyOre;
@@ -15,8 +16,8 @@ public sealed class MeatyTraitorRequestActionEvent
     }
 }
 
-[Serializable, NetSerializable]
-public sealed class IgnorBUIInteractionRange : Component
+[NetworkedComponent, RegisterComponent]
+public sealed class IgnorBUIInteractionRangeComponent : Component
 {
 
 }

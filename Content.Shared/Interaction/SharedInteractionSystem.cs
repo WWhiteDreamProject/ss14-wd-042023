@@ -111,7 +111,7 @@ namespace Content.Shared.Interaction
                 return;
             }
 
-            if (CompOrNull<IgnorBUIInteractionRange>(ev.Target) != null)
+            if (CompOrNull<IgnorBUIInteractionRangeComponent>(ev.Target) != null)
             {
                 return;
             }
