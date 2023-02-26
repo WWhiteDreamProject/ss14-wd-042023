@@ -113,7 +113,7 @@ public sealed class StalinManager
 
     private async void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
     {
-        if (e.NewStatus != SessionStatus.Connected || _registeredStalinCache.ContainsKey(e.Session.UserId.ToString())) return;
+        if (e.NewStatus != SessionStatus.Connected) return;
 
         var session = e.Session;
 
@@ -220,12 +220,6 @@ public sealed class StalinManager
     {
 
         var playerSession = _playerManager.GetSessionByChannel(message.MsgChannel);
-
-        if (_registeredStalinCache.ContainsKey(playerSession.UserId.ToString()))
-        {
-            _chatManager.DispatchServerMessage(playerSession, Loc.GetString("stalin-already-linked"));
-            return;
-        }
 
         var saltedYayca = GenerateDiscordAuthUri(playerSession.Name, playerSession.UserId.ToString());
 
