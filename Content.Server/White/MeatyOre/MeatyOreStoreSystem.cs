@@ -69,7 +69,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     {
         if(ev.User == ev.Target) return;
         if(!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent)) return;
-        if(!_adminManager.HasAdminFlag(actorComponent.PlayerSession, AdminFlags.MeatyOre)) return;
+        if(!_sponsorsManager.TryGetInfo(actorComponent.PlayerSession.UserId, out _)) return;
         if(!HasComp<HumanoidAppearanceComponent>(ev.Target)) return;
         if(!TryComp<MobStateComponent>(ev.Target, out var state) || state?.CurrentState != MobState.Alive) return;
         if(!TryGetStore(actorComponent.PlayerSession, out var store)) return;
@@ -150,9 +150,6 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     private bool TryGetStore(IPlayerSession session, out StoreComponent store)
     {
         store = null!;
-
-        var adminData = _adminManager.GetAdminData(session, true);
-        if(adminData == null) return false;
 
         if (!_sponsorsManager.TryGetInfo(session.UserId, out var sponsorInfo))
         {
