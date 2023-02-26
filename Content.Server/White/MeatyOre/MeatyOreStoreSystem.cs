@@ -121,19 +121,6 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         _traitorRuleSystem.MakeTraitor(component.Mind?.Session!);
     }
 
-    //Зло есть зло. Меньшее, большее, какая разница?
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        foreach (var storesData in _meatyOreStores)
-        {
-            var session = _playerManager.GetSessionByUserId(storesData.Key);
-            if(session?.AttachedEntity == null) continue;
-            var attachedEntity = session.AttachedEntity;
-            Transform(storesData.Value.Owner).Coordinates = Transform(attachedEntity.Value).Coordinates;
-        }
-    }
-
     private void OnShopRequested(MeatyOreShopRequestEvent msg, EntitySessionEventArgs args)
     {
 
