@@ -18,6 +18,7 @@ using Content.Shared.Nuke;
 using Content.Shared.Verbs;
 using Content.Shared.White.MeatyOre;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
@@ -37,6 +38,8 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly TraitorRuleSystem _traitorRuleSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly PVSOverrideSystem _pvsOverrideSystem = default!;
+
 
     private static readonly string StorePresetPrototype = "StorePresetMeatyOre";
     private static readonly string MeatyOreCurrensyPrototype = "MeatyOreCoin";
@@ -171,7 +174,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     private StoreComponent CreateStore(NetUserId userId)
     {
         var session = _playerManager.GetSessionByUserId(userId);
-        var shopEntity = _entityManager.SpawnEntity("StoreMeatyOreEntity", Transform(session.AttachedEntity!.Value).Coordinates);
+        var shopEntity = _entityManager.SpawnEntity("StoreMeatyOreEntity", MapCoordinates.Nullspace);
         var storeComponent = Comp<StoreComponent>(shopEntity);
 
         _storeSystem.InitializeFromPreset("StorePresetMeatyOre", shopEntity, storeComponent);
@@ -179,6 +182,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>() { { MeatyOreCurrensyPrototype, DefaultMeatyOreCoinBalance } }, storeComponent.Owner, storeComponent);
         _meatyOreStores[userId] = storeComponent;
+        _pvsOverrideSystem.AddSessionOverride(shopEntity, session);
 
         return storeComponent;
     }
