@@ -105,6 +105,7 @@ namespace Content.Server.Ghost
                 var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
                 _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Server, message,
                     wrappedMessage, default, false, args.SenderSession.ConnectedClient, Color.Red);
+                _deathTime[userId] = _gameTiming.CurTime;
                 return;
             }
 
