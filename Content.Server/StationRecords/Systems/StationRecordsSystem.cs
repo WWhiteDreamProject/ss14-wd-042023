@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
+using Content.Server.Forensics;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
@@ -71,7 +72,13 @@ public sealed class StationRecordsSystem : EntitySystem
             return;
         }
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, profile, records);
+        var fingers = Loc.GetString("general-station-record-console-record-fingerprint-empty");
+        if (EntityManager.TryGetComponent<FingerprintComponent>(player, out var fingerprint) && fingerprint.Fingerprint != null)
+        {
+            fingers = fingerprint.Fingerprint;
+        }
+
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, fingers, profile, records);
     }
 
 
@@ -93,13 +100,14 @@ public sealed class StationRecordsSystem : EntitySystem
     ///     this call will cause an exception. Ensure that a general record starts out with a job
     ///     that is currently a valid job prototype.
     /// </param>
+    /// <param name="fingerprint">Fingerprints of the character.</param>
     /// <param name="profile">
     ///     Profile for the related player. This is so that other systems can get further information
     ///     about the player character.
     ///     Optional - other systems should anticipate this.
     /// </param>
     /// <param name="records">Station records component.</param>
-    public void CreateGeneralRecord(EntityUid station, EntityUid? idUid, string name, int age, string species, Gender gender, string jobId, HumanoidCharacterProfile? profile = null,
+    public void CreateGeneralRecord(EntityUid station, EntityUid? idUid, string name, int age, string species, Gender gender, string jobId, string fingerprint, HumanoidCharacterProfile? profile = null,
         StationRecordsComponent? records = null)
     {
         if (!Resolve(station, ref records))
@@ -121,7 +129,8 @@ public sealed class StationRecordsSystem : EntitySystem
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
-            DisplayPriority = jobPrototype.Weight
+            DisplayPriority = jobPrototype.Weight,
+            Fingerprint = fingerprint
         };
 
         var key = AddRecord(station, records);

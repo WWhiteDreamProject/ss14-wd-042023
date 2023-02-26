@@ -56,4 +56,10 @@ public sealed class GeneralStationRecord
     /// </summary>
     [ViewVariables]
     public int DisplayPriority;
+
+    /// <summary>
+    ///     Fingerprint tied to this station record.
+    /// </summary>
+    [ViewVariables]
+    public string Fingerprint = string.Empty;
 }
