@@ -177,11 +177,10 @@ public sealed class EncryptionKeySystem : EntitySystem
 
             var key = id == SharedChatSystem.CommonChannel
                 ? SharedChatSystem.RadioCommonPrefix.ToString()
-                : $"{SharedChatSystem.RadioChannelPrefix}{proto.KeyCodes}";
-
+                : $":{string.Join(", :", proto.KeyCodes.ToArray())}";
             examineEvent.PushMarkup(Loc.GetString(channelFTLPattern,
                 ("color", proto.Color),
-                ("key", key),
+                ("keys", key),
                 ("id", proto.LocalizedName),
                 ("freq", proto.Frequency)));
         }
