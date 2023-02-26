@@ -1,6 +1,7 @@
 ﻿using Content.Client.Administration.Managers;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
+using Content.Client.White.Sponsors;
 using Content.Shared.Administration;
 using Content.Shared.Humanoid;
 using Content.Shared.White.MeatyOre;
@@ -17,6 +18,8 @@ public sealed class MeatyOreUIController : UIController
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityNetworkManager _entityNetworkManager = default!;
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+
 
     private bool _buttonLoaded = false;
 
@@ -58,8 +61,8 @@ public sealed class MeatyOreUIController : UIController
 
     private bool CheckButtonVisibility()
     {
-        var isMeatyOre = _clientAdminManager.HasFlag(AdminFlags.MeatyOre);
-        if(isMeatyOre != true) return false;
+        if(!_sponsorsManager.TryGetInfo(out var sponsor));
+        if(sponsor?.Tier == null) return false;
 
         var controlledEntity = _playerManager!.LocalPlayer!.ControlledEntity;
         if(controlledEntity == null) return false;
