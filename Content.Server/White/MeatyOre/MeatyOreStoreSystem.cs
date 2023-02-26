@@ -40,6 +40,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
     private static readonly string StorePresetPrototype = "StorePresetMeatyOre";
     private static readonly string MeatyOreCurrensyPrototype = "MeatyOreCoin";
+    private static int DefaultMeatyOreCoinBalance = 0;
     private static bool MeatyOrePanelEnabled;
 
 
@@ -48,6 +49,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     {
         base.Initialize();
 
+        _configurationManager.OnValueChanged(CCVars.MeatyOreDefaultBalance, balance => DefaultMeatyOreCoinBalance = balance, true);
         _configurationManager.OnValueChanged(CCVars.MeatyOrePanelEnabled, OnPanelEnableChanged, true);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
@@ -117,6 +119,19 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         if(component.Mind.Session == null) return;
 
         _traitorRuleSystem.MakeTraitor(component.Mind?.Session!);
+    }
+
+    //Зло есть зло. Меньшее, большее, какая разница?
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        foreach (var storesData in _meatyOreStores)
+        {
+            var session = _playerManager.GetSessionByUserId(storesData.Key);
+            if(session?.AttachedEntity == null) continue;
+            var attachedEntity = session.AttachedEntity;
+            Transform(storesData.Value.Owner).Coordinates = Transform(attachedEntity.Value).Coordinates;
+        }
     }
 
     private void OnShopRequested(MeatyOreShopRequestEvent msg, EntitySessionEventArgs args)
