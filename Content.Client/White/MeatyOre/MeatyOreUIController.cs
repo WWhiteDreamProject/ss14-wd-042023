@@ -56,7 +56,7 @@ public sealed class MeatyOreUIController : UIController
     private bool CheckButtonVisibility()
     {
         if(!_sponsorsManager.TryGetInfo(out var sponsor)) return false;
-        if(sponsor?.Tier == null) return false;
+        if(sponsor?.Tier == null || sponsor?.MeatyOreCoin == 0) return false;
 
         var controlledEntity = _playerManager!.LocalPlayer!.ControlledEntity;
         if(controlledEntity == null) return false;

@@ -157,6 +157,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         }
 
         if (_meatyOreStores.TryGetValue(session.UserId, out store!)) return true;
+        if (sponsorInfo.MeatyOreCoin == 0) return false;
 
         store = CreateStore(session.UserId, sponsorInfo.MeatyOreCoin);
         return true;
