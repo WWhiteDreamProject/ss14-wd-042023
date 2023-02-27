@@ -31,3 +31,24 @@
       sprite: White/Fluff/Maury/chemshit.rsi
     - type: Clothing
       sprite: White/Fluff/Maury/chemshit.rsi
+
+# YouWellLeer
+- type: entity
+  parent: Crowbar
+  id: Sledgebar
+  name: Mjolnir
+  description: Отлично ломает кости ассистентам и клоуну.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/YouWellLeer/sledgebar.rsi
+      state: icon
+      netsync: false
+    - type: Item
+      sprite: White/Fluff/YouWellLeer/sledgebar.rsi
+      size: 30
+    - type: Wieldable
+    - type: IncreaseDamageOnWield
+      damage:
+        types:
+          Blunt: 10
+
