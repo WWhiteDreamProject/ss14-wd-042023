@@ -3,6 +3,7 @@
   name: job-name-intern
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
+  wikiLink: "https://wiki.ss14.su/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
