@@ -44,7 +44,7 @@ namespace Content.Server.Roles
 
                 if(!string.IsNullOrEmpty(Prototype.WikiLink))
                 {
-                    jobMessage = $"[cmdlink=\"{jobMessage}\" command=\"openlink {Prototype.WikiLink}\"][/cmdlink]";
+                    jobMessage = $"[cmdlink=\"[{jobMessage}]\" command=\"openlink {Prototype.WikiLink}\"][/cmdlink]";
                 }
 
                 var message = Loc.GetString("job-greet-introduce-job-name",
