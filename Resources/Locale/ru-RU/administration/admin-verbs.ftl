@@ -6,3 +6,4 @@ admin-verbs-teleport-to = Телепортироваться к
 admin-verbs-teleport-here = Телепортировать сюда
 admin-verbs-freeze = Заморозить
 admin-verbs-unfreeze = Разморозить
+admin-verbs-admin-logs-entity = Админ логи
