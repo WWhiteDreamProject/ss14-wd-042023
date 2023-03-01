@@ -92,7 +92,7 @@ namespace Content.Server.Chat.Managers
 
         public void DispatchServerMessage(IPlayerSession player, string message, bool suppressLog = false)
         {
-            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", FormattedMessage.EscapeText(message)));
+            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
             ChatMessageToOne(ChatChannel.Server, message, wrappedMessage, default, false, player.ConnectedClient);
 
             if (!suppressLog)

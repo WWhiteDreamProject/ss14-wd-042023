@@ -3,6 +3,7 @@
   name: job-name-psychologist
   description: job-description-psychologist
   playTimeTracker: JobPsychologist
+  wikiLink: "https://wiki.ss14.su/%D0%9F%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3"
   startingGear: PsychologistGear
   icon: "Psychologist"
   supervisors: job-supervisors-cmo

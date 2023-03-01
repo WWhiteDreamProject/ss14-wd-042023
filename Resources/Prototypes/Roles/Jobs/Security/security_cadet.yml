@@ -3,6 +3,7 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
+  wikiLink: "https://wiki.ss14.su/%D0%9A%D0%B0%D0%B4%D0%B5%D1%82"
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 9000

@@ -291,6 +291,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
+        message = AfterSpeechTransformed(source, message);
+
         // get the entity's apparent name (if no override provided).
         string name;
         if (nameOverride != null)
@@ -310,7 +312,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
 
         var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
-            ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
+            ("entityName", name), ("message", message));
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, hideChat, hideGlobalGhostChat);
 
@@ -348,6 +350,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
+        message = AfterSpeechTransformed(source, message);
+
         var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
 
         // get the entity's apparent name (if no override provided).
@@ -365,11 +369,11 @@ public sealed partial class ChatSystem : SharedChatSystem
 
 
         var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
+            ("entityName", name), ("message", message));
 
 
         var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", name), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
+            ("entityName", name), ("message", obfuscatedMessage));
 
 
         foreach (var (session, data) in GetRecipients(source, VoiceRange))
@@ -568,6 +572,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         return ev.Message;
     }
 
+    public string AfterSpeechTransformed(EntityUid sender, string message)
+    {
+        var ev = new SpeechTransformedEvent(sender, message);
+        RaiseLocalEvent(ev);
+        return ev.Message;
+    }
+
     private IEnumerable<INetChannel> GetDeadChatClients()
     {
         return Filter.Empty()
@@ -698,6 +709,18 @@ public sealed class TransformSpeechEvent : EntityEventArgs
     public string Message;
 
     public TransformSpeechEvent(EntityUid sender, string message)
+    {
+        Sender = sender;
+        Message = message;
+    }
+}
+
+public sealed class SpeechTransformedEvent : EntityEventArgs
+{
+    public EntityUid Sender;
+    public string Message;
+
+    public SpeechTransformedEvent(EntityUid sender, string message)
     {
         Sender = sender;
         Message = message;

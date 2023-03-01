@@ -3,6 +3,7 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
+  wikiLink: "https://wiki.ss14.su/%D0%9E%D1%84%D0%B8%D1%86%D0%B5%D1%80"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

@@ -3,6 +3,7 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
+  wikiLink: "https://wiki.ss14.su/%D0%A5%D0%B8%D0%BC%D0%B8%D0%BA"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

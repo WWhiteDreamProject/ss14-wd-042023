@@ -1587,5 +1587,8 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<float> BwoinkVolume =
             CVarDef.Create("white.admin.bwoinkVolume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        public static readonly CVarDef<bool> FanaticXenophobiaEnabled =
+            CVarDef.Create("white.fanatic_xenophobia", true, CVar.SERVERONLY | CVar.ARCHIVE);
     }
 }

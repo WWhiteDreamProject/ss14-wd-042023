@@ -3,6 +3,7 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
+  wikiLink: "https://wiki.ss14.su/%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

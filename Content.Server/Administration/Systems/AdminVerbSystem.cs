@@ -51,6 +51,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly PrayerSystem _prayerSystem = default!;
         [Dependency] private readonly EuiManager _eui = default!;
+        [Dependency] private readonly EntityManager _entMan = default!;
 
         private readonly Dictionary<IPlayerSession, EditSolutionsEui> _openSolutionUis = new();
 
@@ -134,7 +135,15 @@ namespace Content.Server.Administration.Systems
                         {
                             var ui = new AdminLogsEui();
                             _eui.OpenEui(ui, player);
-                            ui.SetLogFilter(search:args.Target.GetHashCode().ToString());
+                            if (_entMan.TryGetComponent<MindComponent>(args.Target, out var mind) && mind.Mind != null && mind.Mind.Session != null)
+                            {
+                                var filter = mind.Mind!.Session!.Data.UserName;
+                                ui.SetLogFilter(search: filter);
+                            }
+                            else
+                            {
+                                ui.SetLogFilter(search: args.Target.GetHashCode().ToString());
+                            }
                         },
                         Impact = LogImpact.Low
                     };
