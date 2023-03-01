@@ -3,7 +3,6 @@
   name: job-name-engineer
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
-  wikiLink: "https://wiki.ss14.su/%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

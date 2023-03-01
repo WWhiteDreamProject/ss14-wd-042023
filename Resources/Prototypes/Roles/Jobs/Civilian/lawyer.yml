@@ -3,7 +3,6 @@
   name: job-name-lawyer
   description: job-description-lawyer
   playTimeTracker: JobLawyer
-  wikiLink: "https://wiki.ss14.su/%D0%AE%D1%80%D0%B8%D1%81%D1%82"
   startingGear: LawyerGear
   icon: "Lawyer"
   supervisors: job-supervisors-hop

@@ -2,7 +2,6 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Roles;
 using System.Globalization;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Roles
 {
@@ -40,17 +39,8 @@ namespace Content.Server.Roles
             if (Mind.TryGetSession(out var session))
             {
                 var chatMgr = IoCManager.Resolve<IChatManager>();
-                string jobMessage = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Name);
-
-                if(!string.IsNullOrEmpty(Prototype.WikiLink))
-                {
-                    jobMessage = $"[cmdlink=\"[{jobMessage}]\" command=\"openlink {Prototype.WikiLink}\"][/cmdlink]";
-                }
-
-                var message = Loc.GetString("job-greet-introduce-job-name",
-                    ("jobName", jobMessage));
-
-                chatMgr.DispatchServerMessage(session, message);
+                chatMgr.DispatchServerMessage(session, Loc.GetString("job-greet-introduce-job-name",
+                    ("jobName", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Name))));
 
                 if(Prototype.RequireAdminNotify)
                     chatMgr.DispatchServerMessage(session, Loc.GetString("job-greet-important-disconnect-admin-notify"));

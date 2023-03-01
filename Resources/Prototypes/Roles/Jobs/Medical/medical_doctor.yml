@@ -3,7 +3,6 @@
   name: job-name-doctor
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
-  wikiLink: "https://wiki.ss14.su/%D0%92%D1%80%D0%B0%D1%87"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

@@ -1,4 +1,5 @@
-﻿using Content.Client.Chat.Managers;
+﻿using System.Linq;
+using Content.Client.Chat.Managers;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Emotions.Windows;
@@ -37,7 +38,8 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
         _window.OnOpen += OnWindowOpened;
         _window.OnClose += OnWindowClosed;
 
-        var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
+        var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>().ToList();
+        emotions.Sort();
 
         foreach (var emote in emotions)
         {
