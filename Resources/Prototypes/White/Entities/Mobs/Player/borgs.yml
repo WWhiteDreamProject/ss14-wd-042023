@@ -305,8 +305,8 @@
       tools:
         - id: StunBatonBorg
         - id: DisablerBorg
-        - id: Zipties
-        - id: Handcuffs
+        - id: StackHolderHandcuffs
+        - id: StackHolderHandcuffs
         - id: Flash
         - id: Crowbar
     - type: InnateItem
@@ -318,6 +318,7 @@
         - Science
         - Service
         - Binary
+        - Security
     - type: IntrinsicRadioTransmitter
       channels:
         - Common
@@ -326,6 +327,7 @@
         - Science
         - Service
         - Binary
+        - Security
     - type: ActiveRadio
       channels:
         - Common
@@ -334,6 +336,7 @@
         - Science
         - Service
         - Binary
+        - Security
     - type: Faction
       factions:
         - NanoTrasen
@@ -461,6 +464,12 @@
     - type: Faction
       factions:
         - Syndicate
+    - type: Laws
+      laws:
+        - Охранять. Защищайте приписанный вам оперативный отряд. Это не то, что мы можем себе позволить заменить
+        - Служить. Выполняйте приказы приписанного вам оперативного отряда в меру своих возможностей, в зависимости от их ранга и роли.
+        - Защищать. Защищайте приписанный вам оперативный отряд, в меру своих возможностей, в зависимости от их ранга и роли.
+        - Выполнить. Выполните вашу цель любой ценой.
     - type: CombatMode
       disarmAction:
         enabled: false

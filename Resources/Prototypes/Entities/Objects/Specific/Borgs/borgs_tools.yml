@@ -112,6 +112,29 @@
 
 - type: entity
   parent: BaseItem
+  id: StackHolderHandcuffs
+  name: handcuffs holder
+  description: Holds cuffs inside this borg.
+  components:
+    - type: ItemSlots
+      slots:
+        stack_slot:
+          name: handcuff stack
+          startingItem: Handcuffs
+          whitelist:
+            components:
+              - Handcuff
+    - type: StackHolder
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+    - type: ContainerContainer
+      containers:
+        stack_slot: !type:ContainerSlot
+
+- type: entity
+  parent: BaseItem
   id: StackHolderCable
   name: cable holder
   description: Holds cables inside this borg.
