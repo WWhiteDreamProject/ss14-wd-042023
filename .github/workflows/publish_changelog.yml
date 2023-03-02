@@ -1,0 +1,19 @@
+name: Push changelog to wiki
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-changelog:
+    name: Publish changelog to discord
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Master
+      uses: actions/checkout@v2
+      
+    - name: Publish changelog
+      run: Tools/actions_changelogs_since_last_run.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
