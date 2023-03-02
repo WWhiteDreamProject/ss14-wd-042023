@@ -38,8 +38,7 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
         _window.OnOpen += OnWindowOpened;
         _window.OnClose += OnWindowClosed;
 
-        var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>().ToList();
-        emotions.Sort();
+        var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
 
         foreach (var emote in emotions)
         {
