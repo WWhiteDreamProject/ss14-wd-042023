@@ -1,4 +1,4 @@
-name: Push changelog to wiki
+name: Push changelog to discord
 
 on:
   workflow_dispatch:
