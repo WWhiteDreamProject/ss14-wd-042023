@@ -144,7 +144,7 @@
   parent: BaseItem
   id: BorgToolStandard
   name: borg tool
-  description: Alternates between prying and anchoring.
+  description: Мультитул содержащий четыре инструмента, лом, гаечный ключ, отвертку, а так же горелку.
   components:
     - type: Sprite
       sprite: Objects/Tools/omnitool.rsi
@@ -177,6 +177,22 @@
             path: /Audio/Items/ratchet.ogg
           changeSound:
             path: /Audio/Items/change_drill.ogg
+        - behavior: Welding
+          sprite:
+            sprite: Objects/Tools/omnitool.rsi
+            state: omnitool-pulsing
+          useSound:
+            path: /Audio/Items/welder2.ogg
+          changeSound:
+            path: /Audio/Items/change_drill.ogg
+        - behavior: Screwing
+          sprite:
+            sprite: Objects/Tools/omnitool.rsi
+            state: omnitool-screwing
+          useSound:
+            path: /Audio/Items/screwdriver2.ogg
+          changeSound:
+            path: /Audio/Items/change_drill.ogg
 
 - type: entity
   parent: ClothingHeadsetAltCommand
@@ -193,3 +209,43 @@
   components:
     - type: Stack
       count: 30
+
+
+
+# shitt
+
+- type: entity
+  parent: FireExtinguisher
+  id: FireExtinguisherBorg
+  name: FireExtinguisher
+  components:
+    - type: AutoRegenReagent
+      solution: spray
+      reagents:
+        - Water
+
+- type: entity
+  parent: Stunbaton
+  id: StunBatonBorg
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 3
+
+- type: entity
+  parent: WeaponDisabler
+  id: DisablerBorg
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 3
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletDisablerBorg
+      fireCost: 65
+
+- type: entity
+  parent: RCD
+  id: RCDBorg
+  components:
+    - type: RCD
+      ammo: 200

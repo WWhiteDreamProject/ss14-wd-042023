@@ -211,6 +211,22 @@
     soundForce: true
 
 - type: entity
+  name : disabler bolt
+  id: BulletDisablerBorg
+  parent: BulletDisabler
+  noSpawn: true
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 15
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/prog_borg.rsi
+    layers:
+      - state: omnilaser_orange_small
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisablerBorg
+
+- type: entity
   name : disabler bolt practice
   id: BulletDisablerPractice
   parent: BaseBullet

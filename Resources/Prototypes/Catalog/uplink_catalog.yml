@@ -272,14 +272,46 @@
 
 - type: listing
   id: UplinkReinforcementRadioSyndicate
-  name: uplink-reinforcement-radio-name
-  description: uplink-reinforcement-radio-desc
+  name: Syndicate reinforcement
+  description: Call one nuke operative with default equipment.
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
     Telecrystal: 20
   categories:
   - UplinkUtility
+
+- type: listing
+  id: UplinkReinforcementRadioSyndicateBorg
+  name: Borg reinforcement
+  description: Call combat borg AND GO BRRRRR.
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  productEntity: ReinforcementRadioSyndicateBorg
+  cost:
+    Telecrystal: 120
+  categories:
+    - UplinkUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+
+- type: listing
+  id: UplinkReinforcementRadioSyndicateBorgAgent
+  name: Borg reinforcement
+  description: Call combat borg AND GO BRRRRR.
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  productEntity: ReinforcementRadioSyndicateBorg
+  cost:
+    Telecrystal: 80
+  categories:
+    - UplinkUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
 
 - type: listing
   id: UplinkStealthBox

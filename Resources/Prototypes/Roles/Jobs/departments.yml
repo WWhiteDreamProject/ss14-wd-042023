@@ -31,6 +31,7 @@
   - ServiceWorker
   - TechnicalAssistant
   - ResearchAssistant
+  - Cyborg
 
 - type: department
   id: Command
@@ -55,7 +56,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
-  - Cyborg
+  - EngCyborg
 
 - type: department
   id: Medical
@@ -79,6 +80,7 @@
   - SecurityOfficer
   - Detective
   - Warden
+  - SecCyborg
 
 - type: department
   id: Science
@@ -96,3 +98,5 @@
   roles:
     - Cyborg
     - MedicalCyborg
+    - EngCyborg
+    - SecCyborg
