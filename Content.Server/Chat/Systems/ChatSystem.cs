@@ -5,7 +5,6 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
-using Content.Shared.Humanoid;
 using Content.Server.Players;
 using Content.Server.Popups;
 using Content.Server.Station.Components;
@@ -16,6 +15,7 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
@@ -32,6 +32,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+
 
 namespace Content.Server.Chat.Systems;
 
@@ -58,11 +59,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UtkaTCPWrapper _utkaSockets = default!;
 
+    public Dictionary<NetUserId, DateTime> LOOCCooldownRecordUser = new Dictionary<NetUserId, DateTime>();
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperRange = 2; // how far whisper goes in world units
     public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
 
+    private int _cooldownTimeLOOC = 0;
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled = false;
     private readonly bool _adminLoocEnabled = true;
@@ -73,8 +76,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         InitializeEmotes();
         _configurationManager.OnValueChanged(CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
+        _configurationManager.OnValueChanged(CCVars.CooldownTimeLOOC, (value) => _cooldownTimeLOOC = value, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnClear);
+    }
+
+    private void OnClear(RoundRestartCleanupEvent ev)
+    {
+        LOOCCooldownRecordUser.Clear();
     }
 
     public override void Shutdown()
@@ -82,6 +92,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         base.Shutdown();
         ShutdownEmotes();
         _configurationManager.UnsubValueChanged(CCVars.LoocEnabled, OnLoocEnabledChanged);
+        LOOCCooldownRecordUser.Clear();
     }
 
     private void OnLoocEnabledChanged(bool val)
@@ -453,9 +464,33 @@ public sealed partial class ChatSystem : SharedChatSystem
         _utkaSockets.SendMessageToAll(utkaEmoteEvent);
     }
 
+    private bool CheckTimeСooldownLOOCMessage(EntityUid source, IPlayerSession player, bool hideChat)
+    {
+        if (LOOCCooldownRecordUser.ContainsKey(player.UserId))
+        {
+            TimeSpan delta = DateTime.Now.Subtract(LOOCCooldownRecordUser[player.UserId]);
+            TimeSpan cooldown = TimeSpan.FromSeconds(_cooldownTimeLOOC);
+
+            if (delta >= cooldown)
+                LOOCCooldownRecordUser[player.UserId] = DateTime.Now;
+            else
+            {
+                var mes = Loc.GetString("chat-manager-cooldown-warn-message", ("remainingTime", Math.Round(cooldown.Subtract(delta).TotalSeconds)));
+                _chatManager.ChatMessageToOne(ChatChannel.LOOC, mes, mes, source, hideChat, player.ConnectedClient, colorOverride: Color.White);
+                return true;
+            }
+        }
+        else
+            LOOCCooldownRecordUser.Add(player.UserId, DateTime.Now);
+
+        return false;
+    }
+
     // ReSharper disable once InconsistentNaming
     private void SendLOOC(EntityUid source, IPlayerSession player, string message, bool hideChat)
     {
+        if (CheckTimeСooldownLOOCMessage(source, player, hideChat)) return;
+
         var name = FormattedMessage.EscapeText(Identity.Name(source, EntityManager));
 
         if (_adminManager.IsAdmin(player))
