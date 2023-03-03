@@ -1,4 +1,5 @@
-﻿using Content.Client.Chat.Managers;
+﻿using System.Linq;
+using Content.Client.Chat.Managers;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Emotions.Windows;

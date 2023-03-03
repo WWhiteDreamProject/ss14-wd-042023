@@ -84,6 +84,8 @@
                         <Label Text="{Loc SINTS}" FontColorOverride="LightGray"/>
                         <CheckBox Name="Cyborg" Text="{Loc Cyborg}"/>
                         <CheckBox Name="MedicalCyborg" Text="{Loc Medical Cyborg}"/>
+                        <CheckBox Name="EngCyborg" Text="{Loc ENG Cyborg}"/>
+                        <CheckBox Name="SecCyborg" Text="{Loc SEC Cyborg}"/>
                     </BoxContainer>
                 </BoxContainer>
                 <Button Name="SubmitListButton" Text="{Loc BAN }"/>

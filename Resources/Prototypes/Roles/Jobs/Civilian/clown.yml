@@ -3,7 +3,6 @@
   name: job-name-clown
   description: job-description-clown
   playTimeTracker: JobClown
-  wikiLink: "https://wiki.ss14.su/%D0%9A%D0%BB%D0%BE%D1%83%D0%BD"
   startingGear: ClownGear
   icon: "Clown"
   supervisors: job-supervisors-hop

@@ -1,0 +1,10 @@
+- type: job
+  id: SecCyborg
+  name: Охранный киборг
+  description: job-description-cyborg
+  playTimeTracker: JobCyborg
+  icon: "SecurityOfficer"
+  supervisors: "all crew"
+  canBeAntag: false
+  jobEntity: PlayerCyborgSecurity
+  startingGear: CyborgGear # for char preview only

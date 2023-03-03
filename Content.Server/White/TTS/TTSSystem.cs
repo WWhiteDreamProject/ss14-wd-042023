@@ -8,6 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.White.TTS;
 
@@ -59,7 +60,9 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
             return;
 
-        var soundData = await GenerateTTS(uid, args.Message, protoVoice.Speaker);
+        var message = FormattedMessage.RemoveMarkup(args.Message);
+
+        var soundData = await GenerateTTS(uid, message, protoVoice.Speaker);
         if (soundData is null)
             return;
         var ttsEvent = new PlayTTSEvent(uid, soundData);

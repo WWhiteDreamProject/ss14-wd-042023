@@ -29442,8 +29442,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.389294
-      - 65.41687
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -29472,8 +29472,23 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 17.389294
-      - 65.41687
+      - 17.89022
+      - 67.30131
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -29502,21 +29517,6 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.89022
-      - 67.30131
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
       - 0
       - 6666.982
       - 0
@@ -29577,8 +29577,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 13.855177
-      - 52.121857
+      - 14.664915
+      - 55.168015
       - 0
       - 0
       - 0
@@ -29607,8 +29607,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 16.902393
-      - 63.585197
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -36729,7 +36729,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 102
+  - index: 4
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -85762,14 +85762,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26548
+        uid: 26546
       Close:
       - port: Start
-        uid: 26548
+        uid: 26546
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26548
+        uid: 26546
     type: SignalReceiver
 - uid: 8058
   type: WindoorSecurityLocked
@@ -85798,14 +85798,14 @@ entities:
   - inputs:
       Open:
       - port: Timer
-        uid: 26546
+        uid: 26548
       Close:
       - port: Start
-        uid: 26546
+        uid: 26548
       Toggle: []
       AutoClose:
       - port: Timer
-        uid: 26546
+        uid: 26548
     type: SignalReceiver
 - uid: 8060
   type: AirlockSecurityGlassLocked
@@ -209655,18 +209655,18 @@ entities:
 - uid: 26546
   type: BrigTimer
   components:
-  - pos: -13.5,29.5
+  - pos: -7.5,29.5
     parent: 0
     type: Transform
   - outputs:
       Start:
       - port: Close
-        uid: 8059
+        uid: 8057
       Timer:
       - port: AutoClose
-        uid: 8059
+        uid: 8057
       - port: Open
-        uid: 8059
+        uid: 8057
     type: SignalTransmitter
 - uid: 26547
   type: BrigTimer
@@ -209687,239 +209687,275 @@ entities:
 - uid: 26548
   type: BrigTimer
   components:
-  - pos: -7.5,29.5
+  - pos: -13.5,29.5
     parent: 0
     type: Transform
   - outputs:
       Start:
       - port: Close
-        uid: 8057
+        uid: 8059
       Timer:
       - port: AutoClose
-        uid: 8057
+        uid: 8059
       - port: Open
-        uid: 8057
+        uid: 8059
     type: SignalTransmitter
 - uid: 26549
   type: Multitool
   components:
-  - pos: 0.6284795,38.71421
+  - pos: -4.5844264,29.602367
     parent: 0
     type: Transform
 - uid: 26550
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 55.5,4.5
+  - pos: -12.5,39.5
     parent: 0
     type: Transform
 - uid: 26551
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 56.5,4.5
+  - pos: -11.5,39.5
     parent: 0
     type: Transform
 - uid: 26552
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 57.5,4.5
+  - pos: -10.5,39.5
     parent: 0
     type: Transform
 - uid: 26553
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 55.5,3.5
+  - pos: -10.5,38.5
     parent: 0
     type: Transform
 - uid: 26554
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 56.5,3.5
+  - pos: -11.5,38.5
     parent: 0
     type: Transform
 - uid: 26555
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 57.5,3.5
+  - pos: -12.5,38.5
     parent: 0
     type: Transform
 - uid: 26556
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 59.5,4.5
+  - pos: -12.5,37.5
     parent: 0
     type: Transform
 - uid: 26557
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 59.5,3.5
+  - pos: -11.5,37.5
     parent: 0
     type: Transform
 - uid: 26558
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 58.5,3.5
+  - pos: -10.5,37.5
     parent: 0
     type: Transform
 - uid: 26559
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 58.5,4.5
+  - pos: -12.5,36.5
     parent: 0
     type: Transform
 - uid: 26560
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 50.5,-3.5
+  - pos: -11.5,36.5
     parent: 0
     type: Transform
 - uid: 26561
-  type: SpawnPointCyborg
+  type: SpawnPointSecCyborg
   components:
-  - pos: 52.5,-3.5
+  - pos: -10.5,36.5
     parent: 0
     type: Transform
 - uid: 26562
-  type: SpawnPointCyborg
-  components:
-  - pos: 52.5,-2.5
-    parent: 0
-    type: Transform
-- uid: 26563
-  type: SpawnPointCyborg
-  components:
-  - pos: 51.5,-2.5
-    parent: 0
-    type: Transform
-- uid: 26564
-  type: SpawnPointCyborg
-  components:
-  - pos: 50.5,-2.5
-    parent: 0
-    type: Transform
-- uid: 26565
-  type: SpawnPointCyborg
-  components:
-  - pos: 52.5,4.5
-    parent: 0
-    type: Transform
-- uid: 26566
-  type: SpawnPointCyborg
-  components:
-  - pos: 53.5,4.5
-    parent: 0
-    type: Transform
-- uid: 26567
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -16.5,-31.5
-    parent: 0
-    type: Transform
-- uid: 26568
   type: SpawnPointMedicalCyborg
   components:
   - pos: -15.5,-31.5
     parent: 0
     type: Transform
-- uid: 26569
+- uid: 26563
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -16.5,-31.5
+    parent: 0
+    type: Transform
+- uid: 26564
   type: SpawnPointMedicalCyborg
   components:
   - pos: -14.5,-31.5
     parent: 0
     type: Transform
-- uid: 26570
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -13.5,-31.5
-    parent: 0
-    type: Transform
-- uid: 26571
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -12.5,-31.5
-    parent: 0
-    type: Transform
-- uid: 26572
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -16.5,-30.5
-    parent: 0
-    type: Transform
-- uid: 26573
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -15.5,-30.5
-    parent: 0
-    type: Transform
-- uid: 26574
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -14.5,-30.5
-    parent: 0
-    type: Transform
-- uid: 26575
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -13.5,-30.5
-    parent: 0
-    type: Transform
-- uid: 26576
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -12.5,-30.5
-    parent: 0
-    type: Transform
-- uid: 26577
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -21.5,-33.5
-    parent: 0
-    type: Transform
-- uid: 26578
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -20.5,-33.5
-    parent: 0
-    type: Transform
-- uid: 26579
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -19.5,-33.5
-    parent: 0
-    type: Transform
-- uid: 26580
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -19.5,-32.5
-    parent: 0
-    type: Transform
-- uid: 26581
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -20.5,-32.5
-    parent: 0
-    type: Transform
-- uid: 26582
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -21.5,-32.5
-    parent: 0
-    type: Transform
-- uid: 26583
-  type: SpawnPointMedicalCyborg
-  components:
-  - pos: -20.5,-31.5
-    parent: 0
-    type: Transform
-- uid: 26584
+- uid: 26565
   type: SpawnPointMedicalCyborg
   components:
   - pos: -21.5,-31.5
     parent: 0
     type: Transform
-- uid: 26585
+- uid: 26566
   type: SpawnPointMedicalCyborg
   components:
-  - pos: -19.5,-31.5
+  - pos: -19.5,-33.5
+    parent: 0
+    type: Transform
+- uid: 26567
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -21.5,-41.5
+    parent: 0
+    type: Transform
+- uid: 26568
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -20.5,-41.5
+    parent: 0
+    type: Transform
+- uid: 26569
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -19.5,-41.5
+    parent: 0
+    type: Transform
+- uid: 26570
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -19.5,-42.5
+    parent: 0
+    type: Transform
+- uid: 26571
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -20.5,-42.5
+    parent: 0
+    type: Transform
+- uid: 26572
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: -21.5,-42.5
+    parent: 0
+    type: Transform
+- uid: 26573
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 53.5,3.5
+    parent: 0
+    type: Transform
+- uid: 26574
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 54.5,3.5
+    parent: 0
+    type: Transform
+- uid: 26575
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 55.5,3.5
+    parent: 0
+    type: Transform
+- uid: 26576
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 53.5,4.5
+    parent: 0
+    type: Transform
+- uid: 26577
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 54.5,4.5
+    parent: 0
+    type: Transform
+- uid: 26578
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 55.5,4.5
+    parent: 0
+    type: Transform
+- uid: 26579
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 56.5,4.5
+    parent: 0
+    type: Transform
+- uid: 26580
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 56.5,3.5
+    parent: 0
+    type: Transform
+- uid: 26581
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 57.5,3.5
+    parent: 0
+    type: Transform
+- uid: 26582
+  type: SpawnPointEngCyborg
+  components:
+  - pos: 57.5,4.5
+    parent: 0
+    type: Transform
+- uid: 26583
+  type: SpawnPointCyborg
+  components:
+  - pos: 6.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 26584
+  type: SpawnPointCyborg
+  components:
+  - pos: 7.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 26585
+  type: SpawnPointCyborg
+  components:
+  - pos: 12.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 26586
+  type: SpawnPointCyborg
+  components:
+  - pos: 11.5,-7.5
+    parent: 0
+    type: Transform
+- uid: 26587
+  type: SpawnPointCyborg
+  components:
+  - pos: 10.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 26588
+  type: SpawnPointCyborg
+  components:
+  - pos: 11.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 26589
+  type: SpawnPointCyborg
+  components:
+  - pos: 2.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 26590
+  type: SpawnPointCyborg
+  components:
+  - pos: 3.5,-8.5
+    parent: 0
+    type: Transform
+- uid: 26591
+  type: SpawnPointCyborg
+  components:
+  - pos: -9.5,-8.5
     parent: 0
     type: Transform
 ...

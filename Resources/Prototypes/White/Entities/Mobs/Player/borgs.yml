@@ -31,7 +31,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        300: Dead
+        250: Dead
     - type: Destructible
       thresholds:
         - trigger:
@@ -174,6 +174,7 @@
       damageContainer: Biological
     - type: Borg
 
+# Default
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
@@ -181,11 +182,11 @@
   components:
     - type: InnateTool
       tools:
-        - id: WelderIndustrial
-        - id: HoloprojectorEngineering
         - id: BorgToolStandard
+        - id: Multitool
+        - id: HoloprojectorEngineering
         - id: MopItem
-        - id: FireExtinguisher
+        - id: FireExtinguisherBorg
         - id: StackHolderFloorTile
     - type: InnateItem
     - type: IntrinsicRadioReceiver
@@ -227,6 +228,7 @@
         autoPopulate: false
         name: action-name-combat
 
+# Medical
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgMedical
@@ -247,9 +249,9 @@
         - id: HyposprayBorgMedical
         - id: Syringe
         - id: HandheldHealthAnalyzer
-        - id: HandheldCrewMonitor
-        - id: FireExtinguisher
+        - id: FireExtinguisherBorg
         - id: StackHolderHealingItem
+        - id: Crowbar
     - type: ItemSlots
     - type: IntrinsicRadioReceiver
       channels:
@@ -291,3 +293,193 @@
         autoPopulate: false
         name: action-name-disarm
     - type: FabricateCandy
+
+# Security
+
+- type: entity
+  parent: PlayerCyborgBase
+  id: PlayerCyborgSecurity
+  name: shitsec cyborg
+  components:
+    - type: InnateTool
+      tools:
+        - id: StunBatonBorg
+        - id: DisablerBorg
+        - id: StackHolderHandcuffs
+        - id: StackHolderHandcuffs
+        - id: Flash
+        - id: Crowbar
+    - type: InnateItem
+    - type: IntrinsicRadioReceiver
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Binary
+        - Security
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Binary
+        - Security
+    - type: ActiveRadio
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Binary
+        - Security
+    - type: Faction
+      factions:
+        - NanoTrasen
+    - type: CombatMode
+      disarmAction:
+        enabled: false
+    - type: Sprite
+      drawdepth: Mobs
+      netsync: false
+      sprite: White/Mobs/Player/Borgs/cyborg_sec.rsi
+      layers:
+        - state: robot
+        - state: robot-flashlight
+          shader: unshaded
+          visible: false
+          map: [ "enum.ToggleVisuals.Layer" ]
+
+# Eng
+
+- type: entity
+  parent: PlayerCyborgBase
+  id: PlayerCyborgEng
+  name: engineer cyborg
+  components:
+    - type: InnateTool
+      tools:
+        - id: RCDBorg
+        - id: BorgToolStandard
+        - id: Wirecutter
+        - id: StackHolderFloorTile
+        - id: StackHolderCable
+        - id: FireExtinguisherBorg
+    - type: InnateItem
+    - type: IntrinsicRadioReceiver
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Binary
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Binary
+    - type: ActiveRadio
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Binary
+    - type: Faction
+      factions:
+        - NanoTrasen
+    - type: Sprite
+      drawdepth: Mobs
+      netsync: false
+      sprite: White/Mobs/Player/Borgs/cyborg_eng.rsi
+      layers:
+        - state: robot
+        - state: robot-flashlight
+          shader: unshaded
+          visible: false
+          map: [ "enum.ToggleVisuals.Layer" ]
+    - type: CombatMode
+      combatToggleAction:
+        enabled: false
+        autoPopulate: false
+        name: action-name-combat
+      disarmAction:
+        enabled: false
+        autoPopulate: false
+        name: action-name-disarm
+
+
+# Synd
+
+- type: entity
+  parent: PlayerCyborgBase
+  id: PlayerCyborgSynd
+  name: syndicate cyborg
+  components:
+    - type: InnateTool
+      tools:
+        - id: EnergySword
+        - id: WeaponLightMachineGunL6
+        - id: WeaponShotgunBulldog
+        - id: Emag
+        - id: Flash
+        - id: SyndicateJawsOfLife
+    - type: InnateItem
+    - type: IntrinsicRadioReceiver
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Syndicate
+        - Binary
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Syndicate
+        - Binary
+    - type: ActiveRadio
+      channels:
+        - Common
+        - Engineering
+        - Medical
+        - Science
+        - Service
+        - Syndicate
+        - Binary
+    - type: Faction
+      factions:
+        - Syndicate
+    - type: Laws
+      laws:
+        - Охранять. Защищайте приписанный вам оперативный отряд. Это не то, что мы можем себе позволить заменить
+        - Служить. Выполняйте приказы приписанного вам оперативного отряда в меру своих возможностей, в зависимости от их ранга и роли.
+        - Защищать. Защищайте приписанный вам оперативный отряд, в меру своих возможностей, в зависимости от их ранга и роли.
+        - Выполнить. Выполните вашу цель любой ценой.
+    - type: CombatMode
+      disarmAction:
+        enabled: false
+    - type: Sprite
+      drawdepth: Mobs
+      netsync: false
+      sprite: White/Mobs/Player/Borgs/cyborg_synd.rsi
+      layers:
+        - state: robot
+        - state: robot-flashlight
+          shader: unshaded
+          visible: false
+          map: [ "enum.ToggleVisuals.Layer" ]

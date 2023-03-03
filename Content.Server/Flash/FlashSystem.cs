@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Borgs;
 using Content.Server.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
@@ -10,6 +11,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
@@ -111,6 +113,15 @@ namespace Content.Server.Flash
 
             if (attempt.Cancelled)
                 return;
+
+            if (HasComp<BorgComponent>(target))
+            {
+                if (target == user)
+                {
+                    return;
+                }
+                _stunSystem.TryParalyze(target, TimeSpan.FromSeconds(3.5f), true);
+            }
 
             flashable.LastFlash = _gameTiming.CurTime;
             flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...

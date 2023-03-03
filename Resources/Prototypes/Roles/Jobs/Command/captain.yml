@@ -3,7 +3,6 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
-  wikiLink: "https://wiki.ss14.su/%D0%9A%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BD"
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

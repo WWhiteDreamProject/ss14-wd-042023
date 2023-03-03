@@ -17,9 +17,6 @@ namespace Content.Shared.Roles
         [IdDataField]
         public string ID { get; } = default!;
 
-        [DataField("wikiLink")]
-        public string? WikiLink { get; }
-
         [DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
         public string PlayTimeTracker { get; } = string.Empty;
 

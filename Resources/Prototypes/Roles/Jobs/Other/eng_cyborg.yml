@@ -1,0 +1,10 @@
+- type: job
+  id: EngCyborg
+  name: Инженерный киборг
+  description: job-description-cyborg
+  playTimeTracker: JobCyborg
+  icon: "StationEngineer"
+  supervisors: "all crew"
+  canBeAntag: false
+  jobEntity: PlayerCyborgEng
+  startingGear: CyborgGear # for char preview only

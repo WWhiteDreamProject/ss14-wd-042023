@@ -3,7 +3,7 @@
   name: job-name-cyborg
   description: job-description-cyborg
   playTimeTracker: JobCyborg
-  icon: "StationEngineer"
+  icon: "Passenger"
   supervisors: "all humanoids"
   canBeAntag: false
   jobEntity: PlayerCyborgStandard

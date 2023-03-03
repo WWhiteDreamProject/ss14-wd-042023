@@ -21,3 +21,27 @@
       layers:
         - state: green
         - state: roboticist
+
+- type: entity
+  id: SpawnPointSecCyborg
+  parent: SpawnPointJobBase
+  name: sec cyborg
+  components:
+    - type: SpawnPoint
+      job_id: SecCyborg
+    - type: Sprite
+      layers:
+        - state: green
+        - state: roboticist
+
+- type: entity
+  id: SpawnPointEngCyborg
+  parent: SpawnPointJobBase
+  name: eng cyborg
+  components:
+    - type: SpawnPoint
+      job_id: EngCyborg
+    - type: Sprite
+      layers:
+        - state: green
+        - state: roboticist
