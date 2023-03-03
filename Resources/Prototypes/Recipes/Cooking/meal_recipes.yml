@@ -186,6 +186,15 @@
     FoodCheeseSlice: 1
     FoodEgg: 2
 
+- type: microwaveMealRecipe
+  id: RecipePigblanketburger
+  name: Pigblanket recipe
+  result: FoodMealPigblanket
+  time: 5
+  solids:
+    FoodDoughSlice: 1
+    FoodMeatCutlet: 1
+
 #Breads & Sandwiches
 - type: microwaveMealRecipe
   id: RecipeBread
@@ -231,6 +240,43 @@
   solids:
     FoodBreadPlainSlice: 1
     FoodFlyAmanita: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBakedBunHoney
+  name: Bun Honey Recipe
+  result: FoodBakedBunHoney
+  time: 5
+  reagents:
+    Sugar: 5
+  solids:
+    FoodDoughSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBreadMeat
+  name: breadMeat recipe
+  result: FoodBreadMeat
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeat: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBreadMeatXeno
+  name: bread Meat Xeno recipe
+  result: FoodBreadMeatXeno
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatXeno: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBreadMeatSpider
+  name: bread Meat Spider recipe
+  result: FoodBreadMeatSpider
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatSpider: 1
 
 #Pizzas
 - type: microwaveMealRecipe
@@ -508,6 +554,15 @@
     FoodMeat: 1
 
 #Other
+
+- type: microwaveMealRecipe
+  id: RecipeMeatClown
+  name: MeatClown recipe
+  result: FoodMeatClown
+  time: 10
+  solids:
+    FoodMeat: 1
+    ClothingMaskClown: 1
 
 - type: microwaveMealRecipe
   id: RecipeCubanCarp
@@ -839,6 +894,43 @@
     Slime: 15
   solids:
     FoodCakePlain: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMealNachos
+  name: Nachos recipe
+  result: FoodMealNachos
+  time: 10
+  reagents:
+    Blackpepper: 5
+    Hotsauce: 5
+  solids:
+    FoodCorn: 2
+
+- type: microwaveMealRecipe
+  id: RecipeMealNachosCheesy
+  name: Nachos Cheesy recipe
+  result: FoodMealNachosCheesy
+  time: 10
+  reagents:
+    Blackpepper: 5
+    Hotsauce: 5
+  solids:
+    FoodCorn: 2
+    FoodCheeseSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMealNachosCuban
+  name: Nachos Cuban recipe
+  result: FoodMealNachosCuban
+  time: 15
+  reagents:
+    Blackpepper: 5
+    Hotsauce: 5
+  solids:
+    FoodCorn: 2
+    FoodPotato: 1
+    FoodMeat: 1
+    FoodTomato: 1
 
 #Donks i guess
 - type: microwaveMealRecipe
