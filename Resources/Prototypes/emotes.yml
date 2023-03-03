@@ -87,7 +87,7 @@
   id: Frown
   category: Gesture
   buttonText: Хмуриться
-  chatMessages: [хмуриться]
+  chatMessages: [хмурится]
 
 - type: emote
   id: Smile
