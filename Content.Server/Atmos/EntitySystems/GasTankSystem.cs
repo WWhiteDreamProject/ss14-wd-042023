@@ -268,10 +268,10 @@ namespace Content.Server.Atmos.EntitySystems
                 // Let's cap the explosion, yeah?
                 // !1984
                 // no cap fr
-                // if (range > GasTankComponent.MaxExplosionRange)
-                // {
-                //     range = GasTankComponent.MaxExplosionRange;
-                // }
+                if (range > GasTankComponent.MaxExplosionRange)
+                {
+                    range = GasTankComponent.MaxExplosionRange;
+                }
 
                 _explosions.TriggerExplosive(component.Owner, radius: range);
 
