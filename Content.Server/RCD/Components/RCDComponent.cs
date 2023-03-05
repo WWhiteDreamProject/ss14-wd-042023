@@ -1,5 +1,6 @@
 using System.Threading;
 using Robust.Shared.Audio;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.RCD.Components
 {
@@ -41,5 +42,24 @@ namespace Content.Server.RCD.Components
         public int CurrentAmmo = DefaultAmmoCount;
 
         public CancellationTokenSource? CancelToken = null;
+
+        /// <summary>
+        /// Whether or not the RCD automatically recharges over time.
+        /// </summary>
+        [DataField("autoRecharge"), ViewVariables(VVAccess.ReadWrite)]
+        public bool AutoRecharge = false;
+
+        /// <summary>
+        /// The time it takes to regain a single charge
+        /// </summary>
+        [DataField("rechargeDuration"), ViewVariables(VVAccess.ReadWrite)]
+        public TimeSpan RechargeDuration = TimeSpan.FromSeconds(20);
+
+        /// <summary>
+        /// The time when the next charge will be added
+        /// </summary>
+        [DataField("nextChargeTime", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
+        public TimeSpan NextChargeTime = TimeSpan.FromSeconds(20);
+
     }
 }

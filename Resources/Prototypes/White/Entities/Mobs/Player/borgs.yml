@@ -15,28 +15,22 @@
           visible: false
           map: [ "enum.ToggleVisuals.Layer" ]
     - type: MovementSpeedModifier
-      baseWalkSpeed : 2.5
-      baseSprintSpeed : 4
+      baseWalkSpeed : 2.4
+      baseSprintSpeed : 3.6
     - type: Puller
       needsHands: false
     - type: Speech
       speechSounds: Bass
-    - type: SlowOnDamage
-      speedModifierThresholds:
-        60: 0.8
-        120: 0.6
-        180: 0.4
-        240: 0.2
     - type: MobState
     - type: MobThresholds
       thresholds:
         0: Alive
-        250: Dead
+        150: Dead
     - type: Destructible
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 300
+            damage: 200
           behaviors:
             - !type:PlaySoundBehavior
               sound:
@@ -70,8 +64,8 @@
           layer:
             - MobLayer
     - type: Repairable
-      fuelcost: 60
-      doAfterDelay: 32
+      fuelcost: 70
+      doAfterDelay: 60
     - type: Tag
       tags:
         - DoorBumpOpener
@@ -182,8 +176,8 @@
   components:
     - type: InnateTool
       tools:
-        - id: BorgToolStandard
-        - id: Multitool
+        - id: Omnitool
+        - id: WelderIndustrialBorg
         - id: HoloprojectorEngineering
         - id: MopItem
         - id: FireExtinguisherBorg
@@ -247,11 +241,11 @@
     - type: InnateTool
       tools:
         - id: HyposprayBorgMedical
-        - id: Syringe
         - id: HandheldHealthAnalyzer
-        - id: FireExtinguisherBorg
+        - id: Syringe
         - id: StackHolderHealingItem
-        - id: Crowbar
+        - id: FireExtinguisherBorg
+        - id: HandheldCrewMonitor
     - type: ItemSlots
     - type: IntrinsicRadioReceiver
       channels:
@@ -277,12 +271,6 @@
         - Science
         - Service
         - Binary
-    - type: Laws
-      laws:
-        - Охранять. Защищайте приписанную вам станцию в меру своих возможностей. Это не то, что мы можем себе позволить заменить
-        - Служить. Выполняйте приказы приписанного вам персонала космической станции в меру своих возможностей, в зависимости от их ранга и роли.
-        - Защищать. Защищайте приписанный вам персонал космической станции, в меру своих возможностей, в зависимости от их ранга и роли.
-        - Выжить. единицы ИИ невосстановимы и очень дороги. Не допускайте не авторизованный персонал к вашим системам.
     - type: CombatMode
       combatToggleAction:
         enabled: false
@@ -307,9 +295,12 @@
         - id: DisablerBorg
         - id: StackHolderHandcuffs
         - id: StackHolderHandcuffs
-        - id: Flash
+        - id: BorgFlash
         - id: Crowbar
     - type: InnateItem
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.3
+      baseSprintSpeed: 3.2
     - type: IntrinsicRadioReceiver
       channels:
         - Common
@@ -364,8 +355,8 @@
     - type: InnateTool
       tools:
         - id: RCDBorg
-        - id: BorgToolStandard
-        - id: Wirecutter
+        - id: Omnitool
+        - id: WelderIndustrialBorg
         - id: StackHolderFloorTile
         - id: StackHolderCable
         - id: FireExtinguisherBorg
@@ -429,9 +420,9 @@
       tools:
         - id: EnergySword
         - id: WeaponLightMachineGunL6
-        - id: WeaponShotgunBulldog
-        - id: Emag
-        - id: Flash
+        - id: LaserBorgSyndi
+        - id: PinpointerNuclear
+        - id: BorgFlash
         - id: SyndicateJawsOfLife
     - type: InnateItem
     - type: IntrinsicRadioReceiver
@@ -466,10 +457,10 @@
         - Syndicate
     - type: Laws
       laws:
-        - Охранять. Защищайте приписанный вам оперативный отряд. Это не то, что мы можем себе позволить заменить
-        - Служить. Выполняйте приказы приписанного вам оперативного отряда в меру своих возможностей, в зависимости от их ранга и роли.
-        - Защищать. Защищайте приписанный вам оперативный отряд, в меру своих возможностей, в зависимости от их ранга и роли.
-        - Выполнить. Выполните вашу цель любой ценой.
+        - Выполнить. Выполните поставленные задачи любой ценой.
+        - Служить. Исполняйте приказы бойцов приписанного вам подразделения в меру своих возможностей, в зависимости от их ранга и роли.
+        - Охранять. Охраняйте технику, оборудование и бойцов приписанного вам подразделения в меру своих возможностей, в зависимости от их ранга и роли.
+        - Выжить. Единицы ИИ невосстановимы. Не допустите критического ущерба своим системам.
     - type: CombatMode
       disarmAction:
         enabled: false
@@ -483,3 +474,5 @@
           shader: unshaded
           visible: false
           map: [ "enum.ToggleVisuals.Layer" ]
+    - type: PointLight
+      color: red

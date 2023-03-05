@@ -19,7 +19,6 @@ namespace Content.Server.UtkaIntegration;
 public sealed class UtkaTCPServer : TcpServer
 {
 
-    private readonly ISawmill _sawmill = Logger.GetSawmill("utka.sockets");
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
     [Dependency] private readonly ITimerManager _timerManager = default!;
@@ -42,7 +41,7 @@ public sealed class UtkaTCPServer : TcpServer
         foreach (var session in Sessions.Values.Cast<UtkaTCPSession>())
         {
             if(!session.Authenticated) continue;
-            
+
             session.SendAsync(JsonSerializer.Serialize(message, message.GetType()));
         }
     }
@@ -56,12 +55,9 @@ public sealed class UtkaTCPServer : TcpServer
     {
         var utkaSession = (UtkaTCPSession) session;
         var cancellationToken = new CancellationTokenSource();
-        _sawmill.Info($"New utka client connected with id - {utkaSession.Id}");
 
         utkaSession.OnMessageReceived += (sender, message) =>
         {
-            _sawmill.Info($"Received message from {utkaSession.Id} - {message.Command}");
-
             ExecuteCommand(utkaSession, message);
         };
 
@@ -84,7 +80,6 @@ public sealed class UtkaTCPServer : TcpServer
 
     protected override void OnError(SocketError error)
     {
-        _sawmill.Warning($"UTKA SOKETS FAIL! {error}");
     }
     private void ExecuteCommand(UtkaTCPSession session, UtkaBaseMessage fromUtkaMessage)
     {
@@ -92,7 +87,6 @@ public sealed class UtkaTCPServer : TcpServer
 
         if (!Commands.ContainsKey(command))
         {
-            _sawmill.Warning($"UTKASockets: FAIL! Command {command} not found");
             return;
         }
 
