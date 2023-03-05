@@ -84,9 +84,20 @@ namespace Content.Server.AME.Components
             if (JarSlot.ContainedEntity is not {Valid: true} jar)
                 return;
 
+
+
             _entities.TryGetComponent<AMEFuelContainerComponent?>(jar, out var fuelJar);
             if (fuelJar != null && _powerSupplier != null)
             {
+                if (fuelJar.FuelAmount == 0)
+                {
+                    ToggleInjection();
+                    GetAMENodeGroup()?.UpdateCoreVisuals();
+                    InjectSound(false);
+
+                    return;
+                }
+
                 int availableInject;
                 int fuelСonsumed = InjectionAmount * AmountFuelConsumedPerInjection;
 
@@ -99,16 +110,12 @@ namespace Content.Server.AME.Components
                 {
                     availableInject = fuelJar.FuelAmount / AmountFuelConsumedPerInjection;
                     fuelJar.FuelAmount = 0;
-
-                    ToggleInjection();
-                    GetAMENodeGroup()?.UpdateCoreVisuals();
                 }
 
                 _powerSupplier.MaxSupply = group.InjectFuel(availableInject, out var overloading);
 
                 InjectSound(overloading);
                 UpdateUserInterface();
-
             }
 
             _stability = group.GetTotalStability();
@@ -255,8 +262,6 @@ namespace Content.Server.AME.Components
             if (_appearance == null) { return; }
 
             _appearance.TryGetData<string>(AMEControllerVisuals.DisplayState, out var state);
-
-            if (state == "off") return;
 
             var newState = "on";
             var warn_message = "";
