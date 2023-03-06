@@ -882,6 +882,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> BrandingSteam = CVarDef.Create("branding.steam", false, CVar.CLIENTONLY);
 
         /*
+         * CHAT
+         */
+
+        public static readonly CVarDef<int> CooldownAllMessage = CVarDef.Create("white.chat.cooldown_time_all_message", 1, CVar.SERVERONLY);
+
+        /*
          * OOC
          */
 
@@ -913,7 +919,7 @@ namespace Content.Shared.CCVar
         /// <summary>
         ///     cooldown time on LOOC messages
         /// </summary>
-        public static readonly CVarDef<int> CooldownTimeLOOC = CVarDef.Create("white.looc.cooldown_time", 90, CVar.SERVERONLY);
+        public static readonly CVarDef<int> CooldownLOOCMessage = CVarDef.Create("white.looc.cooldown_time", 90, CVar.SERVERONLY);
 
         /// <summary>
         /// True: Dead players can use LOOC
