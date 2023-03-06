@@ -6,10 +6,10 @@
       edges:
         - to: doubleSword
           steps:
-            - component: EnergySword
+            - component: NeededSword
               name: EnergySword
               doAfter: 0.5
-            - component: EnergySword
+            - component: NeededSword
               name: EnergySword
               doAfter: 0.5
     - node: doubleSword

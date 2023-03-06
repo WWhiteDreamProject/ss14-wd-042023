@@ -55,6 +55,7 @@
     spread: 30
     onReflect:
       path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
+  - type: NeededSword
 
 - type: entity
   name: pen
