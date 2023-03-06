@@ -42,7 +42,7 @@ public sealed class UtkaTCPSession : TcpSession
 
     protected override void OnConnected()
     {
-        SendAsync("Hello from SS14!");
+        SendAsync("Hello from грабли, знай утка я ебал тебя в зад!!!");
         base.OnConnected();
     }
 
@@ -59,7 +59,7 @@ public sealed class UtkaTCPSession : TcpSession
         var commandName = JObject.Parse(message)["command"];
         if (commandName == null) return false;
 
-        var utkaCommand = UtkaTCPServer.Commands.Values.First(x => x.Name == commandName.ToString());
+        var utkaCommand = UtkaTCPServer.Commands.Values.FirstOrDefault(x => x.Name == commandName.ToString());
 
         if (utkaCommand == null) return false;
 

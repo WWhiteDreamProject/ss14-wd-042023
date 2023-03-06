@@ -164,60 +164,6 @@
       unlimited: true
 
 - type: entity
-  parent: BaseItem
-  id: BorgToolStandard
-  name: borg tool
-  description: Мультитул содержащий четыре инструмента, лом, гаечный ключ, отвертку, а так же горелку.
-  components:
-    - type: Sprite
-      sprite: Objects/Tools/omnitool.rsi
-      state: omnitool-screwing
-    - type: Item
-      sprite: Objects/Tools/omnitool.rsi
-      size: 20
-    - type: TilePrying
-    - type: Tool
-      useSound: !type:SoundPathSpecifier
-        path: /Audio/Items/jaws_pry.ogg
-      qualities:
-        - Prying
-    - type: MultipleTool
-      statusShowBehavior: true
-      entries:
-        - behavior: Prying
-          sprite:
-            sprite: Objects/Tools/omnitool.rsi
-            state: omnitool-prying
-          useSound:
-            path: /Audio/Items/jaws_pry.ogg
-          changeSound:
-            path: /Audio/Items/change_drill.ogg
-        - behavior: Anchoring
-          sprite:
-            sprite: Objects/Tools/omnitool.rsi
-            state: omnitool-wrenching
-          useSound:
-            path: /Audio/Items/ratchet.ogg
-          changeSound:
-            path: /Audio/Items/change_drill.ogg
-        - behavior: Welding
-          sprite:
-            sprite: Objects/Tools/omnitool.rsi
-            state: omnitool-pulsing
-          useSound:
-            path: /Audio/Items/welder2.ogg
-          changeSound:
-            path: /Audio/Items/change_drill.ogg
-        - behavior: Screwing
-          sprite:
-            sprite: Objects/Tools/omnitool.rsi
-            state: omnitool-screwing
-          useSound:
-            path: /Audio/Items/screwdriver2.ogg
-          changeSound:
-            path: /Audio/Items/change_drill.ogg
-
-- type: entity
   parent: ClothingHeadsetAltCommand
   id: ClothingHeadsetBorg
   components:
@@ -238,9 +184,24 @@
 # shitt
 
 - type: entity
+  parent: WelderIndustrialAdvanced
+  id: WelderIndustrialBorg
+  components:
+    - type: AutoRegenReagent
+      solution: Welder
+      reagents:
+        - WeldingFuel
+
+- type: entity
+  parent: Flash
+  id: BorgFlash
+  components:
+    - type: Flash
+      autoRecharge: true
+
+- type: entity
   parent: FireExtinguisher
   id: FireExtinguisherBorg
-  name: FireExtinguisher
   components:
     - type: AutoRegenReagent
       solution: spray
@@ -267,8 +228,19 @@
       fireCost: 65
 
 - type: entity
+  parent: WeaponLaserCarbine
+  id: LaserBorgSyndi
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 3
+    - type: HitscanBatteryAmmoProvider
+      proto: RedLaser
+      fireCost: 100
+
+- type: entity
   parent: RCD
   id: RCDBorg
   components:
     - type: RCD
-      ammo: 200
+      autoRecharge: true

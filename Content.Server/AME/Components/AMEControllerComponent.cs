@@ -8,6 +8,7 @@ using Content.Server.UserInterface;
 using Content.Shared.AME;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
+using Prometheus.DotNetRuntime;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -87,15 +88,16 @@ namespace Content.Server.AME.Components
             if (fuelJar != null && _powerSupplier != null)
             {
                 int availableInject;
+                int fuelСonsumed = InjectionAmount * AmountFuelConsumedPerInjection;
 
-                if (fuelJar.FuelAmount >= InjectionAmount * AmountFuelConsumedPerInjection)
+                if (fuelJar.FuelAmount >= fuelСonsumed)
                 {
                     availableInject = InjectionAmount;
-                    fuelJar.FuelAmount -= availableInject * AmountFuelConsumedPerInjection;
+                    fuelJar.FuelAmount -= fuelСonsumed;
                 }
                 else
                 {
-                    availableInject = InjectionAmount;
+                    availableInject = fuelJar.FuelAmount / AmountFuelConsumedPerInjection;
                     fuelJar.FuelAmount = 0;
                 }
 

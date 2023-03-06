@@ -911,6 +911,11 @@ namespace Content.Shared.CCVar
             CVarDef.Create("looc.enabled_admin", true, CVar.NOTIFY);
 
         /// <summary>
+        ///     cooldown time on LOOC messages
+        /// </summary>
+        public static readonly CVarDef<int> CooldownTimeLOOC = CVarDef.Create("white.looc.cooldown_time", 90, CVar.SERVERONLY);
+
+        /// <summary>
         /// True: Dead players can use LOOC
         /// False: Dead player LOOC gets redirected to dead chat
         /// </summary>

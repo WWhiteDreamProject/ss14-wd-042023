@@ -31,3 +31,4 @@ chat-manager-send-hook-ooc-wrap-message = OOC: (D){ $senderName }: { $message }
 chat-manager-dead-channel-name = МЁРТВЫЕ
 chat-manager-admin-channel-name = АДМИН
 chat-manager-admin-discord-channel-name = Д-АДМИН
+chat-manager-cooldown-warn-message = Вы сможете писать в LOOC через: { $remainingTime } сек.

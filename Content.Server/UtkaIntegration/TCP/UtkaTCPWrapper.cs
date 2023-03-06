@@ -11,7 +11,6 @@ public sealed class UtkaTCPWrapper
 
     private UtkaTCPServer _server = default!;
     private string _key = string.Empty;
-    private readonly ISawmill _sawmill = Logger.GetSawmill("utka.sockets");
 
     private bool _initialized;
 
@@ -20,11 +19,9 @@ public sealed class UtkaTCPWrapper
         if(_initialized) return;
 
         _key = _cfg.GetCVar(CCVars.UtkaSocketKey);
-        _key = "ass";
 
         if (string.IsNullOrEmpty(_key))
         {
-            _sawmill.Warning($"No key provided for UtkaSocket, not initializing.");
             return;
         }
 
@@ -37,7 +34,6 @@ public sealed class UtkaTCPWrapper
         }
         catch (Exception e)
         {
-            _sawmill.Warning($"Failed to initialize UtkaSocket: {e}");
             return;
         }
 

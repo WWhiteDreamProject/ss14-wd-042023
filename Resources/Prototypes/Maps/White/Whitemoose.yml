@@ -47,5 +47,5 @@
         Warden: [ 1, 1 ]
         MedicalCyborg: [ 3, 3 ]
         Cyborg: [ 3, 3 ]
-        SecCyborg: [ 3, 3 ]
+        SecCyborg: [ 1, 1 ]
         EngCyborg: [ 3, 3 ]

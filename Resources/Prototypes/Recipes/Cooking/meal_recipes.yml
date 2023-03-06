@@ -186,6 +186,15 @@
     FoodCheeseSlice: 1
     FoodEgg: 2
 
+- type: microwaveMealRecipe
+  id: RecipePigblanketburger
+  name: Pigblanket recipe
+  result: FoodMealPigblanket
+  time: 5
+  solids:
+    FoodDoughSlice: 1
+    FoodMeatCutlet: 1
+
 #Breads & Sandwiches
 - type: microwaveMealRecipe
   id: RecipeBread
@@ -231,6 +240,61 @@
   solids:
     FoodBreadPlainSlice: 1
     FoodFlyAmanita: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBakedBunHoney
+  name: Bun Honey Recipe
+  result: FoodBakedBunHoney
+  time: 5
+  reagents:
+    Sugar: 5
+  solids:
+    FoodDoughSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBreadMeat
+  name: breadMeat recipe
+  result: FoodBreadMeat
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeat: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBreadMeatXeno
+  name: bread Meat Xeno recipe
+  result: FoodBreadMeatXeno
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatXeno: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBreadMeatSpider
+  name: bread Meat Spider recipe
+  result: FoodBreadMeatSpider
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatSpider: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFoodBakedMuffin
+  name: Baked Muffin recipe
+  result: FoodBakedMuffin
+  time: 5
+  solids:
+    FoodDoughSlice: 1
+    FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFoodBakedBunHotX
+  name: Baked BunHotX recipe
+  result: FoodBakedBunHotX
+  time: 15
+  solids:
+    FoodDoughSlice: 2
+    FoodDough: 1
 
 #Pizzas
 - type: microwaveMealRecipe
@@ -508,6 +572,15 @@
     FoodMeat: 1
 
 #Other
+
+- type: microwaveMealRecipe
+  id: RecipeMeatClown
+  name: MeatClown recipe
+  result: FoodMeatClown
+  time: 10
+  solids:
+    FoodMeat: 1
+    ClothingMaskClown: 1
 
 - type: microwaveMealRecipe
   id: RecipeCubanCarp
@@ -840,6 +913,73 @@
   solids:
     FoodCakePlain: 1
 
+- type: microwaveMealRecipe
+  id: RecipeMealNachos
+  name: Nachos recipe
+  result: FoodMealNachos
+  time: 10
+  reagents:
+    Blackpepper: 5
+    Hotsauce: 5
+  solids:
+    FoodCorn: 2
+
+- type: microwaveMealRecipe
+  id: RecipeMealNachosCheesy
+  name: Nachos Cheesy recipe
+  result: FoodMealNachosCheesy
+  time: 10
+  reagents:
+    Blackpepper: 5
+    Hotsauce: 5
+  solids:
+    FoodCorn: 2
+    FoodCheeseSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMealNachosCuban
+  name: Nachos Cuban recipe
+  result: FoodMealNachosCuban
+  time: 15
+  reagents:
+    Blackpepper: 5
+    Hotsauce: 5
+  solids:
+    FoodCorn: 2
+    FoodPotato: 1
+    FoodMeat: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: recipeMealFriedegg
+  name: Friedegg Recipe
+  result: FoodMealFriedegg
+  time: 10
+  reagents:
+    Blackpepper: 1
+    TableSalt: 1
+  solids:
+    FoodEgg: 2
+
+- type: microwaveMealRecipe
+  id: recipeMealEggsbenedict
+  name: Eggsbenedict Recipe
+  result: FoodMealEggsbenedict
+  time: 10
+  solids:
+    FoodEgg: 1
+    FoodBreadPlainSlice: 1
+
+- type: microwaveMealRecipe
+  id: recipeFoodMealMilkape
+  name: MealMilkape Recipe
+  result: FoodMealMilkape
+  time: 10
+  reagents:
+    Milk: 10
+  solids:
+    FoodSnackChocolateBar: 1
+
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket
@@ -1141,3 +1281,22 @@
   solids:
     FoodMeatLizard: 1
     FoodKebabSkewer: 1
+
+#Candies by ncast
+- type: microwaveMealRecipe
+  id: RecipeGumball
+  name: Gumball Recipe
+  result: FoodGumball
+  time: 5
+  reagents:
+    Sugar: 1
+    Enzyme: 1
+
+- type: microwaveMealRecipe
+  id: RecipeLollipop
+  name: Lollipop Recipe
+  result: FoodLollipop
+  time: 5
+  reagents:
+    Sugar: 1
+    Vitamin: 1

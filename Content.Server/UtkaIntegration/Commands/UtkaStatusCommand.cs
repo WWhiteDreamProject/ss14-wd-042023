@@ -16,7 +16,7 @@ namespace Content.Server.UtkaIntegration;
 
 public sealed class UtkaStatusCommand : IUtkaCommand
 {
-    public string Name => "serverstatus";
+    public string Name => "status";
     public Type RequestMessageType => typeof(UtkaStatusRequsets);
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;

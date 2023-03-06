@@ -11,7 +11,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
@@ -77,7 +76,7 @@ namespace Content.Server.Flash
                 if (!EntityManager.TryGetComponent<SpriteComponent?>(comp.Owner, out var sprite))
                     return false;
 
-                if (--comp.Uses == 0)
+                if (--comp.Uses == 0 && !comp.AutoRecharge)
                 {
                     sprite.LayerSetState(0, "burnt");
 
@@ -169,7 +168,18 @@ namespace Content.Server.Flash
 
         private void OnFlashExamined(EntityUid uid, FlashComponent comp, ExaminedEvent args)
         {
-            if (!comp.HasUses)
+            if (comp.AutoRecharge)
+            {
+                if (comp.Uses == comp.MaxCharges)
+                {
+                    args.PushMarkup(Loc.GetString("emag-max-charges"));
+                    return;
+                }
+                var timeRemaining = Math.Round((comp.NextChargeTime - _gameTiming.CurTime).TotalSeconds);
+                args.PushMarkup(Loc.GetString("emag-recharging", ("seconds", timeRemaining)));
+            }
+
+            if (comp is { HasUses: false, AutoRecharge: false })
             {
                 args.PushText(Loc.GetString("flash-component-examine-empty"));
                 return;
@@ -203,6 +213,42 @@ namespace Content.Server.Flash
             if(component.Enabled)
                 args.Cancel();
         }
+
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            foreach (var flash in EntityQuery<FlashComponent>())
+            {
+                if (!flash.AutoRecharge)
+                    continue;
+
+                if (flash.Uses == flash.MaxCharges)
+                    continue;
+
+                if (_gameTiming.CurTime < flash.NextChargeTime)
+                    continue;
+
+                ChangeFlashCharge(flash.Owner, 1, true, flash);
+            }
+        }
+
+        private bool ChangeFlashCharge(EntityUid uid, int change, bool resetTimer, FlashComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return false;
+
+            if (component.Uses + change < 0 || component.Uses + change > component.MaxCharges)
+                return false;
+
+            if (resetTimer || component.Uses == component.MaxCharges)
+                component.NextChargeTime = _gameTiming.CurTime + component.RechargeDuration;
+
+            component.Uses += change;
+            Dirty(component);
+            return true;
+        }
+
     }
 
     public sealed class FlashAttemptEvent : CancellableEntityEventArgs

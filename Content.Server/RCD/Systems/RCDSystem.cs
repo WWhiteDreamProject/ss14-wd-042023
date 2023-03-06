@@ -14,6 +14,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server.RCD.Systems
 {
@@ -28,6 +29,8 @@ namespace Content.Server.RCD.Systems
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
 
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
         private readonly int RCDModeCount = Enum.GetValues(typeof(RcdMode)).Length;
 
         public override void Initialize()
@@ -40,6 +43,16 @@ namespace Content.Server.RCD.Systems
 
         private void OnExamine(EntityUid uid, RCDComponent component, ExaminedEvent args)
         {
+            if (component.AutoRecharge)
+            {
+                if (component.CurrentAmmo == component.MaxAmmo)
+                {
+                    args.PushMarkup(Loc.GetString("emag-max-charges"));
+                    return;
+                }
+                var timeRemaining = Math.Round((component.NextChargeTime - _gameTiming.CurTime).TotalSeconds);
+                args.PushMarkup(Loc.GetString("emag-recharging", ("seconds", timeRemaining)));
+            }
             var msg = Loc.GetString("rcd-component-examine-detail-count",
                 ("mode", component.Mode), ("ammoCount", component.CurrentAmmo));
             args.PushMarkup(msg);
@@ -239,6 +252,40 @@ namespace Content.Server.RCD.Systems
                 default:
                     return false; //I don't know why this would happen, but sure I guess. Get out of here invalid state!
             }
+        }
+
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+            foreach (var rcd in EntityQuery<RCDComponent>())
+            {
+                if (!rcd.AutoRecharge)
+                    continue;
+
+                if (rcd.CurrentAmmo == rcd.MaxAmmo)
+                    continue;
+
+                if (_gameTiming.CurTime < rcd.NextChargeTime)
+                    continue;
+
+                ChangeRCDCharge(rcd.Owner, 1, true, rcd);
+            }
+        }
+
+        private bool ChangeRCDCharge(EntityUid uid, int change, bool resetTimer, RCDComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return false;
+
+            if (component.CurrentAmmo + change < 0 || component.CurrentAmmo + change > component.MaxAmmo)
+                return false;
+
+            if (resetTimer || component.CurrentAmmo == component.MaxAmmo)
+                component.NextChargeTime = _gameTiming.CurTime + component.RechargeDuration;
+
+            component.CurrentAmmo += change;
+            Dirty(component);
+            return true;
         }
 
         private void NextMode(EntityUid uid, RCDComponent rcd, EntityUid user)
