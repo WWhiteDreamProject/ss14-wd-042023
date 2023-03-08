@@ -27,6 +27,8 @@ public sealed class StalinManager
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
 
     private IChatManager _chatManager = default!;
 
@@ -113,6 +115,8 @@ public sealed class StalinManager
 
     private async void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
     {
+        if(!_cfg.GetCVar(CCVars.StalinEnabled)) return;
+
         if (e.NewStatus != SessionStatus.Connected) return;
 
         var session = e.Session;
