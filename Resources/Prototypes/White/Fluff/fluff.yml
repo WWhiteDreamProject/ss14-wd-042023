@@ -52,3 +52,17 @@
         types:
           Blunt: 10
 
+# merkkaa
+- type: entity
+  parent: Bible
+  name: няко библия
+  description: Книга является заметками кошко богини. Её потомки используют эту книгу как Библию.
+  id: BibleNya
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: White/Fluff/merkkaa/bible.rsi
+      state: icon
+    - type: Item
+      size: 10
+      sprite: White/Fluff/merkkaa/bible.rsi
