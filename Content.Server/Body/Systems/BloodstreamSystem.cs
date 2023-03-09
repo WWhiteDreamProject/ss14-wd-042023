@@ -1,4 +1,5 @@
 using Content.Server.Body.Components;
+using Content.Server.Borgs;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Chemistry.ReactionEffects;
 using Content.Server.Fluids.EntitySystems;
@@ -97,7 +98,7 @@ public sealed class BloodstreamSystem : EntitySystem
             if (TryComp<MobStateComponent>(uid, out var state) && _mobStateSystem.IsDead(uid, state))
                 continue;
 
-            if (bloodstream.IsBleeding)
+            if (bloodstream.IsBleeding && !HasComp<BorgComponent>(bloodstream.Owner))
             {
                 _alertsSystem.ShowAlert(bloodstream.Owner, AlertType.Bleeding);
             }

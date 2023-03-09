@@ -63,9 +63,11 @@
             - MobMask
           layer:
             - MobLayer
-    - type: Repairable
-      fuelcost: 70
-      doAfterDelay: 60
+    - type: BorgRepair
+      damage:
+        groups:
+          Brute: -40
+          Burn: -40
     - type: Tag
       tags:
         - DoorBumpOpener
