@@ -15,3 +15,9 @@
   id: SledgebarLoadout
   entity: Sledgebar
   sponsorOnly: true
+
+# YouWellLeer
+- type: loadout
+  id: BibleNyaLoadout
+  entity: BibleNya
+  sponsorOnly: true

@@ -59,13 +59,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UtkaTCPWrapper _utkaSockets = default!;
 
-    public Dictionary<NetUserId, DateTime> LOOCCooldownRecordUser = new Dictionary<NetUserId, DateTime>();
+    public Dictionary<NetUserId, TimeSpan> LOOCCooldownRecordUser = new Dictionary<NetUserId, TimeSpan>();
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperRange = 2; // how far whisper goes in world units
     public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
 
-    private int _cooldownTimeLOOC = 0;
+    private int _cooldownLOOCMessage = 0;
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled = false;
     private readonly bool _adminLoocEnabled = true;
@@ -76,7 +76,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         InitializeEmotes();
         _configurationManager.OnValueChanged(CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
-        _configurationManager.OnValueChanged(CCVars.CooldownTimeLOOC, (value) => _cooldownTimeLOOC = value, true);
+        _configurationManager.OnValueChanged(CCVars.CooldownLOOCMessage, (value) => _cooldownLOOCMessage = value, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnClear);
@@ -84,6 +84,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void OnClear(RoundRestartCleanupEvent ev)
     {
+        _chatManager.ClearCache();
         LOOCCooldownRecordUser.Clear();
     }
 
@@ -92,6 +93,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         base.Shutdown();
         ShutdownEmotes();
         _configurationManager.UnsubValueChanged(CCVars.LoocEnabled, OnLoocEnabledChanged);
+
+        _chatManager.ClearCache();
         LOOCCooldownRecordUser.Clear();
     }
 
@@ -141,10 +144,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (HasComp<GhostComponent>(source))
         {
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
-            if(desiredType == InGameICChatType.Emote) return;
+            if (desiredType == InGameICChatType.Emote) return;
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, hideChat, shell, player);
             return;
         }
+
+        if (_chatManager.CheckSpamUserMessage(source, message, player, hideChat)) return;
 
         // Sus
         if (player?.AttachedEntity is { Valid: true } entity && source != entity)
@@ -452,7 +457,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ckey = actorComponent.PlayerSession.Name;
         }
 
-        if(string.IsNullOrEmpty(ckey)) return;
+        if (string.IsNullOrEmpty(ckey)) return;
 
         var utkaEmoteEvent = new UtkaChatMeEvent()
         {
@@ -464,32 +469,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         _utkaSockets.SendMessageToAll(utkaEmoteEvent);
     }
 
-    private bool CheckTimeСooldownLOOCMessage(EntityUid source, IPlayerSession player, bool hideChat)
-    {
-        if (LOOCCooldownRecordUser.ContainsKey(player.UserId))
-        {
-            TimeSpan delta = DateTime.Now.Subtract(LOOCCooldownRecordUser[player.UserId]);
-            TimeSpan cooldown = TimeSpan.FromSeconds(_cooldownTimeLOOC);
-
-            if (delta >= cooldown)
-                LOOCCooldownRecordUser[player.UserId] = DateTime.Now;
-            else
-            {
-                var mes = Loc.GetString("chat-manager-cooldown-warn-message", ("remainingTime", Math.Round(cooldown.Subtract(delta).TotalSeconds)));
-                _chatManager.ChatMessageToOne(ChatChannel.LOOC, mes, mes, source, hideChat, player.ConnectedClient, colorOverride: Color.White);
-                return true;
-            }
-        }
-        else
-            LOOCCooldownRecordUser.Add(player.UserId, DateTime.Now);
-
-        return false;
-    }
-
     // ReSharper disable once InconsistentNaming
     private void SendLOOC(EntityUid source, IPlayerSession player, string message, bool hideChat)
     {
-        if (CheckTimeСooldownLOOCMessage(source, player, hideChat)) return;
+        _chatManager.CheckMessageCoolDown(player, LOOCCooldownRecordUser, _cooldownLOOCMessage, out int remainingTime);
+        if (remainingTime != -1)
+        {
+            var mes = Loc.GetString("chat-manager-cooldown-warn-message_channel", ("inChat", "в LOOC"), ("remainingTime", remainingTime));
+            _chatManager.ChatMessageToOne(ChatChannel.LOOC, mes, mes, source, hideChat, player.ConnectedClient, colorOverride: Color.White);
+            return;
+        }
 
         var name = FormattedMessage.EscapeText(Identity.Name(source, EntityManager));
 
@@ -508,6 +497,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void SendDeadChat(EntityUid source, IPlayerSession player, string message, bool hideChat)
     {
+        if (_chatManager.CheckSpamUserMessage(source, message, player, hideChat)) return;
+
         var clients = GetDeadChatClients();
         var playerName = Name(source);
         string wrappedMessage;
@@ -579,7 +570,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool sanitizeSlang = true)
     {
         var newMessage = message.Trim();
-        if(sanitizeSlang)
+        if (sanitizeSlang)
             newMessage = _sanitizer.SanitizeOutSlang(newMessage);
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
@@ -650,7 +641,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         foreach (var player in _playerManager.Sessions)
         {
-            if (player.AttachedEntity is not {Valid: true} playerEntity)
+            if (player.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
 
             var transformEntity = xforms.GetComponent(playerEntity);

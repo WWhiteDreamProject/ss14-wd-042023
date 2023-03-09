@@ -14,6 +14,13 @@ namespace Content.Server.Chat.Managers
         /// </summary>
         /// <param name="message"></param>
         /// <param name="colorOverride">Override the color of the message being sent.</param>
+
+        void ClearCache();
+
+        void CheckMessageCoolDown(IPlayerSession player, Dictionary<NetUserId, TimeSpan> lastSendMessageStorage, int coolDown, out int remainingTime);
+
+        bool CheckSpamUserMessage(EntityUid source, string message, IPlayerSession? player, bool hideChat);
+
         void DispatchServerAnnouncement(string message, Color? colorOverride = null);
 
         void DispatchServerMessage(IPlayerSession player, string message, bool suppressLog = false);

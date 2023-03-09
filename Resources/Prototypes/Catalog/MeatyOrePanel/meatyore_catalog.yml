@@ -588,6 +588,14 @@
     - MeatyOreUniforms
 
 - type: listing
+  id: MeatyOreClothingUniformJumpskirtJanimaid
+  productEntity: ClothingUniformJumpskirtJanimaid
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreUniforms
+
+- type: listing
   id: MeatyUniformShortsRedWithTop
   productEntity: UniformShortsRedWithTop
   cost:

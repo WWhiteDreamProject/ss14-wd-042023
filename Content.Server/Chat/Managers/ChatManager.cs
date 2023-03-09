@@ -3,21 +3,19 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.MoMMI;
 using Content.Server.Preferences.Managers;
-using Content.Server.Station.Systems;
 using Content.Server.UtkaIntegration;
+using Content.Server.White.Sponsors;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-
-using Content.Server.White.Sponsors;
+using Robust.Shared.Timing;
 
 
 namespace Content.Server.Chat.Managers
@@ -44,14 +42,18 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
         [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
-
         [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+        public Dictionary<NetUserId, string> LastUserMessage = new Dictionary<NetUserId, string>();
+        public Dictionary<NetUserId, TimeSpan> LastTimeUserMessage = new Dictionary<NetUserId, TimeSpan>();
 
         /// <summary>
         /// The maximum length a player-sent message can be sent
         /// </summary>
         public int MaxMessageLength => _configurationManager.GetCVar(CCVars.ChatMaxMessageLength);
 
+        private int _cooldownAllMessage = 0;
         private bool _oocEnabled = true;
         private bool _adminOocEnabled = true;
 
@@ -61,6 +63,13 @@ namespace Content.Server.Chat.Managers
 
             _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
             _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
+            _configurationManager.OnValueChanged(CCVars.CooldownAllMessage, (value) => _cooldownAllMessage = value, true);
+        }
+
+        public void ClearCache()
+        {
+            LastUserMessage.Clear();
+            LastTimeUserMessage.Clear();
         }
 
         private void OnOocEnabledChanged(bool val)
@@ -177,6 +186,9 @@ namespace Content.Server.Chat.Managers
 
         private void SendOOC(IPlayerSession player, string message)
         {
+
+            if (CheckSpamUserMessage(EntityUid.Invalid, message, player, false)) return;
+
             if (_adminManager.IsAdmin(player))
             {
                 if (!_adminOocEnabled)
@@ -265,6 +277,73 @@ namespace Content.Server.Chat.Managers
         #endregion
 
         #region Utility
+
+        /// <summary>
+        ///     a method designed to check the cooldown for sending messages
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="player"></param>
+        /// <param name="hideChat"></param>
+        /// <param name="lastSendMessageStorage">Dictionary for storing the time of the last message sent by each user</param>
+        /// <param name="cooldown">Cooldown time in seconds</param>
+        /// <returns>
+        ///     returns -1 if sending a message is allowed, otherwise returns the time for the next possible message sending
+        /// </returns>
+        public void CheckMessageCoolDown(IPlayerSession player, Dictionary<NetUserId, TimeSpan> lastSendMessageStorage, int coolDown, out int remainingTime)
+        {
+            if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+            {
+                remainingTime = - 1;
+                return;
+            }
+
+            if (lastSendMessageStorage.ContainsKey(player.UserId))
+            {
+                TimeSpan delta = _gameTiming.CurTime.Subtract(lastSendMessageStorage[player.UserId]);
+                TimeSpan coolDownСonverted = TimeSpan.FromSeconds(coolDown);
+
+                if (delta >= coolDownСonverted)
+                    lastSendMessageStorage[player.UserId] = _gameTiming.CurTime;
+                else
+                {
+                    remainingTime = (int) Math.Ceiling(coolDownСonverted.Subtract(delta).TotalSeconds);
+                    return;
+                }
+            }
+            else
+                lastSendMessageStorage.Add(player.UserId, _gameTiming.CurTime);
+
+            remainingTime = -1;
+        }
+
+        public bool CheckSpamUserMessage(EntityUid source, string message, IPlayerSession? player, bool hideChat)
+        {
+            if (player == null) return true;
+
+            if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+            {
+                return false;
+            }
+
+            if (LastUserMessage.ContainsKey(player.UserId) && LastUserMessage[player.UserId] == message)
+            {
+                var mes = Loc.GetString("chat-manager-warn-spam-message");
+                ChatMessageToOne(ChatChannel.LOOC, mes, mes, source, hideChat, player.ConnectedClient, colorOverride: Color.White);
+                return true;
+            }
+            else
+                LastUserMessage[player.UserId] = message;
+
+            CheckMessageCoolDown(player, LastTimeUserMessage, _cooldownAllMessage, out int remainingTime);
+            if (remainingTime != -1)
+            {
+                var mes = Loc.GetString("chat-manager-cooldown-warn-message", ("remainingTime", remainingTime));
+                ChatMessageToOne(ChatChannel.LOOC, mes, mes, source, hideChat, player.ConnectedClient, colorOverride: Color.White);
+                return true;
+            }
+
+            return false;
+        }
 
         public void ChatMessageToOne(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat, INetChannel client, Color? colorOverride = null, bool recordReplay = false, string? audioPath = null, float audioVolume = 0)
         {
