@@ -3,6 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.RCD.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -277,7 +278,7 @@ namespace Content.Server.RCD.Systems
             if (!Resolve(uid, ref component))
                 return false;
 
-            if (component.CurrentAmmo + change < 0 || component.CurrentAmmo + change > component.MaxAmmo)
+            if (component.CurrentAmmo + change <= 0 || component.CurrentAmmo + change > component.MaxAmmo)
                 return false;
 
             if (resetTimer || component.CurrentAmmo == component.MaxAmmo)
@@ -295,8 +296,13 @@ namespace Content.Server.RCD.Systems
             var mode = (int) rcd.Mode;
             mode = ++mode % RCDModeCount;
             rcd.Mode = (RcdMode) mode;
-
-            var msg = Loc.GetString("rcd-component-change-mode", ("mode", rcd.Mode.ToString()));
+            var msg = rcd.Mode switch
+            {
+                RcdMode.Walls => Loc.GetString("rcd-component-change-mode", ("mode", "Стены")),
+                RcdMode.Floors => Loc.GetString("rcd-component-change-mode", ("mode", "Плитки")),
+                RcdMode.Deconstruct => Loc.GetString("rcd-component-change-mode", ("mode", "Разобрка")),
+                RcdMode.Airlock => Loc.GetString("rcd-component-change-mode", ("mode", "Шлюз")),
+            };
             _popup.PopupEntity(msg, rcd.Owner, user);
         }
     }
