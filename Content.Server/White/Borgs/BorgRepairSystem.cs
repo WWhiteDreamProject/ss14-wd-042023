@@ -39,6 +39,11 @@ public sealed class BorgRepairSystem : EntitySystem
         if (!EntityManager.TryGetComponent(component.Owner, out DamageableComponent? damageable) || damageable.TotalDamage == 0)
             return;
 
+        if (!_toolSystem.HasQuality(args.Used, component.QualityNeeded))
+        {
+            return;
+        }
+
         var doAfterArgs = new DoAfterEventArgs(
             args.User,
             delay,
@@ -50,11 +55,6 @@ public sealed class BorgRepairSystem : EntitySystem
             BreakOnStun = true,
             NeedHand = true
         };
-
-        if (!_toolSystem.HasQuality(args.Used, component.QualityNeeded))
-        {
-            return;
-        }
 
         _doAfterSystem.DoAfter(doAfterArgs);
         _toolSystem.PlayToolSound(args.Used);

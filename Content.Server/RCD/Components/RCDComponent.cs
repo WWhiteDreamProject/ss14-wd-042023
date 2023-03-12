@@ -15,7 +15,7 @@ namespace Content.Server.RCD.Components
     [RegisterComponent]
     public sealed class RCDComponent : Component
     {
-        private const int DefaultAmmoCount = 5;
+        private const int DefaultAmmoCount = 25;
 
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField("maxAmmo")] public int MaxAmmo = DefaultAmmoCount;

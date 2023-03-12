@@ -41,14 +41,3 @@
   description: Crude and falling apart. Why would you make this?
   icon: { sprite: Objects/Weapons/Melee/shields.rsi, state: makeshift-icon }
   objectType: Item
-
-- type: construction
-  name: double energy sword
-  id: EnergyDoubleSword
-  graph: DoubleSword
-  startNode: start
-  targetNode: doubleSword
-  category: construction-category-weapons
-  description: Are you sure?
-  icon: { sprite: Objects/Weapons/Melee/double_esword.rsi, state: icon }
-  objectType: Item

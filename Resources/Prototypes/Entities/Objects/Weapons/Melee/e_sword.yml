@@ -121,6 +121,7 @@
     - Write
   - type: DisarmMalus
     malus: 0
+  - type: NotNeededSword
 
 - type: entity
   name: double energy sword
@@ -149,6 +150,4 @@
       spread: 50
       onReflect:
         path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
-    - type: Construction
-      graph: DoubleSword
-      node: doubleSword
+    - type: NotNeededSword
