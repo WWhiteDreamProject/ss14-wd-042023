@@ -11,16 +11,21 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NeededSwordComponent, InteractUsingEvent>(Combine);
+        SubscribeLocalEvent<DoubleSwordCraftComponent, InteractUsingEvent>(Combine);
     }
 
-    private void Combine(EntityUid uid, NeededSwordComponent component, InteractUsingEvent args)
+    private const string NeededEnt = "EnergySword";
+
+    private void Combine(EntityUid uid, DoubleSwordCraftComponent component, InteractUsingEvent args)
     {
-        if (args.Handled || !HasComp<NeededSwordComponent>(uid) || HasComp<NotNeededSwordComponent>(uid))
-        {
+        if (args.Handled)
             return;
-        }
-        //^.^
+
+        var usedEnt = _entityManager.GetComponent<MetaDataComponent>(args.Used).EntityPrototype!.ID;
+
+        if (usedEnt is not NeededEnt)
+            return;
+
         SpawnEnergyDoubleSword(uid);
         _entityManager.DeleteEntity(args.Used);
         _entityManager.DeleteEntity(uid);

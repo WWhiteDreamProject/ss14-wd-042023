@@ -55,7 +55,7 @@
     spread: 30
     onReflect:
       path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
-  - type: NeededSword
+  - type: DoubleSwordCraft
 
 - type: entity
   name: pen
@@ -121,7 +121,6 @@
     - Write
   - type: DisarmMalus
     malus: 0
-  - type: NotNeededSword
 
 - type: entity
   name: double energy sword
@@ -150,4 +149,3 @@
       spread: 50
       onReflect:
         path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
-    - type: NotNeededSword

@@ -264,7 +264,7 @@ namespace Content.Server.RCD.Systems
                     continue;
 
                 if (rcd.CurrentAmmo == rcd.MaxAmmo)
-                    continue;
+                    return;
 
                 if (_gameTiming.CurTime < rcd.NextChargeTime)
                     continue;

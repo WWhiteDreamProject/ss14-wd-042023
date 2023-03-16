@@ -59,7 +59,7 @@ namespace Content.Server.RCD.Components
         /// The time when the next charge will be added
         /// </summary>
         [DataField("nextChargeTime", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
-        public TimeSpan NextChargeTime = TimeSpan.FromSeconds(20);
+        public TimeSpan NextChargeTime = TimeSpan.FromSeconds(50);
 
     }
 }
