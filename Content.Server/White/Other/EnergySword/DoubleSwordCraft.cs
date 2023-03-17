@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Robust.Shared.Audio;
 
 namespace Content.Server.White.Other.EnergySword;
 
@@ -7,6 +8,7 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -15,6 +17,7 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
     }
 
     private const string NeededEnt = "EnergySword";
+    private const string EnergyDoubleSword = "EnergyDoubleSword";
 
     private void Combine(EntityUid uid, DoubleSwordCraftComponent component, InteractUsingEvent args)
     {
@@ -22,8 +25,15 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
             return;
 
         var usedEnt = _entityManager.GetComponent<MetaDataComponent>(args.Used).EntityPrototype!.ID;
+        var usedTo = _entityManager.GetComponent<MetaDataComponent>(uid).EntityPrototype!.ID;
 
-        if (usedEnt is not NeededEnt)
+        if (usedTo is EnergyDoubleSword or null)
+        {
+            _audio.PlayPvs("/Audio/White/Other/fail.ogg", uid, AudioParams.Default.WithVolume(-6f));
+            return;
+        }
+
+        if (usedEnt is not NeededEnt or null)
             return;
 
         SpawnEnergyDoubleSword(uid);
@@ -39,7 +49,7 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
             return;
         }
 
-        var weaponEntity = _entityManager.SpawnEntity("EnergyDoubleSword", transform.Value);
+        var weaponEntity = _entityManager.SpawnEntity(EnergyDoubleSword, transform.Value);
         _handsSystem.PickupOrDrop(player, weaponEntity);
     }
 }
