@@ -161,9 +161,9 @@ public abstract partial class SharedGunSystem
                 if (twoMode.CurrentMode == EnergyModes.Stun)
                 {
                     var projEnt = Spawn(twoMode.ProjectilePrototype, coordinates);
-                    return EnsureComp<AmmoComponent>(projEnt);
+                    return (projEnt, EnsureComp<AmmoComponent>(projEnt));
                 }
-                return ProtoManager.Index<HitscanPrototype>(twoMode.HitscanPrototype);
+                return (null, ProtoManager.Index<HitscanPrototype>(twoMode.HitscanPrototype));
             default:
                 throw new ArgumentOutOfRangeException();
         }

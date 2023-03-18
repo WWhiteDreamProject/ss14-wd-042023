@@ -640,8 +640,8 @@
 
 - type: Tag
   id: Write
-  
-  - type: Tag
+
+- type: Tag
   id: FloorTile
 
 - type: Tag
