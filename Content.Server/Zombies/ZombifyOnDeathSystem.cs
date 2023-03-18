@@ -31,7 +31,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Melee;
-using Robust.Shared.Audio;
 
 namespace Content.Server.Zombies
 {
@@ -177,7 +176,7 @@ namespace Content.Server.Zombies
 
             //Heals the zombie from all the damage it took while human
             if (TryComp<DamageableComponent>(target, out var damageablecomp))
-                _damageable.SetAllDamage(damageablecomp, 0);
+                _damageable.SetAllDamage(target, damageablecomp, 0);
 
             //gives it the funny "Zombie ___" name.
             var meta = MetaData(target);

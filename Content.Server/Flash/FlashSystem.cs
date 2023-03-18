@@ -4,6 +4,7 @@ using Content.Server.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding;
 using Content.Shared.Flash;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -12,6 +13,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -41,6 +43,8 @@ namespace Content.Server.Flash
             SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(OnInventoryFlashAttempt);
 
             SubscribeLocalEvent<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt);
+            SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
+            SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         }
 
         private void OnFlashMeleeHit(EntityUid uid, FlashComponent comp, MeleeHitEvent args)
@@ -212,6 +216,16 @@ namespace Content.Server.Flash
         {
             if(component.Enabled)
                 args.Cancel();
+        }
+
+        private void OnPermanentBlindnessFlashAttempt(EntityUid uid, PermanentBlindnessComponent component, FlashAttemptEvent args)
+        {
+            args.Cancel();
+        }
+
+        private void OnTemporaryBlindnessFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, FlashAttemptEvent args)
+        {
+            args.Cancel();
         }
 
         public override void Update(float frameTime)

@@ -53,7 +53,7 @@ namespace Content.Client.Preferences.UI
         private readonly IEntityManager _entMan;
         private readonly IConfigurationManager _configurationManager;
         private readonly MarkingManager _markingManager;
-
+        
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
         private LineEdit _flavorTextEdit = null!;
@@ -231,6 +231,7 @@ namespace Content.Client.Preferences.UI
                     return;
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithHairColor(newColor.marking.MarkingColors[0]));
+                UpdateCMarkingsHair();
                 IsDirty = true;
             };
 
@@ -249,6 +250,7 @@ namespace Content.Client.Preferences.UI
                     return;
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithFacialHairColor(newColor.marking.MarkingColors[0]));
+                UpdateCMarkingsFacialHair();
                 IsDirty = true;
             };
 
@@ -260,6 +262,7 @@ namespace Content.Client.Preferences.UI
                     Profile.Appearance.WithHairStyleName(HairStyles.DefaultHairStyle)
                 );
                 UpdateHairPickers();
+                UpdateCMarkingsHair();
                 IsDirty = true;
             };
 
@@ -271,6 +274,7 @@ namespace Content.Client.Preferences.UI
                     Profile.Appearance.WithFacialHairStyleName(HairStyles.DefaultFacialHairStyle)
                 );
                 UpdateHairPickers();
+                UpdateCMarkingsFacialHair();
                 IsDirty = true;
             };
 
@@ -290,7 +294,7 @@ namespace Content.Client.Preferences.UI
                 );
 
                 UpdateHairPickers();
-
+                UpdateCMarkingsHair();
                 IsDirty = true;
             };
 
@@ -310,7 +314,7 @@ namespace Content.Client.Preferences.UI
                 );
 
                 UpdateHairPickers();
-
+                UpdateCMarkingsFacialHair();
                 IsDirty = true;
             };
 
@@ -351,6 +355,7 @@ namespace Content.Client.Preferences.UI
                     return;
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithEyeColor(newColor));
+                CMarkings.CurrentEyeColor = Profile.Appearance.EyeColor;
                 IsDirty = true;
             };
 
@@ -655,7 +660,7 @@ namespace Content.Client.Preferences.UI
                     var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
 
                     CMarkings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
                     break;
                 }
                 case HumanoidSkinColor.Hues:
@@ -755,8 +760,8 @@ namespace Content.Client.Preferences.UI
             Profile = (HumanoidCharacterProfile) _preferencesManager.Preferences!.SelectedCharacter;
             CharacterSlot = _preferencesManager.Preferences.SelectedCharacterIndex;
 
-            _needUpdatePreview = true;
             UpdateControls();
+            _needUpdatePreview = true;
         }
 
         private void SetAge(int newAge)
@@ -957,7 +962,9 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
-            CMarkings.SetData(Profile.Appearance.Markings, Profile.Species, Profile.Appearance.SkinColor);
+            CMarkings.SetData(Profile.Appearance.Markings, Profile.Species,
+                Profile.Appearance.SkinColor, Profile.Appearance.EyeColor
+            );
         }
 
         private void UpdateSpecies()
@@ -1006,7 +1013,6 @@ namespace Content.Client.Preferences.UI
             {
                 return;
             }
-
             var hairMarking = Profile.Appearance.HairStyleId switch
             {
                 HairStyles.DefaultHairStyle => new List<Marking>(),
@@ -1029,6 +1035,76 @@ namespace Content.Client.Preferences.UI
                 1);
         }
 
+        private void UpdateCMarkingsHair()
+        {
+            if (Profile == null)
+            {
+                return;
+            }
+
+            // hair color
+            Color? hairColor = null;
+            if ( Profile.Appearance.HairStyleId != HairStyles.DefaultHairStyle &&
+                _markingManager.Markings.TryGetValue(Profile.Appearance.HairStyleId, out var hairProto)
+            )
+            {
+                if (_markingManager.CanBeApplied(Profile.Species, hairProto, _prototypeManager))
+                {
+                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out var _, _prototypeManager))
+                    {
+                        hairColor = Profile.Appearance.SkinColor;
+                    }
+                    else
+                    {
+                        hairColor = Profile.Appearance.HairColor;
+                    }
+                }
+            }
+            if (hairColor != null)
+            {
+                CMarkings.HairMarking = new (Profile.Appearance.HairStyleId, new List<Color>() { hairColor.Value });
+            }
+            else
+            {
+                CMarkings.HairMarking = null;
+            }
+        }
+
+        private void UpdateCMarkingsFacialHair()
+        {
+            if (Profile == null)
+            {
+                return;
+            }
+            
+            // facial hair color
+            Color? facialHairColor = null;
+            if ( Profile.Appearance.FacialHairStyleId != HairStyles.DefaultFacialHairStyle &&
+                _markingManager.Markings.TryGetValue(Profile.Appearance.FacialHairStyleId, out var facialHairProto)
+            )
+            {
+                if (_markingManager.CanBeApplied(Profile.Species, facialHairProto, _prototypeManager))
+                {
+                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out var _, _prototypeManager))
+                    {
+                        facialHairColor = Profile.Appearance.SkinColor;
+                    }
+                    else
+                    {
+                        facialHairColor = Profile.Appearance.FacialHairColor;
+                    }
+                }
+            }
+            if (facialHairColor != null)
+            {
+                CMarkings.FacialHairMarking = new (Profile.Appearance.FacialHairStyleId, new List<Color>() { facialHairColor.Value });
+            }
+            else
+            {
+                CMarkings.FacialHairMarking = null;
+            }
+        }
+
         private void UpdateEyePickers()
         {
             if (Profile == null)
@@ -1036,6 +1112,7 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
+            CMarkings.CurrentEyeColor = Profile.Appearance.EyeColor;
             _eyesPicker.SetData(Profile.Appearance.EyeColor);
         }
 
@@ -1066,7 +1143,6 @@ namespace Content.Client.Preferences.UI
             UpdateClothingControls();
             UpdateBackpackControls();
             UpdateAgeEdit();
-            UpdateHairPickers();
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateJobPriorities();
@@ -1074,6 +1150,9 @@ namespace Content.Client.Preferences.UI
             UpdateTraitPreferences();
             UpdateMarkings();
             RebuildSpriteView();
+            UpdateHairPickers();
+            UpdateCMarkingsHair();
+            UpdateCMarkingsFacialHair();
             UpdateTTSVoicesControls();
 
             _preferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
