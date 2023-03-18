@@ -1479,3 +1479,34 @@
     layers:
     - state: dispenser
     - state: dispensereng
+
+- type: entity
+  parent: VendingMachine
+  id: LoveVendingMachine
+  name: Love
+  description: Please, buy something from me, ASAP!
+  components:
+  - type: VendingMachine
+    pack: LoveInventory
+    offState: off
+    brokenState: broken
+    normalState: normal
+    denyState: deny
+  - type: Advertise
+    pack: LoveAds
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/love.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1
+    energy: 1.3
+    color: "#FFC0CB"
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
