@@ -19,6 +19,8 @@ using Content.Client.Guidebook;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Module;
+using Content.Client.Guidebook;
+using Content.Shared.Administration.Managers;
 
 using Content.Client.White.JoinQueue;
 using Content.Client.White.Stalin;
@@ -37,6 +39,7 @@ namespace Content.Client.IoC
             IoCManager.Register<IScreenshotHook, ScreenshotHook>();
             IoCManager.Register<IClickMapManager, ClickMapManager>();
             IoCManager.Register<IClientAdminManager, ClientAdminManager>();
+            IoCManager.Register<ISharedAdminManager, ClientAdminManager>();
             IoCManager.Register<EuiManager, EuiManager>();
             IoCManager.Register<IVoteManager, VoteManager>();
             IoCManager.Register<ChangelogManager, ChangelogManager>();

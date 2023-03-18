@@ -72,6 +72,18 @@ public sealed class HumanoidAppearanceComponent : Component
     [DataField("eyeColor")]
     public Color EyeColor = Color.Brown;
 
+    /// <summary>
+    ///     Hair color of this humanoid. Used to avoid looping through all markings
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public Color? CachedHairColor;
+
+    /// <summary>
+    ///     Facial Hair color of this humanoid. Used to avoid looping through all markings
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public Color? CachedFacialHairColor;
+
     [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
 }

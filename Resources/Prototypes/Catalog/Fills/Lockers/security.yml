@@ -18,6 +18,7 @@
       - id: ClothingOuterWinterWarden
       - id: RubberStampWarden
       - id: DoorRemoteArmory
+      - id: ClothingOuterHardsuitWarden
       - id: WeaponDisabler
 
 - type: entity
