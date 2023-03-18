@@ -1,3 +1,4 @@
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
 using Robust.Server.Player;
@@ -35,6 +36,11 @@ namespace Content.Server.Chat.Commands
 
             var message = string.Join(" ", args).Trim();
             if (string.IsNullOrEmpty(message))
+                return;
+
+            if (IoCManager.Resolve<IEntitySystemManager>()
+                .GetEntitySystem<CoolDownChatSystem>()
+                .Check(playerEntity, player, false))
                 return;
 
             IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>()

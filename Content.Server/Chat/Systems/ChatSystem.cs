@@ -3,6 +3,7 @@ using System.Text;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
+using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Players;
@@ -20,6 +21,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Radio;
+using Linguini.Syntax.Ast;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -59,13 +61,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UtkaTCPWrapper _utkaSockets = default!;
 
-    public Dictionary<NetUserId, TimeSpan> LOOCCooldownRecordUser = new Dictionary<NetUserId, TimeSpan>();
-
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperRange = 2; // how far whisper goes in world units
     public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
 
-    private int _cooldownLOOCMessage = 0;
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled = false;
     private readonly bool _adminLoocEnabled = true;
@@ -76,16 +75,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         InitializeEmotes();
         _configurationManager.OnValueChanged(CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
-        _configurationManager.OnValueChanged(CCVars.CooldownLOOCMessage, (value) => _cooldownLOOCMessage = value, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnClear);
-    }
-
-    private void OnClear(RoundRestartCleanupEvent ev)
-    {
-        _chatManager.ClearCache();
-        LOOCCooldownRecordUser.Clear();
     }
 
     public override void Shutdown()
@@ -93,9 +84,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         base.Shutdown();
         ShutdownEmotes();
         _configurationManager.UnsubValueChanged(CCVars.LoocEnabled, OnLoocEnabledChanged);
-
-        _chatManager.ClearCache();
-        LOOCCooldownRecordUser.Clear();
     }
 
     private void OnLoocEnabledChanged(bool val)
@@ -148,8 +136,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, hideChat, shell, player);
             return;
         }
-
-        if (_chatManager.CheckSpamUserMessage(source, message, player, hideChat)) return;
 
         // Sus
         if (player?.AttachedEntity is { Valid: true } entity && source != entity)
@@ -472,14 +458,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     // ReSharper disable once InconsistentNaming
     private void SendLOOC(EntityUid source, IPlayerSession player, string message, bool hideChat)
     {
-        _chatManager.CheckMessageCoolDown(player, LOOCCooldownRecordUser, _cooldownLOOCMessage, out int remainingTime);
-        if (remainingTime != -1)
-        {
-            var mes = Loc.GetString("chat-manager-cooldown-warn-message_channel", ("inChat", "в LOOC"), ("remainingTime", remainingTime));
-            _chatManager.ChatMessageToOne(ChatChannel.LOOC, mes, mes, source, hideChat, player.ConnectedClient, colorOverride: Color.White);
-            return;
-        }
-
         var name = FormattedMessage.EscapeText(Identity.Name(source, EntityManager));
 
         if (_adminManager.IsAdmin(player))
@@ -497,8 +475,6 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void SendDeadChat(EntityUid source, IPlayerSession player, string message, bool hideChat)
     {
-        if (_chatManager.CheckSpamUserMessage(source, message, player, hideChat)) return;
-
         var clients = GetDeadChatClients();
         var playerName = Name(source);
         string wrappedMessage;

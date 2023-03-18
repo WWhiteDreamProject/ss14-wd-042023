@@ -1,4 +1,5 @@
 using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
@@ -25,6 +26,11 @@ namespace Content.Server.Chat.Commands
 
             var message = string.Join(" ", args).Trim();
             if (string.IsNullOrEmpty(message))
+                return;
+
+            if (IoCManager.Resolve<IEntitySystemManager>()
+                .GetEntitySystem<CoolDownChatSystem>()
+                .Check(EntityUid.Invalid, player, false))
                 return;
 
             IoCManager.Resolve<IChatManager>().TrySendOOCMessage(player, message, OOCChatType.OOC);

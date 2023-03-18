@@ -1,8 +1,13 @@
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Chat;
+using Content.Shared.Mobs.Systems;
+using Linguini.Syntax.Ast;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
+using YamlDotNet.Serialization;
 
 namespace Content.Server.Chat.Commands
 {
@@ -34,7 +39,13 @@ namespace Content.Server.Chat.Commands
             if (string.IsNullOrEmpty(message))
                 return;
 
-            EntitySystem.Get<ChatSystem>().TrySendInGameOOCMessage(entity, message, InGameOOCChatType.Looc, false, shell, player);
+            if (IoCManager.Resolve<IEntitySystemManager>()
+                .GetEntitySystem<CoolDownChatSystem>()
+                .CheckDeadOrLooc(entity, player, false))
+                return;
+
+            IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>()
+                .TrySendInGameOOCMessage(entity, message, InGameOOCChatType.Looc, false, shell, player);
         }
     }
 }

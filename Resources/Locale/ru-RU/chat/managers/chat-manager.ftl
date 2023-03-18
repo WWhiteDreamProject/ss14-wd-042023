@@ -33,4 +33,3 @@ chat-manager-admin-channel-name = АДМИН
 chat-manager-admin-discord-channel-name = Д-АДМИН
 chat-manager-cooldown-warn-message_channel = Вы сможете писать { $inChat } через: { $remainingTime } сек.
 chat-manager-cooldown-warn-message = Вы сможете писать через { $remainingTime } сек.
-chat-manager-warn-spam-message = Попробуйте изменить сообщение, не нужно спамить 
