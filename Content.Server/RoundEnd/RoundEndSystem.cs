@@ -182,7 +182,11 @@ namespace Content.Server.RoundEnd
             ActivateCooldown();
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
 
-            SendRoundStatus("Shuttle called");
+            if (autoCall)
+                SendRoundStatus("shuttle_autocalled");
+            else
+                SendRoundStatus("shuttle_called");
+
         }
 
         public void CancelRoundEndCountdown(EntityUid? requester = null, bool checkCooldown = true, EntityUid? player = null)
@@ -215,7 +219,7 @@ namespace Content.Server.RoundEnd
             ActivateCooldown();
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
 
-            SendRoundStatus("Shuttle recalled");
+            SendRoundStatus("shuttle_recalled");
         }
 
         private void SendRoundStatus(string status)
@@ -240,6 +244,8 @@ namespace Content.Server.RoundEnd
             _countdownTokenSource = new();
             _chatManager.DispatchServerAnnouncement(Loc.GetString("round-end-system-round-restart-eta-announcement", ("minutes", DefaultRestartRoundDuration.Minutes)));
             Timer.Spawn(DefaultRestartRoundDuration, AfterEndRoundRestart, _countdownTokenSource.Token);
+
+            SendRoundStatus("round_ended");
         }
 
         private void AfterEndRoundRestart()

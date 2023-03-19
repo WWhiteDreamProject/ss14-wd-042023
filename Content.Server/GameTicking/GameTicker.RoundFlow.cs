@@ -19,6 +19,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Server.UtkaIntegration;
 using Content.Server.White.Stalin;
 using Content.Shared.Database;
 using Robust.Shared.Asynchronous;
@@ -29,6 +30,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly StalinManager _stalinManager = default!;
+        [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -247,6 +249,8 @@ namespace Content.Server.GameTicking
             UpdateInfoText();
             RaiseLocalEvent(new RoundStartedEvent(RoundId));
 
+            SendRoundStatus("game_started");
+
 #if EXCEPTION_TOLERANCE
             }
             catch (Exception e)
@@ -411,6 +415,8 @@ namespace Content.Server.GameTicking
                 UpdateInfoText();
 
                 ReqWindowAttentionAll();
+
+                SendRoundStatus("lobby_loaded");
             }
         }
 
@@ -537,6 +543,20 @@ namespace Content.Server.GameTicking
                 // Only play one because A
                 break;
             }
+        }
+
+        private void SendRoundStatus(string status)
+        {
+            if (!_postInitialized)
+                return;
+
+            var utkaRoundStatusEvent = new UtkaRoundStatusEvent()
+            {
+                Message = status
+            };
+
+            _utkaSocketWrapper.SendMessageToAll(utkaRoundStatusEvent);
+
         }
     }
 

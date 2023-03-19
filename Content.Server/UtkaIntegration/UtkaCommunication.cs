@@ -47,10 +47,13 @@ public class UtkaAsayRequest : UtkaBaseMessage
 public class UtkaPmRequest : UtkaBaseMessage
 {
     [JsonPropertyName("command")]
-    public override string? Command => "pm";
+    public override string? Command => "discord_pm";
 
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    [JsonPropertyName("sender_ckey")]
+    public string? Sender { get; set; }
+
+    [JsonPropertyName("receiver_ckey")]
+    public string? Reciever { get; set; }
 
     [JsonPropertyName("message")]
     public string? Message { get; set; }
@@ -111,6 +114,9 @@ public class UtkaStatusResponse : UtkaBaseMessage
 
     [JsonPropertyName("shuttle_status")]
     public string? ShuttleStatus { get; set; }
+
+    [JsonPropertyName("station_code")]
+    public string? StationCode { get; set; }
 }
 
 public class UtkaRoundstatusUpdate : UtkaBaseMessage

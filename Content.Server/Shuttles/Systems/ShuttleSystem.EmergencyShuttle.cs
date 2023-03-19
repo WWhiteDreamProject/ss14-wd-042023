@@ -8,6 +8,7 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.UtkaIntegration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Shuttles.Events;
@@ -40,6 +41,7 @@ public sealed partial class ShuttleSystem
    [Dependency] private readonly DockingSystem _dockSystem = default!;
    [Dependency] private readonly MapLoaderSystem _map = default!;
    [Dependency] private readonly StationSystem _station = default!;
+   [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
 
    public MapId? CentComMap { get; private set; }
    public EntityUid? CentCom { get; private set; }
@@ -275,6 +277,8 @@ public sealed partial class ShuttleSystem
            // TODO: Need filter extensions or something don't blame me.
            SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
        }
+
+       SendRoundStatus("shuttle_docked");
    }
 
    private Angle GetAngle(TransformComponent xform, TransformComponent targetXform, EntityQuery<TransformComponent> xformQuery)
@@ -491,5 +495,16 @@ public sealed partial class ShuttleSystem
 
        public EntityCoordinates Coordinates;
        public Angle Angle;
+   }
+
+   private void SendRoundStatus(string status)
+   {
+       var utkaRoundStatusEvent = new UtkaRoundStatusEvent()
+       {
+           Message = status
+       };
+
+       _utkaSocketWrapper.SendMessageToAll(utkaRoundStatusEvent);
+
    }
 }

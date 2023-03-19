@@ -171,6 +171,10 @@ public sealed partial class ShuttleSystem
             if (CentCom != null)
                 AddFTLDestination(CentCom.Value, true);
 
+            if (EarlyLaunchAuthorized)
+                SendRoundStatus("shuttle_escaped");
+            else
+                SendRoundStatus("shuttle_left");
         }
     }
 

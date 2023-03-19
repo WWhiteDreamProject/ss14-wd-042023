@@ -499,6 +499,11 @@ namespace Content.Server.Administration.Systems
             {
             }
         }
+
+        public void BwoinkSendHookMessage(NetUserId reciever, NetUserId sender, string text)
+        {
+            RaiseNetworkEvent(new BwoinkTextMessage(reciever, sender, text));
+        }
     }
 }
 
