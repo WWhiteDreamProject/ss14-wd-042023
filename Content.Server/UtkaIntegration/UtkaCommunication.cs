@@ -49,14 +49,23 @@ public class UtkaPmRequest : UtkaBaseMessage
     [JsonPropertyName("command")]
     public override string? Command => "discord_pm";
 
-    [JsonPropertyName("sender_ckey")]
+    [JsonPropertyName("sender")]
     public string? Sender { get; set; }
 
-    [JsonPropertyName("receiver_ckey")]
+    [JsonPropertyName("receiver")]
     public string? Reciever { get; set; }
 
     [JsonPropertyName("message")]
     public string? Message { get; set; }
+}
+
+public class UtkaPmResponse : UtkaBaseMessage
+{
+    [JsonPropertyName("command")]
+    public override string? Command => "discord_pm";
+
+    [JsonPropertyName("message")]
+    public bool? Message { get; set; }
 }
 
 public class UtkaWhoRequest : UtkaBaseMessage
