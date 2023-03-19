@@ -1,0 +1,10 @@
+- type: vendingMachineInventory
+  id: LoveInventory
+  startingInventory:
+   Stunbaton: 3
+   Handcuffs: 5
+   ExGrenade: 2
+   EnergySword: 2
+   WeaponMinigun: 1
+   WeaponAdvancedLaser: 2
+   

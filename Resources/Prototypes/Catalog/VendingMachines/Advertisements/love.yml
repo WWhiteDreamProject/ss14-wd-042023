@@ -1,0 +1,7 @@
+- type: advertisementsPack
+  id: LoveAds
+  advertisements:
+  - advertisement-love-1
+  - advertisement-love-2
+  - advertisement-love-3
+
