@@ -31,8 +31,24 @@ anomaly-generator-no-cooldown = Перезарядка: [color=gray]Заверш
 anomaly-generator-yes-fire = Статус: [color=forestgreen]Готов[/color]
 anomaly-generator-no-fire = Статус: [color=crimson]Не готов[/color]
 anomaly-generator-generate = Создать аномалию
-anomaly-generator-charges = {$charges -> 
+anomaly-generator-charges = {$charges ->
     [one] {$charges} заряд
     *[other] {$charges} заряды
 }
 anomaly-generator-announcement = Была сгенерирована аномалия!
+
+ent-AnomalyScanner = сканер аномалий
+    .desc = Ручной сканер, созданный для сбора информации о различных аномальных объектах.
+    .suffix = { "" }
+ent-BaseAnomaly = аномалия
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+    .suffix = { "" }
+ent-AnomalyPyroclastic = { ent-BaseAnomaly }
+    .suffix = Пирокластическая
+    .desc = { ent-BaseAnomaly.desc }
+ent-AnomalyGravity = { ent-BaseAnomaly }
+    .suffix = Гравитационная
+    .desc = { ent-BaseAnomaly.desc }
+ent-AnomalyElectricity = { ent-BaseAnomaly }
+    .suffix = Электрическая
+    .desc = { ent-BaseAnomaly.desc }
