@@ -30,10 +30,11 @@ using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Shared.Damage;
 
 namespace Content.Server.Medical;
 
-public sealed partial class CryoPodSystem: SharedCryoPodSystem
+public sealed partial class CryoPodSystem : SharedCryoPodSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
@@ -56,6 +57,7 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
         SubscribeLocalEvent<CryoPodComponent, CanDropTargetEvent>(OnCryoPodCanDropOn);
         SubscribeLocalEvent<CryoPodComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<CryoPodComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
+        SubscribeLocalEvent<CryoPodComponent, GetVerbsEvent<InteractionVerb>>(AddInsertOtherVerb);
         SubscribeLocalEvent<CryoPodComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<CryoPodComponent, DoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<CryoPodComponent, CryoPodPryFinished>(OnCryoPodPryFinished);
@@ -100,16 +102,25 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
                 && fitsInDispenserQuery.TryGetComponent(container, out var fitsInDispenserComponent)
                 && solutionContainerManagerQuery.TryGetComponent(container,
                     out var solutionContainerManagerComponent)
-                && _solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerSolution, dispenserFits: fitsInDispenserComponent, solutionManager: solutionContainerManagerComponent))
+                && _solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerSolution, dispenserFits: fitsInDispenserComponent, solutionManager: solutionContainerManagerComponent)
+                && TryComp<DamageableComponent>(patient, out var targetDamage))
             {
                 if (!bloodStreamQuery.TryGetComponent(patient, out var bloodstream))
                 {
                     continue;
                 }
 
-                var solutionToInject = _solutionContainerSystem.SplitSolution(container.Value, containerSolution, cryoPod.BeakerTransferAmount);
-                _bloodstreamSystem.TryAddToChemicals(patient.Value, solutionToInject, bloodstream);
-                _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
+                if (targetDamage.TotalDamage > 0)
+                {
+                    var solutionToInject = _solutionContainerSystem.SplitSolution(container.Value, containerSolution, cryoPod.BeakerTransferAmount);
+                    _bloodstreamSystem.TryAddToChemicals(patient.Value, solutionToInject, bloodstream);
+                    _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
+                }
+                else
+                {
+                    EjectBody(cryoPod.Owner, cryoPod);
+                    return;
+                }
             }
         }
     }
@@ -118,7 +129,7 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
     {
         if (!Resolve(uid, ref cryoPodComponent))
             return;
-        if (cryoPodComponent.BodyContainer.ContainedEntity is not {Valid: true} contained)
+        if (cryoPodComponent.BodyContainer.ContainedEntity is not { Valid: true } contained)
             return;
         base.EjectBody(uid, cryoPodComponent);
         _climbSystem.ForciblySetClimbing(contained, uid);
@@ -131,7 +142,7 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
         if (cryoPodComponent.BodyContainer.ContainedEntity != null)
             return;
 
-        var doAfterArgs = new DoAfterEventArgs(args.User, cryoPodComponent.EntryDelay, target:args.Dragged, used:uid)
+        var doAfterArgs = new DoAfterEventArgs(args.User, cryoPodComponent.EntryDelay, target: args.Dragged, used: uid)
         {
             BreakOnDamage = true,
             BreakOnStun = true,
@@ -187,8 +198,8 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
                 return;
             cryoPodComponent.IsPrying = true;
 
-            var toolEvData = new ToolEventData(new CryoPodPryFinished(), targetEntity:uid);
-            _toolSystem.UseTool(args.Used, args.User, uid, cryoPodComponent.PryDelay, new [] {"Prying"}, toolEvData);
+            var toolEvData = new ToolEventData(new CryoPodPryFinished(), targetEntity: uid);
+            _toolSystem.UseTool(args.Used, args.User, uid, cryoPodComponent.PryDelay, new[] { "Prying" }, toolEvData);
 
             args.Handled = true;
         }
@@ -240,7 +251,7 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
             return;
         _atmosphereSystem.React(cryoPod.Air, portNode);
 
-        if (portNode.NodeGroup is PipeNet {NodeCount: > 1} net)
+        if (portNode.NodeGroup is PipeNet { NodeCount: > 1 } net)
         {
             _gasCanisterSystem.MixContainerWithPipeNet(cryoPod.Air, net.Air);
         }
@@ -252,7 +263,7 @@ public sealed partial class CryoPodSystem: SharedCryoPodSystem
         // If it's connected to a port, include the port side
         if (TryComp(uid, out NodeContainerComponent? nodeContainer))
         {
-            if(nodeContainer.TryGetNode(component.PortName, out PipeNode? port))
+            if (nodeContainer.TryGetNode(component.PortName, out PipeNode? port))
                 gasMixDict.Add(component.PortName, port.Air);
         }
         args.GasMixtures = gasMixDict;
