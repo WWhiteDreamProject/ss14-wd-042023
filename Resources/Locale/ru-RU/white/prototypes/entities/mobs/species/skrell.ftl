@@ -1,3 +1,9 @@
+ent-BaseMobSkrellPerson = Урист МакСкрелл
+    .desc = { ent-BaseMobOrganic.desc }
+    .suffix = { "" }
+ent-MobSkrellPersonDummy = Урист МакХэндс
+    .desc = Манекен-скрелл, используемый при создании персонажа.
+    .suffix = { "" }
 ent-BaseMobSkrell = Урист МакСкрелл
     .desc = { ent-BaseMobOrganic.desc }
     .suffix = { "" }

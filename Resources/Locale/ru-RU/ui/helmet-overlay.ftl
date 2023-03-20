@@ -1,7 +1,7 @@
-﻿helmet-overlay-battery = BAT:
-helmet-overlay-pressure = PRS: {$pressure}
-helmet-overlay-radiation = RAD: {$radiation}
-helmet-overlay-internals = INT: {$pressure}
-helmet-overlay-not-available = N/A
-helmet-overlay-zero-gravity = ZERO-G
-helmet-overlay-artificial-gravity = AG
+﻿helmet-overlay-battery = БАТ:
+helmet-overlay-pressure = ДАВ: {$pressure}
+helmet-overlay-radiation = РАД: {$radiation}
+helmet-overlay-internals = ВНТ: {$pressure}
+helmet-overlay-not-available = Н/Д
+helmet-overlay-zero-gravity = НУЛЕ-Г
+helmet-overlay-artificial-gravity = ГР

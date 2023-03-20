@@ -23,6 +23,7 @@ verb-categories-channel-select = Каналы
 verb-categories-set-sensor = Датчики
 verb-categories-timer = Установить задержку
 verb-categories-lever = Рычаг
+verb-categories-select-type = Выбрать режим
 verb-categories-fax = Задать место назначения
 verb-common-toggle-light = Переключить свет
 verb-common-close = Закрыть
