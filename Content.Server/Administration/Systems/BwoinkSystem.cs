@@ -408,7 +408,7 @@ namespace Content.Server.Administration.Systems
 
         public void SendUtkaBwoinkMessage(NetUserId receiver, string sender, string text)
         {
-            var bwoinkText = $"[color=red]{sender}[/color]: {text}";
+            var bwoinkText = $"[color=red](D) {sender}[/color]: {text}";
             _playerManager.TryGetUserId(sender, out var senderId);
             var msg = new BwoinkTextMessage(receiver, senderId, bwoinkText);
 

@@ -110,10 +110,10 @@ public class UtkaStatusResponse : UtkaBaseMessage
     public override string? Command => "status";
 
     [JsonPropertyName("players")]
-    public List<string>? Players { get; set; }
+    public int? Players { get; set; }
 
     [JsonPropertyName("admins")]
-    public List<string>? Admins { get; set; }
+    public int? Admins { get; set; }
 
     [JsonPropertyName("map")]
     public string? Map { get; set; }

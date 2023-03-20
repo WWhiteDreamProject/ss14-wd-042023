@@ -34,22 +34,19 @@ public sealed class UtkaStatusCommand : IUtkaCommand
         IoCManager.InjectDependencies(this);
 
 
-        var players = Filter.GetAllPlayers().ToList();
-        var playerNames = players
-            .Where(player => player.Status != SessionStatus.Disconnected)
-            .Select(x => x.Name);
+        var players = Filter.GetAllPlayers().ToList().Count;
 
-        var admins = _adminManager.ActiveAdmins.Select(x => x.Name).ToList();
+        var admins = _adminManager.ActiveAdmins.Select(x => x.Name).ToList().Count;
 
         string shuttleData = string.Empty;
 
         if (_roundEndSystem.ExpectedCountdownEnd == null)
         {
-            shuttleData = "shuttle is not on the way";
+            shuttleData = "idle";
         }
         else
         {
-            shuttleData = $"shuttle is on the way, ETA: {_roundEndSystem.ShuttleTimeLeft}";
+            shuttleData = "called";
         }
 
         var roundDuration = _gameTicker.RoundDuration().TotalSeconds;
@@ -74,7 +71,7 @@ public sealed class UtkaStatusCommand : IUtkaCommand
 
         var toUtkaMessage = new UtkaStatusResponse()
         {
-            Players = playerNames.ToList(),
+            Players = players,
             Admins = admins,
             Map = gameMap,
             ShuttleStatus = shuttleData,
