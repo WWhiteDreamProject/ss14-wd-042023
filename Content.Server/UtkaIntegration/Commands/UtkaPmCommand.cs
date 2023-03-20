@@ -19,8 +19,6 @@ public sealed class UtkaPmCommand : IUtkaCommand
 
         if(string.IsNullOrWhiteSpace(message.Message) || string.IsNullOrWhiteSpace(message.Sender) || string.IsNullOrWhiteSpace(message.Reciever)) return;
 
-        _playerManager.TryGetUserId(message.Sender, out var sender);
-
         var toUtkaMessage = new UtkaPmResponse();
         if (!_playerManager.TryGetUserId(message.Reciever, out var reciever))
         {
@@ -28,9 +26,8 @@ public sealed class UtkaPmCommand : IUtkaCommand
             _utkaSocketWrapper.SendMessageToAll(toUtkaMessage);
             return;
         }
-        var bwoinkText = $"[color=red]{message.Sender}[/color]: {message.Message}";
 
-        _bwoink.BwoinkSendHookMessage(reciever, sender, bwoinkText);
+        _bwoink.SendUtkaBwoinkMessage(reciever, message.Sender, message.Message);
 
         toUtkaMessage.Message = true;
         _utkaSocketWrapper.SendMessageToAll(toUtkaMessage);
