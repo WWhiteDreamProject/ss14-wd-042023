@@ -24,6 +24,7 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
         if (args.Handled)
             return;
 
+        var user = args.User;
         var usedEnt = _entityManager.GetComponent<MetaDataComponent>(args.Used).EntityPrototype!.ID;
         var usedTo = _entityManager.GetComponent<MetaDataComponent>(uid).EntityPrototype!.ID;
 
@@ -36,9 +37,9 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
         if (usedEnt != NeededEnt || usedTo != NeededEnt)
             return;
 
-        SpawnEnergyDoubleSword(uid);
         _entityManager.DeleteEntity(args.Used);
         _entityManager.DeleteEntity(uid);
+        SpawnEnergyDoubleSword(user);
     }
 
     private void SpawnEnergyDoubleSword(EntityUid player)
