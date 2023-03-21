@@ -5,9 +5,9 @@ anomaly-vessel-component-not-assigned = This vessel is not assigned to any anoma
 anomaly-vessel-component-assigned = This vessel is currently assigned to an anomaly.
 anomaly-vessel-component-upgrade-output = point output
 
-anomaly-particles-delta = Delta particles
-anomaly-particles-epsilon = Epsilon particles
-anomaly-particles-zeta = Zeta particles
+anomaly-particles-delta = Дельта-частицы
+anomaly-particles-epsilon = Эпсилон-частицы
+anomaly-particles-zeta = Зета-частицы
 
 anomaly-scanner-component-scan-complete = Scan complete!
 
@@ -31,7 +31,7 @@ anomaly-generator-no-cooldown = Cooldown: [color=gray]Complete[/color]
 anomaly-generator-yes-fire = Status: [color=forestgreen]Ready[/color]
 anomaly-generator-no-fire = Status: [color=crimson]Not ready[/color]
 anomaly-generator-generate = Generate Anomaly
-anomaly-generator-charges = {$charges -> 
+anomaly-generator-charges = {$charges ->
     [one] {$charges} charge
     *[other] {$charges} charges
 }

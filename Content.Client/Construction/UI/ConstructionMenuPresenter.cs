@@ -58,8 +58,12 @@ namespace Content.Client.Construction.UI
                     else
                         _constructionView.OpenCentered();
 
-                    if(_selected != null)
-                        PopulateInfo(_selected);
+                    if (_selected != null)
+                    {
+                        var name = Loc.GetString($"ent-{_selected.ID}");
+                        var desc = Loc.GetString($"ent-{_selected.ID}.desc");
+                        PopulateInfo(_selected, name, desc);
+                    }
                 }
                 else
                     _constructionView.Close();
@@ -135,7 +139,10 @@ namespace Content.Client.Construction.UI
 
             _selected = (ConstructionPrototype) item.Metadata!;
             if (_placementManager.IsActive && !_placementManager.Eraser) UpdateGhostPlacement();
-            PopulateInfo(_selected);
+
+            var name = Loc.GetString($"ent-{_selected.ID}");
+            var desc = Loc.GetString($"ent-{_selected.ID}.desc");
+            PopulateInfo(_selected, name, desc);
         }
 
         private void OnViewPopulateRecipes(object? sender, (string search, string catagory) args)
@@ -150,7 +157,7 @@ namespace Content.Client.Construction.UI
             {
                 if (!string.IsNullOrEmpty(search))
                 {
-                    if (!recipe.Name.ToLowerInvariant().Contains(search.Trim().ToLowerInvariant()))
+                    if (!Loc.GetString($"ent-{recipe.ID}").ToLowerInvariant().Contains(search.Trim().ToLowerInvariant()))
                         continue;
                 }
 
@@ -163,7 +170,7 @@ namespace Content.Client.Construction.UI
                 recipes.Add(recipe);
             }
 
-            recipes.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture));
+            recipes.Sort((a, b) => string.Compare(Loc.GetString($"ent-{a.ID}"), Loc.GetString($"ent-{b.ID}"), StringComparison.InvariantCulture));
 
             foreach (var recipe in recipes)
             {
@@ -202,11 +209,26 @@ namespace Content.Client.Construction.UI
             _constructionView.Categories = array;
         }
 
-        private void PopulateInfo(ConstructionPrototype prototype)
+        private void PopulateInfo(ConstructionPrototype prototype, string name, string desc)
         {
             var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
             _constructionView.ClearRecipeInfo();
-            _constructionView.SetRecipeInfo(prototype.Name, prototype.Description, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
+
+            string recipeName;
+            string recipeDesc;
+
+            if (name[..3] != "ent")
+            {
+                recipeName = name;
+                recipeDesc = desc;
+            }
+            else
+            {
+                recipeName = prototype.Name;
+                recipeDesc = prototype.Description;
+            }
+
+            _constructionView.SetRecipeInfo(recipeName, recipeDesc, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
 
             var stepList = _constructionView.RecipeStepList;
             GenerateStepList(prototype, stepList);
@@ -240,13 +262,24 @@ namespace Content.Client.Construction.UI
 
         private static ItemList.Item GetItem(ConstructionPrototype recipe, ItemList itemList)
         {
+            string recipeName = Loc.GetString($"ent-{recipe.ID}");
+            string recipeDesc;
+
+            if (recipeName[..3] != "ent")
+                recipeDesc = Loc.GetString($"ent-{recipe.ID}.desc");
+            else
+            {
+                recipeName = recipe.Name;
+                recipeDesc = recipe.Description;
+            }
+
             return new(itemList)
             {
                 Metadata = recipe,
-                Text = recipe.Name,
+                Text = recipeName,
                 Icon = recipe.Icon.Frame0(),
                 TooltipEnabled = true,
-                TooltipText = recipe.Description
+                TooltipText = recipeDesc
             };
         }
 
@@ -403,7 +436,9 @@ namespace Content.Client.Construction.UI
             if (_selected == null)
                 return;
 
-            PopulateInfo(_selected);
+            var name = Loc.GetString($"ent-{_selected.ID}");
+            var desc = Loc.GetString($"ent-{_selected.ID}.desc");
+            PopulateInfo(_selected, name, desc);
         }
     }
 }

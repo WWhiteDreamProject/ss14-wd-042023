@@ -29,7 +29,7 @@
   name: disease diagnoser report
   parent: Paper
   id: DiagnosisReportPaper
-  description: 'A chilling medical receipt.'
+  description: 'Медицинский отчёт.'
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

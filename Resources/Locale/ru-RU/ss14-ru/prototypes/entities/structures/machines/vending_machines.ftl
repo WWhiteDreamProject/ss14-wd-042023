@@ -151,3 +151,6 @@ ent-VendingMachineCondiments = Островок соусов
 ent-LoveVendingMachine = Элеонора
     .desc = Я буду ждать прикосновения твоих сильных рук к моему разгоряченному интерфейсу!
     .suffix = { "" }
+ent-VendingMachineHappyHonk = ХэппиХонк
+    .desc = Раздатчик "Хэппи Хонк Мил", сделанных Honk! Co.
+    .suffix = { "" }

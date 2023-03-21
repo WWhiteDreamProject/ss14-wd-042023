@@ -1,8 +1,8 @@
 - type: entity
-  name: space tick
+  name: враждебная форма жизни
   id: MobTick
   parent: SimpleSpaceMobBase
-  description: It's a space tick, watch out for its nasty bite. CentCom reports that 90 percent of cargo leg amputations are due to space tick bites.
+  description: Это враждебная форма жизни, оберегайтесь её укуса. ЦентКом сообщает, что 90 процентов ампутаций конечностей у утилизаторов - из-за их укусов.
   components:
   - type: InputMover
   - type: MobMover
@@ -81,9 +81,9 @@
   - type: GhostTakeoverAvailable
     prob: 0.33
     makeSentient: true
-    name: space tick
+    name: враждебная форма жизни
     description: |
-      Wreak havoc on the station!
+      Наводите беспорядок на станции!
   - type: ReplacementAccent
     accent: genericAggressive
 
@@ -93,8 +93,8 @@
   suffix: "Salvage Ruleset"
   components:
   - type: GhostTakeoverAvailable
-    name: space tick on salvage wreck
+    name: враждебная форма жизни на обломке
     description: |
-      Defend the loot inside the salvage wreck!
+      Защищайте содержимое обломка!
   - type: SalvageMobRestrictions
 
