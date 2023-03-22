@@ -21,9 +21,7 @@ public sealed class CargoShuttleConsoleBoundUserInterface : BoundUserInterface
         if (collection == null)
             return;
 
-        _menu = new CargoShuttleMenu(collection.Resolve<IGameTiming>(), collection.Resolve<IPrototypeManager>(), collection.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>());
-        _menu.ShuttleCallRequested += OnShuttleCall;
-        _menu.ShuttleRecallRequested += OnShuttleRecall;
+        _menu = new CargoShuttleMenu(collection.Resolve<IPrototypeManager>(), collection.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>());
         _menu.OnClose += Close;
 
         _menu.OpenCentered();
@@ -38,24 +36,12 @@ public sealed class CargoShuttleConsoleBoundUserInterface : BoundUserInterface
         }
     }
 
-    private void OnShuttleRecall()
-    {
-        SendMessage(new CargoRecallShuttleMessage());
-    }
-
-    private void OnShuttleCall()
-    {
-        SendMessage(new CargoCallShuttleMessage());
-    }
-
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
         if (state is not CargoShuttleConsoleBoundUserInterfaceState cargoState) return;
         _menu?.SetAccountName(cargoState.AccountName);
         _menu?.SetShuttleName(cargoState.ShuttleName);
-        _menu?.SetShuttleETA(cargoState.ShuttleETA);
         _menu?.SetOrders(cargoState.Orders);
-        _menu?.SetCanRecall(cargoState.CanRecall);
     }
 }
