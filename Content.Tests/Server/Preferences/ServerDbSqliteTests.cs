@@ -50,6 +50,7 @@ namespace Content.Tests.Server.Preferences
                 21,
                 Sex.Male,
                 Gender.Epicene,
+                "Normal",
                 new HumanoidCharacterAppearance(
                     "Afro",
                     Color.Aqua,

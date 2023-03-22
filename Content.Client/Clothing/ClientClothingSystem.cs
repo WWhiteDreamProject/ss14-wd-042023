@@ -14,6 +14,8 @@ using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using static Robust.Client.GameObjects.SpriteComponent;
 using static Robust.Shared.GameObjects.SharedSpriteComponent;
+using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Clothing;
 
@@ -46,6 +48,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -74,12 +77,27 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
-        sprite.LayerSetState(layer, clothing.FemaleMask switch
+        var bodyTypeProto = _prototypeManager.Index<BodyTypePrototype>(humanoid.BodyType!);
+
+        if (bodyTypeProto.Name != "body-normal")
         {
-            FemaleClothingMask.NoMask => "female_none",
-            FemaleClothingMask.UniformTop => "female_top",
-            _ => "female_full",
-        });
+            sprite.LayerSetState(layer, clothing.FemaleMask switch
+            {
+                FemaleClothingMask.NoMask => "female_none",
+                FemaleClothingMask.UniformTop => $"female_top_{bodyTypeProto.Name}",
+                _ => $"female_full_{bodyTypeProto.Name}",
+            });
+        }
+        else
+        {
+            sprite.LayerSetState(layer, clothing.FemaleMask switch
+            {
+                FemaleClothingMask.NoMask => "female_none",
+                FemaleClothingMask.UniformTop => "female_top",
+                _ => "female_full",
+            });
+        }
+
         sprite.LayerSetVisible(layer, true);
     }
 
@@ -87,6 +105,8 @@ public sealed class ClientClothingSystem : ClothingSystem
     {
         if (!TryComp(args.Equipee, out ClientInventoryComponent? inventory))
             return;
+
+        TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoid);
 
         List<PrototypeLayerData>? layers = null;
 
@@ -98,7 +118,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))
         {
             // No generic data either. Attempt to generate defaults from the item's RSI & item-prefixes
-            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, out layers))
+            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, humanoid!, out layers))
                 return;
         }
 
@@ -125,7 +145,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     ///     Useful for lazily adding clothing sprites without modifying yaml. And for backwards compatibility.
     /// </remarks>
     private bool TryGetDefaultVisuals(EntityUid uid, ClothingComponent clothing, string slot, string? speciesId,
-        [NotNullWhen(true)] out List<PrototypeLayerData>? layers)
+        HumanoidAppearanceComponent humanoid, [NotNullWhen(true)] out List<PrototypeLayerData>? layers)
     {
         layers = null;
 
@@ -145,6 +165,13 @@ public sealed class ClientClothingSystem : ClothingSystem
         var state = (clothing.EquippedPrefix == null)
             ? $"equipped-{correctedSlot}"
             : $"{clothing.EquippedPrefix}-equipped-{correctedSlot}";
+
+        // body type specific
+        var bodyTypeProto = _prototypeManager.Index<BodyTypePrototype>(humanoid.BodyType!);
+        if (bodyTypeProto != null && rsi.TryGetState($"{state}-{bodyTypeProto.Name}", out _))
+        {
+            state = $"{state}-{bodyTypeProto.Name}";
+        }
 
         // species specific
         if (speciesId != null && rsi.TryGetState($"{state}-{speciesId}", out _))
@@ -213,19 +240,28 @@ public sealed class ClientClothingSystem : ClothingSystem
     private void RenderEquipment(EntityUid equipee, EntityUid equipment, string slot,
         ClientInventoryComponent? inventory = null, SpriteComponent? sprite = null, ClothingComponent? clothingComponent = null)
     {
-        if(!Resolve(equipee, ref inventory, ref sprite) || !Resolve(equipment, ref clothingComponent, false))
+        if (!Resolve(equipee, ref inventory, ref sprite) || !Resolve(equipment, ref clothingComponent, false))
             return;
 
         if (slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var suitLayer))
         {
             if (TryComp(equipee, out HumanoidAppearanceComponent? humanoid) && humanoid.Sex == Sex.Female)
             {
+                var slimAppend = "";
+                var bodyTypeProto = _prototypeManager.Index<BodyTypePrototype>(humanoid.BodyType!);
+
+                if (bodyTypeProto.Name != "body-normal")
+                {
+                    slimAppend = $"_{bodyTypeProto.Name}";
+                }
+
                 sprite.LayerSetState(suitLayer, clothingComponent.FemaleMask switch
                 {
-                    FemaleClothingMask.NoMask => "female_none",
-                    FemaleClothingMask.UniformTop => "female_top",
-                    _ => "female_full",
+                    FemaleClothingMask.NoMask => $"female_none{slimAppend}",
+                    FemaleClothingMask.UniformTop => $"female_top{slimAppend}",
+                    _ => $"female_full{slimAppend}",
                 });
+
                 sprite.LayerSetVisible(suitLayer, true);
             }
             else

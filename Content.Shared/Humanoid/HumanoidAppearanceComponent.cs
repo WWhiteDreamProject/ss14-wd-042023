@@ -3,9 +3,11 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.White.TTS;
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 using static Content.Shared.Humanoid.HumanoidAppearanceState;
 
@@ -69,6 +71,12 @@ public sealed class HumanoidAppearanceComponent : Component
     [DataField("sex")]
     public Sex Sex = Sex.Male;
 
+    /// <summary>
+    ///     Current body type.
+    /// </summary>
+    [DataField("bodyType", customTypeSerializer: typeof(PrototypeIdSerializer<BodyTypePrototype>))]
+    public string BodyType = SharedHumanoidAppearanceSystem.DefaultBodyType;
+
     [DataField("eyeColor")]
     public Color EyeColor = Color.Brown;
 
@@ -97,6 +105,7 @@ public sealed class HumanoidAppearanceState : ComponentState
     public readonly Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> CustomBaseLayers;
     public readonly Sex Sex;
     public readonly Gender Gender;
+    public readonly string BodyType;
     public readonly int Age = 18;
     public readonly string Species;
     public readonly Color SkinColor;
@@ -109,6 +118,7 @@ public sealed class HumanoidAppearanceState : ComponentState
         Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> customBaseLayers,
         Sex sex,
         Gender gender,
+        string bodyType,
         int age,
         string species,
         Color skinColor,
@@ -120,6 +130,7 @@ public sealed class HumanoidAppearanceState : ComponentState
         CustomBaseLayers = customBaseLayers;
         Sex = sex;
         Gender = gender;
+        BodyType = bodyType;
         Age = age;
         Species = species;
         SkinColor = skinColor;
