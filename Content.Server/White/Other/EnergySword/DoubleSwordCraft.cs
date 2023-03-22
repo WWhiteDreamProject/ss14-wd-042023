@@ -28,14 +28,14 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
         var usedEnt = _entityManager.GetComponent<MetaDataComponent>(args.Used).EntityPrototype!.ID;
         var usedTo = _entityManager.GetComponent<MetaDataComponent>(uid).EntityPrototype!.ID;
 
-        if (usedEnt != NeededEnt || usedTo != NeededEnt)
-            return;
-
         if (usedTo is EnergyDoubleSword)
         {
             _audio.PlayPvs("/Audio/White/Other/fail.ogg", uid, AudioParams.Default.WithVolume(-6f));
             return;
         }
+
+        if (usedEnt != NeededEnt || usedTo != NeededEnt)
+            return;
 
         DeleteUsed(args.Used, uid);
         SpawnEnergyDoubleSword(user);
