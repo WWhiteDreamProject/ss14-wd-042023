@@ -143,7 +143,7 @@ namespace Content.Client.Entry
             //Generation Shit
             _prototypeManager.RegisterIgnore("noiseChannel");
             _prototypeManager.RegisterIgnore("worldgenConfig");
-            _prototypeManager.RegisterIgnore("biome");
+            _prototypeManager.RegisterIgnore("whiteBiomes");
             _prototypeManager.RegisterIgnore("gcQueue");
             //Generation Shit
 

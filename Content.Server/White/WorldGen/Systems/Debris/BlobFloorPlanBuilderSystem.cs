@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Server.White.Worldgen.Components.Debris;
+using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -54,7 +55,8 @@ public sealed class BlobFloorPlanBuilderSystem : BaseWorldSystem
             if (!taken.ContainsKey(west) && Math.Pow(west.X, 2) + Math.Pow(west.Y, 2) <= radsq)
                 spawnPoints.Add(west);
 
-            taken.Add(point, new Tile(_tileDefinition[_random.Pick(comp.FloorTileset)].TileId));
+            var tileDef = _tileDefinition[_random.Pick(comp.FloorTileset)];
+            taken.Add(point, new Tile(tileDef.TileId, 0, _random.Pick(((ContentTileDefinition)tileDef).PlacementVariants)));
         }
 
         PlaceTile(Vector2i.Zero);

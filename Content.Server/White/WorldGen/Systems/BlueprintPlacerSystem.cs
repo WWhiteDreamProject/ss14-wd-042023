@@ -11,6 +11,7 @@ namespace Content.Server.White.Worldgen.Systems;
 public sealed class BlueprintPlacerSystem : EntitySystem
 {
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     /// <inheritdoc/>
@@ -22,11 +23,11 @@ public sealed class BlueprintPlacerSystem : EntitySystem
     private void OnMapInit(EntityUid uid, BlueprintPlacerComponent component, MapInitEvent args)
     {
         var xform = Transform(uid);
-        var options = new MapLoadOptions()
+        var options = new MapLoadOptions
         {
             LoadMap = false,
-            Offset = xform.WorldPosition,
-            Rotation = xform.LocalRotation,
+            Offset = _transform.GetWorldPosition(uid),
+            Rotation = xform.LocalRotation
         };
 
         _mapLoader.TryLoad(xform.MapID, component.Blueprint.ToString(), out var root, options);

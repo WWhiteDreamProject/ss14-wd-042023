@@ -18,7 +18,7 @@ public sealed class StructurePlacementComponent : Component
     /// </summary>
     [DataField("safetyRadius")] public int SafetyRadius = 128;
 
-    [DataField("placementRadius")] public int PlacementRadius = 1764;
+    [DataField("placementRadius")] public int PlacementRadius = 4096;
 }
 
 /// <summary>

@@ -56,7 +56,7 @@ public static class PoolManager
         (CCVars.CargoShuttles.Name,           "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
         (CCVars.ProcgenPreload.Name,          "false"),
-        (WorldgenCVars.WorldgenEnabled.Name, "false", false), // Generation shit
+        (WorldgenCVars.WorldgenEnabled.Name, "false") // Generation shit
         // @formatter:on
     };
 

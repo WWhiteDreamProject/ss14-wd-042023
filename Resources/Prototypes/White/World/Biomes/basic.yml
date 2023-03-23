@@ -1,4 +1,4 @@
-﻿- type: biome
+﻿- type: whiteBiomes
   id: WhiteAsteroidsStandard
   priority: 0 # This probably shouldn't get selected.
   noiseRanges: {}
