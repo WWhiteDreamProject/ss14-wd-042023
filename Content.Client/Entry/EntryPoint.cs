@@ -139,6 +139,14 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("flavor");
             _prototypeManager.RegisterIgnore("loadout");
 
+
+            //Generation Shit
+            _prototypeManager.RegisterIgnore("noiseChannel");
+            _prototypeManager.RegisterIgnore("worldgenConfig");
+            _prototypeManager.RegisterIgnore("whiteBiomes");
+            _prototypeManager.RegisterIgnore("gcQueue");
+            //Generation Shit
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _stylesheetManager.Initialize();

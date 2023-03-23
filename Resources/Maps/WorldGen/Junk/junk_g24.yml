@@ -1,0 +1,555 @@
+meta:
+  format: 3
+  name: DemoStation
+  author: Space-Wizards
+  postmapinit: true
+tilemap:
+  0: Space
+  1: FloorArcadeBlue
+  2: FloorArcadeBlue2
+  3: FloorArcadeRed
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBasaslt
+  14: FloorBlue
+  15: FloorBlueCircuit
+  16: FloorBoxing
+  17: FloorCarpetClown
+  18: FloorCarpetOffice
+  19: FloorCave
+  20: FloorCaveDrought
+  21: FloorClown
+  22: FloorDark
+  23: FloorDarkDiagonal
+  24: FloorDarkDiagonalMini
+  25: FloorDarkHerringbone
+  26: FloorDarkMini
+  27: FloorDarkMono
+  28: FloorDarkOffset
+  29: FloorDarkPavement
+  30: FloorDarkPavementVertical
+  31: FloorDarkPlastic
+  32: FloorDirt
+  33: FloorEighties
+  34: FloorElevatorShaft
+  35: FloorFreezer
+  36: FloorGlass
+  37: FloorGold
+  38: FloorGrass
+  39: FloorGrassDark
+  40: FloorGrassJungle
+  41: FloorGrassLight
+  42: FloorGreenCircuit
+  43: FloorGym
+  44: FloorHydro
+  45: FloorKitchen
+  46: FloorLaundry
+  47: FloorLino
+  48: FloorMetalDiamond
+  49: FloorMime
+  50: FloorMono
+  51: FloorPlastic
+  52: FloorRGlass
+  53: FloorReinforced
+  54: FloorRockVault
+  55: FloorShowroom
+  56: FloorShuttleBlue
+  57: FloorShuttleOrange
+  58: FloorShuttlePurple
+  59: FloorShuttleRed
+  60: FloorShuttleWhite
+  61: FloorSilver
+  62: FloorSnow
+  63: FloorSteel
+  64: FloorSteelDiagonal
+  65: FloorSteelDiagonalMini
+  66: FloorSteelDirty
+  67: FloorSteelHerringbone
+  68: FloorSteelMini
+  69: FloorSteelMono
+  70: FloorSteelOffset
+  71: FloorSteelPavement
+  72: FloorSteelPavementVertical
+  73: FloorTechMaint
+  74: FloorTechMaint2
+  75: FloorTechMaint3
+  76: FloorWhite
+  77: FloorWhiteDiagonal
+  78: FloorWhiteDiagonalMini
+  79: FloorWhiteHerringbone
+  80: FloorWhiteMini
+  81: FloorWhiteMono
+  82: FloorWhiteOffset
+  83: FloorWhitePavement
+  84: FloorWhitePavementVertical
+  85: FloorWhitePlastic
+  86: FloorWood
+  87: FloorWoodTile
+  88: Lattice
+  89: Plating
+entities:
+- uid: 0
+  components:
+  - type: MetaData
+  - pos: -24.191929,4.3124995
+    parent: invalid
+    type: Transform
+  - chunks:
+      -1,-1:
+        ind: -1,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAA==
+      0,-1:
+        ind: 0,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAEIAAAA/AAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEIAAAA/AAAAPwAAAD8AAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAPwAAAD8AAAA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASwAAAFgAAAA/AAAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      0,0:
+        ind: 0,0
+        tiles: AAAAAFgAAAA/AAAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAPwAAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    type: MapGrid
+  - type: Broadphase
+  - angularDamping: 0.05
+    linearDamping: 0.05
+    fixedRotation: False
+    bodyType: Dynamic
+    type: Physics
+  - fixtures: []
+    type: Fixtures
+  - type: OccluderTree
+  - type: Shuttle
+  - nextUpdate: -267.3096964
+    type: GridPathfinding
+  - gravityShakeSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/alert.ogg
+    type: Gravity
+  - chunkCollection:
+      0,-1:
+        0:
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 0.0072517395,-1.9837708
+        1:
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 0.0072517395,-1.9837708
+        2:
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 0.0072517395,-1.9837708
+        3:
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 1.0280838,-3.0254378
+        4:
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 1.0072517,-3.0046043
+        5:
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 1.0072517,-3.0046043
+        6:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 0.98641586,-1.9629378
+        7:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 0.98641586,-1.9629378
+        8:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 0.028083801,-2.2337708
+        11:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 2.9945545,-3.0318651
+        12:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 2.9945545,-3.0318651
+        13:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 2.0153885,-1.4901986
+        14:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 2.0153885,-1.4901986
+        15:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 2.0570545,-1.4693651
+        16:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 2.0570545,-1.4693651
+        17:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 2.9945545,-0.46936512
+        18:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtMedium
+          coordinates: 2.9945545,-0.46936512
+        19:
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 3.0153885,-1.5110321
+        20:
+          color: '#835432FF'
+          id: DirtHeavy
+          coordinates: 3.0153885,-1.5110321
+        21:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.03622055,-1.8860321
+        22:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.14038849,-2.011032
+        23:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.14038849,-2.136032
+        24:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.03622055,-2.198532
+        25:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.03622055,-2.4068651
+        26:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.11955452,-2.4276986
+        27:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.03622055,-2.4693651
+        28:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.07788849,-2.3443651
+        29:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.30705452,-2.261032
+        30:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.3903885,-2.0526986
+        31:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.4528885,-1.9693651
+        32:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.47372055,-1.8026986
+        33:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.49455452,-1.7818651
+        34:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.49455452,-1.9693651
+        35:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.5570545,-2.1151986
+        36:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.43205452,-2.2818651
+        37:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.3278885,-2.2818651
+        38:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.14038849,-2.2818651
+        39:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.05705452,-2.4901986
+        40:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.24455452,-2.4068651
+        41:
+          zIndex: 1
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.16122055,-1.8026986
+        42:
+          zIndex: 1
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.20288849,-2.1568651
+      0,0:
+        9:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 2.4945545,0.5098014
+        10:
+          angle: 1.5707963267948966 rad
+          color: '#835432FF'
+          id: DirtLight
+          coordinates: 2.4945545,0.5098014
+    type: DecalGrid
+  - tiles:
+      0,-4: 0
+      0,-3: 1
+      0,-2: 1
+      1,-4: 1
+      1,-3: 1
+      1,-2: 1
+      2,-3: 1
+      2,-4: 1
+      3,-3: 1
+      2,-2: 2
+      3,-2: 1
+      2,-1: 1
+      3,-1: 1
+      3,0: 1
+      2,0: 1
+      2,1: 1
+      3,1: 1
+      2,2: 0
+      3,2: 0
+      1,0: 0
+      1,-1: 0
+      3,-4: 0
+      4,-3: 0
+    uniqueMixes:
+    - volume: 2500
+      immutable: True
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 220.53748
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GridAtmosphere
+  - type: GasTileOverlay
+  - type: RadiationGridResistance
+- uid: 1
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 2
+  type: WallSolid
+  components:
+  - pos: 0.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 3
+  type: WallSolid
+  components:
+  - pos: -0.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 4
+  type: WallSolid
+  components:
+  - pos: -0.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 5
+  type: ReinforcedWindow
+  components:
+  - pos: -0.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 6
+  type: GrilleBroken
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 7
+  type: ShardGlassReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.739418,0.5911956
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard1: null
+    type: RandomSprite
+- uid: 8
+  type: ComputerBroken
+  components:
+  - pos: 0.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 9
+  type: Chair
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 10
+  type: ShardGlassReinforced
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.1352501,-2.367138
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard3: null
+    type: RandomSprite
+- uid: 11
+  type: CrateGenericSteel
+  components:
+  - pos: 2.5,-1.5
+    parent: 0
+    type: Transform
+  - containers:
+      entity_storage: !type:Container
+        ents:
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+      paper_label: !type:ContainerSlot {}
+    type: ContainerContainer
+- uid: 12
+  type: WeaponRevolverPython
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 11
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 13
+  type: SpaceCash
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 11
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 14
+  type: SpaceCash
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 11
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 15
+  type: SpaceCash
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 11
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 16
+  type: DrinkGoldschlagerBottleFull
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 11
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 17
+  type: SpaceCash
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 11
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 18
+  type: BrokenBottle
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.3958588,-0.51630616
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+...

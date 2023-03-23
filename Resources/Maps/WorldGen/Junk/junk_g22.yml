@@ -1,0 +1,466 @@
+meta:
+  format: 3
+  name: DemoStation
+  author: Space-Wizards
+  postmapinit: true
+tilemap:
+  0: Space
+  1: FloorArcadeBlue
+  2: FloorArcadeBlue2
+  3: FloorArcadeRed
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBasaslt
+  14: FloorBlue
+  15: FloorBlueCircuit
+  16: FloorBoxing
+  17: FloorCarpetClown
+  18: FloorCarpetOffice
+  19: FloorCave
+  20: FloorCaveDrought
+  21: FloorClown
+  22: FloorDark
+  23: FloorDarkDiagonal
+  24: FloorDarkDiagonalMini
+  25: FloorDarkHerringbone
+  26: FloorDarkMini
+  27: FloorDarkMono
+  28: FloorDarkOffset
+  29: FloorDarkPavement
+  30: FloorDarkPavementVertical
+  31: FloorDarkPlastic
+  32: FloorDirt
+  33: FloorEighties
+  34: FloorElevatorShaft
+  35: FloorFreezer
+  36: FloorGlass
+  37: FloorGold
+  38: FloorGrass
+  39: FloorGrassDark
+  40: FloorGrassJungle
+  41: FloorGrassLight
+  42: FloorGreenCircuit
+  43: FloorGym
+  44: FloorHydro
+  45: FloorKitchen
+  46: FloorLaundry
+  47: FloorLino
+  48: FloorMetalDiamond
+  49: FloorMime
+  50: FloorMono
+  51: FloorPlastic
+  52: FloorRGlass
+  53: FloorReinforced
+  54: FloorRockVault
+  55: FloorShowroom
+  56: FloorShuttleBlue
+  57: FloorShuttleOrange
+  58: FloorShuttlePurple
+  59: FloorShuttleRed
+  60: FloorShuttleWhite
+  61: FloorSilver
+  62: FloorSnow
+  63: FloorSteel
+  64: FloorSteelDiagonal
+  65: FloorSteelDiagonalMini
+  66: FloorSteelDirty
+  67: FloorSteelHerringbone
+  68: FloorSteelMini
+  69: FloorSteelMono
+  70: FloorSteelOffset
+  71: FloorSteelPavement
+  72: FloorSteelPavementVertical
+  73: FloorTechMaint
+  74: FloorTechMaint2
+  75: FloorTechMaint3
+  76: FloorWhite
+  77: FloorWhiteDiagonal
+  78: FloorWhiteDiagonalMini
+  79: FloorWhiteHerringbone
+  80: FloorWhiteMini
+  81: FloorWhiteMono
+  82: FloorWhiteOffset
+  83: FloorWhitePavement
+  84: FloorWhitePavementVertical
+  85: FloorWhitePlastic
+  86: FloorWood
+  87: FloorWoodTile
+  88: Lattice
+  89: Plating
+entities:
+- uid: 0
+  components:
+  - type: MetaData
+  - pos: -17.84076,14.090921
+    parent: invalid
+    type: Transform
+  - chunks:
+      -1,-1:
+        ind: -1,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASwAAAA==
+      0,-1:
+        ind: 0,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEsAAABLAAAASwAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAASwAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    type: MapGrid
+  - type: Broadphase
+  - angularDamping: 0.05
+    linearDamping: 0.05
+    fixedRotation: False
+    bodyType: Dynamic
+    type: Physics
+  - fixtures: []
+    type: Fixtures
+  - type: OccluderTree
+  - type: Shuttle
+  - nextUpdate: -1905.6115064
+    type: GridPathfinding
+  - gravityShakeSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/alert.ogg
+    type: Gravity
+  - chunkCollection:
+      0,-1:
+        0:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 0.0012054443,-2.9861355
+        1:
+          color: '#1D1D21FF'
+          id: DirtMedium
+          coordinates: 0.98039246,-2.9577389
+        2:
+          color: '#1D1D21FF'
+          id: DirtMedium
+          coordinates: 0.98039246,-2.9577389
+        3:
+          color: '#1D1D21FF'
+          id: DirtMedium
+          coordinates: 0.98039246,-2.9577389
+        6:
+          color: '#1D1D21FF'
+          id: Dirt
+          coordinates: 0.9378185,-2.0064201
+        7:
+          color: '#1D1D21FF'
+          id: Dirt
+          coordinates: 0.9378185,-2.0064201
+        8:
+          color: '#1D1D21FF'
+          id: Dirt
+          coordinates: 0.9378185,-2.0064201
+        9:
+          color: '#1D1D21FF'
+          id: Dirt
+          coordinates: 0.9378185,-2.0064201
+        10:
+          color: '#1D1D21FF'
+          id: Dirt
+          coordinates: 0.9378185,-2.0064201
+        32:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 2.7826624,-2.2619991
+        31:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 2.7826624,-2.2619991
+        30:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 2.555605,-2.4891796
+        29:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 2.555605,-2.4891796
+        28:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 2.555605,-2.4891796
+        27:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 2.555605,-2.4891796
+        26:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 3.0097198,-2.0206184
+        25:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 3.0097198,-2.0206184
+        24:
+          color: '#1D1D21FF'
+          id: DirtLight
+          coordinates: 3.0097198,-2.0206184
+      -1,-1:
+        4:
+          color: '#1D1D21FF'
+          id: DirtHeavy
+          coordinates: -0.99217224,-0.9983063
+        5:
+          color: '#1D1D21FF'
+          id: DirtHeavy
+          coordinates: -0.99217224,-0.9983063
+    type: DecalGrid
+  - tiles:
+      -1,-4: 0
+      -1,-3: 0
+      -1,-2: 1
+      -1,-1: 1
+      0,-3: 1
+      0,-2: 1
+      1,-3: 1
+      1,-2: 1
+      2,-2: 1
+      2,-3: 1
+      3,-2: 1
+      3,-3: 1
+      2,-1: 0
+      0,-1: 0
+      3,-4: 0
+      2,-4: 0
+    uniqueMixes:
+    - volume: 2500
+      immutable: True
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GridAtmosphere
+  - type: GasTileOverlay
+- uid: 1
+  type: ShardGlassReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 0.54401207,-1.5125618
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard2: null
+    type: RandomSprite
+- uid: 2
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 3.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 3
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 4
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 5
+  type: ReinforcedWindow
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 6
+  type: Grille
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 3.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 7
+  type: Grille
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 8
+  type: Grille
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 1.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 9
+  type: Grille
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 10
+  type: GrilleBroken
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 11
+  type: GrilleBroken
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 2.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 12
+  type: GrilleBroken
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 0.5,-0.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 13
+  type: GrilleBroken
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 2.5,-3.5
+    parent: 0
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 14
+  type: ShuttersFrame
+  components:
+  - pos: 1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 15
+  type: APCConstructed
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 0.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 16
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 17
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 18
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 19
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 20
+  type: CableMV
+  components:
+  - pos: 0.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 21
+  type: CableMV
+  components:
+  - pos: -0.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 22
+  type: CableMV
+  components:
+  - pos: -0.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 23
+  type: CableMV
+  components:
+  - pos: -0.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 24
+  type: CableMV
+  components:
+  - pos: -0.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 25
+  type: CableMV
+  components:
+  - pos: 0.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 26
+  type: CableMV
+  components:
+  - pos: 1.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 27
+  type: CableMV
+  components:
+  - pos: 2.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 28
+  type: CableMV
+  components:
+  - pos: 3.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 29
+  type: ShardGlassReinforced
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 2.4456215,-0.50444794
+    parent: 0
+    type: Transform
+  - selected:
+      enum.DamageStateVisualLayers.Base:
+        shard2: null
+    type: RandomSprite
+...

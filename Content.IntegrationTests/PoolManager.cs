@@ -13,6 +13,7 @@ using Content.IntegrationTests.Tests.DeviceNetwork;
 using Content.IntegrationTests.Tests.Interaction.Click;
 using Content.IntegrationTests.Tests.Networking;
 using Content.Server.GameTicking;
+using Content.Server.White.Worldgen;
 using Content.Shared.CCVar;
 using NUnit.Framework;
 using Robust.Client;
@@ -56,6 +57,7 @@ public static class PoolManager
         (CCVars.ArrivalsShuttles.Name,        "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
         (CCVars.ProcgenPreload.Name,          "false"),
+        (WorldgenCVars.WorldgenEnabled.Name, "false") // Generation shit
         // @formatter:on
     };
 

@@ -1,0 +1,71 @@
+﻿- type: worldgenConfig
+  id: Default
+  components:
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - WhiteAsteroidsFallback
+        - WhiteFailsafe
+        - WhiteAsteroidsStandard
+    - type: StructurePlacement
+      structures:
+        - entity: JunkG1
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG2
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG3
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG4
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG5
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG6
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG7
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG8
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG9
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: JunkG10
+          amountRange: 1, 1
+          noiseChannel: Carver
+        - entity: AstG1
+          amountRange: 1, 1
+        - entity: AstG2
+          amountRange: 1, 1
+        - entity: AstG3
+          amountRange: 1, 1
+        - entity: AstG4
+          amountRange: 1, 1
+        - entity: AstG5
+          amountRange: 1, 1
+        - entity: AstG6
+          amountRange: 1, 1
+        - entity: AstG7
+          amountRange: 1, 1
+        - entity: AstG8
+          amountRange: 1, 1
+        - entity: DG1
+          amountRange: 1, 1
+        - entity: DG2
+          amountRange: 1, 1
+        - entity: DG3
+          amountRange: 1, 1
+        - entity: DG4
+          amountRange: 1, 1
+        - entity: DG5
+          amountRange: 1, 1
+        - entity: SG1
+          amountRange: 1, 1
+        - entity: SG2
+          amountRange: 1, 1

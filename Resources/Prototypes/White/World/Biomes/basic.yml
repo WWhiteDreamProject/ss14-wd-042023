@@ -1,0 +1,26 @@
+﻿- type: whiteBiomes
+  id: WhiteAsteroidsStandard
+  priority: 0 # This probably shouldn't get selected.
+  noiseRanges: {}
+  chunkComponents:
+    - type: DebrisFeaturePlacerController
+      densityNoiseChannel: Density
+    - type: SimpleDebrisSelector
+      debrisTable:
+        - id: WhiteAsteroidDebrisSmall
+        - id: WhiteAsteroidDebrisMedium
+        - id: WhiteAsteroidDebrisLarge
+          prob: 0.7
+        - id: WhiteAsteroidDebrisLarger
+          prob: 0.4
+    - type: NoiseDrivenDebrisSelector
+      noiseChannel: Wreck
+      debrisTable:
+        - id: WhiteScrapDebrisSmall
+        - id: WhiteScrapDebrisMedium
+        - id: WhiteScrapDebrisLarge
+          prob: 0.5
+    - type: NoiseRangeCarver
+      ranges:
+        - 0.4, 0.6
+      noiseChannel: Carver
