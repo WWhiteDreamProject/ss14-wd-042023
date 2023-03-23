@@ -1500,6 +1500,12 @@ namespace Content.Shared.CCVar
             CVarDef.Create("infolinks.github", "https://github.com/frosty-dev/ss14", CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
+        /// Link to rules
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksRules =
+            CVarDef.Create("infolinks.rules", "https://wiki.ss14.su/Правила", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
         /// Link to website to show in the launcher.
         /// </summary>
         public static readonly CVarDef<string> InfoLinksWebsite =

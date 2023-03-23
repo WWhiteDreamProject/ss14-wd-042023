@@ -740,6 +740,14 @@
     - type: PriorityDock
       tag: DockArrivals
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleArrivalsCargo
+  suffix: External, Arrivals, Glass, Docking
+  components:
+    - type: PriorityDock
+      tag: DockCargo
+
 #HighSecDoors
 - type: entity
   parent: HighSecDoor

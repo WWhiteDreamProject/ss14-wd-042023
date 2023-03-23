@@ -71,8 +71,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
-            CloseEscapeWindow();
-            _info.OpenWindow();
+            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksRules));
         };
 
         _escapeWindow.DisconnectButton.OnPressed += _ =>

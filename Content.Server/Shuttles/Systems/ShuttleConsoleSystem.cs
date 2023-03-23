@@ -109,7 +109,7 @@ namespace Content.Server.Shuttles.Systems
             var tagEv = new FTLTagEvent();
             RaiseLocalEvent(xform.GridUid.Value, ref tagEv);
 
-            _shuttle.FTLTravel(shuttle, args.Destination, dock: dock, priorityTag: tagEv.Tag);
+            _shuttle.FTLTravel(shuttle, args.Destination, dock: true, priorityTag: tagEv.Tag);
         }
 
         private void OnDock(DockEvent ev)

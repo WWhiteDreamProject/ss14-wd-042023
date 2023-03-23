@@ -83,11 +83,6 @@ public sealed partial class CargoSystem
 
     private void OnCargoFTLTag(EntityUid uid, CargoShuttleComponent component, ref FTLTagEvent args)
     {
-        if (args.Handled)
-            return;
-
-        // Just saves mappers forgetting.
-        args.Handled = true;
         args.Tag = "DockCargo";
     }
 
