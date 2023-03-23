@@ -2,162 +2,70 @@
   id: Default
   components:
     - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - WhiteAsteroidsFallback
+        - WhiteFailsafe
+        - WhiteAsteroidsStandard
     - type: StructurePlacement
       structures:
         - entity: JunkG1
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG2
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG3
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG4
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG5
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG6
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG7
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG8
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG9
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: JunkG10
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG11
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG12
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG13
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG14
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG15
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG16
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG17
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG18
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG19
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG21
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG22
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG23
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG24
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG25
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG26
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG27
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG28
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG29
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG30
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG31
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG32
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG33
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG34
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG35
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG36
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG37
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG38
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG39
-          amountRange: 1, 8
-          noiseChannel: Carver
-        - entity: JunkG40
-          amountRange: 1, 8
+          amountRange: 1, 1
           noiseChannel: Carver
         - entity: AstG1
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG2
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG3
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG4
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG5
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG6
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG7
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: AstG8
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: DG1
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: DG2
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: DG3
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: DG4
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: DG5
-          amountRange: 1, 3
-        - entity: DG6
-          amountRange: 1, 3
-        - entity: DG7
-          amountRange: 1, 3
+          amountRange: 1, 1
         - entity: SG1
-          amountRange: 1, 2
+          amountRange: 1, 1
         - entity: SG2
-          amountRange: 1, 2
-        - entity: SG3
-          amountRange: 1, 2
-        - entity: SG4
-          amountRange: 1, 2
-        - entity: SG5
-          amountRange: 1, 2
+          amountRange: 1, 1
