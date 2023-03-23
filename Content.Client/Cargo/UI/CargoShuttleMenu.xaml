@@ -16,6 +16,18 @@
             <Label Name="ShuttleNameLabel"
                    Text="{Loc 'cargo-console-menu-shuttle-name-none-text'}" />
         </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'cargo-console-menu-shuttle-status-label'}"
+                   StyleClasses="LabelKeyText" />
+            <Label Name="ShuttleStatusLabel"
+                   Text="{Loc 'cargo-console-menu-shuttle-status-away-text'}" />
+        </BoxContainer>
+        <Button Name="ShuttleCallButton"
+                Text="Call Shuttle"/>
+        <Button Name="ShuttleRecallButton"
+                Text="Recall Shuttle"
+                ToolTip="Needs to be out of range to recall."
+                Visible="False"/>
         <Label Text="{Loc 'cargo-console-menu-orders-label'}" />
         <PanelContainer VerticalExpand="True"
                         SizeFlagsStretchRatio="6">

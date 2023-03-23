@@ -16,26 +16,23 @@ public sealed partial class DockingSystem
         var dockingQuery = GetEntityQuery<DockingComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
         var recentQuery = GetEntityQuery<RecentlyDockedComponent>();
-        var query = EntityQueryEnumerator<AutoDockComponent, PhysicsComponent>();
 
-
-        while (query.MoveNext(out var dockUid, out var comp, out var body))
+        foreach (var (comp, body) in EntityQuery<AutoDockComponent, PhysicsComponent>())
         {
-            if (comp.Requesters.Count == 0 || !dockingQuery.TryGetComponent(dockUid, out var dock))
+            if (comp.Requesters.Count == 0 || !dockingQuery.TryGetComponent(comp.Owner, out var dock))
             {
-                RemComp<AutoDockComponent>(dockUid);
+                RemComp<AutoDockComponent>(comp.Owner);
                 continue;
             }
 
             // Don't re-dock if we're already docked or recently were.
-            if (dock.Docked || recentQuery.HasComponent(dockUid))
-                continue;
+            if (dock.Docked || recentQuery.HasComponent(comp.Owner)) continue;
 
-            var dockable = GetDockable(body, xformQuery.GetComponent(dockUid));
+            var dockable = GetDockable(body, xformQuery.GetComponent(comp.Owner));
 
             if (dockable == null) continue;
 
-            TryDock(dockUid, dock, dockable.Owner, dockable);
+            TryDock(dock, dockable);
         }
 
         // Work out recent docks that have gone past their designated threshold.
