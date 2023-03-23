@@ -1,3 +1,5 @@
+using Content.Server.Cargo.Components;
+using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
@@ -5,6 +7,7 @@ using Content.Server.Shuttles.Events;
 using Content.Server.UserInterface;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
@@ -29,6 +32,8 @@ namespace Content.Server.Shuttles.Systems
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly TagSystem _tags = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
+        [Dependency] private readonly CargoSystem _cargo = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -84,6 +89,19 @@ namespace Content.Server.Shuttles.Systems
             if (!TryComp<TransformComponent>(entity, out var xform) ||
                 !TryComp<ShuttleComponent>(xform.GridUid, out var shuttle))
             {
+                return;
+            }
+
+            var gridXform = Transform(args.Destination);
+            if (TryComp<CargoShuttleComponent>(xform.GridUid, out var cargoShuttle) &&
+                gridXform.MapID == _cargo.CargoMap && _cargo.IsBlocked(cargoShuttle))
+            {
+                if (args.Session.AttachedEntity == null)
+                    return;
+                _popup.PopupEntity(Loc.GetString("cargo-shuttle-console-organics"), args.Session.AttachedEntity.Value, args.Session.AttachedEntity.Value);
+
+                if (TryComp<CargoPilotConsoleComponent>(uid, out var cargoConsole))
+                    _audio.PlayPvs(_audio.GetSound(cargoConsole.DenySound), args.Session.AttachedEntity.Value);
                 return;
             }
 

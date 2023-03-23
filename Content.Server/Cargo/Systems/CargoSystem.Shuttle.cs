@@ -26,6 +26,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Content.Shared.Coordinates;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Cargo.Systems;
@@ -47,6 +48,8 @@ public sealed partial class CargoSystem
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
     public MapId? CargoMap { get; private set; }
 
     private int _index;
@@ -509,6 +512,30 @@ public sealed partial class CargoSystem
             QueueDel(uid);
         }
     }
+
+    public bool IsBlocked(CargoShuttleComponent component)
+    {
+        // TODO: Would be good to rate-limit this on the console.
+        var mobQuery = GetEntityQuery<MobStateComponent>();
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        return FoundOrganics(component.Owner, mobQuery, xformQuery);
+    }
+
+    private bool FoundOrganics(EntityUid uid, EntityQuery<MobStateComponent> mobQuery, EntityQuery<TransformComponent> xformQuery)
+    {
+        var xform = xformQuery.GetComponent(uid);
+        var childEnumerator = xform.ChildEnumerator;
+
+        while (childEnumerator.MoveNext(out var child))
+        {
+            if ((mobQuery.TryGetComponent(child.Value, out var mobState) && !_mobState.IsDead(child.Value, mobState))
+                || FoundOrganics(child.Value, mobQuery, xformQuery)) return true;
+        }
+
+        return false;
+    }
+
 
     private void Setup()
     {
