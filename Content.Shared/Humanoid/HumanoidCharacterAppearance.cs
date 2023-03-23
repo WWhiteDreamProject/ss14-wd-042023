@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.White.Sponsors;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -189,7 +189,7 @@ namespace Content.Shared.Humanoid
             return new(color.RByte, color.GByte, color.BByte);
         }
 
-        public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, string species, string[] sponsorMarkings)
+        public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, string species, string bodyType, string[] sponsorMarkings)
         {
             var hairStyleId = appearance.HairStyleId;
             var facialHairStyleId = appearance.FacialHairStyleId;
@@ -250,7 +250,7 @@ namespace Content.Shared.Humanoid
 
                         break;
                 }
-                markingSet.EnsureSpecies(species, skinColor, markingManager);
+                markingSet.EnsureSpecies(species, bodyType, skinColor, markingManager);
             }
 
             return new HumanoidCharacterAppearance(

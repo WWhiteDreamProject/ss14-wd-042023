@@ -55,3 +55,6 @@ ent-ClothingBackpackDuffelSyndicateOperative = вещмешок оператив
 ent-ClothingBackpackDuffelSyndicateOperativeMedic = вещмешок оперативника-медика
     .desc = Большой вещевой мешок для хранения дополнительного медицинского снаряжения.
     .suffix = { "" }
+ent-ClothingBackpackDuffelVirology = вещьмешок вирусолога
+    .desc = Большой вещьмешок, сделанный из гипоалерегнной ткани.
+    .suffix = { "" }

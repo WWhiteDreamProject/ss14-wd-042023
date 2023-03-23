@@ -13,7 +13,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Preferences.Managers
 {
@@ -33,7 +33,7 @@ namespace Content.Server.Preferences.Managers
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
             new();
 
-            //private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
+        //private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
 
         public void Init()
         {
@@ -102,7 +102,7 @@ namespace Content.Server.Preferences.Managers
             var curPrefs = prefsData.Prefs!;
 
 
-            var allowedMarkings = _sponsors.TryGetInfo(message.MsgChannel.UserId, out var sponsor) ? sponsor.AllowedMarkings : new string[]{};
+            var allowedMarkings = _sponsors.TryGetInfo(message.MsgChannel.UserId, out var sponsor) ? sponsor.AllowedMarkings : new string[] { };
             profile.EnsureValid(allowedMarkings);
 
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)
@@ -180,7 +180,7 @@ namespace Content.Server.Preferences.Managers
                 {
                     PrefsLoaded = true,
                     Prefs = new PlayerPreferences(
-                        new[] {new KeyValuePair<int, ICharacterProfile>(0, HumanoidCharacterProfile.Random())},
+                        new[] { new KeyValuePair<int, ICharacterProfile>(0, HumanoidCharacterProfile.Random()) },
                         0, Color.Transparent)
                 };
 
@@ -200,7 +200,7 @@ namespace Content.Server.Preferences.Managers
 
                     foreach (var (_, profile) in prefs.Characters)
                     {
-                        var allowedMarkings = _sponsors.TryGetInfo(session.UserId, out var sponsor) ? sponsor.AllowedMarkings : new string[]{};
+                        var allowedMarkings = _sponsors.TryGetInfo(session.UserId, out var sponsor) ? sponsor.AllowedMarkings : new string[] { };
                         profile.EnsureValid(allowedMarkings);
                     }
 
@@ -291,25 +291,32 @@ namespace Content.Server.Preferences.Managers
                 switch (p.Value)
                 {
                     case HumanoidCharacterProfile hp:
-                    {
-                        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-                        var selectedSpecies = HumanoidAppearanceSystem.DefaultSpecies;
-
-                        if (prototypeManager.TryIndex<SpeciesPrototype>(hp.Species, out var species) && species.RoundStart)
                         {
-                            selectedSpecies = hp.Species;
-                        }
+                            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
 
-                        newProf = hp
-                            .WithJobPriorities(
-                                hp.JobPriorities.Where(job =>
-                                    _protos.HasIndex<JobPrototype>(job.Key)))
-                            .WithAntagPreferences(
-                                hp.AntagPreferences.Where(antag =>
-                                    _protos.HasIndex<AntagPrototype>(antag)))
-                            .WithSpecies(selectedSpecies);
-                        break;
-                    }
+                            //var selectedSpecies = HumanoidAppearanceSystem.DefaultSpecies;
+
+                            if (!prototypeManager.TryIndex<SpeciesPrototype>(hp.Species, out var selectedSpecies) || selectedSpecies.RoundStart)
+                            {
+                                selectedSpecies = prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies);
+                            }
+
+                            if (!prototypeManager.TryIndex<BodyTypePrototype>(hp.BodyType, out var selectedBodyType) || !SharedHumanoidAppearanceSystem.IsBodyTypeValid(selectedBodyType, selectedSpecies, hp.Sex))
+                            {
+                                selectedBodyType = prototypeManager.Index<BodyTypePrototype>(SharedHumanoidAppearanceSystem.DefaultBodyType);
+                            }
+
+                            newProf = hp
+                                .WithJobPriorities(
+                                    hp.JobPriorities.Where(job =>
+                                        _protos.HasIndex<JobPrototype>(job.Key)))
+                                .WithAntagPreferences(
+                                    hp.AntagPreferences.Where(antag =>
+                                        _protos.HasIndex<AntagPrototype>(antag)))
+                                .WithSpecies(selectedSpecies.ID)
+                                .WithBodyType(selectedBodyType.ID);
+                            break;
+                        }
                     default:
                         throw new NotSupportedException();
                 }

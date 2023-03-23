@@ -1,4 +1,13 @@
 whitelist-not-whitelisted = Вас нет в вайтлисте.
+# proper handling for having a min/max or not
+whitelist-playercount-invalid ={ $min ->
+        [0] Вайтлист этого сервера включается при игроках меньше { $max }.
+       *[other]
+            Вайтлист этого сервера включается при игроках больше { $min } { $max ->
+                [2147483647] -> игроках, так что вы можете присоединиться позже.
+               *[other] -> игроках и меньше { $max } игроков, так что вы можете присоединиться позже.
+            }
+    }
 whitelist-not-whitelisted-rp = Вас нет в вайтлисте. Чтобы попасть в вайтлист, посетите наш Discord (ссылку можно найти по адресу https://discord.station13.ru).
 command-whitelistadd-description = Добавить игрока с указанным юзернеймом в вайтлист.
 command-whitelistadd-help = whitelistadd <username>

@@ -31,8 +31,69 @@ anomaly-generator-no-cooldown = Перезарядка: [color=gray]Заверш
 anomaly-generator-yes-fire = Статус: [color=forestgreen]Готов[/color]
 anomaly-generator-no-fire = Статус: [color=crimson]Не готов[/color]
 anomaly-generator-generate = Создать аномалию
-anomaly-generator-charges = {$charges -> 
+anomaly-generator-charges = {$charges ->
     [one] {$charges} заряд
     *[other] {$charges} заряды
 }
 anomaly-generator-announcement = Была сгенерирована аномалия!
+
+ent-AnomalyScanner = сканер аномалий
+    .desc = Ручной сканер, созданный для сбора информации о различных аномальных объектах.
+    .suffix = { "" }
+ent-BaseAnomaly = аномалия
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+    .suffix = { "" }
+ent-AnomalyPyroclastic = аномалия
+    .suffix = Пирокластическая
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+ent-AnomalyGravity = аномалия
+    .suffix = Гравитационная
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+ent-AnomalyElectricity = аномалия
+    .suffix = Электрическая
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+ent-AnomalyFlesh = аномалия
+    .suffix = Плоть
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+ent-AnomalyBluespace = аномалия
+    .suffix = Блюспейс
+    .desc = Невозможный объект в космосе. Стоит ли вам стоять так близко к нему?
+ent-MobFleshLover = уродливая плоть
+    .suffix = ИИ
+    .desc = Неуклюжая масса плоти, оживленная аномальной энергией.
+ent-MobFleshGolem = { ent-MobFleshLover }
+    .suffix = ИИ
+    .desc = { ent-MobFleshLover.desc }
+ent-MobFleshClamp = { ent-MobFleshLover }
+    .suffix = ИИ
+    .desc = { ent-MobFleshLover.desc }
+ent-MobFleshJared = { ent-MobFleshLover }
+    .suffix = ИИ
+    .desc = { ent-MobFleshLover.desc }
+ent-FleshKudzu = сухожилия
+    .suffix = { "" }
+    .desc = Быстрорастущее скопление мясных сухожилий. ПОЧЕМУ ТЫ НЕ ПРЕКРАЩАЕШЬ НА ЭТО СМОТРЕТЬ?
+ent-FleshBlocker = сгусток плоти
+    .suffix = { "" }
+    .desc = Раздражаюзий сгусток плоти.
+ent-SignAnomaly2 = знак лаборатории аномалий
+    .suffix = { "" }
+    .desc = Знак, обозначающий лабораторию изучения аномалий.
+ent-AnomalyVesselCircuitboard = аномальный сосуд (машинная плата)
+    .suffix = { "Машинная плата" }
+    .desc = Напечатанная машинная плата для аномального сосуда.
+ent-BoozeDispenserMachineCircuitboard = раздатчик алкоголя (машинная плата)
+    .suffix = { "Машинная плата" }
+    .desc = Напечатанная машинная плата для раздатчика алкоголя.
+ent-CrewMonitoringServerMachineCircuitboard = сервер отслеживания экипажа (машинная плата)
+    .suffix = { "Машинная плата" }
+    .desc = Напечатанная машинная плата для сервера отслеживани экипажа.
+ent-SodaDispenserMachineCircuitboard = раздатчик газировки (машинная плата)
+    .suffix = { "Машинная плата" }
+    .desc = Напечатанная машинная плата для раздатчика газировки.
+ent-TelecomServerCircuitboard = сервер связи (машинная плата)
+    .suffix = { "Машинная плата" }
+    .desc = Напечатанная машинная плата для сервера связи.
+ent-PaperArtifactAnalyzer = отчёт анализа артефакта
+    .suffix = { "" }
+    .desc = Отчёт из оборудовния, забытого временем.

@@ -1,5 +1,6 @@
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Prototypes;
@@ -8,21 +9,21 @@ namespace Content.Shared.Humanoid.Prototypes;
 ///     Base sprites for a species (e.g., what replaces the empty tagged layer,
 ///     or settings per layer)
 /// </summary>
-[Prototype("speciesBaseSprites")]
-public sealed class HumanoidSpeciesBaseSpritesPrototype : IPrototype
-{
-     [IdDataField]
-     public string ID { get; } = default!;
+//[Prototype("speciesBaseSprites")]
+//public sealed class HumanoidSpeciesBaseSpritesPrototype : IPrototype
+//{
+//     [IdDataField]
+//     public string ID { get; } = default!;
 
-     /// <summary>
-     ///     Sprites that this species will use on the given humanoid
-     ///     visual layer. If a key entry is empty, it is assumed that the
-     ///     visual layer will not be in use on this species, and will
-     ///     be ignored.
-     /// </summary>
-     [DataField("sprites", required: true)]
-     public Dictionary<HumanoidVisualLayers, string> Sprites = new();
-}
+//     /// <summary>
+//     ///     Sprites that this species will use on the given humanoid
+//     ///     visual layer. If a key entry is empty, it is assumed that the
+//     ///     visual layer will not be in use on this species, and will
+//     ///     be ignored.
+//     /// </summary>
+//     //[DataField("sprites", required: true)]
+//     //public Dictionary<HumanoidVisualLayers, string> Sprites = new();
+//}
 
 /// <summary>
 ///     Humanoid species sprite layer. This is what defines the base layer of

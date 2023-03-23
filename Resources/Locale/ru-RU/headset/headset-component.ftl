@@ -16,7 +16,19 @@ examine-headset-channel = [color={$color}]{$keys} для {$id} ({$freq})[/color]
 examine-headset-no-keys = Похоже, это сломано. Нет ключей шифрования.
 examine-default-channel = Используй {$prefix} для стандартного ([color={$color}]{$channel}[/color]).
 examine-headset-chat-prefix = Используй {$prefix} для частоты своего отдела.
-examine-headset-default-channel = Это указывает на то, что канал по умолчанию этой гарнитуры - [color={$color}]{$channel}[/color].
+examine-headset-default-channel = Это указывает на то, что канал по умолчанию этой гарнитуры - [color={$color}]{$channel ->
+    [Syndicate]Синдикат
+    [Supply]Снабжение
+    [Command]Командование
+    [CentCom]ЦентКом
+    [Common]Общий
+    [Engineering]Инженерный
+    [Science]Научный
+    [Medical]Медицинский
+    [Security]Безопасность
+    [Service]Сервисный
+    *[other]_
+    }[/color].
 examine-encryption-key-default-channel = Похоже, что [color={$color}]{$channel}[/color] - это канал по умолчанию.
 
 chat-radio-common = Общий
@@ -28,4 +40,4 @@ chat-radio-science = Научный
 chat-radio-security = Безопасность
 chat-radio-service = Сервисный
 chat-radio-supply = Снабжение
-chat-radio-syndicate = СиндикаТ
+chat-radio-syndicate = Синдикат

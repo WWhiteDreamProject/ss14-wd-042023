@@ -9,4 +9,6 @@ public interface IChatSanitizationManager
     public bool TrySanitizeOutSmilies(string input, EntityUid speaker, out string sanitized, [NotNullWhen(true)] out string? emote);
 
     public string SanitizeOutSlang(string input);
+
+    public string SanitizeTags(string input);
 }

@@ -82,3 +82,6 @@ ent-ClothingOuterHardsuitERTSecurity = скафандр офицера безо�
 ent-ClothingOuterHardsuitERTJanitor = скафандр уборщика ОБР
     .desc = { ent-ClothingOuterHardsuitERTLeader.desc }
     .suffix = { "" }
+ent-ClothingOuterHardsuitWarden = скафандр смотрителя
+    .desc = Специальный костюм, защищающий от опасной среды с низким давлением. Имеет дополнительный слой брони.
+    .suffix = { "" }

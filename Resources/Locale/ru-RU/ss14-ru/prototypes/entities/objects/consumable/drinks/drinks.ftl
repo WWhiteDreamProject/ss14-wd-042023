@@ -388,3 +388,6 @@ ent-DrinkKvassGlass = кружка кваса
 ent-DrinkPoscaGlass = стакан поски
     .desc = Напиток бедных воинов из забытой эпохи.
     .suffix = { "" }
+ent-DrinkGlassCoupeShaped = Бокал
+    .desc = Классический бокал с тонкой ножкой. Икона всех ящиков с хрупким содержимым.
+    .suffix = { "" }

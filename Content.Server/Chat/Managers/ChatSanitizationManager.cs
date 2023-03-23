@@ -142,4 +142,9 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
 
         return newMessage;
     }
+
+    public string SanitizeTags(string input)
+    {
+        return FormattedMessage.RemoveMarkup(input);
+    }
 }

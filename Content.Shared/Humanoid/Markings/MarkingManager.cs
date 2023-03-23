@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Humanoid.Markings
@@ -166,12 +167,13 @@ namespace Content.Shared.Humanoid.Markings
             return true;
         }
 
-        public bool MustMatchSkin(string species, HumanoidVisualLayers layer, out float alpha, IPrototypeManager? prototypeManager = null)
+        public bool MustMatchSkin(string speciesBodyType, HumanoidVisualLayers layer, out float alpha, IPrototypeManager? prototypeManager = null)
         {
             IoCManager.Resolve(ref prototypeManager);
-            var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
+            //var speciesProto = prototypeManager.Index<SpeciesPrototype>(profile.Species);
+
             if (
-                !prototypeManager.TryIndex(speciesProto.SpriteSet, out HumanoidSpeciesBaseSpritesPrototype? baseSprites) ||
+                !prototypeManager.TryIndex(speciesBodyType, out BodyTypePrototype? baseSprites) ||
                 !baseSprites.Sprites.TryGetValue(layer, out var spriteName) ||
                 !prototypeManager.TryIndex(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
                 sprite == null ||

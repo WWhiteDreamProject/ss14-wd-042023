@@ -24,30 +24,36 @@ public sealed class EnergyDoubleSwordCraftSystem : EntitySystem
         if (args.Handled)
             return;
 
+        var user = args.User;
         var usedEnt = _entityManager.GetComponent<MetaDataComponent>(args.Used).EntityPrototype!.ID;
         var usedTo = _entityManager.GetComponent<MetaDataComponent>(uid).EntityPrototype!.ID;
 
-        if (usedTo is EnergyDoubleSword or null)
+        if (usedTo is EnergyDoubleSword)
         {
             _audio.PlayPvs("/Audio/White/Other/fail.ogg", uid, AudioParams.Default.WithVolume(-6f));
             return;
         }
 
-        if (usedEnt is not NeededEnt or null)
+        if (usedEnt != NeededEnt || usedTo != NeededEnt)
             return;
 
-        SpawnEnergyDoubleSword(uid);
-        _entityManager.DeleteEntity(args.Used);
-        _entityManager.DeleteEntity(uid);
+        DeleteUsed(args.Used, uid);
+        SpawnEnergyDoubleSword(user);
+    }
+
+
+    private void DeleteUsed(EntityUid itemA, EntityUid itemB)
+    {
+        _entityManager.DeleteEntity(itemA);
+        _entityManager.DeleteEntity(itemB);
     }
 
     private void SpawnEnergyDoubleSword(EntityUid player)
     {
         var transform = CompOrNull<TransformComponent>(player)?.Coordinates;
+
         if (transform == null)
-        {
             return;
-        }
 
         var weaponEntity = _entityManager.SpawnEntity(EnergyDoubleSword, transform.Value);
         _handsSystem.PickupOrDrop(player, weaponEntity);

@@ -202,7 +202,7 @@ public sealed class EncryptionKeySystem : EntitySystem
                 : $":{string.Join(", :", proto.KeyCodes.ToArray())}";
             examineEvent.PushMarkup(Loc.GetString(channelFTLPattern,
                 ("color", proto.Color),
-                ("keys", key),
+                ("key", key),
                 ("id", proto.LocalizedName),
                 ("freq", proto.Frequency)));
         }
