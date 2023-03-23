@@ -12,6 +12,7 @@ health-analyzer-window-damage-group-Burn = Физические
 health-analyzer-window-damage-type-Heat = Термические
 health-analyzer-window-damage-type-Shock = Электрические
 health-analyzer-window-damage-type-Cold = Обморожение
+health-analyzer-window-damage-type-Caustic = Ядовитый
 health-analyzer-window-damage-group-Airloss = Нехватка воздуха
 health-analyzer-window-damage-type-Asphyxiation = Удушение
 health-analyzer-window-damage-type-Bloodloss = Кровопотеря

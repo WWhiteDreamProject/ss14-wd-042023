@@ -18,3 +18,4 @@ lobby-state-player-status-round-time =
         [few] минуты
        *[other] минут
     }
+lobby-state-preloading = Скоро

@@ -8,9 +8,9 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    name: Remilia, the chaplain's familiar
-    description: Obey your master. Eat fruit.
-    rules: You are an intelligent fruit bat. Follow the chaplain around. Don't cause any trouble unless the chaplain tells you to.
+    name: Ремилия, фамильяр священника.
+    description: Повинуйтесь своему мастеру. Ешьте фрукты.
+    rules: Вы умная фруктовая летучая мышь. Следуйте за капелланом повсюду. Не создавайте никаких проблем, если только капеллан не прикажет вам это сделать.
   - type: Grammar
     attributes:
       gender: female
@@ -36,9 +36,9 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    name: Cerberus, Evil Familiar
-    description: Obey your master. Spread chaos.
-    rules: You are an intelligent, demonic dog. Try to help the chaplain and any of his flock. As an antagonist, you're otherwise unrestrained.
+    name: Цербер, злой фамильяр
+    description: Повинуйтесь своему мастеру. Сейте хаос.
+    rules: Вы умная, демоническая собака. Постарайтесь помочь капеллану и любому из его паствы. Как антагонист, в остальном вы несдержанны.
   - type: MeleeWeapon
     hidden: true
     angle: 0

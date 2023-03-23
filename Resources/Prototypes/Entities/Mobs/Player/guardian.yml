@@ -11,8 +11,8 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
-      name: Guardian
-      description: Listen to your owner. Don't tank damage. Punch people hard.
+      name: Страж
+      description: Прислушивайтесь к своему хозяину. Не получайте урона. Бейте людей изо всех сил.
     - type: Input
       context: "human"
     - type: MobMover
@@ -108,8 +108,8 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
-      name: Holoparasite
-      description: Listen to your owner. Don't tank damage. Punch people hard.
+      name: Голопаразит
+      description: Прислушивайтесь к своему хозяину. Не получайте урона. Бейте людей изо всех сил.
     - type: NameIdentifier
       group: Holoparasite
     - type: TypingIndicator
@@ -134,8 +134,8 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
-      name: Ifrit
-      description: Listen to your owner. Don't tank damage. Punch people hard.
+      name: Ифрит
+      description: Прислушивайтесь к своему хозяину. Не получайте урона. Бейте людей изо всех сил.
     - type: RandomSprite
       available:
         - enum.DamageStateVisualLayers.BaseUnshaded:

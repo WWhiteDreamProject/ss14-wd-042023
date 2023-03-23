@@ -82,3 +82,27 @@ ent-CrystalSubspaceStockPart = ансибл кристалл
 ent-TransmitterSubspaceStockPart = подпространственный трансмиттер
     .desc = Большая часть оборудования, используемая для открытия окна в подпространственное измерение.
     .suffix = { "" }
+
+MatterBin = ёмкость материи
+Manipulator = манипулятор
+Laser = лазер
+ScanningModule = сканирующий модуль
+Capacitor = конденсатор
+Cable = НВ провод
+Glass = стекло
+PlasmaGlass = плазменное стекло
+Glass Beaker = мензурка
+CableHV = ВВ провод
+Steel = сталь
+Pipe = труба
+BorgArm = рука борга
+Knife = нож
+CableMV = СВ провод
+KeyedInstrument = клавишный инструмент
+StringInstrument = струнный инструмент
+PercussionInstrument = ударный инструмент
+BrassInstrument = духовой инструмент
+WoodwindInstrument = деревянный духовой инструмент
+Cryobeaker = криостазисная мензурка
+Plasma = плазма
+
