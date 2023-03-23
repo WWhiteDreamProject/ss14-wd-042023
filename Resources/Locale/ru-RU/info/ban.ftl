@@ -1,6 +1,6 @@
 # ban
 cmd-ban-desc = Банит кого-либо
-cmd-ban-help = Использование: { $Command } <name or user ID> <reason> [продолжительность в минутах, без указания или 0 для пермабана]
+cmd-ban-help = Usage: <name or user ID> <reason> [duration in minutes, leave out or 0 for permanent ban]
 cmd-ban-player = Не удалось найти игрока с таким именем.
 cmd-ban-self = Вы не можете забанить себя!
 cmd-ban-hint = <name/user ID>

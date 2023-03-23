@@ -1,5 +1,3 @@
-using Content.Server.Cargo.Components;
-using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
@@ -7,7 +5,6 @@ using Content.Server.Shuttles.Events;
 using Content.Server.UserInterface;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
-using Content.Shared.Cargo.Components;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
@@ -18,7 +15,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -33,8 +29,6 @@ namespace Content.Server.Shuttles.Systems
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly TagSystem _tags = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly CargoSystem _cargo = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -70,7 +64,9 @@ namespace Content.Server.Shuttles.Systems
         private void OnDestinationMessage(EntityUid uid, ShuttleConsoleComponent component, ShuttleConsoleDestinationMessage args)
         {
             if (!TryComp<FTLDestinationComponent>(args.Destination, out var dest))
+            {
                 return;
+            }
 
             if (!dest.Enabled)
                 return;
@@ -88,19 +84,6 @@ namespace Content.Server.Shuttles.Systems
             if (!TryComp<TransformComponent>(entity, out var xform) ||
                 !TryComp<ShuttleComponent>(xform.GridUid, out var shuttle))
             {
-                return;
-            }
-
-            var gridXform = Transform(args.Destination);
-            if (TryComp<CargoShuttleComponent>(xform.GridUid, out var cargoShuttle) &&
-                gridXform.MapID == _cargo.CargoMap && _cargo.IsBlocked(cargoShuttle))
-            {
-                if (args.Session.AttachedEntity == null)
-                    return;
-                _popup.PopupEntity(Loc.GetString("cargo-shuttle-console-organics"), args.Session.AttachedEntity.Value, args.Session.AttachedEntity.Value);
-
-                if (TryComp<CargoPilotConsoleComponent>(uid, out var cargoConsole))
-                    _audio.PlayPvs(_audio.GetSound(cargoConsole.DenySound), args.Session.AttachedEntity.Value);
                 return;
             }
 
@@ -122,7 +105,7 @@ namespace Content.Server.Shuttles.Systems
                 return;
             }
 
-            var dock = HasComp<MapComponent>(args.Destination);
+            var dock = HasComp<MapComponent>(args.Destination) && HasComp<MapGridComponent>(args.Destination);
             var tagEv = new FTLTagEvent();
             RaiseLocalEvent(xform.GridUid.Value, ref tagEv);
 
@@ -152,7 +135,6 @@ namespace Content.Server.Shuttles.Systems
         {
             var docks = GetAllDocks();
             var query = AllEntityQuery<ShuttleConsoleComponent>();
-
 
             while (query.MoveNext(out var uid, out var comp))
             {
@@ -234,6 +216,7 @@ namespace Content.Server.Shuttles.Systems
         /// </summary>
         private List<DockingInterfaceState> GetAllDocks()
         {
+            // TODO: NEED TO MAKE SURE THIS UPDATES ON ANCHORING CHANGES!
             var result = new List<DockingInterfaceState>();
             var query = AllEntityQuery<DockingComponent, TransformComponent>();
 
@@ -316,10 +299,9 @@ namespace Content.Server.Shuttles.Systems
 
                     var canTravel = !locked &&
                                     comp.Enabled &&
-                                    !Paused(destUid, meta) &&
-                                    (!TryComp<FTLComponent>(destUid, out var ftl) || ftl.State == FTLState.Cooldown);
+                                    (!TryComp<FTLComponent>(comp.Owner, out var ftl) || ftl.State == FTLState.Cooldown);
 
-                    // Can't travel to same map.
+                    // Can't travel to same map (yet)
                     if (canTravel && consoleXform?.MapUid == Transform(destUid).MapUid)
                     {
                         canTravel = false;
@@ -436,8 +418,7 @@ namespace Content.Server.Shuttles.Systems
                 eye.Zoom = new(1.0f, 1.0f);
             }
 
-            if (!helmsman.SubscribedPilots.Remove(pilotComponent))
-                return;
+            if (!helmsman.SubscribedPilots.Remove(pilotComponent)) return;
 
             _alertsSystem.ClearAlert(pilotUid, AlertType.PilotingShuttle);
 

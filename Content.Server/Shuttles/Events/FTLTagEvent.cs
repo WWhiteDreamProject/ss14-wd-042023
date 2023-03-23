@@ -1,4 +1,4 @@
-﻿namespace Content.Server.Shuttles.Events;
+namespace Content.Server.Shuttles.Events;
 
 /// <summary>
 /// Raised when trying to get a priority tag for docking.

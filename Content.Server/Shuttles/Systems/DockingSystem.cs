@@ -148,7 +148,6 @@ namespace Content.Server.Shuttles.Systems
             if (dockA.DockJoint != null)
                 _jointSystem.RemoveJoint(dockA.DockJoint);
 
-
             var dockBUid = dockA.DockedWith;
 
             if (dockBUid == null ||
@@ -280,11 +279,12 @@ namespace Content.Server.Shuttles.Systems
         /// <summary>
         /// Docks 2 ports together and assumes it is valid.
         /// </summary>
-         public void Dock(EntityUid dockAUid, DockingComponent dockA, EntityUid dockBUid, DockingComponent dockB)
+        public void Dock(EntityUid dockAUid, DockingComponent dockA, EntityUid dockBUid, DockingComponent dockB)
         {
             if (dockBUid.GetHashCode() < dockAUid.GetHashCode())
             {
                 (dockA, dockB) = (dockB, dockA);
+                (dockAUid, dockBUid) = (dockBUid, dockAUid);
             }
 
             _sawmill.Debug($"Docking between {dockAUid} and {dockBUid}");
@@ -347,12 +347,12 @@ namespace Content.Server.Shuttles.Systems
                 dockB.DockJointId = joint.ID;
             }
 
-            dockA.DockedWith = dockB.Owner;
-            dockB.DockedWith = dockA.Owner;
+            dockA.DockedWith = dockBUid;
+            dockB.DockedWith = dockAUid;
 
             if (TryComp(dockAUid, out DoorComponent? doorA))
             {
-                if (_doorSystem.TryOpen(doorA.Owner, doorA))
+                if (_doorSystem.TryOpen(dockAUid, doorA))
                 {
                     doorA.ChangeAirtight = false;
                     if (TryComp<AirlockComponent>(dockAUid, out var airlockA))
@@ -364,7 +364,7 @@ namespace Content.Server.Shuttles.Systems
 
             if (TryComp(dockBUid, out DoorComponent? doorB))
             {
-                if (_doorSystem.TryOpen(doorB.Owner, doorB))
+                if (_doorSystem.TryOpen(dockBUid, doorB))
                 {
                     doorB.ChangeAirtight = false;
                     if (TryComp<AirlockComponent>(dockBUid, out var airlockB))
@@ -442,8 +442,7 @@ namespace Content.Server.Shuttles.Systems
         /// </summary>
         private void TryDock(EntityUid dockAUid, DockingComponent dockA, EntityUid dockBUid, DockingComponent dockB)
         {
-            if (!CanDock(dockA, dockB))
-                return;
+            if (!CanDock(dockA, dockB)) return;
 
             Dock(dockAUid, dockA, dockBUid, dockB);
         }
