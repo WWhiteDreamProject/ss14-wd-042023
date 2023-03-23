@@ -28,7 +28,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 40 #This is probably enough damage before it breaks
+            damage: 250 #This is probably enough damage before it breaks
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -106,7 +106,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 30 #Weaker shield
+            damage: 120 #Weaker shield
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -140,7 +140,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 20 #Very weak shield
+            damage: 160 #Very weak shield
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -188,7 +188,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 40
+            damage: 250
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
