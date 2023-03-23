@@ -734,13 +734,19 @@
 
 - type: entity
   parent: AirlockGlassShuttle
-  id: AirlockExternalGlassShuttleEmergencyLockedCARG
-  suffix: External, Emergency, Glass, Docking, Locked
+  id: AirlockExternalGlassShuttleArrivals
+  suffix: External, Arrivals, Glass, Docking
+  components:
+    - type: PriorityDock
+      tag: DockArrivals
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleArrivalsCargo
+  suffix: External, Arrivals, Glass, Docking
   components:
     - type: PriorityDock
       tag: DockCargo
-    - type: AccessReader
-      access: [["External"]]
 
 #HighSecDoors
 - type: entity

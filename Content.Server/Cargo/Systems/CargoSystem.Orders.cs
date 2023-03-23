@@ -279,7 +279,7 @@ namespace Content.Server.Cargo.Systems
             {
                 var station = _station.GetOwningStation(uid);
                 if (station != component.Owner)
-                    continue;;
+                    continue;
 
                 UpdateShuttleState(uid, comp, station);
             }

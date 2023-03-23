@@ -12,6 +12,8 @@ using Content.Server.UtkaIntegration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Shuttles.Events;
+using Content.Shared.Tiles;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Server.Player;
@@ -108,14 +110,6 @@ public sealed partial class ShuttleSystem
            StationUid = targetGrid,
            Position = config.Area,
        });
-   }
-
-   /// <summary>
-   /// Checks whether the emergency shuttle can warp to the specified position.
-   /// </summary>
-   private bool ValidSpawn(MapGridComponent grid, Box2 area)
-   {
-       return !grid.GetLocalTilesIntersecting(area).Any();
    }
 
    /// <summary>
@@ -342,6 +336,7 @@ public sealed partial class ShuttleSystem
 
        _shuttleIndex += _mapManager.GetGrid(shuttle.Value).LocalAABB.Width + ShuttleSpawnBuffer;
        component.EmergencyShuttle = shuttle;
+       EnsureComp<ProtectedGridComponent>(shuttle.Value);
    }
 
    private void CleanupEmergencyShuttle()
