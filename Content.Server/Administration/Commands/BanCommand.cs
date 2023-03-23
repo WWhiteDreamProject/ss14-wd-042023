@@ -99,9 +99,9 @@ namespace Content.Server.Administration.Commands
 
             await dbMan.AddServerBanAsync(banDef);
 
-            var response = new StringBuilder($"Banned {target} with reason \"{reason}\"");
+            var response = new StringBuilder($"Забанен {target} с причиной \"{reason}\"");
 
-            response.Append(expires == null ? " permanently." : $" until {expires}");
+            response.Append(expires == null ? " навсегда." : $" до {expires}");
 
             shell.WriteLine(response.ToString());
 

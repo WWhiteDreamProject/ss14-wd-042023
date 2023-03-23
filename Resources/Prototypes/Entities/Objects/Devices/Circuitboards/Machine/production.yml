@@ -27,7 +27,7 @@
         GlassBeaker:
           Amount: 2
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: SecurityTechFabCircuitboard
@@ -46,7 +46,7 @@
         GlassBeaker:
           Amount: 2
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: MedicalTechFabCircuitboard
@@ -65,7 +65,7 @@
         GlassBeaker:
           Amount: 2
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: CircuitImprinterMachineCircuitboard
@@ -83,7 +83,7 @@
       GlassBeaker:
         Amount: 2
         DefaultPrototype: Beaker
-        ExamineName: Glass Beaker
+        ExamineName: GlassBeaker
 
 - type: entity
   id: ExosuitFabricatorMachineCircuitboard
@@ -129,7 +129,7 @@
         GlassBeaker:
           Amount: 1
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: DiagnoserMachineCircuitboard
@@ -353,7 +353,7 @@
         GlassBeaker:
           Amount: 2
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: ChemDispenserMachineCircuitboard
@@ -387,15 +387,15 @@
         Pipe:
           Amount: 1
           DefaultPrototype: GasPipeStraight
-          ExamineName: pipe
+          ExamineName: Pipe
         BorgArm:
           Amount: 3
           DefaultPrototype: LeftArmBorg
-          ExamineName: borg arm
+          ExamineName: BorgArm
         Knife:
           Amount: 3
           DefaultPrototype: KitchenKnife
-          ExamineName: knife
+          ExamineName: Knife
 
 - type: entity
   id: HydroponicsTrayMachineCircuitboard
@@ -419,7 +419,7 @@
         GlassBeaker:
           Amount: 2
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: SeedExtractorMachineCircuitboard
@@ -484,23 +484,23 @@
        KeyedInstrument:
           Amount: 1
           DefaultPrototype: SynthesizerInstrument
-          ExamineName: Keyed Instrument
+          ExamineName: KeyedInstrument
        StringInstrument:
           Amount: 1
           DefaultPrototype: AcousticGuitarInstrument
-          ExamineName: String Instrument
+          ExamineName: StringInstrument
        PercussionInstrument:
           Amount: 1
           DefaultPrototype: GlockenspielInstrument
-          ExamineName: Percussion Instrument
+          ExamineName: PercussionInstrument
        BrassInstrument:
           Amount: 1
           DefaultPrototype: TrumpetInstrument
-          ExamineName: Brass Instrument
+          ExamineName: BrassInstrument
        WoodwindInstrument:
           Amount: 1
           DefaultPrototype: SaxophoneInstrument
-          ExamineName: Woodwind Instrument
+          ExamineName: WoodwindInstrument
 
 - type: entity
   id: GeneratorPlasmaMachineCircuitboard
@@ -572,7 +572,7 @@
         GlassBeaker:
           Amount: 1
           DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          ExamineName: GlassBeaker
 
 - type: entity
   id: HotplateMachineCircuitboard
@@ -726,7 +726,7 @@
     materialRequirements:
       Steel: 10
       Plasma: 5
-      
+
 - type: entity
   id: BoozeDispenserMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -743,7 +743,7 @@
           GlassBeaker:
             Amount: 1
             DefaultPrototype: Beaker
-            ExamineName: Glass Beaker
+            ExamineName: GlassBeaker
 
 - type: entity
   id: SodaDispenserMachineCircuitboard
@@ -761,12 +761,12 @@
           GlassBeaker:
             Amount: 1
             DefaultPrototype: Beaker
-            ExamineName: Glass Beaker
+            ExamineName: GlassBeaker
 
 - type: entity
   id: TelecomServerCircuitboard
   parent: BaseMachineCircuitboard
-  name: telecommunication server machine board 
+  name: telecommunication server machine board
   description: A machine printed circuit board for an telecommunication server.
   components:
     - type: MachineBoard
