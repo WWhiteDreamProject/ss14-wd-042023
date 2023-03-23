@@ -298,7 +298,7 @@ namespace Content.Server.Preferences.Managers
 
                             if (!prototypeManager.TryIndex<SpeciesPrototype>(hp.Species, out var selectedSpecies) || selectedSpecies.RoundStart)
                             {
-                                selectedSpecies = prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies);
+                                selectedSpecies = prototypeManager.Index<SpeciesPrototype>(hp.Species);
                             }
 
                             if (!prototypeManager.TryIndex<BodyTypePrototype>(hp.BodyType, out var selectedBodyType) || !SharedHumanoidAppearanceSystem.IsBodyTypeValid(selectedBodyType, selectedSpecies, hp.Sex))

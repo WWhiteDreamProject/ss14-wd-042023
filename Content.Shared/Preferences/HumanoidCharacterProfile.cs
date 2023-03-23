@@ -147,7 +147,7 @@ namespace Content.Shared.Preferences
                 18,
                 Sex.Male,
                 Gender.Male,
-                SharedHumanoidAppearanceSystem.DefaultBodyType,
+                HumanoidCharacterAppearance.DefaultWithBodyType(species),
                 HumanoidCharacterAppearance.DefaultWithSpecies(species),
                 ClothingPreference.Jumpsuit,
                 BackpackPreference.Backpack,

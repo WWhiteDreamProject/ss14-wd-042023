@@ -97,6 +97,13 @@ namespace Content.Shared.Humanoid
         {
         }
 
+        public static string DefaultWithBodyType(string species)
+        {
+            var speciesPrototype = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species);
+
+            return speciesPrototype.BodyTypes.First();
+        }
+
         public static HumanoidCharacterAppearance DefaultWithSpecies(string species)
         {
             var speciesPrototype = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species);
