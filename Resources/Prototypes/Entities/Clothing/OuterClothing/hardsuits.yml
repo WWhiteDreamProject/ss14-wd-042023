@@ -266,7 +266,7 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: Item
-    size: 100
+    size: 50
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ToggleableClothing
