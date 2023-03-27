@@ -1,40 +1,40 @@
 - type: announcer
-  id: Gayse
-  name: Alert Server #3
-  basePath: /Audio/White/Announcements/Gayse
+  id: VoxFem
+  name: Alert Server #1
+  basePath: /Audio/White/Announcements/VoxFem
   announcementPaths:
     - id: aliens
-      path: warning.ogg
+      path: aliens.ogg
     - id: announce
-      path: warning.ogg
+      path: announce.ogg
     - id: anomalyspawn
       path: anomaly.ogg
     - id: attention
-      path: warning.ogg
+      path: attention.ogg
     - id: commandreport
-      path: central_command.ogg
+      path: commandreport.ogg
     - id: ionstorm
-      path: ion.ogg
+      path: ionstorm.ogg
     - id: meteorswarm
-      path: meteors1.ogg
+      path: meteors.ogg
     - id: newai
-      path: warning.ogg
+      path: newai.ogg
     - id: diseaseoutbreak
-      path: bio7.ogg
+      path: outbreak7.ogg
     - id: powergridcheck
-      path: powerdown.ogg
+      path: poweroff.ogg
     - id: powergridcheckcomplete
-      path: powerup.ogg
+      path: poweron.ogg
     - id: radiation
-      path: rad1.ogg
+      path: radiation.ogg
     - id: shuttlecalled
-      path: evac_called.ogg
+      path: shuttlecalled.ogg
     - id: shuttledock
-      path: evac_docked.ogg
+      path: shuttledock.ogg
     - id: shuttlerecalled
-      path: evac_recall.ogg
+      path: shuttlerecalled.ogg
     - id: welcome
-      path: hello_crew.ogg
+      path: welcome.ogg
     # If there is no announcement for a specific event, the fallback will be played.
     - id: fallback
-      path: warning.ogg
+      path: fallback.ogg

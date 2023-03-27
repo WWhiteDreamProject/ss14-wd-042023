@@ -1,7 +1,11 @@
 using Content.Server.Power.Components;
 using JetBrains.Annotations;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using System.Threading;
 using Content.Server.Power.EntitySystems;
+using Timer = Robust.Shared.Timing.Timer;
 using System.Linq;
 using Robust.Shared.Random;
 using Content.Server.Station.Components;
@@ -12,8 +16,11 @@ namespace Content.Server.StationEvents.Events
     public sealed class PowerGridCheck : StationEventSystem
     {
         [Dependency] private readonly ApcSystem _apcSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
         public override string Prototype => "PowerGridCheck";
+
+        private CancellationTokenSource? _announceCancelToken;
 
         private readonly List<EntityUid> _powered = new();
         private readonly List<EntityUid> _unpowered = new();
@@ -77,9 +84,7 @@ namespace Content.Server.StationEvents.Events
                     break;
 
                 var selected = _powered.Pop();
-                if (EntityManager.Deleted(selected))
-                    continue;
-
+                if (EntityManager.Deleted(selected)) continue;
                 if (EntityManager.TryGetComponent<ApcComponent>(selected, out var apcComponent))
                 {
                     if (apcComponent.MainBreakerEnabled)
@@ -93,8 +98,7 @@ namespace Content.Server.StationEvents.Events
         {
             foreach (var entity in _unpowered)
             {
-                if (EntityManager.Deleted(entity))
-                    continue;
+                if (EntityManager.Deleted(entity)) continue;
 
                 if (EntityManager.TryGetComponent(entity, out ApcComponent? apcComponent))
                 {
@@ -103,7 +107,15 @@ namespace Content.Server.StationEvents.Events
                 }
             }
 
+            // Can't use the default EndAudio
+            _announceCancelToken?.Cancel();
+            _announceCancelToken = new CancellationTokenSource();
+            Timer.Spawn(3000, () =>
+            {
+                _audioSystem.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
+            }, _announceCancelToken.Token);
             _unpowered.Clear();
+
             base.Ended();
         }
     }
