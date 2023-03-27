@@ -9,7 +9,6 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.UtkaIntegration;
-using Content.Server.White.Announcements.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Shuttles.Events;
@@ -45,7 +44,6 @@ public sealed partial class ShuttleSystem
    [Dependency] private readonly MapLoaderSystem _map = default!;
    [Dependency] private readonly StationSystem _station = default!;
    [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
-   [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
    public MapId? CentComMap { get; private set; }
    public EntityUid? CentCom { get; private set; }
@@ -142,27 +140,24 @@ public sealed partial class ShuttleSystem
            if (TryComp<TransformComponent>(targetGrid.Value, out var targetXform))
            {
                var angle = GetAngle(xform, targetXform, xformQuery);
-               //_chatSystem.DispatchStationAnnouncement(stationUid.Value, Loc.GetString("emergency-shuttle-docked", ("time", $"{_consoleAccumulator:0}"), ("direction", angle.GetDir())), playDefaultSound: false);
-               _announcerSystem.SendAnnouncement("shuttledock", Filter.Broadcast(), Loc.GetString("emergency-shuttle-docked", ("time", $"{_consoleAccumulator:0}"), ("direction", angle.GetDir())));
+               _chatSystem.DispatchStationAnnouncement(stationUid.Value, Loc.GetString("emergency-shuttle-docked", ("time", $"{_consoleAccumulator:0}"), ("direction", angle.GetDir())), playDefaultSound: false);
            }
 
            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid.Value)} docked with stations");
            // TODO: Need filter extensions or something don't blame me.
-           //SoundSystem.Play("/Audio/Announcements/shuttle_dock.ogg", Filter.Broadcast());
+           SoundSystem.Play("/Audio/Announcements/shuttle_dock.ogg", Filter.Broadcast());
        }
        else
        {
            if (TryComp<TransformComponent>(targetGrid.Value, out var targetXform))
            {
                var angle = GetAngle(xform, targetXform, xformQuery);
-               //_chatSystem.DispatchStationAnnouncement(stationUid.Value, Loc.GetString("emergency-shuttle-nearby", ("direction", angle.GetDir())), playDefaultSound: false);
-               _announcerSystem.SendAnnouncement("shuttledock", Filter.Broadcast(), Loc.GetString("emergency-shuttle-nearby", ("direction", angle.GetDir())));
-
+               _chatSystem.DispatchStationAnnouncement(stationUid.Value, Loc.GetString("emergency-shuttle-nearby", ("direction", angle.GetDir())), playDefaultSound: false);
            }
 
            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid.Value)} unable to find a valid docking port for {ToPrettyString(stationUid.Value)}");
            // TODO: Need filter extensions or something don't blame me.
-           //SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
+           SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
        }
 
        SendRoundStatus("shuttle_docked");

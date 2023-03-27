@@ -147,10 +147,6 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("gcQueue");
             //Generation Shit
 
-            //RandomAnnouncer
-            _prototypeManager.RegisterIgnore("announcer");
-            //RandomAnnouncer
-
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _stylesheetManager.Initialize();

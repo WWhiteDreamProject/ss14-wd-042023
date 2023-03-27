@@ -91,6 +91,8 @@ public sealed class OnDeath : EntitySystem
         => _audio.PlayEntity(DeathSounds, uid, uid, AudioParams.Default);
 
     private void OnGhosted(EntityUid uid, GhostComponent component, ComponentInit args)
-        => StopPlayingStream(uid);
+    {
+        StopPlayingStream(uid);
+    }
 
 }

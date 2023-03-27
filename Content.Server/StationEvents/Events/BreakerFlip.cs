@@ -2,9 +2,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Station.Components;
-using Content.Server.White.Announcements.Systems;
 using JetBrains.Annotations;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
@@ -13,7 +11,6 @@ namespace Content.Server.StationEvents.Events;
 public sealed class BreakerFlip : StationEventSystem
 {
     [Dependency] private readonly ApcSystem _apcSystem = default!;
-    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
     public override string Prototype => "BreakerFlip";
 
@@ -22,8 +19,7 @@ public sealed class BreakerFlip : StationEventSystem
         base.Added();
 
         var str = Loc.GetString("station-event-breaker-flip-announcement", ("data", Loc.GetString(Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}"))));
-        //ChatSystem.DispatchGlobalAnnouncement(str, playSound: false, colorOverride: Color.Gold);
-        _announcerSystem.SendAnnouncement(Prototype, Filter.Broadcast(), str, colorOverride: Color.Gold);
+        ChatSystem.DispatchGlobalAnnouncement(str, playSound: false, colorOverride: Color.Gold);
     }
 
     public override void Started()
@@ -35,14 +31,14 @@ public sealed class BreakerFlip : StationEventSystem
         var chosenStation = RobustRandom.Pick(StationSystem.Stations.ToList());
 
         var stationApcs = new List<ApcComponent>();
-        foreach (var (apc, transform) in EntityQuery<ApcComponent, TransformComponent>())
+        foreach (var (apc, transform) in EntityQuery<ApcComponent, TransformComponent>()) 
         {
             if (apc.MainBreakerEnabled && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == chosenStation)
             {
                 stationApcs.Add(apc);
             }
         }
-
+        
         var toDisable = Math.Min(RobustRandom.Next(3, 7), stationApcs.Count);
         if (toDisable == 0)
             return;

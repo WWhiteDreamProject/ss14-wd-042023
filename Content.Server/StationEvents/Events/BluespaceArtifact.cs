@@ -1,13 +1,10 @@
-﻿using Content.Server.White.Announcements.Systems;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
+﻿using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class BluespaceArtifact : StationEventSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
     public override string Prototype => "BluespaceArtifact";
 
@@ -31,8 +28,7 @@ public sealed class BluespaceArtifact : StationEventSystem
 
         var str = Loc.GetString("bluespace-artifact-event-announcement",
             ("sighting", Loc.GetString(_random.Pick(PossibleSighting))));
-        _announcerSystem.SendAnnouncement(Prototype, Filter.Broadcast(), str, colorOverride: Color.FromHex("#18abf5"));
-        //ChatSystem.DispatchGlobalAnnouncement(str, colorOverride: Color.FromHex("#18abf5"));
+        ChatSystem.DispatchGlobalAnnouncement(str, colorOverride: Color.FromHex("#18abf5"));
     }
 
     public override void Started()
