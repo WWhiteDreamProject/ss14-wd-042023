@@ -1,6 +1,6 @@
 - type: announcer
   id: Gayse
-  name: Alert Server #3
+  name: Alert Server 1
   basePath: /Audio/White/Announcements/Gayse
   announcementPaths:
     - id: aliens
