@@ -41,3 +41,4 @@ latejoin-arrival-sender = Станции
 player-join-message = Игрок { $name } зашёл!
 player-first-join-message = Игрок { $name } зашёл на сервер впервые.
 player-leave-message = Игрок { $name } вышел!
+game-ticker-welcome-to-the-station = Welcome to the station crew, enjoy your stay!

@@ -5,12 +5,16 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind.Commands;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
+using Content.Server.White.Announcements.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSentience : StationEventSystem
 {
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+
     public override string Prototype => "RandomSentience";
 
     public override void Started()
@@ -54,7 +58,8 @@ public sealed class RandomSentience : StationEventSystem
             if(station == null) continue;
             stationsToNotify.Add((EntityUid) station);
         }
-        foreach (var station in stationsToNotify)
+
+        /*foreach (var station in stationsToNotify)
         {
             chatSystem.DispatchStationAnnouncement(
                 station,
@@ -65,6 +70,12 @@ public sealed class RandomSentience : StationEventSystem
                 playDefaultSound: false,
                 colorOverride: Color.Gold
             );
-        }
+        }*/
+
+        _announcerSystem.SendAnnouncement(Prototype, Filter.Broadcast(), Loc.GetString("station-event-random-sentience-announcement",
+                ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
+                ("data", Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}")),
+                ("strength", Loc.GetString($"random-sentience-event-strength-{RobustRandom.Next(1, 8)}"))),
+            colorOverride: Color.Gold);
     }
 }

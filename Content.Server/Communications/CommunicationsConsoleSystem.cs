@@ -1,9 +1,7 @@
 using System.Globalization;
-using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
-using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Interaction;
@@ -13,15 +11,14 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents;
+using Content.Server.White.Announcements.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Communications;
 using Content.Shared.Database;
 using Content.Shared.Emag.Components;
-using Content.Shared.Examine;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
@@ -42,6 +39,8 @@ namespace Content.Server.Communications
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly MeteorStationEventSchedulerSystem _meteorEvent = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+
 
         private const int MaxMessageLength = 256;
         private const float UIUpdateInterval = 5.0f;
@@ -215,7 +214,9 @@ namespace Content.Server.Communications
 
         private void OnSelectAlertLevelMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleSelectAlertLevelMessage message)
         {
-            if (message.Session.AttachedEntity is not {Valid: true} mob) return;
+            if (message.Session.AttachedEntity is not {Valid: true} mob)
+                return;
+
             if (!CanUse(mob, uid))
             {
                 _popupSystem.PopupCursor(Loc.GetString("comms-console-permission-denied"), message.Session, PopupType.Medium);
@@ -263,14 +264,14 @@ namespace Content.Server.Communications
             msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.AnnounceGlobal)
             {
-                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.AnnouncementSound, colorOverride: comp.AnnouncementColor);
+                _announcerSystem.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.AnnouncementColor);
 
                 if (message.Session.AttachedEntity != null)
                     _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Session.AttachedEntity.Value):player} has sent the following global announcement: {msg}");
 
                 return;
             }
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.AnnouncementColor);
+            _announcerSystem.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.AnnouncementColor);
 
             if (message.Session.AttachedEntity != null)
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Session.AttachedEntity.Value):player} has sent the following station announcement: {msg}");
@@ -278,8 +279,12 @@ namespace Content.Server.Communications
 
         private void OnCallShuttleMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleCallEmergencyShuttleMessage message)
         {
-            if (!CanCallOrRecall(comp)) return;
-            if (message.Session.AttachedEntity is not {Valid: true} mob) return;
+            if (!CanCallOrRecall(comp))
+                return;
+
+            if (message.Session.AttachedEntity is not {Valid: true} mob)
+                return;
+
             if (!OnStationCallOrRecall(uid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("comms-console-no-connection"), uid, message.Session);
@@ -306,8 +311,12 @@ namespace Content.Server.Communications
 
         private void OnRecallShuttleMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleRecallEmergencyShuttleMessage message)
         {
-            if (!CanCallOrRecall(comp)) return;
-            if (message.Session.AttachedEntity is not {Valid: true} mob) return;
+            if (!CanCallOrRecall(comp))
+                return;
+
+            if (message.Session.AttachedEntity is not {Valid: true} mob)
+                return;
+
             if (!OnStationCallOrRecall(uid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("comms-console-no-connection"), uid, message.Session);

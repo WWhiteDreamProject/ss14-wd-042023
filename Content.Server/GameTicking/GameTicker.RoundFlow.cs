@@ -20,6 +20,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.UtkaIntegration;
+using Content.Server.White.Announcements.Systems;
 using Content.Server.White.Stalin;
 using Content.Shared.Database;
 using Robust.Shared.Asynchronous;
@@ -31,6 +32,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly StalinManager _stalinManager = default!;
         [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -553,13 +555,16 @@ namespace Content.Server.GameTicking
             {
                 if (!proto.GamePresets.Contains(Preset.ID)) continue;
 
-                if (proto.Message != null)
+               /* if (proto.Message != null)
                     _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
 
                 if (proto.Sound != null)
                     SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
+               */
 
-                // Only play one because A
+               _announcerSystem.SendAnnouncement(proto.ID.ToLower(), Filter.Broadcast(), Loc.GetString(proto.Message ?? "game-ticker-welcome-to-the-station"));
+
+               // Only play one because A
                 break;
             }
         }

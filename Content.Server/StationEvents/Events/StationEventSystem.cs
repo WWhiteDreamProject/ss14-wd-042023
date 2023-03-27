@@ -6,6 +6,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Configurations;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.White.Announcements.Systems;
 using Content.Shared.Database;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -28,6 +29,7 @@ namespace Content.Server.StationEvents.Events
         [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
         [Dependency] protected readonly ChatSystem ChatSystem = default!;
         [Dependency] protected readonly StationSystem StationSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         protected ISawmill Sawmill = default!;
 
@@ -64,13 +66,14 @@ namespace Content.Server.StationEvents.Events
 
             if (ev.StartAnnouncement != null)
             {
-                ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(ev.StartAnnouncement), playSound: false, colorOverride: Color.Gold);
+                _announcerSystem.SendAnnouncement(ev.Id.ToLower(), Filter.Broadcast(), Loc.GetString(ev.StartAnnouncement), colorOverride: Color.Gold);
+                //ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(ev.StartAnnouncement), playSound: false, colorOverride: Color.Gold);
             }
 
-            if (ev.StartAudio != null)
+            /*if (ev.StartAudio != null)
             {
                 SoundSystem.Play(ev.StartAudio.GetSound(), Filter.Broadcast(), ev.StartAudio.Params);
-            }
+            }*/
 
             Elapsed = 0;
         }
@@ -87,13 +90,14 @@ namespace Content.Server.StationEvents.Events
 
             if (ev.EndAnnouncement != null)
             {
-                ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(ev.EndAnnouncement), playSound: false, colorOverride: Color.Gold);
+                _announcerSystem.SendAnnouncement($"{ev.Id.ToLower()}complete", Filter.Broadcast(), Loc.GetString(ev.EndAnnouncement), colorOverride: Color.Gold);
+                //ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(ev.EndAnnouncement), playSound: false, colorOverride: Color.Gold);
             }
 
-            if (ev.EndAudio != null)
+            /*if (ev.EndAudio != null)
             {
                 SoundSystem.Play(ev.EndAudio.GetSound(), Filter.Broadcast(), ev.EndAudio.Params);
-            }
+            }*/
         }
 
         /// <summary>

@@ -11,6 +11,7 @@ using Content.Server.GameTicking;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.UtkaIntegration;
+using Content.Server.White.Announcements.Systems;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
@@ -39,6 +40,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -151,17 +153,22 @@ namespace Content.Server.RoundEnd
 
             if (autoCall)
             {
-                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-auto-called-announcement",
+                /*_chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-auto-called-announcement",
                     ("time", time),
                     ("units", Loc.GetString(units))),
                     Loc.GetString("Station"),
                     false,
                     null,
+                    Color.Gold);*/
+                _announcerSystem.SendAnnouncement("shuttlecalled", Filter.Broadcast(), Loc.GetString("round-end-system-shuttle-auto-called-announcement",
+                        ("time", time),
+                        ("units", Loc.GetString(units))),
+                    Loc.GetString("Station"),
                     Color.Gold);
             }
             else
             {
-                _idCardSystem.TryFindIdCard(player.GetValueOrDefault(), out var id);
+                /*_idCardSystem.TryFindIdCard(player.GetValueOrDefault(), out var id);
                 var author = id != null ? $"{id.FullName} ({id.JobTitle})".Trim() : "";
                 _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(ftlstring,
                     ("time", time),
@@ -170,10 +177,15 @@ namespace Content.Server.RoundEnd
                     Loc.GetString("Station"),
                     false,
                     null,
+                    Color.Gold);*/
+                _announcerSystem.SendAnnouncement("shuttlecalled", Filter.Broadcast(), Loc.GetString("round-end-system-shuttle-called-announcement",
+                        ("time", time),
+                        ("units", Loc.GetString(units))),
+                    Loc.GetString("Station"),
                     Color.Gold);
             }
 
-            SoundSystem.Play("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast());
+            //SoundSystem.Play("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast());
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -210,9 +222,11 @@ namespace Content.Server.RoundEnd
             }
             _idCardSystem.TryFindIdCard(player.GetValueOrDefault(), out var id);
             var author = id != null ? $"{id.FullName} ({id.JobTitle})".Trim() : "";
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(ftlstring, ("requester", author)),
-                Loc.GetString("Station"), false, colorOverride: Color.Gold);
-            SoundSystem.Play("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast());
+            //_chatSystem.DispatchGlobalAnnouncement(Loc.GetString(ftlstring, ("requester", author)),
+                //Loc.GetString("Station"), false, colorOverride: Color.Gold);
+            _announcerSystem.SendAnnouncement("shuttlerecalled", Filter.Broadcast(), Loc.GetString("round-end-system-shuttle-recalled-announcement"),
+                Loc.GetString("Station"), Color.Gold);
+            //SoundSystem.Play("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast());
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
