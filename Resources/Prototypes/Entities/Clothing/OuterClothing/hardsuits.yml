@@ -720,3 +720,29 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitSlayer
+  name: godslayer armor
+  description: An advanced suit of armor. It looks like it came from the far 400th century
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/slayer.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/slayer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSlayer
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitBerserker
+  name: berserker armor
+  description: An advanced suit of armor, stained with red color. You can almost smell blood from it...
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/berserker.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/berserker.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBerserker
