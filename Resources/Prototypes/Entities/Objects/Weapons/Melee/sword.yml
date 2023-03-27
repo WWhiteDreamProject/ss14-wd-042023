@@ -87,3 +87,43 @@
     slots:
     - back
   - type: DisarmMalus
+
+- type: entity
+  name: chainsword
+  parent: BaseItem
+  id: Chainsword
+  description: Suffer not a heretic to live.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/chainsword.rsi
+    netsync: false
+    layers:
+    - state: chainsword_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Chainsword
+    activeDamageBonus:
+      types:
+        Slash: 20
+        Piercing: 20
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 3
+        Piercing: 2
+  - type: Item
+    size: 20
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/chainsword.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: chainsword_on}
+          False: {state: chainsword_off}
