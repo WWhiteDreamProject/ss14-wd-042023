@@ -1,4 +1,5 @@
 ﻿using System.Resources;
+using Content.Shared.GameTicking;
 using Content.Shared.Interaction.Events;
 using Content.Shared.White;
 using Content.Shared.White.Jukebox;
@@ -37,7 +38,18 @@ public sealed class JukeboxSystem : EntitySystem
 
         SubscribeLocalEvent<JukeboxComponent, ComponentHandleState>(OnStateChanged);
         SubscribeLocalEvent<JukeboxComponent, ComponentRemove>(OnComponentRemoved);
+        SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<JukeboxStopPlaying>(OnStopPlaying);
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        foreach (var playingJukebox in _playingJukeboxes.Values)
+        {
+            playingJukebox.PlayingStream.Stop();
+        }
+
+        _playingJukeboxes.Clear();
     }
 
     private void OnComponentRemoved(EntityUid uid, JukeboxComponent component, ComponentRemove args)
