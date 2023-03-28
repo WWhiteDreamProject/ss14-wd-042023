@@ -39,17 +39,18 @@ public sealed class JukeboxSystem : EntitySystem
         SubscribeLocalEvent<JukeboxComponent, ComponentHandleState>(OnStateChanged);
         SubscribeLocalEvent<JukeboxComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeNetworkEvent<TickerJoinLobbyEvent>(JoinLobby);
         SubscribeNetworkEvent<JukeboxStopPlaying>(OnStopPlaying);
+    }
+
+    private void JoinLobby(TickerJoinLobbyEvent ev)
+    {
+        CleanUp();
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
-        foreach (var playingJukebox in _playingJukeboxes.Values)
-        {
-            playingJukebox.PlayingStream.Stop();
-        }
-
-        _playingJukeboxes.Clear();
+        CleanUp();
     }
 
     private void OnComponentRemoved(EntityUid uid, JukeboxComponent component, ComponentRemove args)
@@ -234,5 +235,15 @@ public sealed class JukeboxSystem : EntitySystem
         var spriteComponent = Comp<SpriteComponent>(jukeboxComponent.Owner);
         spriteComponent.LayerMapTryGet("bars", out var layer);
         spriteComponent.LayerSetVisible(layer, visible);
+    }
+
+    private void CleanUp()
+    {
+        foreach (var playingJukebox in _playingJukeboxes.Values)
+        {
+            playingJukebox.PlayingStream.Stop();
+        }
+
+        _playingJukeboxes.Clear();
     }
 }
