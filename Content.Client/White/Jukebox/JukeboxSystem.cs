@@ -201,10 +201,12 @@ public sealed class JukeboxSystem : EntitySystem
     private JukeboxAudio? TryCreateStream(JukeboxComponent jukeboxComponent)
     {
         //TODO: Валидация?!?!?!
-        var fileName = jukeboxComponent.PlayingSongData!.SongPath!;
+        if (jukeboxComponent.PlayingSongData == null) return null;
+
+        var resourcePath = jukeboxComponent.PlayingSongData.SongPath!;
         var localSession = _playerManager.LocalPlayer!.Session;
 
-        if(!_resource.TryGetResource<AudioResource>(fileName, out var audio)) return null!;
+        if(!_resource.TryGetResource<AudioResource>(resourcePath, out var audio)) return null!;
 
         if (audio!.AudioStream.Length.TotalSeconds < jukeboxComponent.PlayingSongData!.PlaybackPosition)
         {
@@ -218,7 +220,7 @@ public sealed class JukeboxSystem : EntitySystem
             MaxDistance = _maxAudioRange
         };
 
-        var playingStream = _audioSystem.PlayEntity(fileName.ToString(), localSession, jukeboxComponent.Owner, audioParams) as AudioSystem.PlayingStream;
+        var playingStream = _audioSystem.PlayEntity(resourcePath.ToString(), localSession, jukeboxComponent.Owner, audioParams) as AudioSystem.PlayingStream;
         if (playingStream == null) return null!;
 
 
