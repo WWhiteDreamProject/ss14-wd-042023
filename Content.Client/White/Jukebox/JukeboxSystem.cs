@@ -29,18 +29,27 @@ public sealed class JukeboxSystem : EntitySystem
     private readonly Dictionary<JukeboxComponent, JukeboxAudio> _playingJukeboxes = new();
 
     private float _maxAudioRange = default!;
+    private float _jukeboxVolume = 0;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _cfg.OnValueChanged(WhiteVars.MaxJukeboxSoundRange, range => _maxAudioRange = range, true);
+        _cfg.OnValueChanged(WhiteVars.JukeboxVolume, volume => JukeboxVolumeChanged(volume), true);
 
         SubscribeLocalEvent<JukeboxComponent, ComponentHandleState>(OnStateChanged);
         SubscribeLocalEvent<JukeboxComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<TickerJoinLobbyEvent>(JoinLobby);
         SubscribeNetworkEvent<JukeboxStopPlaying>(OnStopPlaying);
+    }
+
+    private void JukeboxVolumeChanged(float volume)
+    {
+        _jukeboxVolume = volume;
+
+        CleanUp();
     }
 
     private void JoinLobby(TickerJoinLobbyEvent ev)
@@ -205,7 +214,7 @@ public sealed class JukeboxSystem : EntitySystem
         var audioParams = new AudioParams
         {
             PlayOffsetSeconds = jukeboxComponent.PlayingSongData.PlaybackPosition,
-            Volume = jukeboxComponent.Volume,
+            Volume = _jukeboxVolume,
             MaxDistance = _maxAudioRange
         };
 
