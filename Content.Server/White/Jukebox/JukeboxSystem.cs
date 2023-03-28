@@ -7,6 +7,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.White.Jukebox;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Shared.Containers;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameStates;
@@ -22,7 +23,7 @@ public sealed class JukeboxSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
+    [Dependency] private readonly PVSOverrideSystem _pvsOverrideSystem = default!;
 
 
     private readonly List<JukeboxComponent> _playingJukeboxes = new();
@@ -40,8 +41,14 @@ public sealed class JukeboxSystem : EntitySystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxStopRequest>(OnRequestStop);
         SubscribeLocalEvent<JukeboxComponent, JukeboxRepeatToggled>(OnRepeatToggled);
         SubscribeLocalEvent<JukeboxComponent, JukeboxEjectRequest>(OnEjectRequest);
-        SubscribeLocalEvent<JukeboxComponent,GetVerbsEvent<Verb>>(OnGetVerb);
+        SubscribeLocalEvent<JukeboxComponent, GetVerbsEvent<Verb>>(OnGetVerb);
+        SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+    }
+
+    private void OnInit(EntityUid uid, JukeboxComponent component, ComponentInit args)
+    {
+        _pvsOverrideSystem.AddGlobalOverride(uid);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
