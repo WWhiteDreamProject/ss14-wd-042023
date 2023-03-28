@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using Content.Shared.Audio;
+using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
@@ -40,6 +41,12 @@ public sealed class JukeboxSystem : EntitySystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxRepeatToggled>(OnRepeatToggled);
         SubscribeLocalEvent<JukeboxComponent, JukeboxEjectRequest>(OnEjectRequest);
         SubscribeLocalEvent<JukeboxComponent,GetVerbsEvent<Verb>>(OnGetVerb);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _playingJukeboxes.Clear();
     }
 
     private void OnEjectRequest(EntityUid uid, JukeboxComponent component, JukeboxEjectRequest args)
@@ -57,8 +64,8 @@ public sealed class JukeboxSystem : EntitySystem
     private void OnGetVerb(EntityUid uid, JukeboxComponent jukeboxComponent, GetVerbsEvent<Verb> ev)
     {
         if (ev.Hands == null) return;
-        if(jukeboxComponent.PlayingSongData != null) return;
-        if(jukeboxComponent.TapeContainer.ContainedEntities.Count == 0) return;
+        if (jukeboxComponent.PlayingSongData != null) return;
+        if (jukeboxComponent.TapeContainer.ContainedEntities.Count == 0) return;
 
         var removeTapeVerb = new Verb()
         {
@@ -163,7 +170,7 @@ public sealed class JukeboxSystem : EntitySystem
             }
 
             playingJukeboxData.PlayingSongData.PlaybackPosition += _updateTimer;
-            Logger.Info(playingJukeboxData.PlayingSongData.PlaybackPosition.ToString());
+
             if (playingJukeboxData.PlayingSongData.PlaybackPosition >= playingJukeboxData.PlayingSongData.ActualSongLengthSeconds)
             {
                 if (playingJukeboxData.Repeating)

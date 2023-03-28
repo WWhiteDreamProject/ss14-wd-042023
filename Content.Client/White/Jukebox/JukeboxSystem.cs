@@ -183,6 +183,11 @@ public sealed class JukeboxSystem : EntitySystem
             return;
         }
 
+        if(jukeboxComponent.PlayingSongData == null) return;
+
+        //ПОШЛИ НА ХУЙ
+        if(jukeboxComponent.PlayingSongData.PlaybackPosition < jukeboxComponent.PlayingSongData.ActualSongLengthSeconds) return;
+
         var newStream = TryCreateStream(jukeboxComponent);
 
         if (newStream == null)
@@ -220,7 +225,7 @@ public sealed class JukeboxSystem : EntitySystem
             MaxDistance = _maxAudioRange
         };
 
-        var playingStream = _audioSystem.PlayEntity(resourcePath.ToString(), localSession, jukeboxComponent.Owner, audioParams) as AudioSystem.PlayingStream;
+        var playingStream = _audioSystem.PlayPvs(resourcePath.ToString(), jukeboxComponent.Owner, audioParams) as AudioSystem.PlayingStream;
         if (playingStream == null) return null!;
 
 
