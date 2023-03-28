@@ -1662,5 +1662,7 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> FanaticXenophobiaEnabled =
             CVarDef.Create("white.fanatic_xenophobia", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+
     }
 }

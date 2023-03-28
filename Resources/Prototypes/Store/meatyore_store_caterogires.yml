@@ -45,3 +45,7 @@
 - type: storeCategory
   id: MeatyOreAntag
   name: meatyore-store-category-antag
+
+- type: storeCategory
+  id: DjJukeboxCategory
+  name: dj-jukebox-store-category

@@ -10,3 +10,4 @@ meatyore-store-category-cloaks = Верхняя одежда
 meatyore-store-category-toys = Игрушки
 meatyore-store-category-special = Специальное
 meatyore-store-category-antag = ?АНТАГ?
+dj-jukebox-store-category = Диджей

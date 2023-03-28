@@ -43,6 +43,7 @@ using Robust.Shared.Prototypes;
 
 using Content.Client.White.Sponsors;
 using Content.Client.White.JoinQueue;
+using Content.Client.White.Jukebox;
 using Content.Client.White.Stalin;
 
 namespace Content.Client.Entry
@@ -82,6 +83,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly IReflectionManager _refl = default!;
         [Dependency] private readonly UIAudioManager _uiAudio = default!;
         [Dependency] private readonly StalinManager _stalinManager = default!;
+        [Dependency] private readonly ClientJukeboxSongsSyncManager _jukeboxSyncManager = default!;
 
         public override void Init()
         {
@@ -186,6 +188,7 @@ namespace Content.Client.Entry
             _voteManager.Initialize();
             _gamePrototypeLoadManager.Initialize();
             _networkResources.Initialize();
+            _jukeboxSyncManager.Initialize();
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
             _sponsorsManager.Initialize();
             _queueManager.Initialize();

@@ -36,8 +36,10 @@ using Content.Shared.Localizations;
 
 using Content.Server.White.Sponsors;
 using Content.Server.White.JoinQueue;
+using Content.Server.White.Jukebox;
 using Content.Server.White.Stalin;
 using Content.Server.White.TTS;
+using Content.Shared.White.Jukebox;
 
 namespace Content.Server.Entry
 {
@@ -111,6 +113,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<INodeGroupFactory>().Initialize();
                 IoCManager.Resolve<IGamePrototypeLoadManager>().Initialize();
                 IoCManager.Resolve<NetworkResourceManager>().Initialize();
+                IoCManager.Resolve<ServerJukeboxSongsSyncManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<SponsorsManager>().Initialize();
                 IoCManager.Resolve<JoinQueueManager>().Initialize();

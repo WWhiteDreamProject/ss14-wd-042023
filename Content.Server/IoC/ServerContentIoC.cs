@@ -27,6 +27,7 @@ using Content.Shared.Kitchen;
 using Content.Shared.Module;
 
 using Content.Server.White.JoinQueue;
+using Content.Server.White.Jukebox;
 using Content.Server.White.Stalin;
 using Content.Server.White.Sponsors;
 using Content.Server.White.TTS;
@@ -60,6 +61,7 @@ namespace Content.Server.IoC
             IoCManager.Register<RulesManager, RulesManager>();
             IoCManager.Register<RoleBanManager, RoleBanManager>();
             IoCManager.Register<NetworkResourceManager>();
+            IoCManager.Register<ServerJukeboxSongsSyncManager>();
             IoCManager.Register<IAdminNotesManager, AdminNotesManager>();
             IoCManager.Register<GhostKickManager>();
             IoCManager.Register<ISharedAdminLogManager, AdminLogManager>();

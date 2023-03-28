@@ -23,6 +23,7 @@ using Content.Client.Guidebook;
 using Content.Shared.Administration.Managers;
 
 using Content.Client.White.JoinQueue;
+using Content.Client.White.Jukebox;
 using Content.Client.White.Stalin;
 using Content.Client.White.Sponsors;
 
@@ -47,6 +48,7 @@ namespace Content.Client.IoC
             IoCManager.Register<ViewportManager, ViewportManager>();
             IoCManager.Register<IGamePrototypeLoadManager, GamePrototypeLoadManager>();
             IoCManager.Register<NetworkResourceManager>();
+            IoCManager.Register<ClientJukeboxSongsSyncManager>();
             IoCManager.Register<ISharedAdminLogManager, SharedAdminLogManager>();
             IoCManager.Register<GhostKickManager>();
             IoCManager.Register<ExtendedDisconnectInformationManager>();
