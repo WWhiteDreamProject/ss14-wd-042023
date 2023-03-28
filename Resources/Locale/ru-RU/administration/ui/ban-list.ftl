@@ -4,6 +4,7 @@ ban-list-header-reason = Причина
 ban-list-header-time = Длительность бана
 ban-list-header-expires = Истекает
 ban-list-header-banning-admin = Забанил
+ban-list-header-server = Сервер
 ban-list-title = Все баны { $player }
 ban-list-view = Показать
 ban-list-id = ID: { $id }

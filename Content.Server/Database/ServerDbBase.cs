@@ -568,6 +568,7 @@ namespace Content.Server.Database
             existing.Flags = admin.Flags;
             existing.Title = admin.Title;
             existing.AdminRankId = admin.AdminRankId;
+            existing.AdminServer = admin.AdminServer;
 
             await db.DbContext.SaveChangesAsync(cancel);
         }

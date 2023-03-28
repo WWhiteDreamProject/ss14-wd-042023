@@ -13,6 +13,7 @@ permissions-eui-edit-admin-window-name-edit-placeholder = Username/User ID
 permissions-eui-edit-admin-window-title-edit-placeholder = Custom title, leave blank to inherit rank title.
 permissions-eui-edit-admin-window-no-rank-button = No rank
 permissions-eui-edit-admin-rank-window-name-edit-placeholder = Rank name
+permissions-eui-edit-admin-window-server-edit-placeholder = Server name
 permissions-eui-edit-admin-title-control-text = none
 permissions-eui-edit-no-rank-text = none
 permissions-eui-edit-title-button = Edit

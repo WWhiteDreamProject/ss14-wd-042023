@@ -32,6 +32,7 @@
             <LineEdit Name="RoleNameLine" MinWidth="100" HorizontalExpand="True" />
             <Button Name="SubmitByNameButton" Text="{Loc Ban By Name}" />
         </BoxContainer>
+        <CheckBox Name="GlobalBan" Text="Global Ban"/>
         <BoxContainer Orientation="Horizontal">
             <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" HorizontalExpand="True"/>
             <BoxContainer Orientation="Vertical">

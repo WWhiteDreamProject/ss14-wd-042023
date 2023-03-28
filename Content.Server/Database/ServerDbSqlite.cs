@@ -113,6 +113,14 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId)
         {
+            var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var serverName = cfg.GetCVar(CCVars.AdminLogsServerName);
+
+            if (!string.IsNullOrEmpty(ban.ServerName) && ban.ServerName != "unknown" && serverName != ban.ServerName)
+            {
+                return false;
+            }
+
             if (address != null && ban.Address is not null && IPAddressExt.IsInSubnet(address, ban.Address.Value))
             {
                 return true;
@@ -143,7 +151,8 @@ namespace Content.Server.Database
                 HWId = serverBan.HWId?.ToArray(),
                 BanTime = serverBan.BanTime.UtcDateTime,
                 ExpirationTime = serverBan.ExpirationTime?.UtcDateTime,
-                UserId = serverBan.UserId?.UserId
+                UserId = serverBan.UserId?.UserId,
+                ServerName = serverBan.ServerName
             });
 
             await db.SqliteDbContext.SaveChangesAsync();
@@ -214,6 +223,14 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId)
         {
+            var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var serverName = cfg.GetCVar(CCVars.AdminLogsServerName);
+
+            if (!string.IsNullOrEmpty(ban.ServerName) && ban.ServerName != "unknown" && serverName != ban.ServerName)
+            {
+                return false;
+            }
+
             if (address != null && ban.Address is not null && IPAddressExt.IsInSubnet(address, ban.Address.Value))
             {
                 return true;
@@ -246,6 +263,7 @@ namespace Content.Server.Database
                 ExpirationTime = serverBan.ExpirationTime?.UtcDateTime,
                 UserId = serverBan.UserId?.UserId,
                 RoleId = serverBan.Role,
+                ServerName = serverBan.ServerName
             });
 
             await db.SqliteDbContext.SaveChangesAsync();
@@ -296,7 +314,8 @@ namespace Content.Server.Database
                 ban.Reason,
                 aUid,
                 unban,
-                ban.RoleId);
+                ban.RoleId,
+                ban.ServerName ??= "unknown");
         }
 
         private static ServerRoleUnbanDef? ConvertRoleUnban(ServerRoleUnban? unban)
@@ -360,7 +379,8 @@ namespace Content.Server.Database
                 ban.ExpirationTime,
                 ban.Reason,
                 aUid,
-                unban);
+                unban,
+                ban.ServerName ??= "unknown");
         }
 
         private static ServerUnbanDef? ConvertUnban(ServerUnban? unban)

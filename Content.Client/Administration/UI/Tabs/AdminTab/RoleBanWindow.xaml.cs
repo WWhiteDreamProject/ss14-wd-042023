@@ -109,14 +109,14 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
 
         private void SubmitByNameButtonOnPressed(BaseButton.ButtonEventArgs obj)
         {
-            _clientConsoleHost.ExecuteCommand($"roleban \"{PlayerNameLine.Text}\" \"{RoleNameLine.Text}\" \"{CommandParsing.Escape(ReasonLine.Text)}\" \"{MinutesLine.Text}\"");
+            _clientConsoleHost.ExecuteCommand($"roleban \"{PlayerNameLine.Text}\" \"{RoleNameLine.Text}\" \"{CommandParsing.Escape(ReasonLine.Text)}\" \"{MinutesLine.Text}\" \"{GlobalBan.Pressed}\"");
         }
         private void SubmitListButtonOnPressed(BaseButton.ButtonEventArgs obj)
         {
             var pressedCheckBoxes = CheckBoxes.Where(checkbox => checkbox.Pressed);
             foreach (var checkbox in pressedCheckBoxes)
             {
-                _clientConsoleHost.ExecuteCommand($"roleban \"{PlayerNameLine.Text}\" \"{checkbox.Name}\" \"{CommandParsing.Escape(ReasonLine.Text)}\" \"{MinutesLine.Text}\"");
+                _clientConsoleHost.ExecuteCommand($"roleban \"{PlayerNameLine.Text}\" \"{checkbox.Name}\" \"{CommandParsing.Escape(ReasonLine.Text)}\" \"{MinutesLine.Text}\" \"{GlobalBan.Pressed}\"");
             }
         }
     }

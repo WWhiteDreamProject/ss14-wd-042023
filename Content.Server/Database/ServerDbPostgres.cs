@@ -171,7 +171,8 @@ namespace Content.Server.Database
                 ban.ExpirationTime,
                 ban.Reason,
                 aUid,
-                unbanDef);
+                unbanDef,
+                ban.ServerName ??= "unknown");
         }
 
         private static ServerUnbanDef? ConvertUnban(ServerUnban? unban)
@@ -205,7 +206,8 @@ namespace Content.Server.Database
                 BanningAdmin = serverBan.BanningAdmin?.UserId,
                 BanTime = serverBan.BanTime.UtcDateTime,
                 ExpirationTime = serverBan.ExpirationTime?.UtcDateTime,
-                UserId = serverBan.UserId?.UserId
+                UserId = serverBan.UserId?.UserId,
+                ServerName = serverBan.ServerName
             });
 
             await db.PgDbContext.SaveChangesAsync();
@@ -354,7 +356,8 @@ namespace Content.Server.Database
                 ban.Reason,
                 aUid,
                 unbanDef,
-                ban.RoleId);
+                ban.RoleId,
+                ban.ServerName ??= "unknown");
         }
 
         private static ServerRoleUnbanDef? ConvertRoleUnban(ServerRoleUnban? unban)
@@ -390,6 +393,7 @@ namespace Content.Server.Database
                 ExpirationTime = serverRoleBan.ExpirationTime?.UtcDateTime,
                 UserId = serverRoleBan.UserId?.UserId,
                 RoleId = serverRoleBan.Role,
+                ServerName = serverRoleBan.ServerName
             });
 
             await db.PgDbContext.SaveChangesAsync();

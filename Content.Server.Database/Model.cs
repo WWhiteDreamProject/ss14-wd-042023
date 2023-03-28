@@ -325,6 +325,7 @@ namespace Content.Server.Database
         public int? AdminRankId { get; set; }
         public AdminRank? AdminRank { get; set; }
         public List<AdminFlag> Flags { get; set; } = default!;
+        public string? AdminServer { get; set; }
     }
 
     public class AdminFlag
@@ -460,6 +461,7 @@ namespace Content.Server.Database
         public ServerUnban? Unban { get; set; }
 
         public List<ServerBanHit> BanHits { get; set; } = null!;
+        public string? ServerName { get; set; }
     }
 
     [Table("server_unban")]
@@ -530,6 +532,7 @@ namespace Content.Server.Database
         public ServerRoleUnban? Unban { get; set; }
 
         public string RoleId { get; set; } = null!;
+        public string? ServerName { get; set; }
     }
 
     [Table("server_role_unban")]

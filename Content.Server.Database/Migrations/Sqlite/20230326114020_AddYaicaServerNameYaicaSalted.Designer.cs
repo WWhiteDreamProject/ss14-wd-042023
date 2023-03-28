@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230326114020_AddYaicaServerNameYaicaSalted")]
+    partial class AddYaicaServerNameYaicaSalted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -27,10 +29,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int?>("AdminRankId")
                         .HasColumnType("INTEGER")
                         .HasColumnName("admin_rank_id");
-
-                    b.Property<string>("AdminServer")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("admin_server");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT")
@@ -545,11 +543,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("backpack");
-
-                    b.Property<string>("BodyType")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("body_type");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()

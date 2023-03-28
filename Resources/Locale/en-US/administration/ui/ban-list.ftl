@@ -4,6 +4,7 @@ ban-list-header-reason = Reason
 ban-list-header-time = Ban time
 ban-list-header-expires = Expires
 ban-list-header-banning-admin = Banning admin
+ban-list-header-server = Server
 
 ban-list-title = Bans for {$player}
 ban-list-view = View

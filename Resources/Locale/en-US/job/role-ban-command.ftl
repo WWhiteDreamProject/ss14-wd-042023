@@ -1,7 +1,7 @@
 ﻿### Localization for role ban command
 
 cmd-roleban-desc = Bans a player from a role
-cmd-roleban-help = Usage: roleban <name or user ID> <job> <reason> [duration in minutes, leave out or 0 for permanent ban]
+cmd-roleban-help = Usage: roleban <name or user ID> <job> <reason> [duration in minutes, leave out or 0 for permanent ban] [use True for global ban, otherwise False]
 
 ## Completion result hints
 cmd-roleban-hint-1 = <name or user ID>
@@ -41,11 +41,11 @@ cmd-roleban-arg-count = Invalid amount of arguments.
 cmd-roleban-job-parse = Job {$job} does not exist.
 cmd-roleban-name-parse = Unable to find a player with that name.
 cmd-roleban-existing = {$target} already has a role ban for {$role}.
-cmd-roleban-success = Role banned {$target} from {$role} with reason {$reason} {$length}.
+cmd-roleban-success = Role banned {$target} from {$role} with reason {$reason} {$length}. Server { $server }.
 
 cmd-roleban-inf = permanently
 cmd-roleban-until =  until {$expires}
 
 # Department bans
 cmd-departmentban-desc = Bans a player from the roles comprising a department
-cmd-departmentban-help = Usage: departmentban <name or user ID> <department> <reason> [duration in minutes, leave out or 0 for permanent ban]
+cmd-departmentban-help = Usage: departmentban <name or user ID> <department> <reason> [duration in minutes, leave out or 0 for permanent ban] [True or False for global ban]

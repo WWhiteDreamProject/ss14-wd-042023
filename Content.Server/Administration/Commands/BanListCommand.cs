@@ -48,7 +48,7 @@ public sealed class BanListCommand : LocalizedCommands
 
             foreach (var ban in bans)
             {
-                var msg = $"{ban.Id}: {ban.Reason}";
+                var msg = $"{ban.Id}: {ban.Reason} ({ban.ServerName})";
                 shell.WriteLine(msg);
             }
 
