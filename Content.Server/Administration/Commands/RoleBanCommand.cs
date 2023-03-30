@@ -51,11 +51,11 @@ public sealed class RoleBanCommand : IConsoleCommand
                 job = args[1];
                 reason = args[2];
 
-                var possibleMinutes = args[2] != "" ? args[2] : "0";
+                var possibleMinutes = args[3] != "" ? args[3] : "0";
 
                 if (!uint.TryParse(possibleMinutes, out minutes))
                 {
-                    shell.WriteLine($"{args[2]} is not a valid amount of minutes.\n{Help}");
+                    shell.WriteLine($"{args[3]} is not a valid amount of minutes.\n{Help}");
                     return;
                 }
 
