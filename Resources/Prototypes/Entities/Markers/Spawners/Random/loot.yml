@@ -264,16 +264,133 @@
       layers:
         - state: red
         - state: running
-          sprite: Mobs/Aliens/Xenos/queen.rsi
+          sprite: Mobs/Aliens/Xenos/drone.rsi
     - type: ConditionalSpawner
       prototypes:
         - MobXeno
+
+- type: entity
+  name: Спавнер ксено преторианца
+  id: SpawnMobXenoPraetorian
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/praetorian.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoPraetorian
+
+- type: entity
+  name: Спавнер ксено дрона
+  id: SpawnMobXenoDrone
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/drone.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoDrone
+
+- type: entity
+  name: Спавнер ксено королевы
+  id: SpawnMobXenoQueen
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/queen.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoQueen
+
+- type: entity
+  name: Спавнер ксено разрушителя
+  id: SpawnMobXenoRavager
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/ravager.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoRavager
+
+- type: entity
+  name: Спавнер ксено бегуна
+  id: SpawnMobXenoRunner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/runner.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoRunner
+
+- type: entity
+  name: Спавнер ксено руни
+  id: SpawnMobXenoRouny
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/rouny.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoRouny
+
+- type: entity
+  name: Спавнер ксено плевальщика
+  id: SpawnMobXenoSpitter
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/spitter.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - MobXenoSpitter
+
+- type: entity
+  name: Спавнер ксено турели
+  id: SpawnMobXenoTurret
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: acid_turret
+          sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - WeaponTurretXeno
+
+- type: entity
+  name: Спавнер ксено башни
+  id: SpawnMobXenoTower
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: wardingtower
+          sprite: Structures/Specific/xeno_building.rsi
+    - type: ConditionalSpawner
+      prototypes:
         - XenoWardingTower
