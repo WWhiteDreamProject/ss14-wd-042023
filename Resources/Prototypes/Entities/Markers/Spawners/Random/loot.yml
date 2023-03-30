@@ -223,3 +223,57 @@
         - ToolboxElectricalFilled
       chance: 0.65
       offset: 0.2
+
+- type: entity
+  name: Спавнер плоти
+  id: SpawnMobFlesh
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: lover
+          sprite: Mobs/Aliens/flesh.rsi
+    - type: ConditionalSpawner
+      prototypes:
+        - MobFleshLover
+        - MobFleshGolem
+        - MobFleshClamp
+        - MobFleshJared
+
+- type: entity
+  name: Спавнер гигантского паука
+  id: SpawnMobGiantSpider
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: tarantula
+          sprite: Mobs/Animals/spider.rsi
+    - type: ConditionalSpawner
+      prototypes:
+        - MobGiantSpiderAngry
+
+- type: entity
+  name: Спавнер ксено
+  id: SpawnMobXenos
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - state: running
+          sprite: Mobs/Aliens/Xenos/queen.rsi
+    - type: ConditionalSpawner
+      prototypes:
+        - MobXeno
+        - MobXenoPraetorian
+        - MobXenoDrone
+        - MobXenoQueen
+        - MobXenoRavager
+        - MobXenoRunner
+        - MobXenoRouny
+        - MobXenoSpitter
+        - WeaponTurretXeno
+        - XenoWardingTower
