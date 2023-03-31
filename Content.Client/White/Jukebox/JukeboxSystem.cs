@@ -100,6 +100,10 @@ public sealed class JukeboxSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        var localPlayerEntity = _playerManager.LocalPlayer!.ControlledEntity;
+        if(!localPlayerEntity.HasValue) return;
+
         ProcessJukeboxes();
     }
 
@@ -116,9 +120,14 @@ public sealed class JukeboxSystem : EntitySystem
     private void ProcessJukeboxes()
     {
         var jukeboxes = EntityQuery<JukeboxComponent>();
+        var playerXform = Comp<TransformComponent>(_playerManager.LocalPlayer!.ControlledEntity!.Value);
 
         foreach (var jukeboxComponent in jukeboxes)
         {
+            var jukeboxXform = Comp<TransformComponent>(jukeboxComponent.Owner);
+
+            if(jukeboxXform.MapID != playerXform.MapID) continue;
+
             if (_playingJukeboxes.TryGetValue(jukeboxComponent, out var jukeboxAudio))
             {
                 if (jukeboxAudio.PlayingStream.Done)
