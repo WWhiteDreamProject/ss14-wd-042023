@@ -130,7 +130,7 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         var tagEv = new FTLTagEvent();
         RaiseLocalEvent(xform.GridUid.Value, ref tagEv);
 
-            _shuttle.FTLTravel(shuttle, args.Destination, dock: true, priorityTag: tagEv.Tag);
+        _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: true, priorityTag: tagEv.Tag);
         }
 
     private void OnDock(DockEvent ev)

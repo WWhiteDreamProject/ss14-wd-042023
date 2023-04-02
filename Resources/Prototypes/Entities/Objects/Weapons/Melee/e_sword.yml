@@ -145,7 +145,8 @@
     - type: MeleeWeapon
       attackRate: 1
     - type: Reflect
-      chance: 0.7
-      spread: 50
-      onReflect:
-        path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
+      enabled: false
+      energeticChance: 0.7
+      kineticChance: 0.7
+      spread: 45
+

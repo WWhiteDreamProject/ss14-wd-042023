@@ -42,7 +42,7 @@ namespace Content.Server.MachineLinking.System
         {
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
             var channel = _prototypeManager.Index<RadioChannelPrototype>(channelName);
-            _radioSystem.SendRadioMessage(source, message, channel);
+            _radioSystem.SendRadioMessage(source, message, channel, source);
         }
 
         private void OnInit(EntityUid uid, SignalTimerComponent component, ComponentInit args)

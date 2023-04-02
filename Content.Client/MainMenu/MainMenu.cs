@@ -29,7 +29,6 @@ namespace Content.Client.MainMenu
         [Dependency] private readonly IGameController _controllerProxy = default!;
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly UIAudioManager _uiAudio = default!;
 
         private MainMenuControl _mainMenuControl = default!;
         private bool _isConnecting;
@@ -51,7 +50,6 @@ namespace Content.Client.MainMenu
             _mainMenuControl.ChangelogButton.OnPressed += ChangelogButtonPressed;
 
             _client.RunLevelChanged += RunLevelChanged;
-            _ambient = _uiAudio.Play("/Audio/UI/main_menu_ambient.ogg", AudioParams.Default.WithLoop(true).WithVolume(-5f));
         }
 
         /// <inheritdoc />

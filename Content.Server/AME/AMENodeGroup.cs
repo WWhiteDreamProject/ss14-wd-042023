@@ -5,7 +5,6 @@ using Content.Server.Chat.Managers;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -195,9 +194,6 @@ namespace Content.Server.AME
 
             radius *= 2;
             radius = Math.Min(radius, 8);
-            var lastPlayer = _masterController?._lastPlayerIncreasedFuel;
-            _chatManager.SendAdminAnnouncement(Loc.GetString("admin-chatalert-AME-exploded", ("lastplayer",
-                _entityManager.ToPrettyString(lastPlayer.GetValueOrDefault()))));
             EntitySystem.Get<ExplosionSystem>().TriggerExplosive(MasterController.Owner, radius: radius, delete: false);
         }
     }

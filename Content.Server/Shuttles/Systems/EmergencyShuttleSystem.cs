@@ -9,6 +9,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.UtkaIntegration;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -48,8 +49,8 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
    [Dependency] private readonly SharedAudioSystem _audio = default!;
    [Dependency] private readonly ShuttleSystem _shuttle = default!;
    [Dependency] private readonly StationSystem _station = default!;
-   [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+   [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
 
    private ISawmill _sawmill = default!;
 
@@ -185,77 +186,9 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid.Value)} unable to find a valid docking port for {ToPrettyString(stationUid.Value)}");
            // TODO: Need filter extensions or something don't blame me.
-           SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
+           _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
        }
-
        SendRoundStatus("shuttle_docked");
-   }
-
-   private Angle GetAngle(TransformComponent xform, TransformComponent targetXform, EntityQuery<TransformComponent> xformQuery)
-   {
-       var (shuttlePos, shuttleRot) = xform.GetWorldPositionRotation(xformQuery);
-       var (targetPos, targetRot) = targetXform.GetWorldPositionRotation(xformQuery);
-
-       var shuttleCOM = Robust.Shared.Physics.Transform.Mul(new Transform(shuttlePos, shuttleRot),
-           Comp<PhysicsComponent>(xform.Owner).LocalCenter);
-       var targetCOM = Robust.Shared.Physics.Transform.Mul(new Transform(targetPos, targetRot),
-           Comp<PhysicsComponent>(targetXform.Owner).LocalCenter);
-
-       var mapDiff = shuttleCOM - targetCOM;
-       var targetRotation = targetRot;
-       var angle = mapDiff.ToWorldAngle();
-       angle -= targetRotation;
-       return angle;
-   }
-
-   /// <summary>
-   /// Checks if 2 docks can be connected by moving the shuttle directly onto docks.
-   /// </summary>
-   private bool CanDock(
-       DockingComponent shuttleDock,
-       TransformComponent shuttleDockXform,
-       DockingComponent gridDock,
-       TransformComponent gridDockXform,
-       Angle targetGridRotation,
-       Box2 shuttleAABB,
-       EntityUid gridUid,
-       MapGridComponent grid,
-       [NotNullWhen(true)] out Box2? shuttleDockedAABB,
-       out Matrix3 matty,
-       out Angle gridRotation)
-   {
-       gridRotation = Angle.Zero;
-       matty = Matrix3.Identity;
-       shuttleDockedAABB = null;
-
-       if (shuttleDock.Docked ||
-           gridDock.Docked ||
-           !shuttleDockXform.Anchored ||
-           !gridDockXform.Anchored)
-       {
-           return false;
-       }
-
-       // First, get the station dock's position relative to the shuttle, this is where we rotate it around
-       var stationDockPos = shuttleDockXform.LocalPosition +
-                            shuttleDockXform.LocalRotation.RotateVec(new Vector2(0f, -1f));
-
-       // Need to invert the grid's angle.
-       var shuttleDockAngle = shuttleDockXform.LocalRotation;
-       var gridDockAngle = gridDockXform.LocalRotation.Opposite();
-
-       var stationDockMatrix = Matrix3.CreateInverseTransform(stationDockPos, shuttleDockAngle);
-       var gridXformMatrix = Matrix3.CreateTransform(gridDockXform.LocalPosition, gridDockAngle);
-       Matrix3.Multiply(in stationDockMatrix, in gridXformMatrix, out matty);
-       shuttleDockedAABB = matty.TransformBox(shuttleAABB);
-       // Rounding moment
-       shuttleDockedAABB = shuttleDockedAABB.Value.Enlarged(-0.01f);
-
-       if (!ValidSpawn(gridUid, grid, shuttleDockedAABB.Value))
-           return false;
-
-       gridRotation = targetGridRotation + gridDockAngle - shuttleDockAngle;
-       return true;
    }
 
    private void OnStationStartup(EntityUid uid, StationDataComponent component, ComponentStartup args)

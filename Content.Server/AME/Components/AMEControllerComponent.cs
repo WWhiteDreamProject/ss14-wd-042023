@@ -9,7 +9,6 @@ using Content.Server.UserInterface;
 using Content.Shared.AME;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
-using Prometheus.DotNetRuntime;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -30,21 +29,16 @@ namespace Content.Server.AME.Components
         [ViewVariables] public bool Injecting => _injecting;
         [ViewVariables] public int InjectionAmount;
 
-        [ViewVariables, DataField("amountFuelConsumedPerInjection")]
-        public int AmountFuelConsumedPerInjection = 1;
-
         private AppearanceComponent? _appearance;
         private PowerSupplierComponent? _powerSupplier;
         [DataField("clickSound")] private SoundSpecifier _clickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
         [DataField("injectSound")] private SoundSpecifier _injectSound = new SoundPathSpecifier("/Audio/Effects/bang.ogg");
-
 
         private bool Powered => !_entities.TryGetComponent(Owner, out ApcPowerReceiverComponent? receiver) || receiver.Powered;
 
         [ViewVariables]
         private int _stability = 100;
 
-        [ViewVariables(VVAccess.ReadOnly)] public EntityUid? _lastPlayerIncreasedFuel = null;
         public ContainerSlot JarSlot = default!;
         [ViewVariables] public bool HasJar => JarSlot.ContainedEntity != null;
 
@@ -84,36 +78,12 @@ namespace Content.Server.AME.Components
             if (JarSlot.ContainedEntity is not {Valid: true} jar)
                 return;
 
-
-
             _entities.TryGetComponent<AMEFuelContainerComponent?>(jar, out var fuelJar);
             if (fuelJar != null && _powerSupplier != null)
             {
-                if (fuelJar.FuelAmount == 0)
-                {
-                    ToggleInjection();
-                    GetAMENodeGroup()?.UpdateCoreVisuals();
-                    InjectSound(false);
-
-                    return;
-                }
-
-                int availableInject;
-                int fuelСonsumed = InjectionAmount * AmountFuelConsumedPerInjection;
-
-                if (fuelJar.FuelAmount >= fuelСonsumed)
-                {
-                    availableInject = InjectionAmount;
-                    fuelJar.FuelAmount -= fuelСonsumed;
-                }
-                else
-                {
-                    availableInject = fuelJar.FuelAmount / AmountFuelConsumedPerInjection;
-                    fuelJar.FuelAmount = 0;
-                }
-
+                var availableInject = fuelJar.FuelAmount >= InjectionAmount ? InjectionAmount : fuelJar.FuelAmount;
                 _powerSupplier.MaxSupply = group.InjectFuel(availableInject, out var overloading);
-
+                fuelJar.FuelAmount -= availableInject;
                 InjectSound(overloading);
                 UpdateUserInterface();
             }
@@ -188,6 +158,7 @@ namespace Content.Server.AME.Components
 
             if (!PlayerCanUseController(player, needsPower))
                 return;
+
             switch (msg.Button)
             {
                 case UiButton.Eject:
@@ -198,7 +169,6 @@ namespace Content.Server.AME.Components
                     break;
                 case UiButton.IncreaseFuel:
                     InjectionAmount += 2;
-                    _lastPlayerIncreasedFuel = player;
                     break;
                 case UiButton.DecreaseFuel:
                     InjectionAmount = InjectionAmount > 0 ? InjectionAmount -= 2 : 0;
@@ -268,23 +238,11 @@ namespace Content.Server.AME.Components
             _appearance.TryGetData<string>(AMEControllerVisuals.DisplayState, out var state);
 
             var newState = "on";
-            var warn_message = "";
-            if (stability < 50)
-            {
-                newState = "critical";
-                warn_message = "admin-chatalert-caution-stability";
-            }
-
-            if (stability < 10)
-            {
-                newState = "fuck";
-                warn_message = "admin-chatalert-danger-stability";
-            }
+            if (stability < 50) { newState = "critical"; }
+            if (stability < 10) { newState = "fuck"; }
 
             if (state != newState)
             {
-                _chatManager.SendAdminAnnouncement(Loc.GetString(warn_message,
-                    ("lastplayer", _entityManager.ToPrettyString(_lastPlayerIncreasedFuel.GetValueOrDefault()))));
                 _appearance?.SetData(AMEControllerVisuals.DisplayState, newState);
             }
 
