@@ -313,6 +313,17 @@
     FoodDoughSlice: 2
     FoodDough: 1
 
+- type: microwaveMealRecipe
+  id: RecipeBurgerHeisen
+  name: Heisen Burger Recipe
+  result: FoodBurgerHeisen
+  time: 5
+  reagents:
+    Desoxyephedrine: 5
+  solids:
+    FoodBreadBun: 1
+    FoodMeat: 1
+
 #Pizzas
 - type: microwaveMealRecipe
   id: RecipeMargheritaPizza

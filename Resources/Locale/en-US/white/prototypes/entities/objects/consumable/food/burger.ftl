@@ -88,3 +88,6 @@ ent-FoodBurgerCheese = cheese burger
 ent-FoodBurgerCrazy = crazy hamburger
     .desc = This looks like the sort of food that a demented clown in a trenchcoat would make.
     .suffix = { "" }
+ent-FoodBurgerHeisen = Heisen Burger
+    .desc = Say my name...
+    .suffix = { "" }

@@ -586,3 +586,22 @@
   - type: Sprite
     state: crazy
 # Tastes like bun, a smoking flare, chili.
+
+- type: entity
+  name: Heisen Burger
+  parent: FoodBurgerBase
+  id: FoodBurgerHeisen
+  description: Say my name...
+  components:
+  - type: Sprite
+    state: heisen
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Desoxyephedrine
+          Quantity: 12
+#Testes like meth

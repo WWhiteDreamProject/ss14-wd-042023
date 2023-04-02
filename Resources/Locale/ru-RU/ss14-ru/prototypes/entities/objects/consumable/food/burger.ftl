@@ -88,3 +88,6 @@ ent-FoodBurgerCheese = чизбургер
 ent-FoodBurgerCrazy = безумный гамбургер
     .desc = Это похоже на еду, которую мог бы приготовить сумасшедший клоун в плаще.
     .suffix = { "" }
+ent-FoodBurgerHeisen = Хайзенбургер
+    .desc = Скажи моё имя...
+    .suffix = { "" }
