@@ -84,16 +84,16 @@ namespace Content.Shared.CCVar
             CVarDef.Create("ambience.lobby_music_volume", 0.0f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
         /// <summary>
-        /// Whether to play the station ambience music.
+        /// Whether to play the station ambience (humming) sound
         /// </summary>
-        public static readonly CVarDef<bool> AmbienceMusicEnabled =
-            CVarDef.Create("ambience.music", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+        public static readonly CVarDef<bool> StationAmbienceEnabled =
+            CVarDef.Create("ambience.station_ambience", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
         /// <summary>
-        /// Ambience music volume.
+        /// Whether to play the space ambience
         /// </summary>
-        public static readonly CVarDef<float> AmbienceMusicVolume =
-            CVarDef.Create("ambience.music_volume", 0.0f, CVar.ARCHIVE | CVar.CLIENTONLY);
+        public static readonly CVarDef<bool> SpaceAmbienceEnabled =
+            CVarDef.Create("ambience.space_ambience", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
         /*
          * Status
@@ -1116,16 +1116,22 @@ namespace Content.Shared.CCVar
             CVarDef.Create("shuttle.emergency_authorize_time", 10f, CVar.SERVERONLY);
 
         /// <summary>
-        /// How long after the console is authorized for the shuttle to early launch.
+        /// The minimum time for the emergency shuttle to arrive at centcomm.
         /// </summary>
-        public static readonly CVarDef<float> EmergencyShuttleTransitTime =
-            CVarDef.Create("shuttle.emergency_transit_time", 60f, CVar.SERVERONLY);
+        public static readonly CVarDef<float> EmergencyShuttleMinTransitTime =
+            CVarDef.Create("shuttle.emergency_transit_time_min", 60f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The maximum time for the emergency shuttle to arrive at centcomm.
+        /// </summary>
+        public static readonly CVarDef<float> EmergencyShuttleMaxTransitTime =
+            CVarDef.Create("shuttle.emergency_transit_time_max", 180f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether the emergency shuttle is enabled or should the round just end.
         /// </summary>
         public static readonly CVarDef<bool> EmergencyShuttleEnabled =
-            CVarDef.Create("shuttle.emergency_enabled", true, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The percentage of time passed from the initial call to when the shuttle can no longer be recalled.
@@ -1317,6 +1323,18 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> ICNameCase =
             CVarDef.Create("ic.name_case", true, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether or not players' characters are randomly generated rather than using their selected characters in the creator.
+        /// </summary>
+        public static readonly CVarDef<bool> ICRandomCharacters =
+            CVarDef.Create("ic.random_characters", false, CVar.SERVER);
+
+        /// <summary>
+        /// A weighted random prototype used to determine the species selected for random characters.
+        /// </summary>
+        public static readonly CVarDef<string> ICRandomSpeciesWeights =
+            CVarDef.Create("ic.random_species_weights", "SpeciesWeights", CVar.SERVER);
 
         /*
          * Salvage

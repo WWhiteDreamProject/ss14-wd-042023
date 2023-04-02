@@ -1,10 +1,10 @@
 using System.Linq;
+using Content.Server.Administration.Systems;
 using Content.Server.AME.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -29,9 +29,8 @@ namespace Content.Server.AME
 
         [Dependency] private readonly IEntityManager _entMan = default!;
 
-        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly IChatManager _chat = default!;
 
-        [Dependency] private readonly IEntityManager _entityManager = default!;
         public AMEControllerComponent? MasterController => _masterController;
 
         private readonly List<AMEShieldComponent> _cores = new();
@@ -138,10 +137,21 @@ namespace Content.Server.AME
                     if (instability != 0)
                     {
                         overloading = true;
+                        var integrityCheck = 100;
                         foreach(AMEShieldComponent core in _cores)
                         {
+                            var oldIntegrity = core.CoreIntegrity;
                             core.CoreIntegrity -= instability;
+
+                            if (oldIntegrity > 95
+                                && core.CoreIntegrity <= 95
+                                && core.CoreIntegrity < integrityCheck)
+                                integrityCheck = core.CoreIntegrity;
                         }
+
+                        // Admin alert
+                        if (integrityCheck != 100 && _masterController != null)
+                            _chat.SendAdminAlert($"AME overloading: {_entMan.ToPrettyString(_masterController.Owner)}");
                     }
                 }
                 // Note the float conversions. The maths will completely fail if not done using floats.
@@ -184,9 +194,6 @@ namespace Content.Server.AME
 
             radius *= 2;
             radius = Math.Min(radius, 8);
-            var lastPlayer = _masterController?._lastPlayerIncreasedFuel;
-            _chatManager.SendAdminAnnouncement(Loc.GetString("admin-chatalert-AME-exploded", ("lastplayer",
-                _entityManager.ToPrettyString(lastPlayer.GetValueOrDefault()))));
             EntitySystem.Get<ExplosionSystem>().TriggerExplosive(MasterController.Owner, radius: radius, delete: false);
         }
     }

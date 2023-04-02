@@ -55,7 +55,6 @@ namespace Content.Client.IoC
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<SponsorsManager>();
             IoCManager.Register<JoinQueueManager>();
-            IoCManager.Register<UIAudioManager>();
             IoCManager.Register<DocumentParsingManager>();
             IoCManager.Register<StalinManager>();
         }

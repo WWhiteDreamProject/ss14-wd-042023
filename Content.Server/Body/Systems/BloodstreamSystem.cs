@@ -3,6 +3,7 @@ using Content.Server.Borgs;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Chemistry.ReactionEffects;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.Forensics;
 using Content.Server.HealthExaminable;
 using Content.Server.Popups;
 using Content.Shared.Alert;
@@ -304,7 +305,14 @@ public sealed class BloodstreamSystem : EntitySystem
             // Pass some of the chemstream into the spilled blood.
             var temp = component.ChemicalSolution.SplitSolution(component.BloodTemporarySolution.Volume / 10);
             component.BloodTemporarySolution.AddSolution(temp, _prototypeManager);
-            _spillableSystem.SpillAt(uid, component.BloodTemporarySolution, "PuddleBlood", false);
+            var puddle = _spillableSystem.SpillAt(uid, component.BloodTemporarySolution, "PuddleBlood", false);
+            if (puddle != null)
+            {
+                var comp = EnsureComp<ForensicsComponent>(puddle.Owner); //TODO: Get rid of .Owner
+                if (TryComp<DnaComponent>(uid, out var dna))
+                    comp.DNAs.Add(dna.DNA);
+            }
+
             component.BloodTemporarySolution.RemoveAllSolution();
         }
 
@@ -343,6 +351,13 @@ public sealed class BloodstreamSystem : EntitySystem
         component.BloodTemporarySolution.RemoveAllSolution();
         tempSol.AddSolution(component.ChemicalSolution, _prototypeManager);
         component.ChemicalSolution.RemoveAllSolution();
-        _spillableSystem.SpillAt(uid, tempSol, "PuddleBlood", true);
+        var puddle = _spillableSystem.SpillAt(uid, tempSol, "PuddleBlood", true);
+
+        if (puddle != null)
+        {
+            var comp = EnsureComp<ForensicsComponent>(puddle.Owner); //TODO: Get rid of .Owner
+            if (TryComp<DnaComponent>(uid, out var dna))
+                comp.DNAs.Add(dna.DNA);
+        }
     }
 }

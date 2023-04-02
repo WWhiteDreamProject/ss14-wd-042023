@@ -81,7 +81,6 @@ namespace Content.Client.Entry
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
         [Dependency] private readonly JoinQueueManager _queueManager = default!;
         [Dependency] private readonly IReflectionManager _refl = default!;
-        [Dependency] private readonly UIAudioManager _uiAudio = default!;
         [Dependency] private readonly StalinManager _stalinManager = default!;
         [Dependency] private readonly ClientJukeboxSongsSyncManager _jukeboxSyncManager = default!;
 
@@ -192,7 +191,6 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
             _sponsorsManager.Initialize();
             _queueManager.Initialize();
-            _uiAudio.Initialize();
             _documentParsingManager.Initialize();
 
             _baseClient.RunLevelChanged += (_, args) =>
