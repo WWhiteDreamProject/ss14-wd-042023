@@ -123,7 +123,7 @@ public sealed class ClimbSystem : SharedClimbSystem
             BreakOnDamage = true,
             BreakOnStun = true,
             RaiseOnUser = false,
-            RaiseOnTarget = false
+            RaiseOnTarget = false,
         };
 
         _doAfterSystem.DoAfter(args, ev);
