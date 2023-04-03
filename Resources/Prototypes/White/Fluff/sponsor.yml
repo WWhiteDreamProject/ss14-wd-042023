@@ -3,6 +3,13 @@
   id: SuitGlamorousLoadout
   entity: ClothingOuterSuitGlamorous
   sponsorOnly: true
+  blacklistJobs: [Captain, HeadOfPersonnel, ChiefEngineer, ChiefMedicalOfficer, ResearchDirector, HeadOfSecurity, Quartermaster]
+
+- type: loadout
+  id: ClothingOuterHardsuitEVAGLAMOURsLoadout
+  entity: ClothingOuterHardsuitEVAGLAMOUR
+  sponsorOnly: true
+  whitelistJobs: [Captain, HeadOfPersonnel, ChiefEngineer, ChiefMedicalOfficer, ResearchDirector, HeadOfSecurity, Quartermaster]
 
 # Maury
 - type: loadout

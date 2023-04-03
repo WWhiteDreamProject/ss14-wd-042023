@@ -20,6 +20,33 @@
       containers:
         toggleable-clothing: !type:ContainerSlot {}
 
+- type: entity
+  parent: ClothingOuterHardsuitEVA
+  id: ClothingOuterHardsuitEVAGLAMOUR
+  name: скафандр EVA GLAMOUR
+  description: Улучшеный Скафандр Гламура! Модный, стильный, совершенный! Способен защитить вас от космического вакуума. В этом скафандре все главы будут ваши. На скафандре подписан владелец - Алина Бэккен.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/DOOMMAX/evaglamour.rsi
+    - type: Clothing
+      sprite: White/Fluff/DOOMMAX/evaglamour.rsi
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadHelmetEVAGLAMOUR
+    - type: ContainerContainer
+      containers:
+        toggleable-clothing: !type:ContainerSlot { }
+
+- type: entity
+  parent: ClothingHeadHelmetEVA
+  id: ClothingHeadHelmetEVAGLAMOUR
+  name: шлем EVA GLAMOUR
+  description: Гламурный вариант шлема EVA.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/DOOMMAX/helmetglamour.rsi
+    - type: Clothing
+      sprite: White/Fluff/DOOMMAX/helmetglamour.rsi
+
 # Maury
 - type: entity
   parent: ClothingUniformJumpsuitChemistry
