@@ -6,9 +6,9 @@
   components:
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
-    name: Rat King
-    description: You are the Rat King, scavenge food in order to produce rat minions to do your bidding.
-    rules: You are an antagonist, scavenge, attack, and grow your hoard!
+    name: Крысиный король
+    description: Вы - Крысиный король, собирайте еду, чтобы производить крысиных приспешников, которые будут выполнять ваши приказы.
+    rules: Вы - антагонист, ройтесь по станции, атакуйте и приумножайте своих приспешников!
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -24,9 +24,9 @@
   components:
   - type: GhostRoleMobSpawner
     prototype: MobBatRemilia
-    name: Remilia, the chaplain's familiar
-    description: Obey your master. Eat fruit.
-    rules: You are an intelligent fruit bat. Follow the chaplain around. Don't cause any trouble unless the chaplain tells you to.
+    name: Ремилия, фамильяр священника
+    description: Повинуйтесь своему мастеру. Ешьте фрукты.
+    rules: Вы умная летучая мышь. Следуйте за капелланом повсюду. Не создавайте никаких проблем, если только капеллан не прикажет вам это сделать.
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -42,9 +42,9 @@
   components:
   - type: GhostRoleMobSpawner
     prototype: MobCorgiCerberus
-    name: Cerberus, Evil Familiar
-    description: Obey your master. Spread chaos.
-    rules: You are an intelligent, demonic dog. Try to help the chaplain and any of his flock. As an antagonist, you're otherwise unrestrained.
+    name: Цербер, злой фамильяр
+    description: Повинуйтесь своему мастеру. Сейте хаос.
+    rules: Вы умная, демоническая собака. Постарайтесь помочь капеллану и любому из его паствы. Как антагонист, в остальном вы несдержанны.
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -61,7 +61,7 @@
   components:
   - type: GhostRoleMobSpawner
     prototype: MobHumanNukeOp
-    rules: You are a syndicate operative tasked with the destruction of the station. As an antagonist, do whatever is required to complete this task.
+    rules: Вы - оперативник синдиката, которому поручено уничтожить станцию. Как антагонист, делайте все, что требуется для выполнения этой задачи.
   - type: NukeOperativeSpawner
   - type: Sprite
     sprite: Markers/jobs.rsi
