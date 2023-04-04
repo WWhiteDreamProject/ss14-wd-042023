@@ -11,9 +11,9 @@
     netsync: false
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgent
-    name: Syndicate Agent
-    description: Someone needs reinforcements. You, the first person the syndicate could find, will help them.
-    rules: Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
+    name: Агент Синдиката
+    description: Кому-то нужно подкрепление. Вы, первый человек, которого синдикат сможет найти, поможете им.
+    rules: Применяются обычные правила антагониста синдиката. Работайте с тем, кто вас вызвал, и не причиняйте ему вреда.
   - type: EmitSoundOnUse
     sound: /Audio/Misc/emergency_meeting.ogg
   - type: ItemCooldown
@@ -36,9 +36,9 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
-      name: Borg Agent
-      description: Someone needs borg reinforcements. You, the first person the syndicate could find, will help them.
-      rules: Work with whoever called you in, and follow your laws.
+      name: Борг-агент Синдиката
+      description: Кому-то нужно подкрепление - борг. Вы - первый, кого синдикат сможет найти, поможете им.
+      rules: Работайте с тем, кто вас вызвал, и следуйте своим законам.
     - type: EmitSoundOnUse
       sound: /Audio/Misc/emergency_meeting.ogg
     - type: ItemCooldown

@@ -81,7 +81,7 @@
   - type: GhostTakeoverAvailable
     prob: 0.33
     makeSentient: true
-    name: враждебная форма жизни
+    name: Враждебная форма жизни
     description: |
       Наводите беспорядок на станции!
   - type: ReplacementAccent
@@ -93,7 +93,7 @@
   suffix: "Salvage Ruleset"
   components:
   - type: GhostTakeoverAvailable
-    name: враждебная форма жизни на обломке
+    name: Враждебная форма жизни на обломке
     description: |
       Защищайте содержимое обломка!
   - type: SalvageMobRestrictions

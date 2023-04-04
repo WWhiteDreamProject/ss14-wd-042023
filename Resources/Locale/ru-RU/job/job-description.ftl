@@ -40,4 +40,4 @@ job-description-security = Ловите преступников и врагов
 job-description-serviceworker = Изучите основы барменства, кулинарии или выращивания растений.
 job-description-warden = Патрулируйте отдел безопасности, убедитесь, что никто не ворует из арсенала, и убедитесь, что все заключенные оформлены и выпущены, когда их время истекло.
 job-description-zookeeper = Покажите всем членам экипажа веселую выставку милых животных и космических карпов. Доступно не на всех картах!
-job-description-research-assistant = Learn the basics of how to research various artifacts and anomalies.
+job-description-research-assistant = Изучите основы исследования различных артефактов и аномалий.

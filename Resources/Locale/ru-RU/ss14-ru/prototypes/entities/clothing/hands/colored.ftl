@@ -34,3 +34,6 @@ ent-ClothingHandsGlovesColorYellow = изолированные перчатки
 ent-ClothingHandsGlovesColorYellowBudget = дешевые изолированные перчатки
     .desc = Всего лишь дешевая подделка заветных перчаток - не может быть, чтобы это плохо кончилось.
     .suffix = { "" }
+ent-ClothingHandsGlovesCluwne = перчатки клувна
+    .desc = Проклятые перчатки...
+    .suffix = Неснимаемое

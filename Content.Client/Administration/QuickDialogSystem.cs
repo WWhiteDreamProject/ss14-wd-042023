@@ -46,19 +46,19 @@ public sealed class QuickDialogSystem : EntitySystem
             {
                 case QuickDialogEntryType.Integer:
                     edit.IsValid += VerifyInt;
-                    edit.PlaceHolder = "Integer..";
+                    edit.PlaceHolder = "Целое число..";
                     break;
                 case QuickDialogEntryType.Float:
                     edit.IsValid += VerifyFloat;
-                    edit.PlaceHolder = "Float..";
+                    edit.PlaceHolder = "Число..";
                     break;
                 case QuickDialogEntryType.ShortText:
                     edit.IsValid += VerifyShortText;
-                    edit.PlaceHolder = "Short text..";
+                    edit.PlaceHolder = "Короткий текст..";
                     break;
                 case QuickDialogEntryType.LongText:
                     edit.IsValid += VerifyLongText;
-                    edit.PlaceHolder = "Long text..";
+                    edit.PlaceHolder = "Текст..";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -1,9 +1,9 @@
 - type: listing
   id: RevenantDefile
-  name: Defile
-  description: Defiles the surrounding area, ripping up floors, damaging windows, opening containers, and throwing items. Using it leaves you vulnerable to attacks for a short period of time.
+  name: Осквернение
+  description: Оскверняет окружающую территорию, вспарывая полы, повреждая окна, открывая контейнеры и разбрасывая предметы. Его использование делает вас уязвимыми для атак в течение короткого периода времени.
   productAction: RevenantDefile
-  cost: 
+  cost:
     StolenEssence: 10
   categories:
   - RevenantAbilities
@@ -13,10 +13,10 @@
 
 - type: listing
   id: RevenantOverloadLights
-  name: Overload Lights
-  description: Overloads all nearby lights, causing lights to pulse and sending out dangerous lightning. Using it leaves you vulnerable to attacks for a long period of time.
+  name: Перегрузка света
+  description: Перегружает все близлежащие источники света, заставляя их пульсировать и испускать опасные молнии. Его использование делает вас уязвимыми для атак в течение длительного периода времени.
   productAction: RevenantOverloadLights
-  cost: 
+  cost:
     StolenEssence: 25
   categories:
   - RevenantAbilities
@@ -26,10 +26,10 @@
 
 - type: listing
   id: RevenantBlight
-  name: Blight
-  description: Infects all nearby organisms with an infectious disease that causes toxic buildup and tiredness. Using it leaves you vulnerable to attacks for a medium period of time.
+  name: Порча
+  description: Заражает все близлежащие организмы инфекционным заболеванием, которое вызывает накопление токсинов и усталость. Его использование делает вас уязвимыми для атак в течение среднего периода времени.
   productAction: RevenantBlight
-  cost: 
+  cost:
     StolenEssence: 75
   categories:
   - RevenantAbilities
@@ -39,10 +39,10 @@
 
 - type: listing
   id: RevenantMalfunction
-  name: Malfunction
-  description: Makes nearby electronics stop working properly. Using it leaves you vulnerable to attacks for a long period of time.
+  name: Неисправность
+  description: Приводит к тому, что близлежащая электроника перестает работать должным образом. Его использование делает вас уязвимыми для атак в течение длительного периода времени.
   productAction: RevenantMalfunction
-  cost: 
+  cost:
     StolenEssence: 125
   categories:
   - RevenantAbilities

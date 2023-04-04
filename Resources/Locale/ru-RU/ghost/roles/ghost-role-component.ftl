@@ -12,3 +12,9 @@ ghost-role-information-hamster-name = Хомяк
 ghost-role-information-hamster-description = Маленький ворчливый пушистик.
 ghost-role-information-hamlet-name = Хомяк Гамлет
 ghost-role-information-hamlet-description = Живёт на капитанском мостике, немного вспыльчив и всегда голоден.
+
+spider-web-action-name = Паутина
+spider-web-action-description = Создает паутину, которая замедляет вашу добычу.
+spider-web-action-nogrid = Под тобой нет пола!
+spider-web-action-success = Вы опутываете себя паутиной.
+spider-web-action-fail = Вы не можете размещать здесь паутину! Во всех направлениях уже есть паутина!
