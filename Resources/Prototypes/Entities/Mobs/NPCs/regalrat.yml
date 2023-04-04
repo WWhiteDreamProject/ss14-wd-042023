@@ -84,9 +84,9 @@
         Base: dead
   - type: GhostTakeoverAvailable
     makeSentient: true
-    name: Крысиный король
-    description: Вы - Крысиный король, собирайте еду, чтобы производить крысиных приспешников, которые будут выполнять ваши приказы.
-    rules: Вы - антагонист, ройтесь по станции, атакуйте и приумножайте своих приспешников!
+    name: Rat King
+    description: You are the Rat King, scavenge food in order to produce rat minions to do your bidding.
+    rules: You are an antagonist, scavenge, attack, and grow your hoard!
   - type: Tag
     tags:
       - CannotSuicide
@@ -285,9 +285,9 @@
     wilhelmProbability: 0.001
   - type: GhostTakeoverAvailable
     makeSentient: true
-    name: Крысиный прислужник
-    description: Вы - прислужник-крыса. Вы должны следовать приказам вашего короля.
-    rules: Вы - антагонист, ройтесь по станции, атакуйте и служите своему королю!
+    name: Rat Servant
+    description: You are a Rat Servant. You must follow your king's orders.
+    rules: You are an antagonist, scavenge, attack, and serve your king!
   - type: Tag
     tags:
       - CannotSuicide

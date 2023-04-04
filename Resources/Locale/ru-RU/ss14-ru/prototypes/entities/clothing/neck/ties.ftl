@@ -4,6 +4,3 @@ ent-ClothingNeckTieRed = красный галстук
 ent-ClothingNeckTieDet = галстук детектива
     .desc = Свободно завязанный галстук - идеальный аксессуар для усталого детектива.
     .suffix = { "" }
-ent-ClothingNeckTieSci = галстук учёного
-    .desc = Почему мы все должны носить эти нелепые галстуки?
-    .suffix = { "" }

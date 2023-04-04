@@ -406,7 +406,7 @@
   - type: Item
     heldPrefix: gold
   - type: IdCard
-    jobTitle: Офицер ЦК
+    jobTitle: Central Commander
   - type: Access
     groups:
     - AllAccess
@@ -434,7 +434,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Офицер ЦК
+    jobTitle: Central Commander
   - type: Access
     tags:
     - Maintenance
@@ -462,7 +462,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Агент ЦК
+    jobTitle: Centcom Agent
 
 - type: entity
   parent: PassengerIDCard
@@ -548,7 +548,7 @@
     - state: idzookeeper
   - type: PresetIdCard
     job: Zookeeper
-
+    
 - type: entity
   parent: IDCardStandard
   id: DetectiveIDCard
@@ -572,7 +572,7 @@
     - state: idcentcom
   - type: Item
     heldPrefix: gold
-
+    
 
 - type: entity
   parent: IDCardStandard
@@ -585,5 +585,5 @@
     - state: default
     - state: idcluwne
   - type: IdCard
-    jobTitle: Клувн
+    jobTitle: Cluwne
   - type: Unremoveable

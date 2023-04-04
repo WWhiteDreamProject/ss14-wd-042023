@@ -22,8 +22,8 @@
   randomizeName: false
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР лидер
-      description: Возглавьте команду специалистов для решения проблем со станцией.
+      name: ERT Leader
+      description: Lead a team of specialists to resolve the stations issues.
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
     - type: RandomMetadata
@@ -49,8 +49,8 @@
   parent: ERTLeader
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР лидер
-      description: Возглавьте команду специалистов для решения проблем со станцией.
+      name: ERT Leader
+      description: Lead a team of specialists to resolve the stations issues.
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
 
@@ -77,8 +77,8 @@
   parent: ERTLeader
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР уборщик
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Janitor
+      description: Assist with custodial efforts to resolve the stations issues.
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -104,8 +104,8 @@
   parent: ERTJanitor
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР уборщик
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Janitor
+      description: Assist with custodial efforts to resolve the stations issues.
     - type: Loadout
       prototypes: [ ERTJanitorGearEVA ]
 
@@ -132,8 +132,8 @@
   parent: ERTLeader
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР инженер
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Engineer
+      description: Assist with engineering efforts to resolve the stations issues.
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -159,8 +159,8 @@
   parent: ERTEngineer
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР инженер.
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Engineer
+      description: Assist with engineering efforts to resolve the stations issues.
     - type: Loadout
       prototypes: [ ERTEngineerGearEVA ]
 
@@ -187,8 +187,8 @@
   parent: ERTLeader
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР охрана
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Security
+      description: Assist with security efforts to resolve the stations issues.
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -214,8 +214,8 @@
   parent: ERTSecurity
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР охрана
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Security
+      description: Assist with security efforts to resolve the stations issues.
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
 
@@ -242,8 +242,8 @@
   parent: ERTLeader
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР медик
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Medical
+      description: Assist with medicaling efforts to resolve the stations issues.
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -269,8 +269,8 @@
   parent: ERTMedical
   components:
     - type: GhostTakeoverAvailable
-      name: ОБР медик
-      description: Оказывайте помощь в обеспечении безопасности для решения проблем со станцией.
+      name: ERT Medical
+      description: Assist with medicaling efforts to resolve the stations issues.
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
 
@@ -293,8 +293,8 @@
     - type: Loadout
       prototypes: [CBURNGear]
     - type: GhostTakeoverAvailable
-      name: Агент ЦК
-      description: Высококвалифицированный агент ЦентКома, способный справляться с различными угрозами.
+      name: CBURN Agent
+      description: A highly trained CentCom agent, capable of dealing with various threats.
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -316,8 +316,8 @@
   id: CentcomOfficial
   components:
     - type: GhostTakeoverAvailable
-      name: Представитель ЦентКома
-      description: Осмотрите станцию, напишите отзывы о работе глав отделов, попилите капитана.
+      name: CentCom official
+      description: Inspect the station, jot down performance reviews for heads of staff, bug the Captain.
     - type: Loadout
       prototypes: [ CentcomGear ]
 
@@ -380,6 +380,6 @@
   randomizeName: false
   components:
     - type: GhostTakeoverAvailable
-      name: Клувн
-      description: Станьте жалким клувном, ваша единственная цель в жизни - найти сладкое избавление от своих страданий (обычно, будучи избитым до смерти). Клувн не является антагонистом, но может защищаться. Члены экипажа могут свободно убивать клувна.
+      name: Cluwne
+      description: Become a pitiful cluwne, your only goal in life is to find a sweet release from your suffering (usually by being beaten to death). A cluwne is not an antagonist but may defend itself. Crewmembers may murder cluwnes freely.
     - type: Cluwne

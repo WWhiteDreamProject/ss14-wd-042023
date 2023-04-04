@@ -136,8 +136,8 @@
     node: bot
   - type: GhostTakeoverAvailable
     makeSentient: true
-    name: Хонкбот
-    description: Искусственное существо, воплощающее чистое зло.
+    name: honkbot
+    description: An artificial being of pure evil.
   - type: InteractionPopup
     interactSuccessString: petting-success-honkbot
     interactFailureString: petting-failure-honkbot

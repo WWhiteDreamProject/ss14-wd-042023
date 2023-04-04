@@ -590,12 +590,12 @@ namespace Content.Client.Wires.UI
 
         private sealed class HelpPopup : Popup
         {
-            private const string Text = "Нажмите на золотые контакты с помощью мультитула в руке, чтобы запульсировать их провод.\n" +
-                                        "Нажмите на провода с помощью кусачек в руке, чтобы обрезать/починить их.\n\n" +
-                                        "Индикаторы вверху показывают состояние машины, " +
-                                        "возня с проводами, вероятно, приведет к тому, что с ними что-то случится.\n" +
-                                        "Расположение проводов в каждом раунде разное, " +
-                                        "но согласовано между машинами одного типа.";
+            private const string Text = "Click on the gold contacts with a multitool in hand to pulse their wire.\n" +
+                                        "Click on the wires with a pair of wirecutters in hand to cut/mend them.\n\n" +
+                                        "The lights at the top show the state of the machine, " +
+                                        "messing with wires will probably do stuff to them.\n" +
+                                        "Wire layouts are different each round, " +
+                                        "but consistent between machines of the same type.";
 
             public HelpPopup()
             {

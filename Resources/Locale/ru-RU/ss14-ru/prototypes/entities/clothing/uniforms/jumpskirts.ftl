@@ -160,6 +160,3 @@ ent-ClothingUniformJumpskirtLawyerPurple = фиолетовая адвокатс
 ent-ClothingUniformJumpskirtLawyerGood = хорошая адвокатская юбка-костюм
     .desc = Кричащий костюм c юбкой, идеально подходящий УГОЛОВНОМУ адвокату!
     .suffix = { "" }
-ent-ClothingUniformJumpskirtJanimaidmini = форма горничной с мини-юбкой
-    .desc = Элитный сервис, а не какие-то фантики от конфет.
-    .suffix = { "" }

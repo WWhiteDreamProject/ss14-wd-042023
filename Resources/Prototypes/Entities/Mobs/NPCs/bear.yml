@@ -96,9 +96,9 @@
     color: "#4faffb"
   - type: GhostTakeoverAvailable
     prob: 0.25
-    name: Космический медведь
+    name: space bear
     description: |
-      Ты медведь! Делай медвежьи дела!
+      You're a bear! Do bear things.
 
 - type: entity
   id: MobBearSpaceSalvage
@@ -107,7 +107,7 @@
   components:
   - type: GhostTakeoverAvailable
     prob: 0.25
-    name: Космический медведь на обломке
+    name: space bear on salvage wreck
     description: |
-      Защищайте содержимое обломка!
+      Defend the loot inside the salvage wreck!
   - type: SalvageMobRestrictions

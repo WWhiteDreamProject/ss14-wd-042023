@@ -37,6 +37,3 @@ ent-ClothingNeckCloakMiner = плащ шахтёра
 ent-ClothingNeckCloakTrans = вампирский плащ
     .desc = Его носят высокопоставленные вампиры из трансильванского общества вампиров.
     .suffix = { "" }
-ent-ClothingNeckCloakGoliathCloak = плащ голиафа
-    .desc = Плащ, сшитый из шкуры фауны с далекой планеты, хотя с возрастом его защитная ценность утратилась.
-    .suffix = { "" }

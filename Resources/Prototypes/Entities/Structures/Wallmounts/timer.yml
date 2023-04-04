@@ -52,7 +52,7 @@
   id: BrigTimer
   parent: SignalTimer
   name: камерный таймер
-  description: Это таймер для камер брига.
+  description: It's a timer for brig cells.
   components:
     - type: SignalTimer
       canEditLabel: true

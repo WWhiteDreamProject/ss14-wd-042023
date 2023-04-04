@@ -23,8 +23,6 @@ traitor-description = Среди нас есть предатели...
 traitor-not-enough-ready-players = Недостаточно игроков готовы к игре! Из { $minimumPlayers } необходимых игроков готовы { $readyPlayersCount }.
 traitor-no-one-ready = Нет готовых игроков! Не удалось начать режим Предателя.
 
-traitor-round-end-codewords = Кодовыми словами были: [color=White]{$codewords}[/color]
-
 ## TraitorDeathMatch
 
 traitor-death-match-title = Бой насмерть предателей
