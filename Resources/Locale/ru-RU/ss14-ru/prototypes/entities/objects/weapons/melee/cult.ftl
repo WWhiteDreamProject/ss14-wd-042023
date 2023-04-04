@@ -1,9 +1,9 @@
-ent-RitualDagger = ritual dagger
-    .desc = A strange dagger used by sinister groups for rituals and sacrifices.
+ent-RitualDagger = ритуальный кинжал
+    .desc = Странный кинжал, используемый зловещими группировками для ритуалов и жертвоприношений.
     .suffix = { "" }
-ent-EldritchBlade = eldritch blade
-    .desc = A sword humming with unholy energy.
+ent-EldritchBlade = жуткий клинок
+    .desc = Меч, наполненный нечестивой энергией.
     .suffix = { "" }
-ent-UnholyHalberd = unholy halberd
-    .desc = A poleaxe that seems to be linked to its wielder.
+ent-UnholyHalberd = нечестивая секира
+    .desc = Секира, которая, кажется, связана со своим владельцем.
     .suffix = { "" }

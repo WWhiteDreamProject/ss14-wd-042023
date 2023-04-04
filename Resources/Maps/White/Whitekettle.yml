@@ -203386,7 +203386,7 @@ entities:
 - uid: 26124
   type: Paper
   components:
-  - name: scribbled notes
+  - name: нацарапанные заметки
     type: MetaData
   - pos: -51.226093,-34.52108
     parent: 1

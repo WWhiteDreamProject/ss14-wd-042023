@@ -135,11 +135,11 @@
   components:
     - type: GhostTakeoverAvailable
       prob: 0.33
-      name: space carp on salvage wreck
+      name: Космический карп на обломке
       allowMovement: true
       allowSpeech: true
       description: |
-        Defend the loot inside the salvage wreck!
+        Защищайте содержимое обломка!
     - type: SalvageMobRestrictions
 
 - type: entity
@@ -152,7 +152,7 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
-      name: Sentient Carp
-      description: Help the dragon flood the station with carps!
+      name: Карп-страж
+      description: Помогите дракону заполнить станцию космическими карпами!
     - type: HTN
       rootTask: DragonCarpCompound

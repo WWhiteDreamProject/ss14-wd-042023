@@ -2,7 +2,13 @@
 
 # Shown when an RCD is examined in details range
 rcd-component-examine-detail-count =
-    Находится в режиме { $mode }, и { $ammoCount ->
+    Находится в режиме { $mode ->
+        *[other] _
+        [floors] полы
+        [walls] стены
+        [airlock] шлюзы
+        [deconstruct] разбор
+     }, и { $ammoCount ->
        *[zero] не содержит зарядов.
         [one] содержит 1 заряд.
         [few] содержит { $ammoCount } заряда.

@@ -90,3 +90,6 @@ technologies-anomaly-technology-description = Машины для расшире
 
 technologies-super-parts-technology = Суперкомпоненты
 technologies-super-parts-technology-description = Еще больше мощности!
+
+technologies-advanced-cleaning-technology = Продвинутая технология уборки
+technologies-advanced-cleaning-technology-description = Гораздо больше чистых полов!

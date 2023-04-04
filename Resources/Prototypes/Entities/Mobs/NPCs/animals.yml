@@ -773,7 +773,7 @@
   parent: MobMonkey
   noSpawn: true
   id: MobGuidebookMonkey
-  description: A hopefully helpful monkey whose only purpose in life is for you to click on. Does this count as having a monkey give you a tutorial?
+  description: Надеюсь, полезная обезьянка, единственная цель которой в жизни - чтобы вы на нее нажали. Считается ли это, что обезьяна дает вам урок?
   components:
     - type: GuidebookControlsTest
 
