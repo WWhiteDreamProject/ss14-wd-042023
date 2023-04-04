@@ -47,7 +47,7 @@
 - type: listing
   id: UplinkRifleAk
   name: CV-47
-  description: Tra-ta-ta-ta
+  description: Тра-та-та-та
   productEntity: WeaponRifleAk
   cost:
     Telecrystal: 16
@@ -225,8 +225,8 @@
 # For the AK
 - type: listing
   id: UplinkAkAmmo
-  name: CV-47 Magazine
-  description: Ready to kill?
+  name: магазин CV-47
+  description: Готов убивать?
   productEntity: MagazineLightRifle
   cost:
     Telecrystal: 4
@@ -293,8 +293,8 @@
 
 - type: listing
   id: UplinkReinforcementRadioSyndicate
-  name: Syndicate reinforcement
-  description: Call one nuke operative with default equipment.
+  name: Подкрепление Синдиката
+  description: Вызовите одного ядерного оперативника с оборудованием по умолчанию.
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
@@ -304,8 +304,8 @@
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateBorg
-  name: Borg reinforcement
-  description: Call combat borg AND GO BRRRRR.
+  name: Подкрепление борг-синдикат
+  description: Вызовите боевого борга, который будет делать БРРРРР.
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   productEntity: ReinforcementRadioSyndicateBorg
   cost:
@@ -320,8 +320,8 @@
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateBorgAgent
-  name: Borg reinforcement
-  description: Call combat borg AND GO BRRRRR.
+  name: Подкрепление борг-синдикат
+  description: Вызовите боевого борга, который будет делать БРРРРР.
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   productEntity: ReinforcementRadioSyndicateBorg
   cost:
