@@ -39,5 +39,6 @@ latejoin-arrival-announcement =
     } на станцию!
 latejoin-arrival-sender = Станции
 player-join-message = Игрок { $name } зашёл!
+latejoin-arrivals-direction = Вскоре прибудет шаттл, который доставит вас на вашу станцию.
 player-first-join-message = Игрок { $name } зашёл на сервер впервые.
 player-leave-message = Игрок { $name } вышел!

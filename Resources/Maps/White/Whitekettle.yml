@@ -203391,7 +203391,7 @@ entities:
   - pos: -51.226093,-34.52108
     parent: 1
     type: Transform
-  - content: "water\ndexalin\noxygen\n \nfreeze to 150k or below\n \nbe ready with some warm clothes and maybe some cocoa\n"
+  - content: "вода\nдексалин\nкислород\n \nзаморозить до 150К или ниже\n \nобзаведитесь тёплой оджедой и, возможно, какао\n"
     type: Paper
 - uid: 26125
   type: CableApcExtension

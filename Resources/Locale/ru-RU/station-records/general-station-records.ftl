@@ -9,4 +9,5 @@ general-station-record-console-record-species = Раса: { $species }
 
 general-station-record-console-record-gender = Гендер: { $gender }
 general-station-record-console-record-fingerprint = Отпечатки: { $fingerprint }
+general-station-record-console-record-dna = ДНК: { $dna }
 general-station-record-console-record-fingerprint-empty = отсутствуют
