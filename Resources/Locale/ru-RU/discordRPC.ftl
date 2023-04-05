@@ -1,4 +1,4 @@
-﻿discord-rpc-in-main-menu = В главном меню White Dream
+﻿discord-rpc-in-main-menu = В главном меню
 discord-rpc-character = Сикей: {$username}
-discord-rpc-on-server = Сервер White Dream: {$servername}
+discord-rpc-on-server = Сервер: {$servername}
 discord-rpc-players = Игроков: {$players}/{$maxplayers}
