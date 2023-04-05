@@ -94,7 +94,7 @@ namespace Content.Server.Administration.Systems
                     prayerVerb.Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/pray.svg.png"));
                     prayerVerb.Act = () =>
                     {
-                        _quickDialog.OpenDialog(player, "Subtle Message", "Message", "Popup Message", (string message, string popupMessage) =>
+                        _quickDialog.OpenDialog(player, "Скрытое послание", "Послание", "Послание попапом", (string message, string popupMessage) =>
                         {
                             _prayerSystem.SendSubtleMessage(targetActor.PlayerSession, player, message, popupMessage == "" ? Loc.GetString("prayer-popup-subtle-default") : popupMessage);
                         });

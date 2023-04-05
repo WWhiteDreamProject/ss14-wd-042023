@@ -1,3 +1,4 @@
+
 ## General stuff
 
 ui-options-title = Игровые настройки
@@ -53,19 +54,19 @@ ui-options-hud-theme-classic = Стандартный
 ui-options-obsolete-interface-warning = ВНИМАНИЕ: Вы используете устаревшую версию интерфейса!
 ui-options-vp-stretch = Растянуть изображение для соответствия окну игры
 ui-options-vp-scale = Фиксированный масштаб окна игры: x{ $scale }
-ui-options-vp-integer-scaling = Prefer integer scaling (might cause black bars/clipping)
+ui-options-vp-integer-scaling = Предпочитать целочисленное масштабирование (может привести к появлению черных полос / отсечению)
 ui-options-vp-integer-scaling-tooltip =
-    If this option is enabled, the viewport will be scaled using an integer value
-    at specific resolutions. While this results in crisp textures, it also often
-    means that black bars appear at the top/bottom of the screen or that part
-    of the viewport is not visible.
+    Если эта опция включена, видовой экран будет масштабироваться с использованием 
+    целочисленного значения в конкретных разрешениях экрана.
+    Хотя в результате получается четкая текстура, также часто
+    черные полосы могут появиться в верхней/нижней части экрана.
 ui-options-vp-low-res = Изображение низкого разрешения
 ui-options-parallax-low-quality = Низкокачественный параллакс (фон)
 ui-options-fps-counter = Показать счетчик FPS
 ui-options-vp-width = Ширина окна игры: { $width }
 ui-options-hud-layout = Тип HUD:
-ui-options-film-grain = Film grain
-ui-options-shaders = Shaders
+ui-options-film-grain = Кинематографичная рябь
+ui-options-shaders = Шейдеры
 
 ## Controls menu
 
@@ -95,7 +96,7 @@ ui-options-function-camera-rotate-left = Повернуть налево
 ui-options-function-camera-rotate-right = Повернуть направо
 ui-options-function-camera-reset = Сбросить камеру
 ui-options-function-use = Использовать
-ui-options-function-use-secondary = Use secondary
+ui-options-function-use-secondary = Использовать вторичное
 ui-options-function-alt-use = Альтернативное использование
 ui-options-function-wide-attack = Размашистая атака
 ui-options-function-activate-item-in-hand = Использовать предмет в руке
@@ -123,7 +124,7 @@ ui-options-function-focus-console-chat-window = Писать в чат (Конс
 ui-options-function-cycle-chat-channel-forward = Переключение каналов чата (Вперёд)
 ui-options-function-cycle-chat-channel-backward = Переключение каналов чата (Назад)
 ui-options-function-open-character-menu = Открыть меню персонажа
-ui-options-function-open-character-menu = Открыть меню эмоций
+ui-options-function-open-emotions-menu = Открыть меню эмоций
 ui-options-function-open-context-menu = Открыть контекстное меню
 ui-options-function-open-crafting-menu = Открыть меню строительства
 ui-options-function-open-inventory-menu = Открыть снаряжение

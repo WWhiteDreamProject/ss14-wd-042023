@@ -69,9 +69,17 @@ namespace Content.Server.Construction
         {
             if (GetTargetNode(uid, component) is {} target)
             {
+                string targetName;
+                if (target.Entity != null)
+                {
+                    targetName = Loc.GetString($"ent-{target.Entity}");
+                }
+                else
+                    targetName = Loc.GetString($"node-{target.Name}");
+
                 args.PushMarkup(Loc.GetString(
                     "construction-component-to-create-header",
-                    ("targetName", target.Name)) + "\n");
+                    ("targetName", targetName)) + "\n");
             }
 
             if (component.EdgeIndex == null && GetTargetEdge(uid, component) is {} targetEdge)

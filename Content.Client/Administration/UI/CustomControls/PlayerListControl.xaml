@@ -5,7 +5,7 @@
     <LineEdit Name="FilterLineEdit"
               MinSize="100 0"
               HorizontalExpand="True"
-              PlaceHolder="{Loc Filter}"/>
+              PlaceHolder="{Loc ui-admin-panel-filter}"/>
     <PanelContainer Name="BackgroundPanel"
                     VerticalExpand="True"
                     HorizontalExpand="True">

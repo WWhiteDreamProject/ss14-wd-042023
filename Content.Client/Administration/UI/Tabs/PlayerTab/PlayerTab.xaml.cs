@@ -89,7 +89,7 @@ namespace Content.Client.Administration.UI.Tabs.PlayerTab
             _players.Clear();
 
             var playerManager = IoCManager.Resolve<IPlayerManager>();
-            PlayerCount.Text = $"Players: {playerManager.PlayerCount}";
+            PlayerCount.Text = $"Игроков: {playerManager.PlayerCount}";
 
             var sortedPlayers = new List<PlayerInfo>(players);
             sortedPlayers.Sort(Compare);
@@ -103,7 +103,7 @@ namespace Content.Client.Administration.UI.Tabs.PlayerTab
                     player.CharacterName,
                     player.IdentityName,
                     player.StartingJob,
-                    player.Antag ? "YES" : "NO",
+                    player.Antag ? "Да" : "Нет",
                     new StyleBoxFlat(useAltColor ? _altColor : _defaultColor),
                     player.Connected);
                 entry.PlayerUid = player.EntityUid;

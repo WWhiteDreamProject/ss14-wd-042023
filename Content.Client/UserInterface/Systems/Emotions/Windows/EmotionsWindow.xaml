@@ -1,7 +1,7 @@
 ﻿<windows:EmotionsWindow
     xmlns="https://spacestation14.io"
     xmlns:windows="clr-namespace:Content.Client.UserInterface.Systems.Emotions.Windows"
-    Title="Emotions Menu"
+    Title="Меню эмоций"
     VerticalExpand="True"
     HorizontalExpand="True"
     MinHeight="250"

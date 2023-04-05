@@ -32,7 +32,7 @@ public sealed partial class ObjectsTab : Control
         foreach (var type in Enum.GetValues(typeof(ObjectsTabSelection)))
         {
             _selections.Add((ObjectsTabSelection)type!);
-            ObjectTypeOptions.AddItem(Enum.GetName((ObjectsTabSelection)type)!);
+            ObjectTypeOptions.AddItem(Loc.GetString($"objects-tabs-type-{Enum.GetName((ObjectsTabSelection)type)!}"));
         }
 
         RefreshObjectList(_selections[ObjectTypeOptions.SelectedId]);
@@ -58,7 +58,7 @@ public sealed partial class ObjectsTab : Control
         foreach (var entity in entities)
         {
             // TODO the server eitehr needs to send the entity's name, or it needs to ensure the client knows about the entity.
-            var name = _entityManager.GetComponentOrNull<MetaDataComponent>(entity)?.EntityName ?? "Unknown Entity"; // this should be fixed, so I CBF localizing.
+            var name = _entityManager.GetComponentOrNull<MetaDataComponent>(entity)?.EntityName ?? "Неизвестное энтити"; // this should be fixed, so I CBF localizing.
             var ctrl = new ObjectsTabEntry(name, entity);
             _objects.Add(ctrl);
             ObjectList.AddChild(ctrl);
