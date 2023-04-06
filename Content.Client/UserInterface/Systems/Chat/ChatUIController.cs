@@ -254,6 +254,11 @@ public sealed class ChatUIController : UIController
 
         var split = sizing.Split("x");
 
+        if (split.Length != 2)
+        {
+            return;
+        }
+
         var chatSize = new Vector2(
             float.Parse(split[0], CultureInfo.InvariantCulture),
             float.Parse(split[1], CultureInfo.InvariantCulture));
