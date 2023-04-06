@@ -7,3 +7,6 @@ ent-SpawnVehiclePussywagon = спавнер уборочной машины
 ent-SpawnVehicleATV = спавнер квадроцикла
     .desc = { ent-MarkerBase.desc }
     .suffix = { "" }
+ent-SpawnVehicleJanicart = спавнер ШлюхоВозки
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "" }
