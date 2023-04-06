@@ -252,7 +252,7 @@ public sealed class ChatUIController : UIController
             return;
         }
 
-        var split = sizing.Split(",");
+        var split = sizing.Split("x");
 
         var chatSize = new Vector2(
             float.Parse(split[0], CultureInfo.InvariantCulture),
@@ -269,7 +269,7 @@ public sealed class ChatUIController : UIController
             throw new Exception("Cannot get active screen!");
         }
 
-        var stringSize = $"{size.X},{size.Y}";
+        var stringSize = $"{size.X}x{size.Y}";
         switch (UIManager.ActiveScreen)
         {
             case DefaultGameScreen _:
