@@ -86,6 +86,7 @@
   description: Книга является заметками кошко богини. Её потомки используют эту книгу как Библию.
   id: BibleNya
   components:
+    - type: EarsSpawn
     - type: Sprite
       netsync: false
       sprite: White/Fluff/merkkaa/bible.rsi
@@ -93,3 +94,7 @@
     - type: Item
       size: 10
       sprite: White/Fluff/merkkaa/bible.rsi
+    - type: PointLight
+      radius: 2
+      energy: 2
+      color: pink

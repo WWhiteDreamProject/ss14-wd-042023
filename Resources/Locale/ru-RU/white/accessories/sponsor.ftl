@@ -7,3 +7,7 @@ ent-ClothingOuterSuitGlamorous = гламурный костюм
 ent-Sledgebar = мьёльнир
     .desc = Отлично ломает кости ассистентам и клоуну.
     .suffix = { "Fluff" }
+
+ent-BibleNya = няко-библия
+    .desc = книга является заметками кошко богини. Её потомки используют эту книгу как Библию.
+    .suffix = { "Fluff" }

@@ -2,6 +2,7 @@ using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Server.White.Other.Lazy;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -154,6 +155,9 @@ namespace Content.Server.Bible
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
+            if (HasComp<EarsSpawnComponent>(component.Owner))
+                return;
+
             if (!args.CanInteract || !args.CanAccess || component.AlreadySummoned || component.SpecialItemPrototype == null)
                 return;
 
@@ -176,6 +180,9 @@ namespace Content.Server.Bible
 
         private void GetSummonAction(EntityUid uid, SummonableComponent component, GetItemActionsEvent args)
         {
+            if (HasComp<EarsSpawnComponent>(component.Owner))
+                return;
+
             if (component.AlreadySummoned)
                 return;
 
@@ -183,6 +190,9 @@ namespace Content.Server.Bible
         }
         private void OnSummon(EntityUid uid, SummonableComponent component, SummonActionEvent args)
         {
+            if (HasComp<EarsSpawnComponent>(component.Owner))
+                return;
+
             AttemptSummon(component, args.Performer, Transform(args.Performer));
         }
 
@@ -216,6 +226,8 @@ namespace Content.Server.Bible
 
         private void AttemptSummon(SummonableComponent component, EntityUid user, TransformComponent? position)
         {
+            if (HasComp<EarsSpawnComponent>(component.Owner))
+                return;
             if (component.AlreadySummoned || component.SpecialItemPrototype == null)
                 return;
             if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(user))
