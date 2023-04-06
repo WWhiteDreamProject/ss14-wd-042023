@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: ButcheringHuman
+  files:
+  - /Audio/Effects/sawhit1.ogg
+  - /Audio/Effects/sawhit2.ogg
+  - /Audio/Effects/sawhit3.ogg
+  - /Audio/Effects/sawhit4.ogg

@@ -1,4 +1,4 @@
-﻿using Content.Server.Body.Systems;
+using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Kitchen.Components;
 using Content.Shared.Body.Components;
@@ -14,6 +14,9 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Humanoid;
+using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Kitchen.EntitySystems;
 
@@ -26,7 +29,8 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -36,7 +40,7 @@ public sealed class SharpSystem : EntitySystem
 
         SubscribeLocalEvent<ButcherableComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
     }
-
+ 
     private void OnAfterInteract(EntityUid uid, SharpComponent component, AfterInteractEvent args)
     {
         if (args.Target is null || !args.CanReach)
@@ -53,7 +57,7 @@ public sealed class SharpSystem : EntitySystem
         if (!TryComp<SharpComponent>(knife, out var sharp))
             return;
 
-        if (butcher.Type != ButcheringType.Knife)
+        if (butcher.Type != ButcheringType.Knife && !TryComp<HumanoidAppearanceComponent>(target, out _))
             return;
 
         if (TryComp<MobStateComponent>(target, out var mobState) && !_mobStateSystem.IsDead(target, mobState))
@@ -61,7 +65,12 @@ public sealed class SharpSystem : EntitySystem
 
         if (!sharp.Butchering.Add(target))
             return;
-
+        if (HasComp<HumanoidAppearanceComponent>(target))
+        {
+            butcher.ButcherDelay = 180.0f;
+             _popupSystem.PopupEntity("РАЗДЕЛЫВАЕТ ЧЕЛОВЕКА", sharp.Owner, PopupType.LargeCaution);
+        }
+        butcher.ButhcerEndTime = _gameTiming.CurTime + TimeSpan.FromSeconds(Convert.ToDouble(sharp.ButcherDelayModifier * butcher.ButcherDelay));
         var doAfter =
             new DoAfterEventArgs(user, sharp.ButcherDelayModifier * butcher.ButcherDelay, target: target, used: knife)
             {
@@ -73,6 +82,25 @@ public sealed class SharpSystem : EntitySystem
             };
 
         _doAfterSystem.DoAfter(doAfter);
+        butcher.BeingButchered = true;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var curTime = _gameTiming.CurTime;
+
+        foreach (var butcher in EntityQuery<ButcherableComponent>())
+        {
+            if (curTime < butcher.ButhceringSoundDelay)
+                continue;
+            if (curTime < butcher.ButhcerEndTime && butcher.BeingButchered)
+            {
+                _audioSystem.PlayPvs(butcher.ButcheringSound, butcher.Owner,AudioParams.Default.WithVolume(400));
+                butcher.ButhceringSoundDelay = curTime + TimeSpan.FromSeconds(5);
+
+            }
+        }
     }
 
     private void OnDoAfter(EntityUid uid, SharpComponent component, DoAfterEvent args)
@@ -83,6 +111,8 @@ public sealed class SharpSystem : EntitySystem
         if (args.Cancelled)
         {
             component.Butchering.Remove(args.Args.Target.Value);
+            butcher.BeingButchered = false;
+            butcher.ButcherDelay = 8.0f;
             return;
         }
 
@@ -123,7 +153,7 @@ public sealed class SharpSystem : EntitySystem
 
     private void OnGetInteractionVerbs(EntityUid uid, ButcherableComponent component, GetVerbsEvent<InteractionVerb> args)
     {
-        if (component.Type != ButcheringType.Knife || args.Hands == null || !args.CanAccess || !args.CanInteract)
+        if ((component.Type != ButcheringType.Knife && !TryComp<HumanoidAppearanceComponent>(component.Owner, out _)) || args.Hands == null || !args.CanAccess || !args.CanInteract)
             return;
 
         bool disabled = false;
@@ -146,7 +176,10 @@ public sealed class SharpSystem : EntitySystem
             disabled = true;
             message = Loc.GetString("butcherable-mob-isnt-dead");
         }
-
+        if(TryComp<HumanoidAppearanceComponent>(component.Owner, out _) && !_mobStateSystem.IsDead(uid))
+        {
+            return;
+        }
         InteractionVerb verb = new()
         {
             Act = () =>

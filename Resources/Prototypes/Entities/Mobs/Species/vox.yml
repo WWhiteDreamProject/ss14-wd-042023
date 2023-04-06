@@ -97,6 +97,8 @@
   - type: Inventory
     speciesId: vox
   - type: Butcherable
+    butcheringSound:
+      collection: ButcheringHuman
     butcheringType: Spike
     spawned:
     - id: FoodMeatChicken

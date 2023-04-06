@@ -56,6 +56,8 @@
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
   - type: Butcherable
+    butcheringSound:
+      collection: ButcheringHuman
     butcheringType: Spike
     spawned:
     - id: FoodMeatSlime

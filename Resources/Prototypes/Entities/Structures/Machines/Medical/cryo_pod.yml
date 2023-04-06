@@ -66,6 +66,7 @@
           node: machineFrame
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+  - type: Climbable
   - type: ApcPowerReceiver
     powerLoad: 3000
   - type: ExtensionCableReceiver

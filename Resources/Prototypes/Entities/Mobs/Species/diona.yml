@@ -20,6 +20,8 @@
     damageContainer: Biological
     damageModifierSet: Diona
   - type: Butcherable
+    butcheringSound:
+      collection: ButcheringHuman
     butcheringType: Spike
     spawned:
       - id: FoodMeatPlant

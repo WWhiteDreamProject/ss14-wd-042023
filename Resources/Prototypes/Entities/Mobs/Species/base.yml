@@ -277,6 +277,8 @@
   - type: Puller
   - type: Butcherable
     butcheringType: Spike # TODO human.
+    butcheringSound:
+      collection: ButcheringHuman
     spawned:
       - id: FoodMeat
         amount: 5
