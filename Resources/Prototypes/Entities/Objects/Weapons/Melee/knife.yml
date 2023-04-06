@@ -14,7 +14,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 12
+        Slash: 7
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sprite
@@ -103,3 +103,7 @@
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/survival_knife.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 12

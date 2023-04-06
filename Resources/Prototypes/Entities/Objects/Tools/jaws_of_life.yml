@@ -22,7 +22,7 @@
       types:
         Blunt: 10
         Slash: 9
-        Structural: 40
+        Structural: 20
     netsync: false
   - type: Item
     size: 50

@@ -132,7 +132,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
   - type: Tool
     qualities:
       - Prying
