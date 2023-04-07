@@ -29,8 +29,8 @@ namespace Content.Client.Stylesheets
                 new[]
                 {
                     $"/Fonts/IBMPlexSans/IBMPlexSans-{variation}.ttf",
-                    $"/Fonts/IBMPlexSans/IBMPlexSans-{variation}.ttf",
-                    "/Fonts/IBMPlexSans/IBMPlexSans-Regular.ttf",
+                    $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
                 },
                 size
             );
@@ -174,14 +174,14 @@ namespace Content.Client.Stylesheets
                 ExpandMarginBottom = 3,
                 ContentMarginBottomOverride = 0
             };
-            var windowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/window_background.png");
+            var windowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/gay_shit.png");
             var windowBackground = new StyleBoxTexture
             {
                 Texture = windowBackgroundTex,
                 Mode = StyleBoxTexture.StretchMode.Tile
             };
-            //windowBackground.SetPatchMargin(StyleBox.Margin.Horizontal | StyleBox.Margin.Bottom, 2);
-            //windowBackground.SetExpandMargin(StyleBox.Margin.Horizontal | StyleBox.Margin.Bottom, 2);
+            windowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
+            windowBackground.SetExpandMargin(StyleBox.Margin.All, -1);
 
             var borderedWindowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/window_background_bordered.png");
             var borderedWindowBackground = new StyleBoxTexture
@@ -197,6 +197,10 @@ namespace Content.Client.Stylesheets
                 Mode = StyleBoxTexture.StretchMode.Tile
             };
 
+            fuckyWuckyBackground.SetPatchMargin(StyleBox.Margin.All, 24);
+            fuckyWuckyBackground.SetExpandMargin(StyleBox.Margin.All, -4);
+            fuckyWuckyBackground.SetContentMarginOverride(StyleBox.Margin.All, 8);
+
             var gayShitBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/gay_shit.png");
             var gayShitBackground = new StyleBoxTexture
             {
@@ -204,10 +208,14 @@ namespace Content.Client.Stylesheets
                 Mode = StyleBoxTexture.StretchMode.Tile
             };
 
+            gayShitBackground.SetPatchMargin(StyleBox.Margin.All, 2);
+            gayShitBackground.SetExpandMargin(StyleBox.Margin.All, -2);
+
             var contextMenuBackground = new StyleBoxTexture
             {
                 Texture = borderedWindowBackgroundTex,
             };
+
             contextMenuBackground.SetPatchMargin(StyleBox.Margin.All, ContextMenuElement.ElementMargin);
 
             var invSlotBgTex = resCache.GetTexture("/Textures/Interface/Inventory/inv_slot_background.png");

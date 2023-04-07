@@ -47,8 +47,8 @@ namespace Content.Client.Stylesheets
                 new []
                 {
                     "/Fonts/IBMPlexSans/IBMPlexSans-Regular.ttf",
-                    "/Fonts/IBMPlexSans/IBMPlexSans-Regular.ttf",
-                    "/Fonts/IBMPlexSans/IBMPlexSans-Regular.ttf"
+                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
                 12
             );
@@ -57,8 +57,8 @@ namespace Content.Client.Stylesheets
                 new []
                 {
                     "/Fonts/IBMPlexSans/IBMPlexSans-Italic.ttf",
-                    "/Fonts/IBMPlexSans/IBMPlexSans-Regular.ttf",
-                    "/Fonts/IBMPlexSans/IBMPlexSans-Regular.ttf"
+                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
                 12
             );

@@ -37,7 +37,7 @@ namespace Content.Client.Preferences.UI
         {
             PanelOverride = new StyleBoxFlat()
             {
-                BackgroundColor = new Color(47, 47, 53),
+                BackgroundColor = new Color(35, 48, 35),
                 ContentMarginTopOverride = 10,
                 ContentMarginBottomOverride = 10,
                 ContentMarginLeftOverride = 10,
@@ -53,7 +53,7 @@ namespace Content.Client.Preferences.UI
         private readonly IEntityManager _entMan;
         private readonly IConfigurationManager _configurationManager;
         private readonly MarkingManager _markingManager;
-        
+
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
         private LineEdit _flavorTextEdit = null!;
@@ -1125,7 +1125,7 @@ namespace Content.Client.Preferences.UI
             {
                 return;
             }
-            
+
             // facial hair color
             Color? facialHairColor = null;
             if ( Profile.Appearance.FacialHairStyleId != HairStyles.DefaultFacialHairStyle &&
