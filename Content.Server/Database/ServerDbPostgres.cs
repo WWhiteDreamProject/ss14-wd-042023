@@ -13,7 +13,6 @@ namespace Content.Server.Database
 {
     public sealed class ServerDbPostgres : ServerDbBase
     {
-        [Dependency] private static readonly IConfigurationManager _cfg = default!;
         private readonly DbContextOptions<PostgresServerDbContext> _options;
         private readonly Task _dbReadyTask;
 
@@ -134,7 +133,9 @@ namespace Content.Server.Database
                 query = query == null ? newQ : query.Union(newQ);
             }
 
-            var serverName = _cfg.GetCVar(CCVars.AdminLogsServerName);
+            // yaica system deluxe
+            var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var serverName = cfg.GetCVar(CCVars.AdminLogsServerName);
 
             query = query?.Where(p =>
                 p.ServerName == serverName || p.ServerName == "unknown" || string.IsNullOrEmpty(p.ServerName));
