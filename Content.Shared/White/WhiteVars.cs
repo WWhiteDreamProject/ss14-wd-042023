@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Configuration;
+﻿using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.White;
 
@@ -13,4 +14,7 @@ public sealed class WhiteVars
 
     public static readonly CVarDef<float> JukeboxVolume =
         CVarDef.Create("white.jukebox_volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> ChatGptApi =
+        CVarDef.Create("white.gpt_api_link", "", CVar.SERVERONLY | CVar.ARCHIVE | CVar.CONFIDENTIAL);
 }
