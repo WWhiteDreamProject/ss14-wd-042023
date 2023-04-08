@@ -28,3 +28,8 @@
   id: BibleNyaLoadout
   entity: BibleNya
   sponsorOnly: true
+
+- type: loadout # WHITEGPT HUETA ДЛЯ КЛОУНОВ И ВЫШЕ
+  id: WhiteGPTLoadout
+  entity: PersonalNeuralAI
+  sponsorOnly: true
