@@ -260,8 +260,8 @@ public sealed class ChatUIController : UIController
         }
 
         var chatSize = new Vector2(
-            float.Parse(split[0], CultureInfo.InvariantCulture),
-            float.Parse(split[1], CultureInfo.InvariantCulture));
+            float.Parse(split[0]),
+            float.Parse(split[1]));
 
 
         screen.SetChatSize(chatSize);
