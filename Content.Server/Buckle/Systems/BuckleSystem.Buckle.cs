@@ -117,7 +117,7 @@ public sealed partial class BuckleSystem
             return;
         }
 
-        TryUnbuckle(uid, buckle.Owner, true, buckle);
+        Unbuckle(uid, buckle.Owner, buckle);
     }
 
     private void OnEntityStorageInsertAttempt(EntityUid uid, BuckleComponent comp, ref InsertIntoEntityStorageAttemptEvent args)
