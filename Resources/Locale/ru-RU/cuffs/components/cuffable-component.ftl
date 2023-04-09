@@ -22,5 +22,7 @@ cuffable-component-remove-cuffs-partial-success-message =
        *[other] ваши руки остаются
     } в наручниках.
 cuffable-component-remove-cuffs-fail-message = Вам не удалось снять наручники.
+cuffable-component-buckled = Вы не можете снять наручники, пока прикованы.
+
 # UncuffVerb
 uncuff-verb-get-data-text = Освободить

@@ -3,6 +3,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -286,9 +287,10 @@ namespace Content.Shared.Cuffs
 
             if (!args.Cancelled && TryAddNewCuffs(target, user, uid, cuffable))
             {
-                _audio.PlayPvs(component.EndCuffSound, uid);
                 if (!_net.IsServer)
                     return;
+
+                _audio.PlayPvs(component.EndCuffSound, uid);
 
                 _popup.PopupEntity(Loc.GetString("handcuff-component-cuff-observer-success-message",
                         ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
@@ -513,6 +515,19 @@ namespace Content.Shared.Cuffs
 
             if (cuffable.Uncuffing)
                 return;
+
+            if (!TryComp(user, out BuckleComponent? buckle))
+                return;
+
+            if (buckle.Buckled)
+            {
+                if (target == user)
+                {
+                    if (_net.IsServer)
+                        _popup.PopupEntity(Loc.GetString("cuffable-component-buckled"), user, user);
+                    return;
+                }
+            }
 
             var isOwner = user == target;
 

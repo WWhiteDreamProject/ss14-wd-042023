@@ -31,7 +31,7 @@
   - type: Item
     size: 5
   - type: Handcuff
-    breakoutTime: 15
+    breakoutTime: 30
     cuffedRSI: Objects/Misc/cablecuffs.rsi
     bodyIconState: body-overlay
     color: forestgreen
@@ -64,7 +64,7 @@
   - type: Item
     size: 2
   - type: Handcuff
-    breakoutTime: 20  # halfway between improvised cablecuffs and metal ones
+    breakoutTime: 40  # halfway between improvised cablecuffs and metal ones
     cuffedRSI: Objects/Misc/cablecuffs.rsi  # cablecuffs will look fine
     bodyIconState: body-overlay
     breakOnRemove: true

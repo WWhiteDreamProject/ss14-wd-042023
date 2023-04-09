@@ -3,7 +3,9 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
+using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -22,6 +24,7 @@ namespace Content.Server.Buckle.Systems;
 public sealed partial class BuckleSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     private void InitializeBuckle()
     {
@@ -34,6 +37,23 @@ public sealed partial class BuckleSystem
         SubscribeLocalEvent<BuckleComponent, InsertIntoEntityStorageAttemptEvent>(OnEntityStorageInsertAttempt);
         SubscribeLocalEvent<BuckleComponent, CanDropDraggedEvent>(OnBuckleCanDrop);
         SubscribeLocalEvent<BuckleComponent, DragDropDraggedEvent>(OnBuckleDragDrop);
+
+        SubscribeLocalEvent<BuckleComponent, DoAfterEvent<UnBuckleDoAfter>>(OnUnBuckleDoAfter);
+    }
+
+    private void OnUnBuckleDoAfter(EntityUid uid, BuckleComponent component, DoAfterEvent<UnBuckleDoAfter> args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+
+        if (!args.Cancelled && component.Unbuckling)
+        {
+            Unbuckle(uid, uid, component);
+
+            var uidMeta = MetaData(uid);
+            _popups.PopupEntity(Loc.GetString("buckle-component-cuffed-unbuckling-success", ("user", uidMeta.EntityName)), uid);
+        }
     }
 
     private void AddUnbuckleVerb(EntityUid uid, BuckleComponent component, GetVerbsEvent<InteractionVerb> args)
@@ -312,6 +332,25 @@ public sealed partial class BuckleSystem
             return false;
         }
 
+        if (!TryComp(buckleId, out CuffableComponent? cuffable))
+            return false;
+
+        if (buckleId == user)
+        {
+            if (buckle.Unbuckling)
+                return false;
+
+            if (cuffable.CuffedHandCount == 2)
+            {
+                TryCuffUnbuckle(user, buckle);
+
+                var userMeta = MetaData(user);
+
+                _popups.PopupEntity(Loc.GetString("buckle-component-cuffed-unbuckling", ("user", userMeta.EntityName)), user);
+                return false;
+            }
+        }
+
         if (!force)
         {
             if (_gameTiming.CurTime < buckle.BuckleTime + buckle.UnbuckleDelay)
@@ -329,13 +368,41 @@ public sealed partial class BuckleSystem
                 return false;
         }
 
+        Unbuckle(buckleId, user, buckle);
+        return true;
+    }
+
+    private void Unbuckle(EntityUid buckleId, EntityUid user, BuckleComponent? buckle = null)
+    {
+        if (!Resolve(buckleId, ref buckle, false) ||
+            buckle.BuckledTo is not { } oldBuckledTo)
+        {
+            return;
+        }
+
+        //We need this to cancel doAfter if someone unbuckles person that is currently cuffed and trying to unbuckle himself.
+        if (buckleId != user && buckle.Unbuckling)
+        {
+            if (!TryComp(buckleId, out DoAfterComponent? comp))
+                return;
+
+            var index = (byte)(comp.RunningIndex - 1);
+            if (comp.DoAfters.ContainsKey(index))
+            {
+                var doAfter = comp.DoAfters[index];
+                _doAfter.Cancel(buckleId, doAfter, comp);
+            }
+        }
+
+        buckle.Unbuckling = false;
+
         // Logging
         if (user != buckleId)
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} unbuckled {ToPrettyString(buckleId)} from {ToPrettyString(oldBuckledTo.Owner)}");
         else
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} unbuckled themselves from {ToPrettyString(oldBuckledTo.Owner)}");
 
-        SetBuckledTo(buckle, null);
+        SetBuckledTo(buckle!, null);
 
         var xform = Transform(buckleId);
         var oldBuckledXform = Transform(oldBuckledTo.Owner);
@@ -379,8 +446,26 @@ public sealed partial class BuckleSystem
         var ev = new BuckleChangeEvent { Buckling = false, Strap = oldBuckledTo.Owner, BuckledEntity = buckleId };
         RaiseLocalEvent(buckleId, ev);
         RaiseLocalEvent(oldBuckledTo.Owner, ev);
+    }
 
-        return true;
+    private void TryCuffUnbuckle(EntityUid user, BuckleComponent buckle)
+    {
+        buckle.Unbuckling = true;
+        Dirty(buckle);
+
+        var doAfterEventArgs = new DoAfterEventArgs(user, buckle.CuffedUnbuckleTime, default, user)
+        {
+            RaiseOnTarget = true,
+            RaiseOnUsed = false,
+            RaiseOnUser = false,
+            BreakOnUserMove = true,
+            BreakOnTargetMove = true,
+            BreakOnDamage = true,
+            BreakOnStun = true,
+            NeedHand = false
+        };
+
+        _doAfter.DoAfter(doAfterEventArgs, new UnBuckleDoAfter());
     }
 
     /// <summary>
@@ -415,5 +500,9 @@ public sealed partial class BuckleSystem
         }
 
         return TryBuckle(buckleId, user, to, buckle);
+    }
+
+    private struct UnBuckleDoAfter
+    {
     }
 }

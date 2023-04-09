@@ -5,3 +5,5 @@ buckle-component-cannot-buckle-message = Вы не можете пристегн
 buckle-component-other-cannot-buckle-message = Вы не можете пристегнуть { $owner } туда!
 buckle-component-cannot-fit-message = Вы туда не помещаетесь!
 buckle-component-other-cannot-fit-message = { $owner } туда не помещается!
+buckle-component-cuffed-unbuckling = { $user } пытается встать!
+buckle-component-cuffed-unbuckling-success = { $user } удалось встать в наручниках!

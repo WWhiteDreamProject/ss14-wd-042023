@@ -47,6 +47,12 @@ public sealed class BuckleComponent : Component
     [DataField("size")]
     public int Size = 100;
 
+    [DataField("unbuckling"), ViewVariables(VVAccess.ReadOnly)]
+    public bool Unbuckling;
+
+    [DataField("cuffedUnbuckleTime"), ViewVariables(VVAccess.ReadWrite)]
+    public float CuffedUnbuckleTime = 60f;
+
     /// <summary>
     /// Used for client rendering
     /// </summary>
