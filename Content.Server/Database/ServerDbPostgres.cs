@@ -51,7 +51,8 @@ namespace Content.Server.Database
         public override async Task<ServerBanDef?> GetServerBanAsync(
             IPAddress? address,
             NetUserId? userId,
-            ImmutableArray<byte>? hwId)
+            ImmutableArray<byte>? hwId,
+            bool ignoreServerName)
         {
             if (address == null && userId == null && hwId == null)
             {
@@ -60,7 +61,7 @@ namespace Content.Server.Database
 
             await using var db = await GetDbImpl();
 
-            var query = MakeBanLookupQuery(address, userId, hwId, db, includeUnbanned: false)
+            var query = MakeBanLookupQuery(address, userId, hwId, db, includeUnbanned: false, ignoreServerName: false)
                 .OrderByDescending(b => b.BanTime);
 
             var ban = await query.FirstOrDefaultAsync();
@@ -70,7 +71,7 @@ namespace Content.Server.Database
 
         public override async Task<List<ServerBanDef>> GetServerBansAsync(IPAddress? address,
             NetUserId? userId,
-            ImmutableArray<byte>? hwId, bool includeUnbanned)
+            ImmutableArray<byte>? hwId, bool includeUnbanned, bool ignoreServerName)
         {
             if (address == null && userId == null && hwId == null)
             {
@@ -79,7 +80,7 @@ namespace Content.Server.Database
 
             await using var db = await GetDbImpl();
 
-            var query = MakeBanLookupQuery(address, userId, hwId, db, includeUnbanned);
+            var query = MakeBanLookupQuery(address, userId, hwId, db, includeUnbanned, ignoreServerName);
 
             var queryBans = await query.ToArrayAsync();
             var bans = new List<ServerBanDef>(queryBans.Length);
@@ -102,7 +103,8 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             DbGuardImpl db,
-            bool includeUnbanned)
+            bool includeUnbanned,
+            bool ignoreServerName)
         {
             IQueryable<ServerBan>? query = null;
 
@@ -133,12 +135,14 @@ namespace Content.Server.Database
                 query = query == null ? newQ : query.Union(newQ);
             }
 
-            // yaica system deluxe
-            var cfg = IoCManager.Resolve<IConfigurationManager>();
-            var serverName = cfg.GetCVar(CCVars.AdminLogsServerName);
+            if (!ignoreServerName)
+            {
+                // yaica system deluxe
+                var cfg = IoCManager.Resolve<IConfigurationManager>();
 
-            query = query?.Where(p =>
-                p.ServerName == serverName || p.ServerName == "unknown" || string.IsNullOrEmpty(p.ServerName));
+                query = query?.Where(p =>
+                    p.ServerName == cfg.GetCVar(CCVars.AdminLogsServerName) || p.ServerName == "unknown" || string.IsNullOrEmpty(p.ServerName));
+            }
 
             if (!includeUnbanned)
             {
@@ -255,7 +259,8 @@ namespace Content.Server.Database
         public override async Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
-            bool includeUnbanned)
+            bool includeUnbanned,
+            bool ignoreServerName)
         {
             if (address == null && userId == null && hwId == null)
             {
@@ -264,7 +269,7 @@ namespace Content.Server.Database
 
             await using var db = await GetDbImpl();
 
-            var query = MakeRoleBanLookupQuery(address, userId, hwId, db, includeUnbanned)
+            var query = MakeRoleBanLookupQuery(address, userId, hwId, db, includeUnbanned, ignoreServerName)
                 .OrderByDescending(b => b.BanTime);
 
             return await QueryRoleBans(query);
@@ -293,7 +298,8 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             DbGuardImpl db,
-            bool includeUnbanned)
+            bool includeUnbanned,
+            bool ignoreServerName)
         {
             IQueryable<ServerRoleBan>? query = null;
 
@@ -322,6 +328,14 @@ namespace Content.Server.Database
                     .Where(b => b.HWId!.SequenceEqual(hwId.Value.ToArray()));
 
                 query = query == null ? newQ : query.Union(newQ);
+            }
+
+            if (!ignoreServerName)
+            {
+                var cfg = IoCManager.Resolve<IConfigurationManager>();
+
+                query = query?.Where(p =>
+                    p.ServerName == cfg.GetCVar(CCVars.AdminLogsServerName) || p.ServerName == "unknown" || string.IsNullOrEmpty(p.ServerName));
             }
 
             if (!includeUnbanned)

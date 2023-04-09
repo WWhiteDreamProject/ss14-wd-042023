@@ -38,7 +38,7 @@ public sealed class BanListCommand : LocalizedCommands
 
         if (shell.Player is not IPlayerSession player)
         {
-            var bans = await _dbManager.GetServerBansAsync(data.LastAddress, data.UserId, data.LastHWId, false);
+            var bans = await _dbManager.GetServerBansAsync(data.LastAddress, data.UserId, data.LastHWId, false, true);
 
             if (bans.Count == 0)
             {

@@ -318,11 +318,13 @@ namespace Content.Server.Database
         /// <param name="address">The ip address of the user.</param>
         /// <param name="userId">The id of the user.</param>
         /// <param name="hwId">The HWId of the user.</param>
+        /// <param name="ignoreServerName">Should I ignore server name.</param>
         /// <returns>The user's latest received un-pardoned ban, or null if none exist.</returns>
         public abstract Task<ServerBanDef?> GetServerBanAsync(
             IPAddress? address,
             NetUserId? userId,
-            ImmutableArray<byte>? hwId);
+            ImmutableArray<byte>? hwId,
+            bool ignoreServerName);
 
         /// <summary>
         ///     Looks up an user's ban history.
@@ -333,12 +335,14 @@ namespace Content.Server.Database
         /// <param name="userId">The id of the user.</param>
         /// <param name="hwId">The HWId of the user.</param>
         /// <param name="includeUnbanned">Include pardoned and expired bans.</param>
+        /// <param name="ignoreServerName">Ignore server name check.</param>
         /// <returns>The user's ban history.</returns>
         public abstract Task<List<ServerBanDef>> GetServerBansAsync(
             IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
-            bool includeUnbanned);
+            bool includeUnbanned,
+            bool ignoreServerName);
 
         public abstract Task AddServerBanAsync(ServerBanDef serverBan);
         public abstract Task AddServerUnbanAsync(ServerUnbanDef serverUnban);
@@ -365,11 +369,13 @@ namespace Content.Server.Database
         /// <param name="userId">The NetUserId of the user.</param>
         /// <param name="hwId">The Hardware Id of the user.</param>
         /// <param name="includeUnbanned">Whether expired and pardoned bans are included.</param>
+        /// <param name="ignoreServerName">Should it ignore server name.</param>
         /// <returns>The user's role ban history.</returns>
         public abstract Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
-            bool includeUnbanned);
+            bool includeUnbanned,
+            bool ignoreServerName);
 
         public abstract Task AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan);
         public abstract Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverRoleUnban);
