@@ -74,6 +74,8 @@
     containers:
       toggleable-clothing: !type:ContainerSlot {}
   - type: GroupExamine
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   abstract: true
@@ -93,3 +95,5 @@
     size: 40
   - type: DiseaseProtection
     protection: 0.05
+  - type: InjectResistance
+    injectResistance: true

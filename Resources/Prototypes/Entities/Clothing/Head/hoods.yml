@@ -14,6 +14,8 @@
   - type: Tag
     tags:
     - HidesHair
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -128,6 +130,8 @@
       coefficients:
         Heat: 0.95
         Radiation: 0.65
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   parent: ClothingHeadBase

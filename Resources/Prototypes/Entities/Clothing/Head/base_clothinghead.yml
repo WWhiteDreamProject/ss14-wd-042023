@@ -122,6 +122,8 @@
   - type: DiseaseProtection
     protection: 0.05
   - type: IdentityBlocker
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   abstract: true
@@ -162,6 +164,8 @@
   - type: DiseaseProtection
     protection: 0.05
   - type: IdentityBlocker
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   abstract: true

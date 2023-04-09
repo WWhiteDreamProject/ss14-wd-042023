@@ -18,6 +18,8 @@
         Slash: 0.8
         Piercing: 0.8
   - type: IdentityBlocker
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   parent: ClothingHeadEVAHelmetBase
@@ -253,6 +255,8 @@
     tags:
     - HidesHair
     - WhitelistChameleon
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   parent: ClothingHeadBase

@@ -18,6 +18,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   parent: ClothingOuterEVASuitBase
@@ -78,6 +80,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
+  - type: InjectResistance
+    injectResistance: true
 
 - type: entity
   parent: ClothingOuterBase
@@ -154,3 +158,5 @@
     walkModifier: 0.7
     sprintModifier: 0.75
   - type: GroupExamine
+  - type: InjectResistance
+    injectResistance: true

@@ -195,8 +195,7 @@
       hard: false
       id: projectile
       mask:
-      - Impassable
-      - BulletImpassable
+      - Opaque
     - *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -251,8 +250,7 @@
       hard: false
       id: projectile
       mask:
-      - Impassable
-      - BulletImpassable
+      - Opaque
     - *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide

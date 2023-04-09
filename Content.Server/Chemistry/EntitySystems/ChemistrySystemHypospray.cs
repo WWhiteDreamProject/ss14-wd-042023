@@ -46,8 +46,13 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!args.CanReach)
                 return;
 
-            var target = args.Target;
+            if (args.Target is not { Valid: true } target || !HasComp<SolutionContainerManagerComponent>(uid))
+                return;
+
             var user = args.User;
+
+            if(!TryGetResitance(target, args))
+                return;
 
             TryDoInject(uid, target, user);
         }

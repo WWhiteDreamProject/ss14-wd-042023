@@ -14,6 +14,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Content.Shared.Popups;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -24,6 +25,7 @@ public sealed partial class ChemistrySystem
     ///     Default transfer amounts for the set-transfer verb.
     /// </summary>
     public static readonly List<int> TransferAmounts = new() {1, 5, 10, 15};
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     private void InitializeInjector()
     {
         SubscribeLocalEvent<InjectorComponent, GetVerbsEvent<AlternativeVerb>>(AddSetTransferVerbs);
@@ -128,7 +130,7 @@ public sealed partial class ChemistrySystem
     }
 
     private void OnInjectDoAfter(EntityUid uid, InjectorComponent component, DoAfterEvent args)
-    {
+    {   
         if (args.Cancelled)
         {
             component.IsInjecting = false;
@@ -143,7 +145,27 @@ public sealed partial class ChemistrySystem
         component.IsInjecting = false;
         args.Handled = true;
     }
+    private bool TryGetResitance(EntityUid target, AfterInteractEvent args)
+    {
+        var s = 0;
 
+        foreach (var slot in new[] { "head", "outerClothing" })
+        {
+            if (_inventorySystem.TryGetSlotEntity(target, slot, out var item)
+                && TryComp<InjectResistanceComponent>(item, out var inject)
+                && inject.NotInjectable == true)
+            {
+                s++;
+                if (s == 2)
+                {
+                    _popup.PopupEntity(Loc.GetString("injector-component-cannot-inject-message",
+                    ("target", Identity.Entity(target, EntityManager))), args.Used, args.User);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     private void OnInjectorAfterInteract(EntityUid uid, InjectorComponent component, AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -159,6 +181,8 @@ public sealed partial class ChemistrySystem
             // Are use using an injector capible of targeting a mob?
             if (component.IgnoreMobs)
                 return;
+
+            if (!TryGetResitance(target, args)) return;
 
             InjectDoAfter(component, args.User, target, uid);
             args.Handled = true;
@@ -248,7 +272,7 @@ public sealed partial class ChemistrySystem
             }
             else if (_combat.IsInCombatMode(target))
             {
-                // Slightly increase the delay when the target is in combat mode. Helps prevents cheese injections in
+                // Slightly increase the delay when the target is in combat mode. Helps pr s cheese injections in
                 // combat with fast syringes & lag.
                 actualDelay += 1;
             }
