@@ -599,6 +599,23 @@ namespace Content.Shared.Cuffs
 
             cuffable.Container.Remove(cuffsToRemove);
 
+            if (!TryComp(target, out BuckleComponent? buckle))
+                return;
+
+            if (buckle.Unbuckling)
+            {
+                buckle.Unbuckling = false;
+                if (!TryComp(target, out DoAfterComponent? comp))
+                    return;
+
+                var index = (byte)(comp.RunningIndex - 1);
+                if (comp.DoAfters.ContainsKey(index))
+                {
+                    var doAfter = comp.DoAfters[index];
+                    _doAfter.Cancel(target, doAfter, comp);
+                }
+            }
+
             if (cuff.BreakOnRemove)
             {
                 QueueDel(cuffsToRemove);
