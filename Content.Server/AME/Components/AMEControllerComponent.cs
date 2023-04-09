@@ -29,6 +29,9 @@ namespace Content.Server.AME.Components
         [ViewVariables] public bool Injecting => _injecting;
         [ViewVariables] public int InjectionAmount;
 
+        [ViewVariables, DataField("amountFuelConsumedPerInjection")]
+        public int AmountFuelConsumedPerInjection = 1;
+
         private AppearanceComponent? _appearance;
         private PowerSupplierComponent? _powerSupplier;
         [DataField("clickSound")] private SoundSpecifier _clickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
@@ -81,9 +84,30 @@ namespace Content.Server.AME.Components
             _entities.TryGetComponent<AMEFuelContainerComponent?>(jar, out var fuelJar);
             if (fuelJar != null && _powerSupplier != null)
             {
-                var availableInject = fuelJar.FuelAmount >= InjectionAmount ? InjectionAmount : fuelJar.FuelAmount;
+                if (fuelJar.FuelAmount <= 0)
+                {
+                    ToggleInjection();
+                    GetAMENodeGroup()?.UpdateCoreVisuals();
+                    InjectSound(false);
+                    return;
+                }
+
+                int availableInject;
+                int fuelСonsumed = InjectionAmount * AmountFuelConsumedPerInjection;
+
+                if (fuelJar.FuelAmount >= fuelСonsumed)
+                {
+                    availableInject = InjectionAmount;
+                    fuelJar.FuelAmount -= fuelСonsumed;
+                }
+                else
+                {
+                    availableInject = fuelJar.FuelAmount / AmountFuelConsumedPerInjection;
+                    fuelJar.FuelAmount = 0;
+                }
+
                 _powerSupplier.MaxSupply = group.InjectFuel(availableInject, out var overloading);
-                fuelJar.FuelAmount -= availableInject;
+
                 InjectSound(overloading);
                 UpdateUserInterface();
             }
