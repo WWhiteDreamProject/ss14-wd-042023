@@ -84,7 +84,7 @@ namespace Content.Server.AME.Components
             _entities.TryGetComponent<AMEFuelContainerComponent?>(jar, out var fuelJar);
             if (fuelJar != null && _powerSupplier != null)
             {
-                if (fuelJar.FuelAmount == 0)
+                if (fuelJar.FuelAmount <= 0)
                 {
                     ToggleInjection();
                     GetAMENodeGroup()?.UpdateCoreVisuals();
