@@ -1,5 +1,8 @@
 humanoid-profile-editor-randomize-everything-button = Сгенерировать случайного
 humanoid-profile-editor-name-label = Имя:
+humanoid-profile-editor-clown-name-label = Имя для клоуна:
+humanoid-profile-editor-mime-name-label = Имя для мима:
+humanoid-profile-editor-borg-name-label = Имя для киборгов:
 humanoid-profile-editor-name-random-button = Сгенерировать
 humanoid-profile-editor-appearance-tab = Внешность
 humanoid-profile-editor-sex-label = Пол:

@@ -595,6 +595,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("body_type");
 
+                    b.Property<string>("BorgName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("borg_name");
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -604,6 +609,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("clothing");
+
+                    b.Property<string>("ClownName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("clown_name");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -643,6 +653,11 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("MimeName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("mime_name");
 
                     b.Property<int>("PreferenceId")
                         .HasColumnType("integer")

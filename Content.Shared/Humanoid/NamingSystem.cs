@@ -70,5 +70,20 @@ namespace Content.Shared.Humanoid
                         return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.FemaleLastNames).Values);
             }
         }
+
+        public string GetBorgName()
+        {
+            return _random.Pick(_prototypeManager.Index<DatasetPrototype>("names_autoborg").Values); //Реди
+        }
+
+        public string GetMimeName()
+        {
+            return _random.Pick(_prototypeManager.Index<DatasetPrototype>("names_mime").Values); //Реди
+        }
+
+        public string GetClownName()
+        {
+            return _random.Pick(_prototypeManager.Index<DatasetPrototype>("names_clown").Values); //Реди
+        }
     }
 }

@@ -110,7 +110,7 @@ public sealed class StationSpawningSystem : EntitySystem
         {
             var jobEntity = EntityManager.SpawnEntity(job.JobEntity, coordinates);
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
-            DoJobSpecials(job, jobEntity);
+            DoJobSpecials(job, jobEntity, profile);
             _identity.QueueIdentityUpdate(jobEntity);
             return jobEntity;
         }
@@ -159,16 +159,52 @@ public sealed class StationSpawningSystem : EntitySystem
             }
         }
 
-        DoJobSpecials(job, entity);
+        DoJobSpecials(job, entity, profile);
         _identity.QueueIdentityUpdate(entity);
         return entity;
     }
 
-    private void DoJobSpecials(Job? job, EntityUid entity)
+    private void DoJobSpecials(Job? job, EntityUid entity, HumanoidCharacterProfile? profile)
     {
         foreach (var jobSpecial in job?.Prototype.Special ?? Array.Empty<JobSpecial>())
         {
             jobSpecial.AfterEquip(entity);
+        }
+        var meta = MetaData(entity);
+        if (job == null)
+            return;
+        if (job.Prototype.ID.Contains("Cyborg"))
+        {
+            if (_randomizeCharacters || profile == null)
+            {
+                meta.EntityName = HumanoidCharacterProfile.GetBorgName();
+            }
+            else
+            {
+                meta.EntityName = profile.BorgName;
+            }
+        }
+        if (job.Prototype.ID.Contains("Clown"))
+        {
+            if (_randomizeCharacters || profile == null)
+            {
+                meta.EntityName = HumanoidCharacterProfile.GetClownName();
+            }
+            else
+            {
+                meta.EntityName = profile.ClownName;
+            }
+        }
+        if (job.Prototype.ID.Contains("Mime"))
+        {
+            if (_randomizeCharacters || profile == null)
+            {
+                meta.EntityName = HumanoidCharacterProfile.GetMimeName();
+            }
+            else
+            {
+                meta.EntityName = profile.MimeName;
+            }
         }
     }
 
