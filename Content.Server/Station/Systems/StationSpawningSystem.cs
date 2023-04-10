@@ -175,7 +175,7 @@ public sealed class StationSpawningSystem : EntitySystem
             return;
         if (job.Prototype.ID.Contains("Cyborg"))
         {
-            if (_randomizeCharacters || profile == null)
+            if (_randomizeCharacters || profile == null || string.IsNullOrWhiteSpace(profile.BorgName))
             {
                 meta.EntityName = HumanoidCharacterProfile.GetBorgName();
             }
@@ -186,7 +186,7 @@ public sealed class StationSpawningSystem : EntitySystem
         }
         if (job.Prototype.ID.Contains("Clown"))
         {
-            if (_randomizeCharacters || profile == null)
+            if (_randomizeCharacters || profile == null || string.IsNullOrWhiteSpace(profile.ClownName))
             {
                 meta.EntityName = HumanoidCharacterProfile.GetClownName();
             }
@@ -197,7 +197,7 @@ public sealed class StationSpawningSystem : EntitySystem
         }
         if (job.Prototype.ID.Contains("Mime"))
         {
-            if (_randomizeCharacters || profile == null)
+            if (_randomizeCharacters || profile == null || string.IsNullOrWhiteSpace(profile.MimeName))
             {
                 meta.EntityName = HumanoidCharacterProfile.GetMimeName();
             }
