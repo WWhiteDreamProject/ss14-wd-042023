@@ -72,3 +72,8 @@
   id: AutoClose
   name: signal-port-name-hold-open
   description: signal-port-description-hold-open
+
+- type: receiverPort
+  id: CannonConsoleReceiver
+  name: signal-port-name-artifact-analyzer-receiver
+  description: signal-port-description-artifact-analyzer-receiver

@@ -1,4 +1,3 @@
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
@@ -27,7 +26,10 @@ public sealed class ShuttleConsoleBoundInterfaceState : RadarConsoleBoundInterfa
         float maxRange,
         EntityCoordinates? coordinates,
         Angle? angle,
-        List<DockingInterfaceState> docks) : base(maxRange, coordinates, angle, docks)
+        List<DockingInterfaceState> docks,
+        List<MobInterfaceState> mobs,
+        List<ProjectilesInterfaceState> projectiles,
+        List<CannonInformationInterfaceState> cannons) : base(maxRange, coordinates, angle, docks, mobs, projectiles, cannons)
     {
         FTLState = ftlState;
         FTLTime = ftlTime;

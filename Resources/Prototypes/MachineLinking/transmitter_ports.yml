@@ -67,3 +67,14 @@
   name: signal-port-name-timer-start
   description: signal-port-description-timer-start
   defaultLinks: [ Close, Off ]
+
+- type: transmitterPort
+  id: CannonConsoleSender
+  name: shipevent-cannonconsole-signalport-name
+  description: shipevent-cannonconsole-signalport-desc
+  defaultLinks: [ CannonConsoleReceiver ]
+
+- type: transmitterPort
+  id: TurretLoaderSender
+  name: shipevent-turretloader-signalport-name
+  description: shipevent-turretloader-signalport-desc
