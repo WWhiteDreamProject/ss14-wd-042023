@@ -1,0 +1,17 @@
+﻿- type: soundCollection
+  id: BloodLoss
+  files:
+    - /Audio/White/Other/BloodLoss/blood1.ogg
+    - /Audio/White/Other/BloodLoss/blood2.ogg
+    - /Audio/White/Other/BloodLoss/blood3.ogg
+    - /Audio/White/Other/BloodLoss/blood4.ogg
+    - /Audio/White/Other/BloodLoss/blood5.ogg
+    - /Audio/White/Other/BloodLoss/blood6.ogg
+
+- type: soundCollection
+  id: BloodLossRun
+  files:
+    - /Audio/White/Other/BloodLoss/bloodloss_runs1.ogg
+    - /Audio/White/Other/BloodLoss/bloodloss_runs2.ogg
+    - /Audio/White/Other/BloodLoss/bloodloss_runs3.ogg
+    - /Audio/White/Other/BloodLoss/bloodloss_runs4.ogg

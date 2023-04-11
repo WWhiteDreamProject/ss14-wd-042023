@@ -10,11 +10,13 @@ using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Drunk;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Rejuvenate;
@@ -312,8 +314,16 @@ public sealed class BloodstreamSystem : EntitySystem
                 if (TryComp<DnaComponent>(uid, out var dna))
                     comp.DNAs.Add(dna.DNA);
             }
-
             component.BloodTemporarySolution.RemoveAllSolution();
+            if (TryComp<MobStateComponent>(component.Owner, out var mobState) && TryComp<StaminaComponent>(component.Owner, out var stamina))
+            {
+
+                if (mobState.CurrentState != MobState.Critical && !stamina.Critical)
+                {
+
+                    _audio.PlayPvs(component.BloodLossSound, component.Owner, component.DefaultParams);
+                }
+            }
         }
 
         return true;

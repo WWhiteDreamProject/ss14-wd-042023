@@ -94,7 +94,7 @@ namespace Content.Server.Body.Components
         ///     The sound to be played when a weapon instantly deals blood loss damage.
         /// </summary>
         [DataField("instantBloodSound")]
-        public SoundSpecifier InstantBloodSound = new SoundCollectionSpecifier("blood");
+        public SoundSpecifier InstantBloodSound = new SoundCollectionSpecifier("BloodLossRun");
 
         /// <summary>
         ///     The sound to be played when some damage actually heals bleeding rather than starting it.
@@ -151,6 +151,12 @@ namespace Content.Server.Body.Components
         ///     Bool for bleeding alert.
         /// </summary>
         public bool IsBleeding => BleedAmount > 0;
+
+        public readonly AudioParams DefaultParams = AudioParams.Default.WithVolume(-1f);
+
+        public SoundSpecifier? BloodLossSound = new SoundCollectionSpecifier("BloodLoss");
+
+        //public SoundSpecifier? BloodLossRunSound = new SoundCollectionSpecifier("");
 
     }
 }
