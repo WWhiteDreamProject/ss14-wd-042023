@@ -132,7 +132,12 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         var tagEv = new FTLTagEvent();
         RaiseLocalEvent(xform.GridUid.Value, ref tagEv);
 
-        _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: true, priorityTag: tagEv.Tag);
+        if (HasComp<CargoShuttleComponent>(shuttleUid))
+        {
+            _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: true, priorityTag: "DockCargo");
+        }
+
+        _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: dock, priorityTag: tagEv.Tag);
     }
 
     private void OnDock(DockEvent ev)
@@ -383,19 +388,16 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             {
                 toRemove.Add((uid, comp));
             }
+
+            if(!_ui.IsUiOpen(uid, ShuttleConsoleUiKey.Key))
+                continue;
+
+            UpdateState(uid);
         }
 
         foreach (var (uid, comp) in toRemove)
         {
             RemovePilot(uid, comp);
-        }
-
-        var shuttleComponent = EntityQueryEnumerator<ShuttleConsoleComponent>();
-        while (shuttleComponent.MoveNext(out var uid, out var _))
-        {
-            if(!_ui.IsUiOpen(uid, ShuttleConsoleUiKey.Key))
-                continue;
-            UpdateState(uid);
         }
     }
 
