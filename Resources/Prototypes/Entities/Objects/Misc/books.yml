@@ -4,6 +4,8 @@
   id: BookBase
   description: 'A hardcover book.'
   components:
+  - type: UseDelay
+    delay: 2
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     netsync: false
@@ -138,3 +140,27 @@
         - state: book5
     - type: Paper
       content: book-text-atmos-vents
+
+- type: entity
+  parent: BookBase
+  id: BookSpaceLaws
+  name: "Space Law"
+  description: A book containing the entire space law.
+  components:
+    - type: MeleeWeapon
+      attackRate: 1.25
+      damage:
+        types:
+          Blunt : 8
+      canHeavyAttack: false
+
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+        - state: book_space_law
+    - type: Paper
+      content: book-text-spacelaw
+      openSounds:
+        collection: BookSpaceLawOpen
+      closeSounds:
+        collection: BookSpaceLawClose

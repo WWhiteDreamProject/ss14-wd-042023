@@ -22,6 +22,7 @@ namespace Content.Server.Paper
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -29,6 +30,7 @@ namespace Content.Server.Paper
 
             SubscribeLocalEvent<PaperComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PaperComponent, BeforeActivatableUIOpenEvent>(BeforeUIOpen);
+            SubscribeLocalEvent<PaperComponent, BoundUIClosedEvent>(UIClosed);
             SubscribeLocalEvent<PaperComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<PaperComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<PaperComponent, PaperInputTextMessage>(OnInputTextMessage);
@@ -66,6 +68,16 @@ namespace Content.Server.Paper
         {
             paperComp.Mode = PaperAction.Read;
             UpdateUserInterface(uid, paperComp);
+            if (paperComp == null)
+                return;
+            _audio.PlayPvs(paperComp.OpenSounds, paperComp.Owner, paperComp.DefaultParams);
+        }
+
+        private void UIClosed(EntityUid uid, PaperComponent paperComp, BoundUIClosedEvent args)
+        {
+            if (paperComp == null)
+                return;
+            _audio.PlayPvs(paperComp.CloseSounds, paperComp.Owner, paperComp.DefaultParams);
         }
 
         private void OnExamined(EntityUid uid, PaperComponent paperComp, ExaminedEvent args)

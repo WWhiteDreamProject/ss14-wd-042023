@@ -1,4 +1,5 @@
 using Content.Shared.Paper;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Server.Paper
@@ -20,5 +21,11 @@ namespace Content.Server.Paper
         /// </summary>
         [DataField("stampState")]
         public string? StampState { get; set; }
+
+        public readonly AudioParams DefaultParams = AudioParams.Default.WithVolume(-2f);
+
+        [DataField("openSounds")] public SoundSpecifier? OpenSounds { get; set; } = new SoundCollectionSpecifier("BookOpen");
+
+        [DataField("closeSounds")] public SoundSpecifier? CloseSounds { get; set; } = new SoundCollectionSpecifier("BookClose");
     }
 }

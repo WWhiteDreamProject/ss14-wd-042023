@@ -1,0 +1,23 @@
+﻿- type: soundCollection
+  id: BookOpen
+  files:
+    - /Audio/White/Other/Books/book_open1.ogg
+    - /Audio/White/Other/Books/book_open2.ogg
+
+- type: soundCollection
+  id: BookClose
+  files:
+    - /Audio/White/Other/Books/book_close.ogg
+
+- type: soundCollection
+  id: BookSpaceLawOpen
+  files:
+    - /Audio/White/Other/Books/spacelaw_open.ogg
+
+- type: soundCollection
+  id: BookSpaceLawClose
+  files:
+    - /Audio/White/Other/Books/spacelaw_close1.ogg
+    - /Audio/White/Other/Books/spacelaw_close2.ogg
+    - /Audio/White/Other/Books/spacelaw_close3.ogg
+    - /Audio/White/Other/Books/spacelaw_close4.ogg
