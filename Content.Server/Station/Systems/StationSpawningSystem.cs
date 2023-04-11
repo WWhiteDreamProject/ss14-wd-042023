@@ -146,7 +146,14 @@ public sealed class StationSpawningSystem : EntitySystem
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(job.StartingGear);
             EquipStartingGear(entity, startingGear, profile);
             if (profile != null)
-                EquipIdCard(entity, profile.Name, job.Prototype, station);
+            {
+                if (job.Prototype.ID.Contains("Clown"))
+                    EquipIdCard(entity, profile.ClownName, job.Prototype, station);
+                else if (job.Prototype.ID.Contains("Mime"))
+                    EquipIdCard(entity, profile.MimeName, job.Prototype, station);
+                else
+                    EquipIdCard(entity, profile.Name, job.Prototype, station);
+            }
         }
 
         if (profile != null)

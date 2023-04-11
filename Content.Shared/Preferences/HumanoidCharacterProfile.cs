@@ -401,6 +401,9 @@ namespace Content.Shared.Preferences
         {
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
+            if (ClownName != other.ClownName) return false;
+            if (MimeName != other.MimeName) return false;
+            if (BorgName != other.BorgName) return false;
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
@@ -459,6 +462,9 @@ namespace Content.Shared.Preferences
             };
 
             string name;
+            string clownName;
+            string mimeName;
+            string borgName;
             if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
@@ -471,13 +477,56 @@ namespace Content.Shared.Preferences
             {
                 name = Name;
             }
+            if (string.IsNullOrEmpty(ClownName))
+            {
+                clownName = GetClownName();
+            }
+            else if (ClownName.Length > MaxNameLength)
+            {
+                clownName = ClownName[..MaxNameLength];
+            }
+            else
+            {
+                clownName = ClownName;
+            }
+            if (string.IsNullOrEmpty(MimeName))
+            {
+                mimeName = GetMimeName();
+            }
+            else if (MimeName.Length > MaxNameLength)
+            {
+                mimeName = MimeName[..MaxNameLength];
+            }
+            else
+            {
+                mimeName = MimeName;
+            }
+            if (string.IsNullOrEmpty(BorgName))
+            {
+                borgName = GetBorgName();
+            }
+            else if (BorgName.Length > MaxNameLength)
+            {
+                borgName = BorgName[..MaxNameLength];
+            }
+            else
+            {
+                borgName = BorgName;
+            }
+
 
             name = name.Trim();
+            clownName = clownName.Trim();
+            mimeName = mimeName.Trim();
+            borgName = borgName.Trim();
 
             var configManager = IoCManager.Resolve<IConfigurationManager>();
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
                 name = Regex.Replace(name, @"[^А-Я,а-я,0-9, -]", string.Empty);
+                clownName = Regex.Replace(clownName, @"[^А-Я,а-я,0-9, -]", string.Empty);
+                mimeName = Regex.Replace(mimeName, @"[^А-Я,а-я,0-9, -]", string.Empty);
+                borgName = Regex.Replace(borgName, @"[^А-Я,а-я,0-9, -]", string.Empty);
             }
 
             if (configManager.GetCVar(CCVars.ICNameCase))
@@ -486,11 +535,23 @@ namespace Content.Shared.Preferences
                 name = Regex.Replace(name,
                 @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
                 m => m.Groups["word"].Value.ToUpper());
+                clownName = Regex.Replace(clownName,
+                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
+                    m => m.Groups["word"].Value.ToUpper());
+                mimeName = Regex.Replace(mimeName,
+                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
+                    m => m.Groups["word"].Value.ToUpper());
+                borgName = Regex.Replace(borgName,
+                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
+                    m => m.Groups["word"].Value.ToUpper());
             }
 
             if (string.IsNullOrEmpty(name))
             {
                 name = GetName(Species, gender);
+                clownName = GetClownName();
+                mimeName = GetMimeName();
+                borgName = GetBorgName();
             }
 
             string flavortext;
@@ -546,6 +607,9 @@ namespace Content.Shared.Preferences
                          .ToList();
 
             Name = name;
+            ClownName = clownName;
+            MimeName = mimeName;
+            BorgName = borgName;
             FlavorText = flavortext;
             Age = age;
             Sex = sex;
@@ -623,6 +687,9 @@ namespace Content.Shared.Preferences
                     Clothing,
                     Backpack
                 ),
+                ClownName,
+                MimeName,
+                BorgName,
                 PreferenceUnavailable,
                 _jobPriorities,
                 _antagPreferences,
