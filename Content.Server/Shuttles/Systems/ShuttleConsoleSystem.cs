@@ -136,8 +136,10 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: true, priorityTag: "DockCargo");
         }
-
-        _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: dock, priorityTag: tagEv.Tag);
+        else
+        {
+            _shuttle.FTLTravel(xform.GridUid.Value, shuttle, args.Destination, dock: dock, priorityTag: tagEv.Tag);
+        }
     }
 
     private void OnDock(DockEvent ev)
