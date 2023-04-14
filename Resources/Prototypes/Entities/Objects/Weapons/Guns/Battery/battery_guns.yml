@@ -463,3 +463,5 @@
     - type: Appearance
     - type: StaticPrice
       price: 800
+    - type: Item
+      size: 20
