@@ -428,7 +428,7 @@
 
 - type: entity
   name: egun
-  parent: BaseWeaponBattery
+  parent: BaseWeaponBatterySmall
   id: WeaponEgun
   description: Egun
   components:
